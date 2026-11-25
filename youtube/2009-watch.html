@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>YouTube - New Moon midnight premiere reactions!! (Team Jacob)</title>
+<script src="../shared/studio.js"></script>
+<script src="assets/ytplayer.js"></script>
+<style>
+body{margin:0;background:#fff;color:#000;font:12px Arial,sans-serif}
+a{color:#03c;text-decoration:none}
+a:hover{text-decoration:underline}
+#masthead-container{margin:0 auto 10px;border-bottom:1px solid #ccc;width:960px;padding:0 5px}
+#masthead{width:960px;margin:0 auto;padding:9px 0 5px;font-size:13px;position:relative;height:70px}
+#logo{position:absolute;left:0;top:9px;width:110px}
+#logo .tag{display:block;font:11px Arial;color:#999;margin-top:3px;white-space:nowrap}
+#masthead-search{position:absolute;left:128px;top:12px;padding:2px 3px;background:#eaeaea;border:1px solid #ccc;border-radius:3px;white-space:nowrap}
+.search-term{font-size:13px;border:1px solid #666;padding:4px 2px 1px;width:325px;height:18px;vertical-align:top;margin:1px 0}
+.ytb{display:inline-block;padding:0 10px;height:23px;line-height:23px;border:1px solid #999;border-radius:3px;background:linear-gradient(#fff,#e0e0e0);color:#000;font:12px Arial;cursor:pointer;vertical-align:top}
+.ytb.primary{font-weight:bold;color:#039;background:linear-gradient(#e7effb,#bccdee);border-color:#a0b1dc;margin-left:2px;margin-top:1px}
+.ytb.urgent{font-weight:bold;color:#994800;background:linear-gradient(#ffeb8a,#fed81c 60%,#f5c400);border-color:#ecc101}
+.ytb.short{height:17px;line-height:17px}
+#masthead-utility{position:absolute;right:0;top:15px;line-height:20px}
+#masthead-utility strong{font-weight:bold}
+.joiner{color:#000;margin:0 6px}
+#masthead-nav-main{position:absolute;left:128px;top:52px;font-weight:bold;line-height:20px}
+#masthead-nav-main a{margin-right:14px}
+#masthead-nav-user{position:absolute;right:0;top:51px;font-weight:bold;line-height:20px}
+#masthead-nav-user a{margin-left:14px}
+#baseDiv{position:relative;width:960px;margin:0 auto;padding:0 5px 25px}
+#watch-vid-title{height:30px;position:relative}
+#watch-vid-title h1{font-size:19px;margin:0 0 5px;line-height:24px}
+.lfb{position:absolute;top:2px;width:26px;height:16px;border-radius:3px;background:linear-gradient(#666,#333)}
+.lfb svg{position:absolute;left:5px;top:3px}
+#watch-this-vid{float:left;width:640px}
+#watch-other-vids{float:right;width:300px}
+/* 2009 AS3 player */
+#movie_player{position:relative;width:640px;height:385px;background:#000}
+#movie_player .scr{position:absolute;left:0;top:0;width:640px;height:355px;overflow:hidden}
+#movie_player .scr img{width:640px;height:355px;object-fit:cover;display:block}
+#movie_player .big{position:absolute;left:50%;top:177px;width:84px;height:58px;margin:-29px 0 0 -42px;border-radius:8px;background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.05) 50%,rgba(0,0,0,.25) 51%,rgba(0,0,0,.45));border:1px solid rgba(255,255,255,.5);z-index:3;pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.45)}
+#movie_player .big:after{content:"";position:absolute;left:33px;top:16px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent #fff}
+#movie_player.ytp-started .big{display:none}
+.c9{position:absolute;left:0;top:355px;width:640px;height:30px;background:linear-gradient(#f2f2f2,#d9d9d9 55%,#c8c8c8);user-select:none;font-family:Arial,sans-serif}
+.c9 .pb{position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(#5e5e5e,#3c3c3c);cursor:pointer}
+.c9 .ld{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(#a8a8a8,#8a8a8a)}
+.c9 .fl{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(#ff3b2e,#c80a00)}
+.c9 .kn{position:absolute;top:-3px;left:0;width:13px;height:13px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,#ddd 55%,#a3a3a3);box-shadow:0 0 0 1px #666}
+.c9 .row{position:absolute;left:0;right:0;top:7px;height:23px;border-top:1px solid #fff}
+.c9 .btn{position:absolute;top:0;height:22px;border-right:1px solid #b5b5b5;box-shadow:1px 0 0 #f4f4f4}
+.c9 .pp{left:0;width:34px;cursor:pointer}
+.c9 .pp:before{content:"";position:absolute;left:13px;top:5px;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #333}
+.ytp-playing .c9 .pp:before{left:12px;top:5px;width:3px;height:12px;border:0;border-left:3px solid #333;border-right:3px solid #333;box-sizing:content-box}
+.c9 .vol{left:35px;width:32px}
+.c9 .tme{position:absolute;left:76px;top:5px;font-size:11px;color:#333}
+.c9 .tme .d{color:#777}
+.c9 .r1{right:96px;width:40px;border-left:1px solid #b5b5b5;font:bold 10px/22px Arial;color:#333;text-align:center}
+.c9 .r2{right:64px;width:31px}
+.c9 .r3{right:32px;width:31px}
+.c9 .r4{right:0;width:31px;border-right:0}
+.c9 svg{position:absolute;left:8px;top:5px}
+.c9 .vol svg{left:9px}
+/* ratings */
+#watch-ratings-views{padding:8px 0 6px;overflow:hidden;font-size:13px}
+#watch-rating-div{float:left}
+.stars{display:inline-block;vertical-align:-2px;margin-right:4px}
+.stars i{display:inline-block;width:13px;height:13px;background-size:13px 13px;margin-right:1px}
+.stars i.f{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'0'%20y2%3D'1'%3E%3Cstop%20offset%3D'0'%20stop-color%3D'%23f04a3a'%2F%3E%3Cstop%20offset%3D'1'%20stop-color%3D'%23c41a10'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'url(%23g)'%20stroke%3D'%23a8150c'%20stroke-width%3D'1'%2F%3E%3C%2Fsvg%3E")}.stars i.e{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'0'%20y2%3D'1'%3E%3Cstop%20offset%3D'0'%20stop-color%3D'%23f04a3a'%2F%3E%3Cstop%20offset%3D'1'%20stop-color%3D'%23c41a10'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'%23ddd'%20stroke%3D'%23aaa'%20stroke-width%3D'1'%2F%3E%3C%2Fsvg%3E")}.stars i.h{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'0'%20y2%3D'1'%3E%3Cstop%20offset%3D'0'%20stop-color%3D'%23f04a3a'%2F%3E%3Cstop%20offset%3D'1'%20stop-color%3D'%23c41a10'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3CclipPath%20id%3D'c'%3E%3Crect%20width%3D'12'%20height%3D'24'%2F%3E%3C%2FclipPath%3E%3Cpath%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'%23ddd'%20stroke%3D'%23aaa'%20stroke-width%3D'1'%2F%3E%3Cpath%20clip-path%3D'url(%23c)'%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'url(%23g)'%20stroke%3D'%23a8150c'%20stroke-width%3D'1'%2F%3E%3C%2Fsvg%3E")}
+.smallText{font-size:12px;color:#666}
+#watch-views-div{float:right;font-weight:bold;font-size:13px}
+#watch-main-area{border:1px solid #ccc;margin:0 0 14px}
+.watch-tabs{height:32px;border-bottom:1px solid #ccc;background:linear-gradient(#fff,#f3f3f3)}
+.watch-tab{float:left;height:32px;line-height:30px;padding:0 10px;font-size:13px;font-weight:bold;color:#03c;position:relative}
+.watch-tab svg{vertical-align:-2px;margin-right:4px}
+.watch-tab-sel{background:#f3f3f3}
+.watch-tab-sel:after{content:"";position:absolute;left:50%;bottom:-1px;margin-left:-6px;border:6px solid transparent;border-bottom-color:#ccc;border-top:0}
+.watch-tab-body{padding:8px 10px;background:#f3f3f3;display:flex;font-size:11px}
+.watch-tab-body a{width:101px}
+.watch-tab-body .more{margin-left:auto;width:auto}
+.exh{font-size:12px;font-weight:bold;margin:14px 0 0;padding:0 0 6px;border-bottom:1px solid #ccc;position:relative}
+.exh .stat{font-weight:normal;color:#333}
+.exh .rt{position:absolute;right:0;top:0;font-weight:normal;font-size:11px}
+.exh .opt{font-size:11px;margin-left:6px}
+.tri{display:inline-block;width:0;height:0;border-style:solid;border-width:5px 0 5px 7px;border-color:transparent transparent transparent #444;margin:0 12px 0 1px;vertical-align:-1px}
+.tri.o{border-width:7px 5px 0 5px;border-color:#444 transparent transparent;margin-right:10px}
+.vrbar{display:flex;align-items:center;padding:10px 0 0;height:78px}
+.arr{width:20px;height:20px;border-radius:50%;background:#999;position:relative;flex:none}
+.arr:after{content:"";position:absolute;top:6px;left:6px;width:6px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+.arr.r:after{transform:rotate(-135deg);left:4px}
+.vrs{flex:1;padding-left:42px;display:flex;gap:14px}
+.vri{text-align:center;font-size:10px}
+.vri .tw{position:relative;display:block;width:92px;height:56px;border:1px solid #999;margin-bottom:2px}
+.vri img{width:90px;height:54px;border:1px solid #fff;object-fit:cover;display:block}
+.vall{text-align:center;font-weight:bold;font-size:12px;padding:6px 0 0}
+.toph{font-weight:bold;font-size:12px;padding:10px 0 2px;color:#333}
+.cm{border-bottom:1px solid #ddd;padding:8px 0 8px 19px}
+.cmh{position:relative;font-size:13px}
+.cu{font-weight:bold}
+.ca{color:#666}
+.cr{position:absolute;right:6px;top:0;font-size:11px}
+.cr a{margin-right:18px}
+.cr .cv{color:#666;margin-right:3px}
+.cr svg{margin-left:2px;vertical-align:-2px}
+.cmb{font-size:13px;margin-top:6px;line-height:16px;padding-right:150px}
+/* right */
+#watch-channel-vids-div{background:#eee;border:1px solid #ccc;padding:6px;margin-bottom:12px}
+#watch-channel-vids-top{position:relative;min-height:52px}
+.uthumb{float:left;width:48px;height:48px;border:1px solid #999;padding:1px;background:#fff;margin-right:8px}
+.uthumb img{width:48px;height:48px;object-fit:cover;display:block}
+#watch-channel-stats{font-size:12px;line-height:18px}
+#watch-channel-stats .fn{font-weight:bold}
+#watch-channel-subscribe{position:absolute;right:0;top:0}
+.desc{clear:both;padding:6px 0 0;font-size:12px;line-height:15px}
+.urlrow{display:flex;align-items:center;margin-top:8px;font-size:11px;font-weight:bold;color:#666}
+.urlrow label{width:44px;text-align:right;margin-right:6px}
+.urlrow input{width:200px;font-size:10px;border:1px solid #999;padding:2px}
+.gear{width:14px;height:14px;margin-left:4px;border:1px solid #6a8cd6;background:linear-gradient(#e7effb,#bccdee);border-radius:2px;position:relative}
+.gear:after{content:"\2731";position:absolute;left:2px;top:-1px;font-size:11px;color:#245}
+.rh{font-size:16px;font-weight:bold;margin:12px 0 8px}
+.discover{border:1px solid #ccc;height:432px;overflow:hidden}
+.ve{display:flex;padding:5px 6px 5px 8px}
+.ve.ppv{background:#eee}
+.vt{position:relative;flex:none;width:92px;height:70px;border:1px solid #999;margin-right:10px;display:block}
+.vt img{width:90px;height:68px;border:1px solid #fff;object-fit:cover;display:block}
+.vt .tm{position:absolute;right:2px;bottom:2px;background:#000;color:#fff;font:bold 11px Arial;padding:0 3px;line-height:14px}
+.ql{position:absolute;left:2px;bottom:2px;width:12px;height:12px;background:linear-gradient(#999,#555);color:#fff;font:bold 12px/12px Arial;text-align:center;opacity:.85}
+.vm{font-size:11px;line-height:14px;flex:1;position:relative}
+.vm .ti{font-weight:bold;font-size:12px;display:block}
+.vm .vc{color:#666}
+.fv{text-align:right;margin-top:6px}
+/* footer */
+#footer{clear:both;margin:15px auto 0;border-top:1px solid #ccc;width:970px}
+#footer .search{padding:8px 15px;text-align:center}
+#footer .links{font-size:11px;line-height:13px;border:1px solid #ccc;border-width:1px 0;padding:10px 10px 10px 15px}
+#footer .links table{width:100%;border-collapse:collapse}
+#footer th{color:#666;font-weight:normal;text-align:left;padding-bottom:3px}
+#footer td{padding:0 15px 4px 0;white-space:nowrap}
+#footer .copy{padding:10px 15px;font-size:11px;color:#333}
+</style>
+</head>
+<body data-page="youtube-2009-watch" data-v="1" data-url="http://www.youtube.com/watch?v=Qk8vX2nM_3E">
+<div id="masthead-container"><div id="masthead">
+<a id="logo" href="#"><svg width="100" height="40" viewBox="0 0 120 48" style="display:block"><defs><linearGradient id="lr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2463a"/><stop offset=".55" stop-color="#d8211a"/><stop offset="1" stop-color="#b8120c"/></linearGradient></defs><text x="1" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#1a1a1a" textLength="50" lengthAdjust="spacingAndGlyphs">You</text><rect x="53" y="4" width="65" height="42" rx="9" fill="url(#lr)"/><text x="57" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#fff" textLength="57" lengthAdjust="spacingAndGlyphs">Tube</text></svg><span class="tag">Broadcast Yourself &trade;</span></a>
+<div id="masthead-search"><form><input class="search-term" type="text" value=""><a class="ytb primary" href="#">Search</a></form></div>
+<div id="masthead-utility"><a href="#"><strong>Create Account</strong></a><span class="joiner">or</span><a href="#">Sign In</a></div>
+<div id="masthead-nav-main"><a href="#">Home</a><a href="#">Videos</a><a href="#">Channels</a><a href="#">Shows</a></div>
+<div id="masthead-nav-user"><a href="#">Subscriptions</a><a href="#">History</a><a class="ytb urgent short" href="#">Upload</a></div>
+</div></div>
+<div id="baseDiv">
+<div id="watch-vid-title"><h1>New Moon midnight premiere reactions!! (Team Jacob)</h1><span class="lfb" style="left:582px"><svg width="16" height="10" viewBox="0 0 16 10"><path d="M1 5h14M1 5l3-3M1 5l3 3M15 5l-3-3M15 5l-3 3" stroke="#fff" stroke-width="1.6" fill="none"/></svg></span><span class="lfb" style="left:614px"><svg width="14" height="10" viewBox="0 0 14 10"><path d="M2 9L10 2M6 1h5v5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span></div>
+<div id="watch-this-vid">
+<div id="movie_player" data-ytp><div class="scr" data-video><img data-ph="thumb" data-seed="yt09main" width="640" height="355" alt=""></div><div class="big"></div>
+<div class="c9" data-noedit><div class="pb" data-ytp-seek><div class="ld" data-ytp-load></div><div class="fl" data-ytp-fill></div><div class="kn" data-ytp-knob></div></div>
+<div class="row"><div class="btn pp" data-ytp-toggle></div><div class="btn vol"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M0 4h3l4-3v10L3 8H0z" fill="#333"/><path d="M9 3.5c1.4 1.4 1.4 3.6 0 5M11 1.5c2.5 2.5 2.5 6.5 0 9" stroke="#333" stroke-width="1.3" fill="none"/></svg></div><div class="tme"><span data-ytp-cur>0:00</span> <span class="d">/ <span data-ytp-dur>6:47</span></span></div>
+<div class="btn r1">360p &#9662;</div><div class="btn r2"><svg width="15" height="12" viewBox="0 0 15 12"><rect x=".5" y=".5" width="14" height="11" fill="#fff" stroke="#333"/><rect x="2.5" y="2.5" width="10" height="7" fill="#333"/></svg></div><div class="btn r3"><svg width="15" height="12" viewBox="0 0 15 12"><rect x=".5" y="3.5" width="10" height="8" fill="#fff" stroke="#333"/><path d="M7 1h7v6" stroke="#333" fill="none"/></svg></div><div class="btn r4"><svg width="15" height="12" viewBox="0 0 15 12"><path d="M1 4V1h4M14 4V1h-4M1 8v3h4M14 8v3h-4" stroke="#333" stroke-width="1.6" fill="none"/></svg></div></div></div></div>
+<div id="watch-ratings-views"><div id="watch-rating-div"><span class="stars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="h"></i></span><span class="smallText">6,402 ratings</span></div><div id="watch-views-div">1,048,212 views</div></div>
+<div id="watch-main-area"><div class="watch-tabs">
+<div class="watch-tab"><svg width="11" height="10" viewBox="0 0 11 10"><path d="M5.5 9.5S.5 6.5.5 3.1C.5 1.7 1.5.5 2.9.5c1.1 0 2 .7 2.6 1.6C6.1 1.2 7 .5 8.1.5c1.4 0 2.4 1.2 2.4 2.6 0 3.4-5 6.4-5 6.4z" fill="#b3b3b3"/></svg>Favorite</div>
+<div class="watch-tab watch-tab-sel"><svg width="11" height="10" viewBox="0 0 11 10"><path d="M0 4h6V1l5 4-5 4V6H0z" fill="#e0281c"/></svg>Share</div>
+<div class="watch-tab"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0v10M0 5h10" stroke="#b3b3b3" stroke-width="2.5"/></svg>Playlists</div>
+<div class="watch-tab"><svg width="9" height="10" viewBox="0 0 9 10"><path d="M1 0v10" stroke="#b3b3b3" stroke-width="1.5"/><path d="M1.5 1h7l-2 2.5 2 2.5h-7z" fill="#b3b3b3"/></svg>Flag</div></div>
+<div class="watch-tab-body"><a href="#">MySpace</a><a href="#">Facebook</a><a href="#">Twitter</a><a class="more" href="#">(more share options)</a></div></div>
+<div class="exh"><i class="tri"></i>Statistics &amp; Data</div>
+<div class="exh"><i class="tri o"></i>Video Responses <span class="stat">(3)</span><a class="rt" href="#">Sign in to post a Video Response</a></div>
+<div class="vrbar"><span class="arr"></span><div class="vrs"><div class="vri" data-item="response"><a class="tw" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09vr0" width="90" height="54" alt=""></a><a href="#">maddie_m_xo</a></div><div class="vri" data-item="response"><a class="tw" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09vr1" width="90" height="54" alt=""></a><a href="#">forksfangirl</a></div><div class="vri" data-item="response"><a class="tw" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09vr2" width="90" height="54" alt=""></a><a href="#">twihardkatie</a></div></div><span class="arr r"></span></div>
+<div class="vall"><a href="#">View All</a> &nbsp;-&nbsp; <a href="#">Play All</a></div>
+<div class="exh"><i class="tri o"></i>Text Comments <span class="stat">(14,208)</span><a class="opt" href="#">Options</a><a class="rt" href="#">Sign in to post a Comment</a></div>
+<div class="toph">Top Comments</div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">maddie_m_xo</a> <span class="ca">(4 days ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">1,402</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">TEAM JACOB FOREVER!!!! who's with me?? thumbs up if ur team jacob</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">sarcasticsteve</a> <span class="ca">(3 days ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">988</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">i got dragged here by my girlfriend. send help.</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">bellaswanabe</a> <span class="ca">(5 days ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">611</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">the girl screaming at 2:31 is literally me lmao</div></div>
+<div class="toph">All Comments (14,208) <a class="opt" href="#" style="font-weight:normal;font-size:11px">see all</a></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">xoXjessXox</a> <span class="ca">(12 minutes ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">omg i was at this premiere!!! u can see me at 3:02 in the purple hoodie!!</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">dontstopbelieving09</a> <span class="ca">(40 minutes ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">team edward all the way. jacob is just a puppy lol</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">Evilsator</a> <span class="ca">(1 hour ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">fail. the book was better</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">twihardkatie</a> <span class="ca">(2 hours ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">thank u guys for 1 million views!!! subscribe for my eclipse countdown vids &lt;3</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">kanyeshrugs</a> <span class="ca">(2 hours ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">imma let you finish but Harry Potter had the best midnight premieres of all time</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">SubscriberManTV</a> <span class="ca">(3 hours ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">LOL</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">gr8escape</a> <span class="ca">(3 hours ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">who else is watching this instead of doing homework</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">maddie_m_xo</a> <span class="ca">(4 hours ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">@dontstopbelieving09 jacob would never leave bella in the woods. just saying</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">jayt</a> <span class="ca">(5 hours ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">the screaming tho 0_0</div></div>
+<div class="cm" data-item="comment"><div class="cmh"><a class="cu" href="#">WSfan22</a> <span class="ca">(6 hours ago)</span><span class="cr"><a href="#">Reply</a><span class="cv">0</span><svg width="14" height="14" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#999"/></svg></span></div><div class="cmb">how does this have more views than the actual trailer</div></div>
+</div>
+<div id="watch-other-vids">
+<div id="watch-channel-vids-div"><div id="watch-channel-vids-top"><div class="uthumb"><a href="#"><img data-ph="person" data-seed="yt09user" width="48" height="48" alt=""></a></div>
+<div id="watch-channel-subscribe"><a class="ytb urgent" href="#">Subscribe</a></div>
+<div id="watch-channel-stats"><a class="fn" href="#">twihardkatie</a><br>November 21, 2009<br>(<a href="#">more info</a>)</div></div>
+<div class="desc">we went to the midnight showing of New Moon in Ontario Mills and filmed everyone coming out of the theater. SO many screaming girls lol. Team Jacob or Team Edward?? comment below!!</div>
+<div class="urlrow"><label>URL</label><input type="text" readonly value="http://www.youtube.com/watch?v=Qk8vX2nM_3E"></div>
+<div class="urlrow"><label>Embed</label><input type="text" readonly value='&lt;object width="425" height="344"&gt;&lt;param name="movie" value="http://www.youtube.com/v/Qk8vX2nM_3E&amp;hl=en&amp;fs=1"&gt;'><span class="gear"></span></div></div>
+<div class="rh"><i class="tri"></i>More From: twihardkatie</div>
+<div class="rh"><i class="tri o"></i>Related Videos</div>
+<div class="discover">
+<div class="ve ppv" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r0" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">3:22</span></a><div class="vm"><a class="ti" href="2009-watch.html">New Moon - Official Trailer (HD)</a><div class="vc">22,481,904 views</div><a class="us" href="#">SummitEntertainment</a><div class="fv"><a href="#">Featured Video</a></div></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r1" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">4:51</span></a><div class="vm"><a class="ti" href="2009-watch.html">TEAM JACOB vs TEAM EDWARD debate (at the mall lol)</a><div class="vc">312,077 views</div><a class="us" href="#">twihardkatie</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r2" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">2:18</span></a><div class="vm"><a class="ti" href="2009-watch.html">Taylor Lautner surprises fans at premiere</a><div class="vc">1,904,331 views</div><a class="us" href="#">popsugarTV</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r3" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">6:04</span></a><div class="vm"><a class="ti" href="2009-watch.html">New Moon premiere line - 14 hours!!</a><div class="vc">98,512 views</div><a class="us" href="#">forksfangirl</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r4" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">1:47</span></a><div class="vm"><a class="ti" href="2009-watch.html">Robert Pattinson mobbed in Westwood</a><div class="vc">4,220,915 views</div><a class="us" href="#">celebcam09</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r5" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">5:39</span></a><div class="vm"><a class="ti" href="2009-watch.html">my reaction to the New Moon ending *spoilers*</a><div class="vc">611,042 views</div><a class="us" href="#">bellaswanabe</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r6" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">5:01</span></a><div class="vm"><a class="ti" href="2009-watch.html">Twilight in 5 minutes (parody)</a><div class="vc">2,730,661 views</div><a class="us" href="#">quietlaughs</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r7" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">3:44</span></a><div class="vm"><a class="ti" href="2009-watch.html">New Moon soundtrack - Meet Me On The Equinox cover</a><div class="vc">187,203 views</div><a class="us" href="#">acousticjen</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r8" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">8:12</span></a><div class="vm"><a class="ti" href="2009-watch.html">TWILIGHT SUCKS (a rant)</a><div class="vc">1,502,390 views</div><a class="us" href="#">angryguy1984</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r9" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">7:15</span></a><div class="vm"><a class="ti" href="2009-watch.html">how to do Bella's hair - tutorial</a><div class="vc">844,915 views</div><a class="us" href="#">makeupbymaria</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r10" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">1:58</span></a><div class="vm"><a class="ti" href="2009-watch.html">Wolf pack shirtless scene reaction lmao</a><div class="vc">402,118 views</div><a class="us" href="#">twihardkatie</a></div></div>
+<div class="ve" data-item="related"><a class="vt" href="2009-watch.html"><img data-ph="thumb" data-seed="yt09r11" width="90" height="68" alt=""><span class="ql" data-noedit>+</span><span class="tm">2:41</span></a><div class="vm"><a class="ti" href="2009-watch.html">Eclipse first look?? (fan made)</a><div class="vc">3,009,555 views</div><a class="us" href="#">vampfanvids</a></div></div>
+</div>
+</div>
+<div style="clear:both"></div>
+</div>
+<div id="footer"><div class="search"><form><input class="search-term" type="text" value=""> <a class="ytb primary" href="#">Search</a></form></div>
+<div class="links"><table><tr><th>Help &amp; Info</th><th>YouTube</th><th>Programs</th><th>Policy</th><th></th></tr>
+<tr><td><a href="#">Help Resources</a></td><td><a href="#">Company Info</a></td><td><a href="#">Advertising</a></td><td><a href="#">Terms of Use</a></td><td><b>Language:</b> <a href="#">English</a></td></tr>
+<tr><td><a href="#">Video Toolbox</a></td><td><a href="#">Test Tube</a></td><td><a href="#">Developers</a></td><td><a href="#">Privacy Policy</a></td><td><b>Location:</b> <a href="#">Worldwide</a></td></tr>
+<tr><td><a href="#">Report a Bug</a></td><td><a href="#">Contact</a></td><td><a href="#">Partnerships</a></td><td><a href="#">Safety</a></td><td><b>Safety mode:</b> <a href="#">Off</a></td></tr>
+<tr><td></td><td><a href="#">YouTube Blog</a></td><td><a href="#">Content Management</a></td><td><a href="#">Copyright Notices</a></td><td></td></tr></table></div>
+<div class="copy">&copy; 2009 YouTube, LLC</div></div>
+</body>
+</html>

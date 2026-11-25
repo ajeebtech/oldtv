@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jen sets off</title>
+<script src="../shared/studio.js"></script>
+<style>
+body{background:#3b627e;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+.clear{clear:both;height:0;overflow:hidden}
+a img{border:none}
+#tumblr_controls{position:absolute;top:0;right:0;z-index:10;display:flex;gap:4px;padding:4px 6px;background:rgba(0,0,0,.14);border-bottom-left-radius:6px}
+#tumblr_controls a{font:bold 11px/18px "Lucida Grande",Verdana,sans-serif;color:#fff;text-decoration:none;padding:1px 9px;border-radius:3px;background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.35);text-shadow:0 1px 0 rgba(0,0,0,.3)}
+#wrapper{width:845px;margin:0 auto}
+#title{margin:30px 0;color:#fff;font-size:50px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;text-shadow:1px 3px 5px rgba(0,0,0,.5);letter-spacing:-1px;line-height:1.15}
+#title a{color:#fff;text-decoration:none}
+#content{width:520px;float:left}
+#content .post{font-family:Arial,Helvetica,sans-serif;background:#fff;padding:10px;position:relative}
+#content .post .media{text-align:center;margin-bottom:10px}
+#content .post .media img{display:block;width:500px;object-fit:cover}
+#content .post .vid{position:relative;width:500px;height:281px;background:#000;overflow:hidden}
+#content .post .vid img{height:281px}
+#content .post .vid .playov{position:absolute;left:50%;top:50%;width:66px;height:46px;margin:-23px 0 0 -33px;background:rgba(0,0,0,.65);border-radius:8px;pointer-events:none}
+#content .post .vid .playov:after{content:"";position:absolute;left:25px;top:12px;border:11px solid transparent;border-left:17px solid #fff;border-right:0}
+#content .post .vid.has-video .playov{display:none}
+#content .post .copy{color:#6e7173;padding:10px;font-size:13px;line-height:15px;position:relative}
+#content .post .copy a{color:#6e7173;text-decoration:underline}
+#content .post .copy p{margin:10px 0 0 0;padding:0}
+#content .post .copy > p:first-child{margin-top:0}
+#content .post .copy blockquote{margin:10px 0 10px 10px;padding-left:15px;border-left:solid 4px #dcdcdc}
+#content .post .title{color:#494949;font-size:16px;font-weight:bold;padding:10px 10px 0 10px}
+#content .post .quote{color:#3b627e;font-weight:bold;padding:20px 20px 5px 20px}
+#content .post .quote.short{font-size:33px;line-height:35px}
+#content .post .quotebg{font-family:georgia,serif;font-size:150px;color:#3b627e;opacity:.2;position:absolute;top:-60px;left:-5px;pointer-events:none}
+#content .post a{color:#6e7173;text-decoration:none}
+#content .post .footer{background:#eaeaea;border-radius:4px;font-family:"Lucida Sans","Lucida Grande",Verdana,sans-serif;font-size:11px;color:#666;padding:5px 10px;margin-top:10px}
+#content .post .footer .date{width:67%;float:left;color:#666}
+#content .post .footer .notes{width:33%;float:right;text-align:right;color:#666}
+#content .post .footer .tags a{color:#4a4a51;text-decoration:underline}
+#content .post .footer.for_permalink:hover{opacity:.9}
+#content .bottom{width:513px;height:40px;margin:0 auto;background:radial-gradient(ellipse 50% 9px at 50% 0,rgba(0,0,0,.35),transparent)}
+#navigation{text-align:right;padding-bottom:35px;text-transform:lowercase}
+#navigation a{background:#fff;color:#3b627e;padding:5px 10px;text-decoration:none;margin-left:25px;font-size:14px}
+#sidebar{width:250px;float:right;color:#3b627e;font-family:"Lucida Sans","Lucida Grande",Verdana,sans-serif;margin-top:24px}
+#sidebar a{color:#3b627e}
+#sidebar #top{background:#fff;padding:0 20px 1px 20px;border-top-left-radius:10px;border-top-right-radius:10px}
+#sidebar #avatar{width:137px;height:138px;padding:8px 0 0 9px;position:relative;top:-24px;left:-5px}
+#sidebar #avatar .frame{width:128px;height:128px;padding:5px;background:#fff;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+#sidebar #avatar img{display:block;width:128px;height:128px;object-fit:cover;border-radius:3px}
+#sidebar #description{font-size:11px;position:relative;top:-18px;line-height:1.45}
+#sidebar #description a{color:#3b627e;text-decoration:underline}
+#sidebar #pages{margin-bottom:15px;font-size:12px;overflow:hidden}
+#sidebar #pages a.page{display:block;float:left;background:#3b627e;color:#fff;padding:4px 5px;margin:0 5px 5px 0;border-radius:3px;text-decoration:none}
+#sidebar #search{background:#fff;border:1px solid #3b627e;border-radius:4px;overflow:hidden}
+#sidebar #search .query{padding:5px;border:none;background:transparent;outline:none;width:125px;float:left;color:#3b627e;font-size:12px}
+#sidebar #search .submit{background:#3b627e;color:#fff;border:none;padding:5px 7px;margin:3px 3px 2px 0;float:right;border-radius:3px;font-size:11px}
+#sidebar #search-scope{padding-top:5px;font-size:11px;text-align:center}
+#sidebar #search-scope input{vertical-align:-2px;margin:0 3px 0 6px}
+#sidebar .heading{color:#fff;font-family:helvetica,arial,sans-serif;font-size:17px;margin-top:20px;padding:10px;background-color:#3b627e;border-top-left-radius:4px;border-top-right-radius:4px;position:relative}
+#sidebar a .heading{text-decoration:none}
+#sidebar a{text-decoration:none}
+#sidebar .heading#followontumblr{border-radius:4px;font-weight:bold;font-size:15px;letter-spacing:-.2px}
+#sidebar .heading#followontumblr b{font-family:'Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif;font-size:19px;letter-spacing:-.5px}
+#sidebar .content{margin-top:2px;padding:4px;background:#eaeaea;color:#666;font-size:11px;overflow:hidden}
+#sidebar .content a img{display:block;float:left;margin:5px;width:40px;height:40px;object-fit:cover}
+#sidebar #buttons{padding:20px 0 0 0;overflow:hidden}
+#sidebar #buttons .button{width:50%;float:left;height:24px;font-size:14px;padding-bottom:10px;position:relative}
+#sidebar #buttons .button svg{position:absolute;left:0;top:0}
+#sidebar #buttons .button a{padding-left:28px;line-height:20px;color:#3b627e}
+#sidebar #bottom{width:250px;height:25px;background:radial-gradient(ellipse 50% 7px at 50% 0,rgba(0,0,0,.35),transparent)}
+#sidebar #copyright{text-align:center;color:#fff;font-size:12px;margin-bottom:10px}
+#sidebar #copyright a{color:#fff;margin-left:15px;text-decoration:underline}
+</style>
+</head>
+<body data-page="tumblr-2010-blog" data-v="1" data-url="http://jettsetjen.tumblr.com/" data-bg="cover">
+<div id="tumblr_controls"><a href="2011-dashboard.html">Dashboard</a><a href="#">Follow</a></div>
+<div id="wrapper">
+<div id="title"><a href="2010-blog.html">jen sets off</a></div>
+<div id="content">
+<div class="postwrap" data-item="post"><div class="post">
+<div class="media"><a href="#"><img data-ph="photo" data-seed="redux-1" width="500" height="375" alt=""></a></div><div class="copy"><p>Golden hour on the Williamsburg waterfront. Shot on my new Canon S95, no filter.</p></div>
+<a href="#"><div class="footer for_permalink"><div class="date">Posted 2 hours ago</div><div class="notes">84 notes</div><div class="clear"></div></div></a>
+<div class="footer"><div class="tags">Tagged: <a href="#">brooklyn</a>, <a href="#">sunset</a>, <a href="#">photography</a>.</div><div class="clear"></div></div>
+</div><div class="bottom"></div></div>
+<div class="postwrap" data-item="post"><div class="post">
+<div class="media"><a href="#"><img data-ph="photo" data-seed="redux-2" width="500" height="500" alt=""></a></div><div class="copy"><p><a href="#">polaroidweek</a>:</p><blockquote><p>Found this Polaroid SX-70 at a flea market for $15. Impossible Project film is expensive but SO worth it.</p></blockquote></div>
+<a href="#"><div class="footer for_permalink"><div class="date">Reblogged 1 day ago from polaroidweek</div><div class="notes">212 notes</div><div class="clear"></div></div></a>
+<div class="footer"><div class="tags">Tagged: <a href="#">polaroid</a>, <a href="#">flea market</a>, <a href="#">analog</a>.</div><div class="clear"></div></div>
+</div><div class="bottom"></div></div>
+<div class="postwrap" data-item="post"><div class="post">
+<div class="quote short">Sometimes you have to get lost to find yourself.</div><div class="copy"><div class="quotebg">&#8220;</div><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" style="width:20px">&mdash;</td><td valign="top" class="quote_source">my fortune cookie, apparently</td></tr></table></div>
+<a href="#"><div class="footer for_permalink"><div class="date">Posted 2 days ago</div><div class="notes">1530 notes</div><div class="clear"></div></div></a>
+<div class="footer"><div class="tags">Tagged: <a href="#">quotes</a>.</div><div class="clear"></div></div>
+</div><div class="bottom"></div></div>
+<div class="postwrap" data-item="post"><div class="post">
+<div class="media"><a href="#"><img data-ph="photo" data-seed="redux-3" width="500" height="333" alt=""></a></div><div class="copy"><p>iPhone 4 photo of the line outside the Apple Store on launch day. I was person #212. Worth it?</p></div>
+<a href="#"><div class="footer for_permalink"><div class="date">Posted 3 days ago</div><div class="notes">47 notes</div><div class="clear"></div></div></a>
+<div class="footer"><div class="tags">Tagged: <a href="#">iphone 4</a>, <a href="#">apple</a>, <a href="#">nyc</a>.</div><div class="clear"></div></div>
+</div><div class="bottom"></div></div>
+<div class="postwrap" data-item="post"><div class="post">
+<div class="media"><div class="vid" data-video><img data-ph="thumb" data-seed="redux-vid" width="500" height="281" alt=""><span class="playov"></span></div></div><div class="copy"><p>Our first attempt at a lip dub. Arcade Fire, "Ready to Start." Please be nice.</p></div>
+<a href="#"><div class="footer for_permalink"><div class="date">Posted 5 days ago</div><div class="notes">96 notes</div><div class="clear"></div></div></a>
+<div class="footer"><div class="tags">Tagged: <a href="#">video</a>, <a href="#">arcade fire</a>, <a href="#">lip dub</a>.</div><div class="clear"></div></div>
+</div><div class="bottom"></div></div>
+<div class="postwrap" data-item="post"><div class="post">
+<div class="title">Summer 2010 bucket list</div><div class="copy"><p>&#10004; See Arcade Fire at MSG<br>&#10004; Finally watch Inception (twice)<br>&#10008; Learn to longboard without dying<br>&#10008; Read Infinite Jest (lol)<br>&#10004; Drink an entire bottle of Four Loko (never again)</p></div>
+<a href="#"><div class="footer for_permalink"><div class="date">Posted 1 week ago</div><div class="notes">23 notes</div><div class="clear"></div></div></a>
+<div class="footer"><div class="tags">Tagged: <a href="#">summer</a>, <a href="#">lists</a>.</div><div class="clear"></div></div>
+</div><div class="bottom"></div></div>
+<div class="postwrap" data-item="post"><div class="post">
+<div class="media"><a href="#"><img data-ph="photo" data-seed="redux-4" width="500" height="400" alt=""></a></div><div class="copy"><p>Coney Island, Fourth of July. Hipstamatic, John S lens + Ina's 1969 film.</p></div>
+<a href="#"><div class="footer for_permalink"><div class="date">Posted 2 weeks ago</div><div class="notes">158 notes</div><div class="clear"></div></div></a>
+<div class="footer"><div class="tags">Tagged: <a href="#">coney island</a>, <a href="#">hipstamatic</a>, <a href="#">fourth of july</a>.</div><div class="clear"></div></div>
+</div><div class="bottom"></div></div>
+<div id="navigation"><a href="#">Next page &rarr;</a></div>
+</div>
+<div id="sidebar">
+<div id="top">
+<div id="avatar"><a href="2010-blog.html"><div class="frame"><img data-ph="person" data-seed="tumblr-av-jen" width="128" height="128" alt=""></div></a></div>
+<div id="description">Jen. 24. Brooklyn by way of Ohio. I take pictures of things and occasionally of myself. Currently obsessed with: Arcade Fire, film cameras, Mad Men, iced coffee in November.<br><br><a href="#">flickr</a> / <a href="#">twitter</a> / <a href="#">formspring</a></div>
+<div id="pages"><a href="#" class="page">Ask me anything</a><a href="#" class="page">Submit</a><a href="#" class="page">About</a></div>
+<div id="search"><form action="#"><input type="text" class="query" value=""><input type="submit" value="Search" class="submit"><div class="clear"></div></form></div>
+<div id="search-scope"><input type="radio" name="scope" checked>My blog <input type="radio" name="scope">All of Tumblr</div>
+<a href="#"><div class="heading" id="followontumblr">Follow on <b>tumblr</b></div></a>
+<div class="heading" id="following">Following</div>
+<div class="content" id="following-avatars"><a href="#"><img data-ph="person" data-seed="redux-f-0" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-1" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-2" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-3" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-4" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-5" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-6" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-7" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-8" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-9" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-10" width="40" height="40" alt=""></a><a href="#"><img data-ph="person" data-seed="redux-f-11" width="40" height="40" alt=""></a></div>
+<div id="buttons"><div class="button" id="button-rss"><svg width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" rx="4" fill="#3b627e"/><circle cx="6" cy="14" r="2" fill="#fff"/><path d="M4 9a7 7 0 0 1 7 7M4 4.5a11.5 11.5 0 0 1 11.5 11.5" stroke="#fff" stroke-width="2.2" fill="none"/></svg><a href="#">RSS feed</a></div><div class="button" id="button-random"><svg width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" rx="4" fill="#3b627e"/><path d="M4 7h3l6 6h3M4 13h3l6-6h3" stroke="#fff" stroke-width="2" fill="none"/></svg><a href="#">Random</a></div><div class="button" id="button-archive"><svg width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" rx="4" fill="#3b627e"/><rect x="4" y="5" width="12" height="3" fill="#fff"/><rect x="5" y="9" width="10" height="7" fill="#fff"/><rect x="8" y="11" width="4" height="1.6" fill="#3b627e"/></svg><a href="#">Archive</a></div><div class="button" id="button-mobile"><svg width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" rx="4" fill="#3b627e"/><rect x="6.5" y="3" width="7" height="14" rx="1.5" fill="#fff"/><rect x="7.6" y="5" width="4.8" height="8.5" fill="#3b627e"/></svg><a href="#">Mobile</a></div></div>
+</div>
+<div id="bottom"></div>
+<div id="copyright">&copy; 2010 <a href="#">Powered by Tumblr</a></div>
+</div>
+<div class="clear"></div>
+</div>
+</body>
+</html>

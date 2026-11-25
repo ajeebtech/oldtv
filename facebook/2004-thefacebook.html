@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Thefacebook | Brian Kessler's Profile</title>
+<script src="../shared/studio.js"></script>
+<script src="assets/fb-defaults.js"></script>
+<style>
+body { margin: 8px; background: #fff; font-family: tahoma, arial, sans-serif; font-size: 11px; color: #000; }
+a { color: #538ADC; font-size: 11px; text-decoration: none; }
+html.studio-film a:hover { color: #77C9F3; text-decoration: underline; }
+table { border-collapse: collapse; }
+td { font-family: tahoma, arial, sans-serif; font-size: 11px; vertical-align: top; padding: 0; }
+#frame { width: 700px; margin: 0 auto; border: 1px solid #3B5998; }
+#hdr { height: 70px; border-bottom: 1px solid #3B5998; display: flex; background: #3B5998; }
+#hdr .left { width: 350px; height: 70px; background: #3B5998; }
+#hdr .face { display: block; }
+#hdr .right { flex: 1; position: relative; }
+#hdr .word { display: block; height: 49px; line-height: 46px; padding-left: 8px; font: bold 33px/48px Tahoma, Verdana, sans-serif; color: #7e94c9; letter-spacing: -0.5px; text-shadow: 1px 1px 0 #2f4a85, -1px 0 0 #8ea3d6; white-space: nowrap; }
+#hdr .word .br { font-weight: normal; color: #91a5d8; font-size: 38px; position: relative; top: 2px; }
+#menu { height: 21px; padding: 0 0 0 2px; white-space: nowrap; }
+#menu a { color: #fff; font-size: 11px; padding: 0 4px 0 4px; line-height: 21px; }
+#menu a:hover { color: #77C9F3; text-decoration: none; }
+#cols { display: flex; padding: 2px; }
+#side { width: 105px; flex: none; }
+#side .dashed { border: 1px dashed #3B5998; padding: 2px 3px 4px; }
+#side .dashed .lbl { color: #000; font-size: 11px; padding: 2px 0 2px; }
+.inputtext { border: 1px solid #666; background: #D9DFEA; font: 11px tahoma, arial, sans-serif; color: #000; width: 94px; padding: 1px; }
+.inputsubmit { border-style: solid; border-width: 1px 2px 2px 1px; border-color: #D9DFEA #3B5998 #3B5998 #D9DFEA; background: #538ADC; color: #fff; font: 11px tahoma, arial, sans-serif; padding: 0 4px; }
+#side .qs { text-align: right; }
+#side .qs .go { margin-top: 3px; }
+#side ul { list-style: none; margin: 6px 0 0; padding: 0 0 0 2px; }
+#side li { padding: 1px 0 2px; }
+#side li a { font-size: 11px; }
+#side li .ed { color: #538ADC; }
+#main { width: 589px; flex: none; margin-left: 2px; }
+.box { border: 1px solid #3B5998; margin-bottom: 8px; }
+.box .bar { background: #3B5998; color: #fff; font-size: 12px; padding: 2px 4px; }
+.box .bar .r { float: right; font-size: 11px; }
+.box .bar .r a { color: #fff; }
+.box .inner { padding: 6px 6px 8px; }
+.ttl { background: #3B5998; color: #fff; font-size: 12px; padding: 2px 4px; }
+#prof { display: flex; padding: 6px 4px 0; gap: 8px; border: 1px solid #3B5998; border-top: 0; margin-bottom: 8px; }
+#pleft { width: 206px; flex: none; }
+#pright { flex: 1; min-width: 0; }
+.picture { text-align: center; padding: 8px 0 8px; }
+.picture img { width: 180px; height: 240px; object-fit: cover; border: 1px solid #3B5998; display: block; margin: 0 auto; }
+.actions { border-top: 1px solid #D9DFEA; }
+.actions a { display: block; padding: 3px 6px; border-bottom: 1px solid #D9DFEA; font-size: 11px; }
+.small { padding: 6px; line-height: 15px; }
+.friends { width: 100%; }
+.friend { width: 33%; text-align: center; padding: 4px 2px 6px; line-height: 13px; }
+.friend img { width: 50px; height: 60px; object-fit: cover; border: 1px solid #ccc; display: block; margin: 0 auto 3px; }
+.info { width: 100%; }
+.info td { padding: 1px 0 2px; line-height: 14px; }
+.info td.lab { width: 104px; padding-right: 8px; color: #000; text-align: left; white-space: nowrap; }
+.info tr.sec td { padding-top: 8px; font-weight: bold; color: #3B5998; font-size: 11px; }
+.info tr.sec:first-child td { padding-top: 0; }
+.info .val { color: #000; }
+.otherschools { width: 100%; margin-top: 4px; }
+.otherschools td { padding: 2px 0; border-bottom: 1px solid #eef1f7; }
+.otherschools td.cnt { text-align: right; color: #555; }
+.wallinfo { padding: 0 0 6px; border-bottom: 1px solid #D9DFEA; margin-bottom: 4px; }
+.wallpost { padding: 6px 2px 7px; border-bottom: 1px solid #D9DFEA; }
+.wallhead { color: #000; line-height: 14px; }
+.wallhead a { font-weight: bold; }
+.walldate { color: #777; }
+.walltext { padding-top: 4px; line-height: 15px; }
+#foot { text-align: center; padding: 14px 0 26px; line-height: 13px; }
+#foot a { margin: 0 4px; }
+</style>
+</head>
+<body data-page="facebook-2004-thefacebook" data-v="1" data-url="http://www.thefacebook.com/profile.php?id=4113">
+<div id="frame">
+  <div id="hdr">
+    <div class="left"><svg class="face" width="300" height="70" viewBox="0 0 300 70" xmlns="http://www.w3.org/2000/svg" data-noedit>
+<defs>
+<linearGradient id="tfg" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#c9d4ec"/><stop offset=".3" stop-color="#a9b9de"/><stop offset=".62" stop-color="#6f86bd"/><stop offset="1" stop-color="#3b5998"/></linearGradient>
+<pattern id="tfd" width="2" height="2" patternUnits="userSpaceOnUse"><rect width="1.2" height="1.2" fill="#3b5998"/></pattern>
+<pattern id="tfd2" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="1.4" height="1.4" fill="#4a64a3"/></pattern>
+</defs>
+<rect width="300" height="70" fill="url(#tfg)"/>
+<g font-family="Courier New,monospace" font-size="8.5" fill="#eef2fb" fill-opacity=".85"><text x="92" y="11">0110&#160;11&#160;10&#160;&#160;&#160;&#160;1000</text><text x="98" y="20">&#160;&#160;00&#160;0010&#160;&#160;0&#160;&#160;1</text><text x="104" y="29">11&#160;010&#160;&#160;110&#160;&#160;1&#160;&#160;&#160;1100</text><text x="92" y="38">&#160;1010&#160;010&#160;&#160;&#160;101</text><text x="98" y="47">0&#160;01&#160;1101&#160;00&#160;&#160;01</text><text x="104" y="56">&#160;010&#160;&#160;0&#160;&#160;01&#160;010</text><text x="92" y="65">0101&#160;&#160;10&#160;&#160;1&#160;10&#160;&#160;&#160;&#160;0</text></g>
+<g transform="translate(4,0)">
+<path d="M8 70 L10 56 L4 50 L8 42 L2 36 L9 31 L4 22 L13 20 L10 10 L20 13 L21 3 L30 9 L36 0 L42 7 L50 0 L54 9 L63 5 L63 15 L72 14 L69 23 L78 25 L71 32 L76 39 L68 41 L68 54 L64 70 Z" fill="url(#tfd2)"/>
+<path d="M22 27 Q30 21 44 22 Q58 23 63 31 Q66 41 63 52 Q59 63 49 68 L46 70 L28 70 Q21 62 20 50 Q19 37 22 27 Z" fill="#e3e9f6"/>
+<path d="M52 26 Q62 30 63 42 Q62 56 54 64 Q50 60 52 50 Q55 38 52 26 Z" fill="url(#tfd)" fill-opacity=".55"/>
+<path d="M20 36 Q22 30 27 28 L25 44 Z" fill="url(#tfd)" fill-opacity=".6"/>
+<path d="M26 34 Q31 31 38 33" stroke="#2a427a" stroke-width="2.2" fill="none"/>
+<path d="M45 33 Q52 31 58 34" stroke="#2a427a" stroke-width="2.2" fill="none"/>
+<path d="M28 39 Q32 37 36 39 Q32 41 28 39 Z" fill="#23396b"/>
+<path d="M46 39 Q50 37 55 39 Q50 41 46 39 Z" fill="#23396b"/>
+<path d="M41 39 Q40 46 38 51 Q41 53 45 51" stroke="#4a64a3" stroke-width="1.2" fill="none"/>
+<path d="M35 58 Q41 59.5 48 58" stroke="#2a427a" stroke-width="1.5" fill="none"/>
+<path d="M37 61 Q41 62 45 61" stroke="#8a9fcf" stroke-width="1" fill="none"/>
+<path d="M20 42 Q16 43 17 49 Q18 53 22 53" stroke="#4a64a3" stroke-width="1.2" fill="none"/>
+<path d="M26 70 Q24 64 22 58 M56 66 L60 70" stroke="#4a64a3" stroke-width="1.5" fill="none"/>
+</g>
+</svg></div>
+    <div class="right">
+      <a class="word" href="#" data-noedit><span class="br">[</span> thefacebook <span class="br">]</span></a>
+      <div id="menu"><a href="#">home</a><a href="#">search</a><a href="#">global</a><a href="#">social net</a><a href="#">invite</a><a href="#">faq</a><a href="#">logout</a></div>
+    </div>
+  </div>
+  <div id="cols">
+    <div id="side">
+      <div class="dashed qs">
+        <div class="lbl">quick search</div>
+        <input type="text" class="inputtext" value=""><br>
+        <input type="button" class="inputsubmit go" value="go">
+      </div>
+      <ul>
+        <li><a href="#">My Profile</a> <a class="ed" href="#">[ edit ]</a></li>
+        <li><a href="#">My Friends</a></li>
+        <li><a href="#">My Groups</a></li>
+        <li><a href="#">My Parties</a></li>
+        <li><a href="#">My Messages</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">My Privacy</a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <div class="ttl">Brian Kessler's Profile</div>
+      <div id="prof">
+        <div id="pleft">
+          <div class="box">
+            <div class="bar">Picture</div>
+            <div class="picture"><img data-ph="person" data-seed="tf04-brian" width="180" height="240" alt=""></div>
+            <div class="actions">
+              <a href="#">Send Brian a Message</a>
+              <a href="#">Poke Him!</a>
+              <a href="#">Add Brian as a Friend</a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="bar">Connection</div>
+            <div class="small">Brian is in your friend network.<br>You know Brian from <b>Ec 10</b> and <b>Lowell House</b>.</div>
+          </div>
+          <div class="box">
+            <div class="bar">Access</div>
+            <div class="small">Brian is currently logged in from a residential location.</div>
+          </div>
+          <div class="box">
+            <div class="bar">Mutual Friends</div>
+            <div class="small">You have <a href="#">23 friends</a> in common with Brian.</div>
+          </div>
+          <div class="box">
+            <div class="bar"><span class="r"><a href="#">See All</a></span>Friends at Harvard</div>
+            <div class="small" style="padding-bottom:0">Brian has <a href="#">241 friends</a> at Harvard.</div>
+            <table class="friends"><tr><td class="friend" data-item="friend"><a href="#"><img data-ph="person" data-seed="tf04-f1" width="50" height="60" alt=""></a><br><a href="#">Katie<br>Morrissey</a></td><td class="friend" data-item="friend"><a href="#"><img data-ph="person" data-seed="tf04-f2" width="50" height="60" alt=""></a><br><a href="#">Danny<br>Fiorello</a></td><td class="friend" data-item="friend"><a href="#"><img data-ph="person" data-seed="tf04-f3" width="50" height="60" alt=""></a><br><a href="#">Priya<br>Raman</a></td></tr><tr><td class="friend" data-item="friend"><a href="#"><img data-ph="person" data-seed="tf04-f4" width="50" height="60" alt=""></a><br><a href="#">Jeff<br>Kowalczyk</a></td><td class="friend" data-item="friend"><a href="#"><img data-ph="person" data-seed="tf04-f5" width="50" height="60" alt=""></a><br><a href="#">Mike<br>Brandt</a></td><td class="friend" data-item="friend"><a href="#"><img data-ph="person" data-seed="tf04-f6" width="50" height="60" alt=""></a><br><a href="#">Erin<br>Galloway</a></td></tr></table>
+          </div>
+        </div>
+        <div id="pright">
+          <div class="box">
+            <div class="bar">Information</div>
+            <div class="inner">
+              <table class="info">
+                <tr class="sec"><td colspan="2">Account Info:</td></tr>
+                <tr><td class="lab">Name:</td><td class="val">Brian Kessler</td></tr>
+                <tr><td class="lab">Member Since:</td><td class="val">February 9, 2004</td></tr>
+                <tr><td class="lab">Last Update:</td><td class="val">December 10, 2004</td></tr>
+                <tr class="sec"><td colspan="2">Basic Info:</td></tr>
+                <tr><td class="lab">School:</td><td><a href="#">Harvard '07</a></td></tr>
+                <tr><td class="lab">Status:</td><td><a href="#">Student</a></td></tr>
+                <tr><td class="lab">Sex:</td><td><a href="#">Male</a></td></tr>
+                <tr><td class="lab">Year:</td><td><a href="#">2007</a></td></tr>
+                <tr><td class="lab">Concentration:</td><td><a href="#">Economics</a></td></tr>
+                <tr><td class="lab">Residence:</td><td><a href="#">Lowell House</a></td></tr>
+                <tr><td class="lab">Birthday:</td><td class="val">03/22/1985</td></tr>
+                <tr><td class="lab">Home Town:</td><td><a href="#">Short Hills, NJ</a></td></tr>
+                <tr><td class="lab">High School:</td><td><a href="#">Millburn High School '03</a></td></tr>
+                <tr class="sec"><td colspan="2">Contact Info:</td></tr>
+                <tr><td class="lab">Email:</td><td><a href="#">bkessler@fas.harvard.edu</a></td></tr>
+                <tr><td class="lab">Screenname:</td><td><a href="#">bkess22</a></td></tr>
+                <tr><td class="lab">Mobile:</td><td class="val">973-555-0146</td></tr>
+                <tr class="sec"><td colspan="2">Personal Info:</td></tr>
+                <tr><td class="lab">Looking For:</td><td><a href="#">Friendship</a>, <a href="#">Random Play</a>, <a href="#">Whatever I can get</a></td></tr>
+                <tr><td class="lab">Interested In:</td><td><a href="#">Women</a></td></tr>
+                <tr><td class="lab">Relationship Status:</td><td><a href="#">It's Complicated</a></td></tr>
+                <tr><td class="lab">Political Views:</td><td><a href="#">Moderate</a></td></tr>
+                <tr><td class="lab">Interests:</td><td><a href="#">Red Sox</a>, <a href="#">ultimate frisbee</a>, <a href="#">Halo 2</a>, <a href="#">poker</a>, <a href="#">The Crimson</a>, <a href="#">making mix CDs</a></td></tr>
+                <tr><td class="lab">Favorite Music:</td><td><a href="#">The Strokes</a>, <a href="#">Modest Mouse</a>, <a href="#">Jay-Z</a>, <a href="#">The Killers</a>, <a href="#">Dashboard Confessional</a>, <a href="#">Outkast</a>, <a href="#">Franz Ferdinand</a></td></tr>
+                <tr><td class="lab">Favorite Movies:</td><td><a href="#">Old School</a>, <a href="#">Garden State</a>, <a href="#">Anchorman</a>, <a href="#">The Big Lebowski</a>, <a href="#">Swingers</a></td></tr>
+                <tr><td class="lab">Favorite Books:</td><td><a href="#">Moneyball</a>, <a href="#">Catcher in the Rye</a>, <a href="#">Freakonomics</a></td></tr>
+                <tr><td class="lab">Favorite Quote:</td><td class="val">"You're killing me, Smalls."</td></tr>
+                <tr><td class="lab">About Me:</td><td class="val">Lowell. Ec concentrator, but don't hold it against me. If you see me in Lamont after 2am, no you didn't.</td></tr>
+                <tr class="sec"><td colspan="2">Courses:</td></tr>
+                <tr><td class="lab">Fall 2004:</td><td><a href="#">Ec 1010a</a>, <a href="#">CS 50</a>, <a href="#">Hist 1340</a>, <a href="#">Moral Reasoning 22</a></td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="box">
+            <div class="bar">Friends in Other Schools</div>
+            <div class="inner">
+              Brian has <a href="#">60 friends</a> at <a href="#">12 other schools</a>.
+              <table class="otherschools">
+<tr data-item="school"><td class="sch"><a href="#">Yale</a></td><td class="cnt">12 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Stanford</a></td><td class="cnt">7 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Columbia</a></td><td class="cnt">9 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Penn</a></td><td class="cnt">5 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Dartmouth</a></td><td class="cnt">4 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">BU</a></td><td class="cnt">6 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Princeton</a></td><td class="cnt">3 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">NYU</a></td><td class="cnt">3 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Cornell</a></td><td class="cnt">2 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Brown</a></td><td class="cnt">2 friends</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">Georgetown</a></td><td class="cnt">1 friend</td></tr>
+<tr data-item="school"><td class="sch"><a href="#">MIT</a></td><td class="cnt">4 friends</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="box">
+            <div class="bar"><span class="r"><a href="#">See All</a> &nbsp; <a href="#">Write Something</a></span>The Wall</div>
+            <div class="inner">
+              <div class="wallinfo">There are <a href="#">47 messages</a> on Brian's wall.</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Katie Morrissey</a> (Harvard) wrote:<br><span class="walldate">at 11:48pm on December 9, 2004</span></div>
+<div class="walltext">brian!!! you left your Ec 10 notes in my room. i am holding them hostage until you bring me a Felipe's burrito. also The OC tonight, Lowell common room, be there.</div>
+</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Sam Oyelaran</a> (Yale) wrote:<br><span class="walldate">at 2:13am on December 8, 2004</span></div>
+<div class="walltext">dude the Game was brutal. 35-3?? we're coming for you next year. say hi to everyone in the Kirkland JCR for me</div>
+</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Danny Fiorello</a> (Harvard) wrote:<br><span class="walldate">at 6:02pm on December 6, 2004</span></div>
+<div class="walltext">IM me about the Sox DVD. i will pay you in Red Line bagels. REVERSE THE CURSE baby</div>
+</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Rachel Tsai</a> (Stanford) wrote:<br><span class="walldate">at 10:31pm on December 2, 2004</span></div>
+<div class="walltext">finally got thefacebook at stanford!!! now i can stalk you properly. how is the cold? it's 64 here lol</div>
+</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Mike Brandt</a> (Harvard) wrote:<br><span class="walldate">at 1:07am on November 30, 2004</span></div>
+<div class="walltext">whoever keeps poking me i know it's you. also you owe me $12 for the Pinocchio's run</div>
+</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Lauren Abernathy</a> (Columbia) wrote:<br><span class="walldate">at 4:45pm on November 27, 2004</span></div>
+<div class="walltext">happy thanksgiving!! are you coming to the city for winter break? we should go to the Strokes show</div>
+</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Jeff Kowalczyk</a> (Harvard) wrote:<br><span class="walldate">at 12:20am on November 22, 2004</span></div>
+<div class="walltext">Halo 2 tournament in my room friday. bring your controller. losers do the CS50 pset for everyone</div>
+</div>
+<div class="wallpost" data-item="wall post">
+<div class="wallhead"><a href="#">Priya Raman</a> (Harvard) wrote:<br><span class="walldate">at 3:54pm on November 19, 2004</span></div>
+<div class="walltext">thanks for the Expos help, you are a lifesaver. this wall thing is kind of weird right?</div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="foot">
+    <a href="#">about</a> <a href="#">contact</a> <a href="#">jobs</a> <a href="#">announce</a> <a href="#">advertise</a> <a href="#">terms</a> <a href="#">privacy</a><br>
+    a Mark Zuckerberg production<br>
+    Thefacebook &copy; 2004
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>grandma vs. Kinect (Dance Central) - Thanksgiving 2010 - YouTube</title>
+<script src="../shared/studio.js"></script>
+<script src="assets/ytplayer.js"></script>
+<style>
+
+body{margin:0;background:#fff;color:#333;font:12px Arial,sans-serif}
+a{color:#03c;text-decoration:none}
+#masthead-container{margin:0 auto 10px;border-bottom:1px solid #f3f3f3}
+#masthead{width:970px;margin:0 auto;padding:9px 0 11px;font-size:13px;height:40px;position:relative}
+#logo{position:absolute;left:0;top:9px}
+#masthead-search{position:absolute;left:120px;top:16px;display:flex;margin:0}
+.sbox{width:430px;height:24px;border:1px solid;border-color:#8c8c8c #999 #ccc #8c8c8c;box-sizing:border-box}
+.sbox input{border:2px solid #fff;width:100%;height:100%;box-sizing:border-box;font-size:13px;padding:1px 4px;outline:0}
+.yb{height:24px;padding:0 6px;border:1px solid #ccc;border-radius:3px;background:linear-gradient(#fff,#efefef);font:12px Arial;color:#000;vertical-align:middle}
+#masthead-search .yb{border-radius:0 3px 3px 0;margin-left:-1px}
+#masthead-nav{position:absolute;left:618px;top:22px}
+#masthead-nav a,#masthead-utility a{padding:1px 10px;border-left:1px solid #ccc;white-space:nowrap}
+#masthead-nav a.start,#masthead-utility a.start{border-left:0}
+#masthead-utility{position:absolute;right:0;top:22px}
+#masthead-utility a.end{padding-right:0}
+.vtw{position:relative;display:block;border:1px solid #ccc;padding:2px;background:#fff}
+.vtw img{display:block;object-fit:cover}
+.vtime{position:absolute;right:6px;bottom:6px;padding:0 4px;font:bold 11px/14px Arial;border-radius:3px;background:rgba(0,0,0,.75);color:#fff}
+#footer-container{clear:both;margin-top:14px;border-top:1px solid #f3f3f3}
+#footer{width:970px;margin:0 auto;padding:12px 0 60px;font-size:13px;color:#666}
+#footer ul{margin:6px 0 0;padding:0;list-style:none}
+#footer li{display:inline;margin-right:20px;line-height:2}
+#footer .info{font-size:11px;color:#666;margin-top:6px}
+#footer .info span{margin-right:15px}
+
+#watch-container{width:970px;margin:0 auto}
+#watch-headline{padding:4px 5px 0}
+#watch-headline-title{font-size:20px;font-weight:bold;color:#333;margin:6px 0 6px;line-height:26px}
+#watch-headline-user-info{display:flex;align-items:center;gap:5px;font-size:13px;margin-bottom:9px}
+#watch-headline-user-info .u{font-weight:bold;font-size:14px;margin-right:4px}
+.ub{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 6px;border:1px solid #ccc;border-radius:3px;background:linear-gradient(#fff,#efefef);font:13px Arial;color:#000;box-sizing:border-box}
+.ub .ar{width:0;height:0;border:4px solid transparent;border-top:5px solid #555;border-bottom:0;margin-left:3px}
+.ub.sq{padding:0 5px;border-color:#999}
+#watch-video{display:flex;justify-content:space-between;padding:0 5px}
+#watch-main{width:640px}
+#watch-sidebar{width:300px}
+/* 2010 AS3 player */
+#movie_player{position:relative;width:640px;height:390px;background:#000}
+#movie_player .scr{position:absolute;left:0;top:0;width:640px;height:360px;overflow:hidden}
+#movie_player .scr img{width:640px;height:360px;object-fit:cover;display:block}
+#movie_player .big{position:absolute;left:50%;top:180px;width:80px;height:56px;margin:-28px 0 0 -40px;border-radius:10px;background:rgba(10,10,10,.8);z-index:3;pointer-events:none}
+#movie_player .big:after{content:"";position:absolute;left:31px;top:16px;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #fff}
+#movie_player.ytp-started .big{display:none}
+.c10{position:absolute;left:0;top:360px;width:640px;height:30px;background:linear-gradient(#383838,#1f1f1f 60%,#161616);user-select:none;font-family:Arial,sans-serif}
+.c10 .pb{position:absolute;left:0;right:0;top:0;height:5px;background:#4a4a4a;cursor:pointer;border-bottom:1px solid #111}
+.c10 .ld{position:absolute;left:0;top:0;height:100%;width:0;background:#7d7d7d}
+.c10 .fl{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(#e62117,#a50b00)}
+.c10 .kn{position:absolute;top:-4px;left:0;width:13px;height:13px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ff6a5e,#d01b10 55%,#8c0a03);box-shadow:0 0 2px rgba(0,0,0,.8)}
+.c10 .row{position:absolute;left:0;right:0;top:6px;height:24px}
+.c10 .b{position:absolute;top:0;height:24px;border-right:1px solid #0c0c0c;box-shadow:1px 0 0 #3a3a3a}
+.c10 .pp{left:0;width:36px;cursor:pointer}
+.c10 .pp:before{content:"";position:absolute;left:14px;top:6px;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #d6d6d6}
+.ytp-playing .c10 .pp:before{left:13px;top:6px;width:3px;height:12px;border:0;border-left:3px solid #d6d6d6;border-right:3px solid #d6d6d6;box-sizing:content-box}
+.c10 .vol{left:37px;width:34px}
+.c10 .tm{position:absolute;left:82px;top:6px;font-size:11px;color:#ccc}
+.c10 .tm .d{color:#888}
+.c10 .q{right:96px;width:44px;border-left:1px solid #0c0c0c;box-shadow:inset 1px 0 0 #3a3a3a,1px 0 0 #3a3a3a;font:bold 11px/24px Arial;color:#ccc;text-align:center}
+.c10 .r2{right:64px;width:31px}.c10 .r3{right:32px;width:31px}.c10 .r4{right:0;width:31px;border-right:0;box-shadow:none}
+.c10 svg{position:absolute;left:8px;top:6px}
+/* actions */
+#watch-actions{display:flex;align-items:center;gap:5px;margin:8px 0 10px;position:relative}
+#watch-actions .grp{display:flex}
+#watch-actions .grp .ub:first-child{border-radius:3px 0 0 3px}
+#watch-actions .grp .ub+.ub{border-radius:0 3px 3px 0;margin-left:-1px}
+#watch-actions-right{margin-left:auto;display:flex;align-items:center;gap:6px}
+.views{font-size:20px;font-weight:bold;color:#333}
+.statb{width:22px;height:22px;border:1px solid #ccc;border-radius:3px;background:linear-gradient(#fff,#efefef);position:relative}
+.statb:after{content:"";position:absolute;left:4px;top:5px;width:13px;height:10px;background:linear-gradient(135deg,transparent 45%,#999 46% 55%,transparent 56%);border-left:1px solid #999;border-bottom:1px solid #999}
+#watch-info{display:flex;gap:10px;margin-bottom:24px}
+#watch-description{width:555px;border:1px solid #ccc;border-radius:0 0 4px 4px;background:linear-gradient(#fff,#f3f3f3);padding:6px 8px 10px;font-size:12px;position:relative;box-sizing:border-box}
+#watch-description .meta{color:#999;margin-bottom:2px}
+#watch-description .meta b a{font-weight:bold}
+#watch-description .meta .sep{margin:0 8px;color:#ccc}
+.likes{color:#090}.dislikes{color:#c00}
+.lk{color:#666}
+#watch-description .txt{color:#000;line-height:16px;padding-right:30px}
+.expb{position:absolute;right:8px;top:6px;width:14px;height:14px;border:1px solid #999;border-radius:2px;background:linear-gradient(#fff,#ddd)}
+.expb:after{content:"";position:absolute;left:3px;top:4px;width:0;height:0;border:4px solid transparent;border-top:5px solid #555;border-bottom:0}
+.trans{width:62px;height:38px;border:1px solid #ccc;border-radius:3px;background:linear-gradient(#fff,#f1f1f1);position:relative}
+.trans:before{content:"";position:absolute;left:8px;top:7px;width:22px;height:24px;border:1px solid #999;background:repeating-linear-gradient(#fff 0 3px,#bbb 3px 4px)}
+.comments-section{margin-bottom:15px}
+.comments-section h4{margin:5px 0;padding:0 3px;border-bottom:1px solid #ccc;color:#666;font-weight:normal;font-size:13px;line-height:25px;position:relative}
+.comments-section h4 a{position:absolute;right:3px;font-size:12px}
+.resp{display:flex;padding:3px}
+.resp .vtw{margin-right:8px}
+.resp .ti{font-size:13px}
+.resp .by,.resp .vc{font-size:11px;color:#666;margin-top:2px}
+textarea.respond{width:466px;height:44px;border:1px solid #999;font:12px Arial;color:#999;padding:3px;margin:8px 0 12px}
+.comment-list{list-style:none;margin:0;padding:0}
+.comment{clear:left;overflow:hidden;padding:6px 3px 17px;position:relative}
+.comment .metadata{float:left;width:123px;padding-right:6px;font-size:11px}
+.comment .metadata .author{display:block;padding-bottom:3px;font-size:12px}
+.comment .metadata .time{color:#333}
+.comment .metadata .pos{display:block;color:#090;font-weight:bold;margin-top:3px}
+.comment .content{float:left;width:400px;font-size:12px;line-height:15px;color:#000}
+.cbtns{position:absolute;right:4px;top:6px;display:flex;gap:4px;opacity:.6}
+.cbtns span{display:flex;align-items:center;justify-content:center;width:22px;height:20px;border:1px solid #ccc;border-radius:3px;background:linear-gradient(#fff,#efefef)}
+/* sidebar */
+.sh{font-size:13px;color:#666;border-bottom:1px solid #ccc;padding:8px 0 6px;margin:0 0 8px}
+.vlist{list-style:none;margin:0;padding:0}
+.vli{display:flex;padding:4px 0 8px;font-size:13px}
+.vli.feat{background:#eee;padding:4px 4px 8px 0;margin-left:0}
+.vli .vtw{margin-right:8px;flex:none}
+.vli .vtw img{width:100px;height:56px}
+.vli .vtw img{width:100px;height:56px}
+.vin{flex:1;line-height:15px}
+.vin .ti{font-size:13px;display:block}
+.vin .by,.vin .vc{font-size:11px;color:#666;margin-top:3px}
+.fv{float:right;color:#666}
+</style>
+</head>
+<body data-page="youtube-2010-watch" data-v="1" data-url="http://www.youtube.com/watch?v=tR9kq2Vx0Lw">
+<div id="masthead-container"><div id="masthead"><a id="logo" href="2010-home.html"><svg width="99" height="40" viewBox="0 0 120 48" style="display:block"><defs><linearGradient id="lr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2463a"/><stop offset=".55" stop-color="#d8211a"/><stop offset="1" stop-color="#b8120c"/></linearGradient></defs><text x="1" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#1a1a1a" textLength="50" lengthAdjust="spacingAndGlyphs">You</text><rect x="53" y="4" width="65" height="42" rx="9" fill="url(#lr)"/><text x="57" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#fff" textLength="57" lengthAdjust="spacingAndGlyphs">Tube</text></svg></a><form id="masthead-search"><div class="sbox"><input type="text" value=""></div><button type="button" class="yb">Search</button></form><div id="masthead-nav"><a class="start" href="#">Browse</a><a href="#">Upload</a></div><div id="masthead-utility"><a class="start" href="#">Create Account</a><a class="end" href="#">Sign In</a></div></div></div>
+<div id="watch-container">
+<div id="watch-headline"><h1 id="watch-headline-title">grandma vs. Kinect (Dance Central) - Thanksgiving 2010</h1>
+<div id="watch-headline-user-info"><a class="u" href="#">thehendersonfam</a><span class="ub sq">23 videos<i class="ar"></i></span><span class="ub">Subscribe</span></div></div>
+<div id="watch-video">
+<div id="watch-main">
+<div id="movie_player" data-ytp><div class="scr" data-video><img data-ph="thumb" data-seed="yt10main" width="640" height="360" alt=""></div><div class="big"></div>
+<div class="c10" data-noedit><div class="pb" data-ytp-seek><div class="ld" data-ytp-load></div><div class="fl" data-ytp-fill></div><div class="kn" data-ytp-knob></div></div>
+<div class="row"><div class="b pp" data-ytp-toggle></div><div class="b vol"><svg width="17" height="12" viewBox="0 0 17 12"><path d="M0 4h3l4-3v10L3 8H0z" fill="#d6d6d6"/><path d="M9 3.5c1.4 1.4 1.4 3.6 0 5M11 1.5c2.5 2.5 2.5 6.5 0 9" stroke="#d6d6d6" stroke-width="1.3" fill="none"/></svg></div><div class="tm"><span data-ytp-cur>0:00</span> <span class="d">/ <span data-ytp-dur>3:26</span></span></div>
+<div class="b q">360p <span style="font-size:8px">&#9650;</span></div><div class="b r2"><svg width="15" height="12" viewBox="0 0 15 12"><rect x=".5" y="3.5" width="10" height="8" fill="none" stroke="#d6d6d6"/><path d="M7 1h7v6" stroke="#d6d6d6" fill="none"/></svg></div><div class="b r3"><svg width="15" height="12" viewBox="0 0 15 12"><rect x=".5" y=".5" width="14" height="11" fill="none" stroke="#d6d6d6"/><rect x="3" y="3" width="9" height="6" fill="#d6d6d6"/></svg></div><div class="b r4"><svg width="15" height="12" viewBox="0 0 15 12"><path d="M1 4V1h4M14 4V1h-4M1 8v3h4M14 8v3h-4" stroke="#d6d6d6" stroke-width="1.6" fill="none"/></svg></div></div></div></div>
+<div id="watch-actions"><span class="grp"><span class="ub"><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg>Like</span><span class="ub"><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></span><span class="grp"><span class="ub"><b style="font-size:15px;line-height:10px">+</b>&nbsp;Add to</span><span class="ub" style="padding:0 7px"><i class="ar" style="width:0;height:0;border:4px solid transparent;border-top:5px solid #555;border-bottom:0"></i></span></span><span class="ub">Share</span><span class="ub">Embed</span><span class="ub"><svg width="12" height="13" viewBox="0 0 12 13"><path d="M1.5 0v13" stroke="#777" stroke-width="1.6"/><path d="M2 1h9l-2 3 2 3H2z" fill="#888"/></svg></span>
+<div id="watch-actions-right"><span class="views">2,418,377</span><span class="statb"></span></div></div>
+<div id="watch-info"><div id="watch-description"><div class="meta"><b><a href="#">thehendersonfam</a></b><span class="sep">|</span>November 26, 2010<span class="sep">|</span><span class="likes">18,204 likes</span><span class="lk">,</span> <span class="dislikes">412 dislikes</span></div><div class="txt">We got a Kinect for the family and grandma insisted on trying Dance Central after Thanksgiving dinner. She's 81. She got 4 stars on "Poker Face". We are never letting her live this down... ...</div><span class="expb"></span></div><div><div class="trans"></div></div></div>
+<div class="comments-section"><h4>Video Responses<a href="#">see all</a></h4><div class="resp" data-item="response"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10resp" width="120" height="68" alt=""><span class="vtime">2:58</span></a><div><a class="ti" href="2010-watch.html">grandpa's turn (Dance Central round 2)</a><div class="by">by thehendersonfam</div><div class="vc">402,155 views</div></div></div></div>
+<div class="comments-section"><h4>Top Comments</h4><ul class="comment-list"><li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">xbox_mike77</a><span class="time">1 week ago</span><span class="pos">+1,204</span></div><div class="content">grandma has better moves than me and i'm 22</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">sarahplusthree</a><span class="time">1 week ago</span><span class="pos">+988</span></div><div class="content">the way she yells at the tv at 2:12 LMAOOO i'm crying</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">kinectfan</a><span class="time">6 days ago</span><span class="pos">+745</span></div><div class="content">"how does it know where my arms are" - every grandma ever</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li></ul></div>
+<div class="comments-section"><h4>All Comments (11,872)<a href="#">see all</a></h4><textarea class="respond" data-noedit>Respond to this video...</textarea><ul class="comment-list"><li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">TheTylermader</a><span class="time">1 minute ago</span></div><div class="content">#LOL</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">dougiedan</a><span class="time">14 minutes ago</span></div><div class="content">grandma teach me how to dougie</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">thehendersonfam</a><span class="time">2 hours ago</span></div><div class="content">thank you all so much for 2 million views!!! Grandma says hi and she is practicing for Christmas :)</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">sk8erjosh</a><span class="time">3 hours ago</span></div><div class="content">1,204 people have a grandma that can't dance</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">Evilsator</a><span class="time">5 hours ago</span></div><div class="content">this is why kinect will be bigger than wii</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">lolcatz4ever</a><span class="time">6 hours ago</span></div><div class="content">WHO ELSE CAME FROM THE FRONT PAGE</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">mariahh_</a><span class="time">8 hours ago</span></div><div class="content">this made my day omg</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">techreviewbro</a><span class="time">10 hours ago</span></div><div class="content">dance central is actually so good on kinect. great vid</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">oldschoolgamer</a><span class="time">11 hours ago</span></div><div class="content">shes got the moves like jagger (not a song yet but it should be)</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li>
+<li class="comment" data-item="comment"><div class="metadata"><a class="author" href="#">jennaxo</a><span class="time">12 hours ago</span></div><div class="content">grandma is my new idol</div><div class="cbtns" data-noedit><span><svg width="15" height="15" viewBox="0 0 14 14"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span><span><svg width="15" height="15" viewBox="0 0 14 14" style="transform:scaleY(-1)"><path d="M1 6h3v7H1zM5 6l3-5c1 0 2 .7 1.6 2.2L9 5.5h3.4c.9 0 1.5.8 1.3 1.6l-1.2 4.8c-.2.7-.8 1.1-1.5 1.1H5z" fill="#fff" stroke="#666"/></svg></span></div></li></ul></div>
+</div>
+<div id="watch-sidebar"><div class="sh">Suggestions</div><ul class="vlist"><li class="vli feat" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s0" width="120" height="68" alt=""><span class="vtime">4:12</span></a><div class="vin"><a class="ti" href="2010-watch.html">Harry Potter Deathly Hallows midnight premiere - SO MANY WANDS</a><div class="by">by leakycauldronvids</div><div class="vc">1,902,214 views<span class="fv">Featured Video</span></div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s1" width="120" height="68" alt=""><span class="vtime">5:31</span></a><div class="vin"><a class="ti" href="2010-watch.html">Kinect Adventures fail compilation</a><div class="by">by failarmy2010</div><div class="vc">4,811,004 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s2" width="120" height="68" alt=""><span class="vtime">3:07</span></a><div class="vin"><a class="ti" href="2010-watch.html">My dad tries Dance Central (he's 58)</a><div class="by">by danceparentz</div><div class="vc">611,902 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s3" width="120" height="68" alt=""><span class="vtime">9:48</span></a><div class="vin"><a class="ti" href="2010-watch.html">Kinect vs PlayStation Move vs Wii - which is best?</a><div class="by">by techreviewbro</div><div class="vc">1,204,333 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s4" width="120" height="68" alt=""><span class="vtime">2:44</span></a><div class="vin"><a class="ti" href="2010-watch.html">Grandma plays Call of Duty: Black Ops</a><div class="by">by gamergrandmaa</div><div class="vc">8,330,219 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s5" width="120" height="68" alt=""><span class="vtime">1:55</span></a><div class="vin"><a class="ti" href="2010-watch.html">Thanksgiving turkey fail 2010 (fire dept came)</a><div class="by">by deepfriedfail</div><div class="vc">3,045,700 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s6" width="120" height="68" alt=""><span class="vtime">3:39</span></a><div class="vin"><a class="ti" href="2010-watch.html">Teach Me How To Dougie - family edition</a><div class="by">by thehendersonfam</div><div class="vc">902,118 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s7" width="120" height="68" alt=""><span class="vtime">2:16</span></a><div class="vin"><a class="ti" href="2010-watch.html">Bed Intruder dance cover (lol)</a><div class="by">by autotunefan</div><div class="vc">2,224,059 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s8" width="120" height="68" alt=""><span class="vtime">1:12</span></a><div class="vin"><a class="ti" href="2010-watch.html">Double rainbow reaction... with my cat</a><div class="by">by mittensmom</div><div class="vc">540,212 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s9" width="120" height="68" alt=""><span class="vtime">3:51</span></a><div class="vin"><a class="ti" href="2010-watch.html">Kinect Dance Central - Poker Face 100%</a><div class="by">by dancecentralpro</div><div class="vc">712,044 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s10" width="120" height="68" alt=""><span class="vtime">4:25</span></a><div class="vin"><a class="ti" href="2010-watch.html">Black Friday 2010 Walmart madness</a><div class="by">by shoppingvlogs</div><div class="vc">5,903,441 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s11" width="120" height="68" alt=""><span class="vtime">2:03</span></a><div class="vin"><a class="ti" href="2010-watch.html">grandma reacts to Justin Bieber</a><div class="by">by thehendersonfam</div><div class="vc">1,340,577 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s12" width="120" height="68" alt=""><span class="vtime">12:17</span></a><div class="vin"><a class="ti" href="2010-watch.html">Xbox 360 Kinect unboxing + setup</a><div class="by">by unboxtherapy</div><div class="vc">2,610,882 views</div></div></li>
+<li class="vli" data-item="related"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10s13" width="120" height="68" alt=""><span class="vtime">4:59</span></a><div class="vin"><a class="ti" href="2010-watch.html">Old people try iPad for the first time</a><div class="by">by genxyzvids</div><div class="vc">6,720,301 views</div></div></li></ul></div>
+</div></div>
+<div id="footer-container"><div id="footer"><ul><li><a href="#">Help</a></li><li><a href="#">About YouTube</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Copyright</a></li><li><a href="#">Partnerships</a></li><li><a href="#">Developers</a></li><li><a href="#">Advertising</a></li><li><a href="#">Safety</a></li><li><a href="#">Report a bug</a></li></ul><ul><li><a href="#">YouTube on Your Phone</a></li><li><a href="#">YouTube on Your TV</a></li><li><a href="#">YouTube Blog</a></li><li><a href="#">YouTube Store</a></li><li><a href="#">Contact</a></li></ul><div class="info"><span>Language: <a href="#">English</a></span><span>Location: <a href="#">Worldwide</a></span><span>Safety mode: <a href="#">Off</a></span><span>&copy; 2010 YouTube, LLC</span></div></div></div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>YouTube - Broadcast Yourself.</title>
+<script src="../shared/studio.js"></script>
+<script src="assets/ytplayer.js"></script>
+<style>
+body{margin:8px;background:#fff;color:#222;font:12px Arial,Helvetica,sans-serif}
+td{font:12px Arial,Helvetica,sans-serif}
+a:link,a:visited,a:active{color:#0033CC}
+table{border-collapse:collapse}
+.wrap{width:800px;margin:0 auto}
+.hdr td{vertical-align:top;padding:0}
+.logo{display:block}
+.tagline{padding:0 5px;font-style:italic}
+.util td{padding:0}
+.util .d{padding:0 5px}
+.tabs{margin-top:9px}
+.tab{background:#BECEEE;margin:5px 2px 1px 0;padding:5px 20px 5px;font-size:13px;font-weight:bold;border-radius:5px 5px 0 0}
+.tab.sel{background:#DDDDDD;border-bottom:1px solid #DDDDDD;padding-bottom:6px;margin-bottom:0}
+.tab a{text-decoration:underline}
+.subnav{width:800px;margin:0 auto 10px;background:#DDDDDD;border-radius:5px;border-bottom:1px solid #BBBBBB;text-align:center;padding:7px 0 7px}
+.subnav .d{padding:0 10px}
+.search{text-align:center;margin-bottom:10px}
+.search input[type=text]{color:#ff3333;font-size:12px;width:300px;margin-right:5px}
+.btn{font:13px Arial,Helvetica,sans-serif;padding:1px 6px;border:2px outset #e8e8e8;background:#ECE9D8;color:#000;border-radius:0}
+.main{width:790px;margin:0 auto}
+.main>tbody>tr>td{vertical-align:top}
+.vtitle{font-size:16px;font-weight:bold;color:#333;padding:5px;border-top:1px dotted #CCCCCC}
+.nano{display:block;width:427px;height:45px;margin:0 auto;position:relative;text-decoration:none;background:#ffff66;overflow:hidden;font-family:"Arial Narrow","Helvetica Neue",Arial,sans-serif;text-align:left}
+.nano b{position:absolute;left:9px;top:4px;font-size:16px;color:#003399;letter-spacing:-.2px;transform:scaleX(.82);transform-origin:left}
+.nano span{position:absolute;left:9px;top:25px;font-size:12px;color:#222;transform:scaleX(.82);transform-origin:left;white-space:nowrap}
+.nano .ipod{position:absolute;left:262px;top:6px;width:155px;height:60px;border-radius:9px;background:linear-gradient(#3a3a3a,#111);box-shadow:inset 0 0 0 1px #000,inset 0 2px 0 rgba(255,255,255,.25)}
+.nano .scrn{position:absolute;left:14px;top:8px;width:120px;height:40px;background:#fff;border:1px solid #000;font-style:normal}
+.nano .scrn i{display:block;font:bold 8px/10px Arial;color:#000;text-align:center;background:linear-gradient(#f4f4f4,#cfd6df);border-bottom:1px solid #999;font-style:normal}
+.nano .scrn i.m{text-align:left;padding-left:3px;color:#fff;background:linear-gradient(#5d97e6,#2a63c4);border:0}
+#flashcontent{background:#fff;width:425px;height:350px;margin:0 auto;padding:10px 0;border:1px solid #CCC}
+/* 2005 player2.swf chrome */
+.yp{position:relative;width:425px;height:350px;background:#000;font-family:Verdana,Arial,sans-serif}
+.yp .scr{position:absolute;left:0;top:0;width:425px;height:326px;background:#000;overflow:hidden}
+.yp .scr img{width:425px;height:326px;object-fit:cover;display:block}
+.yp .bar{position:absolute;left:0;bottom:0;width:425px;height:24px;background:linear-gradient(#f7f7f7,#dcdcdc 55%,#c9c9c9);border-top:1px solid #8a8a8a;box-sizing:border-box;user-select:none}
+.yp .pp{position:absolute;left:3px;top:2px;width:26px;height:18px;border:1px solid #8c8c8c;border-radius:3px;background:linear-gradient(#fff,#d6d6d6);cursor:pointer;box-sizing:border-box}
+.yp .pp:before{content:"";position:absolute;left:9px;top:3px;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent #333}
+.ytp-playing .yp .pp:before,.yp.ytp-playing .pp:before{left:8px;top:3px;width:3px;height:10px;border:0;border-left:3px solid #333;border-right:3px solid #333;background:none;box-sizing:content-box;width:3px}
+.yp .trk{position:absolute;left:36px;top:7px;width:228px;height:8px;border:1px solid #888;background:#fff;border-radius:1px;cursor:pointer;box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+.yp .ld{position:absolute;left:0;top:0;height:100%;width:0;background:#bcbcbc}
+.yp .fl{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(#ff5a4a,#cc0000)}
+.yp .kn{position:absolute;top:-5px;left:0;width:9px;height:16px;margin-left:-5px;border:1px solid #666;border-radius:2px;background:linear-gradient(90deg,#e8e8e8,#fff 45%,#bdbdbd)}
+.yp .tm{position:absolute;left:272px;top:5px;font-size:10px;color:#222;letter-spacing:.2px}
+.yp .vol{position:absolute;left:352px;top:5px;width:16px;height:13px}
+.yp .ytmark{position:absolute;right:5px;top:5px;font:bold 10px Arial,sans-serif;color:#000;letter-spacing:-.3px}
+.yp .ytmark b{background:#cc0000;color:#fff;border-radius:3px;padding:0 2px;margin-left:1px}
+.acts{font-size:12px;font-weight:bold;text-align:center;padding:10px 0}
+.stars i{display:inline-block;width:17px;height:17px;background-size:17px 17px!important;vertical-align:middle;margin-right:1px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.6l-6.6 3.9 1.7-7.4-5.6-5 7.4-.7z' fill='%23f05252' stroke='%23e04040' stroke-width='1.2'/%3E%3C/svg%3E")}
+.stars i.e{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.6l-6.6 3.9 1.7-7.4-5.6-5 7.4-.7z' fill='%23ffffff' stroke='%23e04a4a' stroke-width='1.2'/%3E%3C/svg%3E")}
+.stars i.h{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3CclipPath id='c'%3E%3Crect width='12' height='24'/%3E%3C/clipPath%3E%3Cpath d='M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.6l-6.6 3.9 1.7-7.4-5.6-5 7.4-.7z' fill='%23ffffff' stroke='%23e04a4a' stroke-width='1.2'/%3E%3Cpath clip-path='url(%23c)' d='M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.6l-6.6 3.9 1.7-7.4-5.6-5 7.4-.7z' fill='%23f05252' stroke='%23e04040' stroke-width='1.2'/%3E%3C/svg%3E")}
+.rate td{padding-bottom:15px}
+.rate .l{float:left;margin-left:5em;padding-right:18px}
+.rate .r{float:right;margin-right:5em}
+.desc{font-size:12px;padding:10px 0 5px;color:#000;border-top:1px dotted #CCCCCC}
+.added{font-size:11px;padding-bottom:18px}
+.dh{font-weight:bold;font-size:12px;color:#003399;padding-bottom:7px}
+.hl{background:#FFFFAA;padding:2px}
+.s11{font-size:11px}
+.pb10{padding-bottom:10px}
+.share input{width:300px;font-size:10px}
+.cform textarea{width:400px;height:46px;font:13px monospace}
+.commentsTitle{font-size:11px;font-weight:bold;color:#333;background:#EEEEEE;border-top:1px dashed #999;border-bottom:1px dashed #999}
+.commentsTitle td{padding:5px 5px 6px;font-size:11px;font-weight:bold}
+.parentSection{background:#FFFFCC;margin-top:3px}
+.parentSection td,.childrenSection td{font-size:11px;padding:5px 2px 5px 0}
+.childrenSection{background:#fff;border-bottom:1px dashed #CCC;margin:2px 0}
+.cthumb{border:5px solid #fff;margin:0 5px 0 4px;width:60px;height:45px;object-fit:cover;display:block}
+.cspec{font-size:10px;padding:2px 0 0 4px}
+.userStats{padding-top:5px}
+/* right column */
+.rbox{border-radius:5px}
+.np{background:#EEEEEE;padding:5px 0;margin-bottom:10px;width:280px}
+.np td{text-align:center;vertical-align:bottom}
+.np img{border:5px solid #fff;display:block;margin:0 auto;object-fit:cover}
+.np .lb{font-size:10px;font-weight:bold;padding-top:3px}
+.np .noprev{width:60px;height:45px;background:#ccc;color:#333;font:9px/10px "Courier New",monospace;text-align:center;display:flex;align-items:center;justify-content:center;border:5px solid #fff;margin:0 auto}
+.rel{background:#CCCCCC;width:280px;padding:5px 0}
+.rel .tb{width:270px;margin:0 auto;border-bottom:1px dashed #999}
+.rel .tb td{vertical-align:top}
+.mftb{font-size:12px;font-weight:bold;margin:0 5px 5px;color:#444}
+.side{width:270px;height:350px;overflow:auto;margin:0 auto;background:#ddd}
+.mfe{background:linear-gradient(#f4f4f4,#dddddd 40px);border-bottom:1px dashed #999;padding:8px}
+.mfe.sel{background:linear-gradient(#ffffee,#FFFFCC 40px)}
+.mfe table{width:235px}
+.mthumb{border:5px solid #fff;width:80px;height:60px;object-fit:cover;display:block}
+.mftitle{font-size:11px;font-weight:bold;margin-bottom:3px;color:#0033CC}
+.mfdet{font-size:10px;color:#666;margin-bottom:5px}
+.nowpl{font-size:10px;font-weight:bold;color:#CC6600;padding:3px 6px;background:#FFCC66}
+.rside{padding:12px 0 0;font-size:12px;line-height:19px}.rside .rh{font-weight:bold;color:#222;margin:2px 0 4px}.rside .rh~.rh{margin-top:12px}.rside div[data-item]{color:#666}
+.footer{font-size:11px;color:#111;text-align:center;padding:25px 0 20px}
+.rss{display:inline-block;vertical-align:text-top;width:36px;height:14px;font:bold 9px/14px Verdana,sans-serif;color:#fff;text-align:left;background:linear-gradient(90deg,#ff7b00 0 15px,#ff9a33 15px);border:1px solid #c65d00;box-sizing:border-box;padding-left:2px;letter-spacing:-.2px}
+.newbadge{display:inline-block;font:bold 8px/11px Verdana;color:#fff;background:#ff3300;padding:0 2px;vertical-align:1px}
+</style>
+</head>
+<body data-page="youtube-2005-watch" data-v="1" data-url="http://www.youtube.com/watch.php?v=Lq7xN3fTsk0">
+<table class="wrap hdr"><tr valign="top"><td width="130" rowspan="2" style="padding:0 5px 5px"><a href="#"><svg class="logo" width="120" height="48" viewBox="0 0 120 48" aria-label="YouTube"><defs><linearGradient id="lr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2463a"/><stop offset=".55" stop-color="#d8211a"/><stop offset="1" stop-color="#b8120c"/></linearGradient><linearGradient id="lk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><text x="1" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="url(#lk)" textLength="50" lengthAdjust="spacingAndGlyphs">You</text><rect x="53" y="4" width="65" height="42" rx="9" fill="url(#lr)"/><text x="57" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#fff" textLength="57" lengthAdjust="spacingAndGlyphs">Tube</text></svg></a></td>
+<td><table width="670"><tr valign="top"><td class="tagline">Upload, tag and share your videos worldwide!</td><td align="right"><table class="util"><tr><td><a href="#"><strong>Sign Up</strong></a></td><td class="d">|</td><td><a href="#">Log In</a></td><td class="d">|</td><td style="padding-right:5px"><a href="#">Help</a></td></tr></table></td></tr></table></td></tr>
+<tr valign="bottom"><td><table class="tabs"><tr><td><div class="tab"><a href="#">Home</a></div></td><td><div class="tab sel"><a href="#">Videos</a></div></td><td><div class="tab"><a href="#">Channels</a></div></td><td><div class="tab"><a href="#">Friends</a></div></td><td><div class="tab"><a href="#">Upload</a></div></td></tr></table></td></tr></table>
+<div class="subnav"><a href="#">Most Recent</a><span class="d">|</span><a href="#">Most Viewed</a><span class="d">|</span><a href="#">Most Discussed</a><span class="d">|</span><a href="#">Top Favorites</a><span class="d">|</span><a href="#">Top Rated</a><span class="d">|</span><a href="#">Recently Featured</a><span class="d">|</span><a href="#">Random</a></div>
+<form class="search"><input type="text" value="" data-noedit><input class="btn" type="submit" value="Search Videos"> <input class="btn" type="submit" value="Search Users"></form>
+<table class="main"><tr valign="top">
+<td width="510" style="padding-right:15px">
+<div class="vtitle">dorm room lightsaber duel (with sound fx)</div>
+<div style="text-align:center;padding-bottom:8px">
+<a class="nano" href="#" data-noedit><b>Nano-a-day Giveaway! Sign up now.</b><span>Everyday we will be giving away a FREE 4G iPod Nano!</span><i class="ipod"><i class="scrn"><i>iPod</i><i class="m">Music</i></i></i></a>
+<div id="flashcontent"><div class="yp" data-ytp="pad"><div class="scr" data-video><img data-ph="thumb" data-seed="yt05main" width="425" height="326" alt=""></div>
+<div class="bar" data-noedit><div class="pp" data-ytp-toggle></div><div class="trk" data-ytp-seek><div class="ld" data-ytp-load style="width:38%"></div><div class="fl" data-ytp-fill></div><div class="kn" data-ytp-knob></div></div><div class="tm"><span data-ytp-cur>00:00</span> | <span data-ytp-dur>03:12</span></div><svg class="vol" viewBox="0 0 16 13"><path d="M1 4h3l4-3v11L4 9H1z" fill="#333"/><path d="M10 3.5c1.6 1.6 1.6 4.4 0 6M12 1.5c2.7 2.7 2.7 7.3 0 10" stroke="#333" stroke-width="1.3" fill="none"/></svg><div class="ytmark">You<b>Tube</b></div></div></div></div>
+</div>
+<div class="acts"><a href="#">Post Comments</a> &nbsp;&nbsp;//&nbsp;&nbsp; <a href="#">Add to Favorites</a> &nbsp;&nbsp;//&nbsp;&nbsp; <a href="#">Flag This Video</a></div>
+<table width="400" align="center" class="rate"><tr><td><div class="l"><span>Average (212 votes)</span><br><nobr class="stars"><i class="st"></i><i class="st"></i><i class="st"></i><i class="st"></i><i class="st h"></i></nobr></div><div class="r"><span>Rate this video!</span><br><nobr class="stars"><i class="st e"></i><i class="st e"></i><i class="st e"></i><i class="st e"></i><i class="st e"></i></nobr></div></td></tr></table>
+<table width="485" align="center"><tr><td>
+<div class="desc">me and steve finally finished our lightsaber movie. took us all weekend and we broke a lamp lol. sound effects were added on my roommates powerbook. made with a broomstick, a mini-dv camcorder and way too much mountain dew.<br><br>part 2 coming soon!! leave comments plz</div>
+<div class="added">Added on December 03, 2005, 04:12 PM by <a href="#">kevinfromtucson</a></div></td></tr></table>
+<table width="485" align="center"><tr valign="top"><td width="245" style="border-right:1px dotted #AAAAAA;padding-right:5px">
+<div class="dh">Video Details //</div>
+<div class="s11 pb10">Runtime: 03:12 | Views: 48211 | <a href="#comment">Comments</a>: 61</div>
+<div class="pb10"><span class="hl">Tags:</span>&nbsp; <a href="#">lightsaber</a>, <a href="#">starwars</a>, <a href="#">dorm</a>, <a href="#">funny</a>, <a href="#">college</a></div>
+<div class="pb10"><span class="hl">Channels:</span>&nbsp; <a href="#">Comedy</a>, <a href="#">Odd &amp; Outrageous</a>, <a href="#">Movies &amp; Shows</a></div></td>
+<td width="240" style="padding-left:10px">
+<div class="dh">User Details //</div>
+<div class="s11 pb10"><a href="#">Videos</a>: 12 | <a href="#">Favorites</a>: 31 | <a href="#">Friends</a>: 19</div>
+<div class="pb10"><span class="hl">User Name:</span>&nbsp; <a href="#">kevinfromtucson</a></div>
+<div style="padding-bottom:5px"><svg width="14" height="12" viewBox="0 0 14 12" style="vertical-align:middle"><rect x=".5" y=".5" width="13" height="11" rx="2" fill="#ffcc33" stroke="#cc8800"/><path d="M3 4h8M3 6h8M3 8h5" stroke="#996600"/></svg>&nbsp;<a href="#">subscribe</a> to kevinfromtucson's videos</div>
+<div class="pb10">I was on the site 2 hours ago.</div>
+<div style="font-weight:bold;padding-bottom:10px"><a href="#">Send Me a Private Message!</a></div></td></tr></table><br>
+<table width="485" align="center" class="share" style="table-layout:fixed"><tr><td width="33%"><div class="dh">Share Details // &nbsp;<a href="#">Help?</a></div></td><td width="67%">&nbsp;</td></tr>
+<tr><td valign="top"><span class="hl">Video URL (Permalink):</span></td><td valign="top"><input type="text" readonly value="http://www.youtube.com/?v=Lq7xN3fTsk0"><div class="s11">(E-mail or link it)<br><br></div></td></tr>
+<tr><td valign="top"><span class="hl">Embeddable Player:</span></td><td valign="top"><input type="text" readonly value='&lt;object width="425" height="350"&gt;&lt;param name="movie" value="http://www.youtube.com/v/Lq7xN3fTsk0"&gt;&lt;/param&gt;&lt;embed src="http://www.youtube.com/v/Lq7xN3fTsk0" type="application/x-shockwave-flash" width="425" height="350"&gt;&lt;/embed&gt;&lt;/object&gt;'><div class="s11">(Put this video on your website. Works on Friendster, eBay, Blogger, MySpace!)<br><br></div></td></tr>
+<tr><td colspan="2" valign="top"><br><span class="hl">Sites linking to this video:</span><div class="s11" style="padding-bottom:7px"></div>
+<div data-item="link">&raquo; <b>1204 clicks from </b> <a href="#">http://www.myspace.com/kevinfromtucson</a></div>
+<div data-item="link">&raquo; <b>866 clicks from </b> <a href="#">http://www.ebaumsworld.com/forum/</a></div>
+<div data-item="link">&raquo; <b>412 clicks from </b> <a href="#">http://lightsaberfans.blogspot.com/</a></div>
+<div data-item="link">&raquo; <b>173 clicks from </b> <a href="#">http://www.xanga.com/steve_o_rama</a></div>
+<div data-item="link">&raquo; <b>58 clicks from </b> <a href="#">http://forums.somethingawful.com/</a></div></td></tr></table><br>
+<a name="comment"></a>
+<div style="padding-bottom:5px;font-weight:bold;color:#444">Comment on this video:</div>
+<form class="cform"><textarea data-noedit></textarea><br><input class="btn" type="button" value="Post Comment"></form><br>
+<table width="495"><tr><td><table class="commentsTitle" width="100%"><tr><td>Comments (61):</td></tr></table></td></tr>
+<tr><td>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c0" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>haha the part where the lamp falls over is the best. you guys need to make a part 2!!<div class="userStats"><a href="#">brettismadd</a> // <a href="#">Videos</a> (8) | <a href="#">Favorites</a> (3) | <a href="#">Friends</a> (27) - (1 day ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table><table class="childrenSection" width="96%" align="right" data-item="reply"><tr valign="top"><td width="78"><a href="#"><img class="cthumb" data-ph="thumb" data-seed="yt05cr" width="60" height="45" alt=""></a><div class="cspec"><a href="#">Related Video</a></div></td><td>part 2 is coming next week, we have to buy a new lamp first haha<div class="userStats"><a href="#">kevinfromtucson</a> // <a href="#">Videos</a> (12) | <a href="#">Favorites</a> (31) | <a href="#">Friends</a> (19) - (1 day ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table><div style="clear:both"></div>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c1" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>how did u do the glow?? is it premiere or after effects<div class="userStats"><a href="#">fxnerd</a> // <a href="#">Videos</a> (14) | <a href="#">Favorites</a> (40) | <a href="#">Friends</a> (9) - (1 day ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c2" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>this is soooo much better than the star wars kid. 5 stars<div class="userStats"><a href="#">heatherrr22</a> // <a href="#">Videos</a> (2) | <a href="#">Favorites</a> (56) | <a href="#">Friends</a> (118) - (2 days ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c3" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>lol my RA would kill us if we did this in our dorm<div class="userStats"><a href="#">dorm_life</a> // <a href="#">Videos</a> (11) | <a href="#">Favorites</a> (2) | <a href="#">Friends</a> (14) - (3 days ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c4" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>the sound effects are perfect. sounds exactly like the movie<div class="userStats"><a href="#">jedimaster_dan</a> // <a href="#">Videos</a> (6) | <a href="#">Favorites</a> (22) | <a href="#">Friends</a> (31) - (4 days ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c5" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>dude where did you get the sound effects? i want to make one with my brother over christmas break<div class="userStats"><a href="#">skaterboi_mike</a> // <a href="#">Videos</a> (0) | <a href="#">Favorites</a> (5) | <a href="#">Friends</a> (3) - (5 days ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c6" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>i watched this like 10 times. sent it to everyone at work<div class="userStats"><a href="#">quietlaughs</a> // <a href="#">Videos</a> (4) | <a href="#">Favorites</a> (88) | <a href="#">Friends</a> (40) - (1 week ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c7" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>good job, its like a real movie!! subscribed<div class="userStats"><a href="#">lilmissjenna</a> // <a href="#">Videos</a> (1) | <a href="#">Favorites</a> (17) | <a href="#">Friends</a> (62) - (1 week ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c8" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>whats the song at the end?<div class="userStats"><a href="#">musicfreak04</a> // <a href="#">Videos</a> (0) | <a href="#">Favorites</a> (9) | <a href="#">Friends</a> (5) - (1 week ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+<table class="parentSection" width="100%" data-item="comment"><tr valign="top"><td width="78"><a href="2005-watch.html"><img class="cthumb" data-ph="thumb" data-seed="yt05c9" width="60" height="45" alt=""></a><div class="cspec"><a href="2005-watch.html">Related Video</a></div></td><td>Revenge of the Sith was so much better on dvd btw<div class="userStats"><a href="#">darthfanatic</a> // <a href="#">Videos</a> (2) | <a href="#">Favorites</a> (13) | <a href="#">Friends</a> (8) - (2 weeks ago)</div><div class="userStats">(<a href="#">Reply to this</a>) &nbsp; (<a href="#">Create new thread</a>) &nbsp;</div></td></tr></table>
+</td></tr></table>
+</td>
+<td width="280">
+<div class="np rbox"><table width="270" align="center"><tr><td><div class="noprev">This is<br>your first<br>video.</div><div class="lb">&lt; PREV</div></td><td><img data-ph="thumb" data-seed="yt05main" width="80" height="60" alt="" style="width:80px;height:60px"><div class="lb">NOW PLAYING</div></td><td><a href="2005-watch.html"><img data-ph="thumb" data-seed="yt05r1" width="60" height="45" alt=""></a><div class="lb"><a href="2005-watch.html">NEXT &gt;</a></div></td></tr></table></div>
+<div class="rel rbox"><table class="tb"><tr><td><div class="mftb">Related Videos (25 of 1844)</div></td><td align="right"><div style="font-size:11px;margin-right:5px"><a href="#">See All Results</a></div></td></tr></table>
+<div class="side">
+<div class="mfe sel" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r0" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">dorm room lightsaber duel (with sound fx)</a></div><div class="mfdet">by <a href="#">kevinfromtucson</a></div><div class="mfdet">Runtime: 03:12<br>Views: 48211<br>Comments: 61</div><div class="nowpl"><nobr>&lt;&lt;&lt; NOW PLAYING!</nobr></div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r1" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">lightsaber battle in my garage pt 2</a></div><div class="mfdet">by <a href="#">jedimaster_dan</a></div><div class="mfdet">Runtime: 02:05<br>Views: 1877<br>Comments: 4</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r2" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">my brother does the numa numa</a></div><div class="mfdet">by <a href="#">heatherrr22</a></div><div class="mfdet">Runtime: 01:41<br>Views: 20563<br>Comments: 37</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r3" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">star wars kid remix (lightsaber edition)</a></div><div class="mfdet">by <a href="#">pixelpusher</a></div><div class="mfdet">Runtime: 00:58<br>Views: 9032<br>Comments: 15</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r4" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">Christmas lights to Trans-Siberian Orchestra</a></div><div class="mfdet">by <a href="#">holidayhouse_oh</a></div><div class="mfdet">Runtime: 03:39<br>Views: 118940<br>Comments: 92</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r5" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">How to make a lightsaber in After Effects</a></div><div class="mfdet">by <a href="#">fxnerd</a></div><div class="mfdet">Runtime: 04:47<br>Views: 3361<br>Comments: 12</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r6" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">broomstick saber fight at the quad</a></div><div class="mfdet">by <a href="#">uscfilmkids</a></div><div class="mfdet">Runtime: 01:58<br>Views: 611<br>Comments: 2</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r7" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">Ewok sighting at the mall??</a></div><div class="mfdet">by <a href="#">mallrats05</a></div><div class="mfdet">Runtime: 00:44<br>Views: 2209<br>Comments: 9</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r8" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">kitten vs. lightsaber</a></div><div class="mfdet">by <a href="#">mochi_the_cat</a></div><div class="mfdet">Runtime: 00:27<br>Views: 5544<br>Comments: 21</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r9" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">XBOX 360 launch midnight line</a></div><div class="mfdet">by <a href="#">gamerkid1987</a></div><div class="mfdet">Runtime: 02:51<br>Views: 7712<br>Comments: 33</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r10" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">Darth Vader at the DMV</a></div><div class="mfdet">by <a href="#">quietlaughs</a></div><div class="mfdet">Runtime: 01:16<br>Views: 15020<br>Comments: 44</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r11" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">epic pillow fight - floor 3 vs floor 4</a></div><div class="mfdet">by <a href="#">dorm_life</a></div><div class="mfdet">Runtime: 02:22<br>Views: 1045<br>Comments: 6</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r12" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">fake jedi tryouts lol</a></div><div class="mfdet">by <a href="#">brettismadd</a></div><div class="mfdet">Runtime: 03:03<br>Views: 402<br>Comments: 1</div></td></tr></table></div>
+<div class="mfe" data-item="related"><table><tr valign="top"><td width="90"><a href="2005-watch.html"><img class="mthumb" data-ph="thumb" data-seed="yt05r13" width="80" height="60" alt=""></a></td><td><div class="mftitle"><a href="2005-watch.html">sound effects test #4</a></div><div class="mfdet">by <a href="#">kevinfromtucson</a></div><div class="mfdet">Runtime: 00:39<br>Views: 388<br>Comments: 3</div></td></tr></table></div>
+</div></div>
+<div class="rside"><div class="rh">Honors:</div>
+<div data-item="honor">&raquo; <a href="#">#12 - Most Viewed (Today)</a></div>
+<div data-item="honor">&raquo; <a href="#">#4 - Most Discussed (Today)</a></div>
+<div data-item="honor">&raquo; <a href="#">#31 - Top Favorites (This Week)</a></div>
+<div class="rh">Related Tags:</div>
+<div data-item="tag">&raquo; <a href="#">lightsaber</a></div><div data-item="tag">&raquo; <a href="#">starwars</a></div><div data-item="tag">&raquo; <a href="#">jedi</a></div><div data-item="tag">&raquo; <a href="#">dorm</a></div><div data-item="tag">&raquo; <a href="#">college</a></div><div data-item="tag">&raquo; <a href="#">funny</a></div><div data-item="tag">&raquo; <a href="#">fight</a></div><div data-item="tag">&raquo; <a href="#">sith</a></div><div data-item="tag">&raquo; <a href="#">broomstick</a></div><div data-item="tag">&raquo; <a href="#">vader</a></div><div data-item="tag">&raquo; <a href="#">effects</a></div><div data-item="tag">&raquo; <a href="#">homemade</a></div><div data-item="tag">&raquo; <a href="#">movie</a></div><div data-item="tag">&raquo; <a href="#">ucla</a></div>
+<div class="rh">Playlists:</div>
+<div data-item="playlist">&raquo; <a href="#">funny stuff 2005</a></div>
+<div data-item="playlist">&raquo; <a href="#">star wars fan films!!</a></div>
+</div>
+</td></tr></table>
+<div class="footer"><a href="#">What's New</a> <span class="newbadge">NEW</span> | <a href="#">About Us</a> | <a href="#">Help</a> | <a href="#">Developers</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Jobs</a><br><br>Copyright &copy; 2005 YouTube, Inc.&trade; | <a href="#" class="rss" data-noedit>RSS</a></div>
+</body>
+</html>

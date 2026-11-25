@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Facebook | Home</title>
+<script src="../shared/studio.js"></script>
+<script src="assets/fb-defaults.js"></script>
+<style>
+body { margin: 0; background: #fff; font-family: "lucida grande", tahoma, verdana, arial, sans-serif; font-size: 11px; color: #333; padding-bottom: 40px; }
+a { color: #3b5998; text-decoration: none; cursor: pointer; }
+html.studio-film a:hover { text-decoration: underline; }
+input, textarea { font-family: "lucida grande", tahoma, verdana, arial, sans-serif; font-size: 11px; }
+.g { color: #999; }
+#blue { background: #3b5998; height: 40px; border-bottom: 1px solid #133783; }
+#bar { width: 980px; margin: 0 auto; position: relative; height: 40px; }
+#bar .logo { position: absolute; left: 0; top: 0; font: bold 27px/40px "Trebuchet MS", "lucida grande", tahoma, sans-serif; letter-spacing: -1px; color: #fff; }
+#bar .nav { position: absolute; left: 132px; top: 0; }
+#bar .nav a, #bar .acct a { float: left; color: #fff; font-weight: bold; padding: 0 8px; line-height: 40px; }
+html.studio-film #bar .nav a:hover, html.studio-film #bar .acct a:hover { background: #6d84b4; text-decoration: none; }
+#bar .nav a .cnt { font-weight: normal; }
+#bar .srch { position: absolute; left: 400px; top: 9px; }
+#bar .srch input { width: 236px; height: 16px; border: 1px solid #1d4088; border-right: 0; padding: 2px 4px; color: #777; float: left; }
+#bar .srch .sbtn { float: left; width: 22px; height: 22px; background: #6d84b4 no-repeat 5px 5px; border: 1px solid #1d4088; }
+#bar .acct { position: absolute; right: 0; top: 0; }
+#bar .acct a { font-weight: normal; }
+#page { width: 980px; margin: 0 auto; overflow: hidden; }
+#lcol { float: left; width: 180px; padding: 15px 0 0; }
+#ccol { float: left; width: 500px; margin-left: 15px; padding-top: 15px; }
+#rcol { float: right; width: 250px; padding-top: 15px; }
+.me { overflow: hidden; padding: 0 0 10px; border-bottom: 1px solid #e9e9e9; margin-bottom: 8px; }
+.me img { float: left; width: 50px; height: 50px; object-fit: cover; margin-right: 8px; }
+.me .nm { font-weight: bold; font-size: 13px; display: block; margin: 4px 0 2px; }
+.filters a { display: block; padding: 4px 4px 4px 26px; background-repeat: no-repeat; background-position: 4px 3px; font-size: 11px; border-radius: 2px; }
+.filters a.sel { background-color: #d8dfea; font-weight: bold; color: #333; }
+html.studio-film .filters a:hover { background-color: #eceff5; text-decoration: none; }
+.lhead { color: #808080; font-weight: bold; padding: 12px 0 4px 4px; border-bottom: 1px solid #e9e9e9; margin-bottom: 4px; }
+.feedhead { overflow: hidden; border-bottom: 1px solid #e9e9e9; padding-bottom: 8px; }
+.feedhead h2 { margin: 0; font-size: 16px; color: #1c2a47; float: left; }
+.feedhead .r { float: right; padding-top: 4px; color: #999; }
+.feedhead .r b { color: #333; }
+.pub { padding: 10px 0 10px; border-bottom: 1px solid #e9e9e9; }
+.pub textarea { width: 490px; height: 30px; border: 1px solid #bdc7d8; padding: 4px; resize: none; font-size: 13px; color: #777; display: block; }
+.pub .row { overflow: hidden; margin-top: 6px; }
+.pub .attach { float: left; color: #808080; padding-top: 3px; }
+.pub .attach span { display: inline-block; width: 18px; height: 16px; margin-right: 6px; background-repeat: no-repeat; vertical-align: -4px; }
+.btn { float: right; background: #5b74a8; color: #fff; font-weight: bold; border: 1px solid; border-color: #8a9cc2 #29447e #29447e #29447e; padding: 3px 10px 4px; font-size: 11px; box-shadow: inset 0 1px 0 #8a9cc2; }
+.story { overflow: hidden; padding: 10px 0; border-bottom: 1px solid #e9e9e9; }
+.spic { float: left; }
+.spic img { width: 50px; height: 50px; object-fit: cover; display: block; }
+.sb { margin-left: 60px; line-height: 15px; }
+.sh { font-size: 11px; color: #333; }
+.nm { font-weight: bold; }
+.smeta { color: #999; padding-top: 5px; }
+.smeta .sic { display: inline-block; width: 16px; height: 16px; vertical-align: -4px; margin-right: 4px; background-repeat: no-repeat; }
+.att { overflow: hidden; padding: 7px 0 2px; }
+.att > img, .vthumb { float: left; margin-right: 10px; }
+.att img { width: 90px; height: 68px; object-fit: cover; border: 1px solid #ccc; }
+.vthumb { position: relative; }
+.vthumb img { width: 130px; height: 98px; display: block; }
+.vthumb .play { position: absolute; left: 50%; top: 50%; margin: -13px 0 0 -13px; width: 26px; height: 26px; border-radius: 50%; background: rgba(0,0,0,.55); border: 2px solid #fff; box-sizing: border-box; pointer-events: none; }
+.vthumb .play:after { content: ""; position: absolute; left: 9px; top: 6px; border-left: 8px solid #fff; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.atitle { font-weight: bold; }
+.adom, .adesc { color: #808080; }
+.thumbs { padding: 6px 0 2px; }
+.thumbs img { object-fit: cover; margin-right: 6px; border: 1px solid #ccc; }
+.minis { padding-top: 5px; }
+.minis img { width: 32px; height: 32px; object-fit: cover; margin-right: 4px; }
+.appatt { padding-top: 5px; color: #555; }
+.appatt .sic { display: inline-block; width: 16px; height: 16px; vertical-align: -4px; margin-right: 4px; background-repeat: no-repeat; }
+.cmts { width: 430px; margin-top: 5px; }
+.likes { background: #edeff4; padding: 5px 6px; margin-bottom: 1px; }
+.likes .lic { display: inline-block; width: 14px; height: 14px; vertical-align: -3px; margin-right: 5px; background-repeat: no-repeat; }
+.cmt { background: #edeff4; border-bottom: 1px solid #e5eaf1; padding: 5px 6px; overflow: hidden; margin-bottom: 1px; }
+.cpic { float: left; }
+.cpic img { width: 32px; height: 32px; object-fit: cover; display: block; }
+.cb { margin-left: 40px; line-height: 14px; }
+.ct { color: #999; font-size: 10px; margin-top: 1px; }
+.cwrite { background: #edeff4; padding: 5px 6px; }
+.cwrite input { width: 410px; border: 1px solid #bdc7d8; padding: 3px; color: #777; }
+.more { text-align: center; padding: 10px; background: #edeff4; margin: 10px 0 20px; font-weight: bold; }
+.rbox { margin-bottom: 16px; }
+.rbox h4 { margin: 0 0 6px; padding: 0 0 4px; font-size: 11px; color: #333; border-bottom: 1px solid #e2e2e2; overflow: hidden; }
+.rbox h4 .r { float: right; font-weight: normal; }
+.req, .ev, .poke { position: relative; padding: 3px 0 4px 24px; line-height: 15px; }
+.ric { position: absolute; left: 0; top: 3px; width: 16px; height: 16px; background-repeat: no-repeat; }
+.sugg { overflow: hidden; padding: 4px 0 6px; }
+.sgp img { float: left; width: 50px; height: 50px; object-fit: cover; margin-right: 8px; }
+.sugg .add { display: inline-block; margin-top: 3px; padding-left: 14px; position: relative; }
+.sugg .add:before { content: "+"; position: absolute; left: 2px; top: -2px; color: #5a9e3a; font-weight: bold; font-size: 13px; }
+.ad .adt { font-weight: bold; display: block; margin-bottom: 4px; }
+.ad img { width: 110px; height: 80px; object-fit: cover; float: left; margin: 0 8px 4px 0; }
+.ad { overflow: hidden; line-height: 14px; }
+#footer { clear: both; margin: 10px 0 0; padding: 8px 0 20px; border-top: 1px solid #ccc; color: #777; overflow: hidden; }
+#footer .r { float: right; }
+#footer .r a { margin-left: 8px; }
+#presence { position: fixed; left: 15px; right: 15px; bottom: 0; height: 25px; background: #e5e5e5; border: 1px solid #b5b5b5; border-bottom: 0; z-index: 50; font-size: 11px; }
+#presence .appsbtn { float: left; height: 25px; line-height: 25px; padding: 0 8px 0 26px; border-right: 1px solid #b5b5b5; background-repeat: no-repeat; background-position: 7px 6px; font-weight: bold; color: #333; }
+#presence .appic { float: left; width: 26px; height: 25px; border-right: 1px solid #cfcfcf; background-repeat: no-repeat; background-position: 5px 4px; }
+#presence .right { float: right; height: 25px; }
+#presence .tab { float: right; height: 25px; line-height: 25px; padding: 0 10px; border-left: 1px solid #b5b5b5; color: #333; position: relative; }
+#presence .tab.chat { width: 160px; font-weight: bold; }
+#presence .tab.chat .dot { display: inline-block; width: 8px; height: 8px; margin-right: 6px; background-repeat: no-repeat; vertical-align: 0; }
+#presence .tab.open { background: #fff; font-weight: bold; width: 140px; }
+#presence .tab.notif { width: 16px; background-repeat: no-repeat; background-position: 10px 6px; padding: 0 8px; }
+#presence .badge { position: absolute; top: -6px; right: -2px; background: #dd3c10; color: #fff; font-size: 9px; font-weight: bold; line-height: 13px; padding: 0 3px; border: 1px solid #b0300c; border-radius: 2px; }
+#chatwin { position: fixed; bottom: 25px; right: 225px; width: 260px; background: #fff; border: 1px solid #b5b5b5; border-bottom: 0; z-index: 51; box-shadow: 0 -1px 3px rgba(0,0,0,.15); }
+#chatwin .h { background: #6d84b4; color: #fff; font-weight: bold; padding: 5px 8px; border: 1px solid #3b5998; margin: -1px -1px 0; }
+#chatwin .h .x { float: right; color: #d8dfea; font-weight: normal; }
+#chatwin .msgs { height: 150px; padding: 6px 8px; overflow: hidden; line-height: 15px; }
+#chatwin .cm { padding: 2px 0; }
+#chatwin .when { color: #999; font-size: 10px; text-align: center; padding-bottom: 4px; }
+#chatwin .in { border-top: 1px solid #ccc; padding: 4px; }
+#chatwin .in input { width: 244px; border: 0; padding: 2px; }
+#buddy { position: fixed; bottom: 25px; right: 15px; width: 202px; background: #fff; border: 1px solid #b5b5b5; border-bottom: 0; z-index: 51; }
+#buddy .h { background: #6d84b4; color: #fff; font-weight: bold; padding: 5px 8px; border: 1px solid #3b5998; margin: -1px -1px 0; }
+#buddy .h .r { float: right; font-weight: normal; color: #d8dfea; }
+#buddy .lst { padding: 4px 0; }
+#buddy .on { padding: 3px 8px 3px 24px; position: relative; }
+#buddy .on .dot { position: absolute; left: 9px; top: 6px; width: 8px; height: 8px; background-repeat: no-repeat; }
+#buddy .on.idle .dot { opacity: .45; }
+.i-status { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M2%202.5h12a1%201%200%20011%201v7a1%201%200%2001-1%201H7l-3%203v-3H2a1%201%200%2001-1-1v-7a1%201%200%20011-1z%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M4%206h8M4%208.5h5%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-photo { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%27.5%27%20y%3D%273.5%27%20width%3D%2715%27%20height%3D%2710%27%20rx%3D%271%27%20fill%3D%27%23e9ecf3%27%20stroke%3D%27%236d84b4%27%2F%3E%3Ccircle%20cx%3D%278%27%20cy%3D%278.5%27%20r%3D%273%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%272%27%20y%3D%272%27%20width%3D%274%27%20height%3D%272%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-link { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271.5%27%20y%3D%275.5%27%20width%3D%277%27%20height%3D%275%27%20rx%3D%272.5%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.4%27%2F%3E%3Crect%20x%3D%277.5%27%20y%3D%275.5%27%20width%3D%277%27%20height%3D%275%27%20rx%3D%272.5%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-video { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%27.5%27%20y%3D%274.5%27%20width%3D%2711%27%20height%3D%278%27%20rx%3D%271%27%20fill%3D%27%23e9ecf3%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M11.5%208.5%20L15.5%205.5%20V11.5%20Z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-event { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271.5%27%20y%3D%272.5%27%20width%3D%2713%27%20height%3D%2712%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%271.5%27%20y%3D%272.5%27%20width%3D%2713%27%20height%3D%273%27%20fill%3D%27%23d34e4e%27%2F%3E%3Cpath%20d%3D%27M4%208h2M7%208h2M10%208h2M4%2011h2M7%2011h2%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-news { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271.5%27%20y%3D%272.5%27%20width%3D%2713%27%20height%3D%2711%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%273%27%20y%3D%274%27%20width%3D%274%27%20height%3D%274%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M8.5%204.5h4.5M8.5%206.5h4.5M3%2010h10M3%2012h10%27%20stroke%3D%27%239aaad0%27%2F%3E%3C%2Fsvg%3E"); }
+.i-notes { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M3.5%201.5h7l2%202v11h-9z%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M5%206h6M5%208h6M5%2010h4%27%20stroke%3D%27%239aaad0%27%2F%3E%3C%2Fsvg%3E"); }
+.i-pages { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M3%201.5v13%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.5%27%2F%3E%3Cpath%20d%3D%27M3.5%202.5h9l-2%203%202%203h-9z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-more { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M4%206l4%204%204-4%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E"); }
+.i-group { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Ccircle%20cx%3D%274%27%20cy%3D%275%27%20r%3D%272%27%20fill%3D%27%239aaad0%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%275%27%20r%3D%272%27%20fill%3D%27%239aaad0%27%2F%3E%3Ccircle%20cx%3D%278%27%20cy%3D%276%27%20r%3D%272.6%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M2.5%2014c0-3.4%202.3-5%205.5-5s5.5%201.6%205.5%205z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-farm { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271%27%20y%3D%279%27%20width%3D%2714%27%20height%3D%276%27%20fill%3D%27%237cb342%27%2F%3E%3Cpath%20d%3D%27M3%209V5l5-3%205%203v4z%27%20fill%3D%27%23d84b3e%27%2F%3E%3Crect%20x%3D%276.5%27%20y%3D%276%27%20width%3D%273%27%20height%3D%273%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E"); }
+.i-mafia { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%272%27%20y%3D%276%27%20width%3D%2712%27%20height%3D%272%27%20fill%3D%27%23222%27%2F%3E%3Cpath%20d%3D%27M4%206c0-3%201.5-4%204-4s4%201%204%204z%27%20fill%3D%27%23333%27%2F%3E%3Crect%20x%3D%274%27%20y%3D%275%27%20width%3D%278%27%20height%3D%271%27%20fill%3D%27%23b22%27%2F%3E%3C%2Fsvg%3E"); }
+.i-like { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2714%27%20height%3D%2714%27%3E%3Cpath%20d%3D%27M1%206h3v7H1z%20M5%206l3-5c1.2%200%201.8.8%201.5%202L9%205.5h3.5c.8%200%201.3.7%201.1%201.5l-1.4%205c-.2.6-.7%201-1.3%201H5z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-friendreq { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Ccircle%20cx%3D%276%27%20cy%3D%275%27%20r%3D%273%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M0%2015c0-4%202.6-6%206-6s6%202%206%206z%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M13%204v6M10%207h6%27%20stroke%3D%27%235a9e3a%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E"); }
+.i-poke { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M2%208%20L9%208%20L9%203%20L11%203%20L11%2014%20L3%2014%20Z%27%20fill%3D%27%23f6d28b%27%20stroke%3D%27%23b9873a%27%2F%3E%3C%2Fsvg%3E"); }
+.i-gift { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%272%27%20y%3D%276%27%20width%3D%2712%27%20height%3D%279%27%20fill%3D%27%23e05b5b%27%2F%3E%3Crect%20x%3D%271%27%20y%3D%274%27%20width%3D%2714%27%20height%3D%273%27%20fill%3D%27%23c94444%27%2F%3E%3Cpath%20d%3D%27M8%204v11%27%20stroke%3D%27%23ffd54f%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E"); }
+.i-mag { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2712%27%3E%3Ccircle%20cx%3D%274.8%27%20cy%3D%274.8%27%20r%3D%273.5%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%271.5%27%2F%3E%3Cpath%20d%3D%27M7.4%207.4%20L11%2011%27%20stroke%3D%27%23fff%27%20stroke-width%3D%271.9%27%2F%3E%3C%2Fsvg%3E"); }
+.i-dot { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%278%27%20height%3D%278%27%3E%3Ccircle%20cx%3D%274%27%20cy%3D%274%27%20r%3D%273.5%27%20fill%3D%27%233fb52f%27%2F%3E%3C%2Fsvg%3E"); }
+.i-apps { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2714%27%20height%3D%2714%27%3E%3Crect%20x%3D%271%27%20y%3D%271%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%271%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%239aaad0%27%2F%3E%3Crect%20x%3D%271%27%20y%3D%278%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%239aaad0%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%278%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.i-bell { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2714%27%20height%3D%2714%27%3E%3Crect%20x%3D%271%27%20y%3D%272%27%20width%3D%2712%27%20height%3D%279%27%20rx%3D%271%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M3%205h8M3%207.5h5%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+#bar .srch .sbtn { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2712%27%3E%3Ccircle%20cx%3D%274.8%27%20cy%3D%274.8%27%20r%3D%273.5%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%271.5%27%2F%3E%3Cpath%20d%3D%27M7.4%207.4%20L11%2011%27%20stroke%3D%27%23fff%27%20stroke-width%3D%271.9%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-news { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271.5%27%20y%3D%272.5%27%20width%3D%2713%27%20height%3D%2711%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%273%27%20y%3D%274%27%20width%3D%274%27%20height%3D%274%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M8.5%204.5h4.5M8.5%206.5h4.5M3%2010h10M3%2012h10%27%20stroke%3D%27%239aaad0%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-status { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M2%202.5h12a1%201%200%20011%201v7a1%201%200%2001-1%201H7l-3%203v-3H2a1%201%200%2001-1-1v-7a1%201%200%20011-1z%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M4%206h8M4%208.5h5%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-photo { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%27.5%27%20y%3D%273.5%27%20width%3D%2715%27%20height%3D%2710%27%20rx%3D%271%27%20fill%3D%27%23e9ecf3%27%20stroke%3D%27%236d84b4%27%2F%3E%3Ccircle%20cx%3D%278%27%20cy%3D%278.5%27%20r%3D%273%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%272%27%20y%3D%272%27%20width%3D%274%27%20height%3D%272%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-link { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271.5%27%20y%3D%275.5%27%20width%3D%277%27%20height%3D%275%27%20rx%3D%272.5%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.4%27%2F%3E%3Crect%20x%3D%277.5%27%20y%3D%275.5%27%20width%3D%277%27%20height%3D%275%27%20rx%3D%272.5%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.4%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-video { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%27.5%27%20y%3D%274.5%27%20width%3D%2711%27%20height%3D%278%27%20rx%3D%271%27%20fill%3D%27%23e9ecf3%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M11.5%208.5%20L15.5%205.5%20V11.5%20Z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-notes { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M3.5%201.5h7l2%202v11h-9z%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M5%206h6M5%208h6M5%2010h4%27%20stroke%3D%27%239aaad0%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-pages { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M3%201.5v13%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.5%27%2F%3E%3Cpath%20d%3D%27M3.5%202.5h9l-2%203%202%203h-9z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-more { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M4%206l4%204%204-4%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-event { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271.5%27%20y%3D%272.5%27%20width%3D%2713%27%20height%3D%2712%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%271.5%27%20y%3D%272.5%27%20width%3D%2713%27%20height%3D%273%27%20fill%3D%27%23d34e4e%27%2F%3E%3Cpath%20d%3D%27M4%208h2M7%208h2M10%208h2M4%2011h2M7%2011h2%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-group { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Ccircle%20cx%3D%274%27%20cy%3D%275%27%20r%3D%272%27%20fill%3D%27%239aaad0%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%275%27%20r%3D%272%27%20fill%3D%27%239aaad0%27%2F%3E%3Ccircle%20cx%3D%278%27%20cy%3D%276%27%20r%3D%272.6%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M2.5%2014c0-3.4%202.3-5%205.5-5s5.5%201.6%205.5%205z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-farm { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%271%27%20y%3D%279%27%20width%3D%2714%27%20height%3D%276%27%20fill%3D%27%237cb342%27%2F%3E%3Cpath%20d%3D%27M3%209V5l5-3%205%203v4z%27%20fill%3D%27%23d84b3e%27%2F%3E%3Crect%20x%3D%276.5%27%20y%3D%276%27%20width%3D%273%27%20height%3D%273%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E"); }
+.filters .f-mafia { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%3E%3Crect%20x%3D%272%27%20y%3D%276%27%20width%3D%2712%27%20height%3D%272%27%20fill%3D%27%23222%27%2F%3E%3Cpath%20d%3D%27M4%206c0-3%201.5-4%204-4s4%201%204%204z%27%20fill%3D%27%23333%27%2F%3E%3Crect%20x%3D%274%27%20y%3D%275%27%20width%3D%278%27%20height%3D%271%27%20fill%3D%27%23b22%27%2F%3E%3C%2Fsvg%3E"); }
+#presence .appsbtn { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2714%27%20height%3D%2714%27%3E%3Crect%20x%3D%271%27%20y%3D%271%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%271%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%239aaad0%27%2F%3E%3Crect%20x%3D%271%27%20y%3D%278%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%239aaad0%27%2F%3E%3Crect%20x%3D%278%27%20y%3D%278%27%20width%3D%275%27%20height%3D%275%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+#presence .tab.notif { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2714%27%20height%3D%2714%27%3E%3Crect%20x%3D%271%27%20y%3D%272%27%20width%3D%2712%27%20height%3D%279%27%20rx%3D%271%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M3%205h8M3%207.5h5%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+#presence .dot, #buddy .dot { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%278%27%20height%3D%278%27%3E%3Ccircle%20cx%3D%274%27%20cy%3D%274%27%20r%3D%273.5%27%20fill%3D%27%233fb52f%27%2F%3E%3C%2Fsvg%3E"); }
+</style>
+</head>
+<body data-page="facebook-2009-newsfeed" data-v="1" data-url="http://www.facebook.com/home.php?ref=home">
+<div id="blue"><div id="bar">
+  <a class="logo" href="2009-newsfeed.html" data-noedit>facebook</a>
+  <div class="nav"><a href="2009-newsfeed.html">Home</a><a href="2008-profile.html">Profile</a><a href="#">Friends</a><a href="#">Inbox <span class="cnt">(3)</span></a></div>
+  <div class="srch"><input type="text" value="Search"><span class="sbtn"></span></div>
+  <div class="acct"><a href="2008-profile.html">Brian Kessler</a><a href="#">Settings</a><a href="#">Logout</a></div>
+</div></div>
+<div id="page">
+  <div id="lcol">
+    <div class="me"><a href="2008-profile.html"><img data-ph="person" data-seed="fb09-brian" width="50" height="50" alt=""></a><a href="2008-profile.html" class="nm">Brian Kessler</a><a href="#">Edit My Profile</a></div>
+    <div class="filters">
+      <a class="f-news sel" href="#">News Feed</a>
+      <a class="f-status" href="#">Status Updates</a>
+      <a class="f-photo" href="#">Photos</a>
+      <a class="f-link" href="#">Links</a>
+      <a class="f-video" href="#">Video</a>
+      <a class="f-notes" href="#">Notes</a>
+      <a class="f-pages" href="#">Pages</a>
+      <a class="f-more" href="#">More</a>
+    </div>
+    <div class="lhead">Applications</div>
+    <div class="filters">
+      <a class="f-event" href="#">Events</a>
+      <a class="f-group" href="#">Groups</a>
+      <a class="f-farm" href="#">FarmVille</a>
+      <a class="f-mafia" href="#">Mafia Wars</a>
+    </div>
+  </div>
+  <div id="ccol">
+    <div class="feedhead"><h2>News Feed</h2><div class="r"><b>Top News</b> · <a href="#">Most Recent</a></div></div>
+    <div class="pub"><textarea>What's on your mind?</textarea><div class="row"><div class="attach">Attach: <span class="i-photo"></span><span class="i-video"></span><span class="i-event"></span><span class="i-link"></span></div><a class="btn" href="#">Share</a></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-katie" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Katie Morrissey</a> is watching the VMAs and cannot believe Kanye just did that. Imma let you finish but...</div>
+<div class="smeta"><span class="sic i-status"></span>12 minutes ago · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="likes" data-item="likes"><span class="lic i-like"></span><a href="#">Danny Fiorello</a>, <a href="#">Nicole Ferraro</a> and <a href="#">14 others</a> like this.</div><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-ph="person" data-seed="fb09-danny" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Danny Fiorello</a> Taylor Swift deserved better. Beyonce had one of the best videos of ALL TIME<div class="ct">8 minutes ago · <a href="#">Like</a></div></div></div><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-ph="person" data-seed="fb09-brian" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Brian Kessler</a> this is going to be a meme for 10 years minimum<div class="ct">5 minutes ago · <a href="#">Like</a></div></div></div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-danny" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Danny Fiorello</a> posted a video.</div><div class="att"><div class="vthumb"><img data-ph="thumb" data-seed="fb09-v1" width="130" height="98" alt=""><span class="play"></span></div><div><a href="#" class="atitle">Jizz in My Pants - The Lonely Island</a><div class="adom">www.youtube.com</div><div class="adesc">Source: youtube.com. Andy Samberg and Justin Timberlake. You will not unsee this.</div></div></div>
+<div class="smeta"><span class="sic i-video"></span>37 minutes ago · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="likes" data-item="likes"><span class="lic i-like"></span><a href="#">Mike Brandt</a> likes this.</div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-nicole" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Nicole Ferraro</a> added 23 new photos to the album <a href="#">Bonnaroo 2009!!!</a></div><div class="thumbs"><img data-ph="photo" data-seed="fb09-bon1" width="130" height="97" alt=""><img data-ph="photo" data-seed="fb09-bon2" width="130" height="97" alt=""><img data-ph="photo" data-seed="fb09-bon3" width="130" height="97" alt=""></div>
+<div class="smeta"><span class="sic i-photo"></span>about an hour ago · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="likes" data-item="likes"><span class="lic i-like"></span><a href="#">Katie Morrissey</a> and <a href="#">Erin Galloway</a> like this.</div><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-ph="person" data-seed="fb09-erin" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Erin Galloway</a> did we really see Phish AND Springsteen in one weekend?? best weekend of my life<div class="ct">about an hour ago · <a href="#">Like</a></div></div></div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-fbdefault="q" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Sam Oyelaran</a> is now friends with <a href="#">Jessica Liu</a> and <a href="#">Tom Healy</a>.</div><div class="minis"><a href="#"><img data-ph="person" data-seed="fb09-jliu" width="32" height="32" alt=""></a><a href="#"><img data-fbdefault="q" width="32" height="32" alt=""></a></div>
+<div class="smeta"><span class="sic i-group"></span>2 hours ago · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-mike" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Mike Brandt</a> just bought a cow for <a href="#">Brian Kessler</a> in FarmVille. You're welcome, now go fertilize my crops.</div><div class="appatt"><span class="sic i-farm"></span><a href="#">FarmVille</a> · <a href="#">Help Mike with his farm</a></div>
+<div class="smeta"><span class="sic i-status"></span>3 hours ago · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-ph="person" data-seed="fb09-brian" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Brian Kessler</a> i will never play farmville. stop sending me farmville stuff<div class="ct">2 hours ago · <a href="#">Like</a></div></div></div><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-ph="person" data-seed="fb09-katie" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Katie Morrissey</a> famous last words<div class="ct">about an hour ago · <a href="#">Like</a></div></div></div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-rachel" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Rachel Tsai</a> shared a link.</div><div class="att"><img data-ph="thumb" data-seed="fb09-l1" width="90" height="68" alt=""><div><a href="#" class="atitle">Twitter Gets Its Moment: How Iran Changed Everything</a><div class="adom">mashable.com</div><div class="adesc">From the Green Revolution to Ashton vs. CNN, 2009 is the year Twitter went mainstream. Here's what it means for the rest of us.</div></div></div>
+<div class="smeta"><span class="sic i-link"></span>5 hours ago · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="likes" data-item="likes"><span class="lic i-like"></span><a href="#">3 people</a> like this.</div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-lauren" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Lauren Abernathy</a> took the quiz <a href="#">Which Twilight Character Are You?</a> and got <b>Alice Cullen</b>!</div><div class="appatt">"You are fun, loyal and always see what's coming. Total team Edward." <a href="#">Take the quiz!</a></div>
+<div class="smeta"><span class="sic i-status"></span>Yesterday at 11:40pm · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="likes" data-item="likes"><span class="lic i-like"></span><a href="#">Priya Raman</a> likes this.</div><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-ph="person" data-seed="fb09-priya" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Priya Raman</a> i got Jacob. team jacob forever!!!<div class="ct">Yesterday at 11:58pm · <a href="#">Like</a></div></div></div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-brian" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Brian Kessler</a> finally got the iPhone 3GS. how did i live without this. there's an app for that.</div>
+<div class="smeta"><span class="sic i-status"></span>Yesterday at 6:15pm · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="likes" data-item="likes"><span class="lic i-like"></span><a href="#">Danny Fiorello</a> and <a href="#">5 others</a> like this.</div><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-ph="person" data-seed="fb09-jeff" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Jeff Kowalczyk</a> welcome to 2009. now please stop texting me from your blackberry<div class="ct">Yesterday at 6:20pm · <a href="#">Like</a></div></div></div><div class="cmt" data-item="comment"><a href="2008-profile.html" class="cpic"><img data-fbdefault="q" width="32" height="32" alt=""></a><div class="cb"><a href="2008-profile.html" class="nm">Sam Oyelaran</a> Pandora app is the best thing ever created<div class="ct">Yesterday at 7:02pm · <a href="#">Like</a></div></div></div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-erin" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Erin Galloway</a> is going to see Inglourious Basterds tonight! anyone want to come? Angelika 9:45</div>
+<div class="smeta"><span class="sic i-event"></span>Yesterday at 2:30pm · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"><div class="likes" data-item="likes"><span class="lic i-like"></span><a href="#">Brian Kessler</a> likes this.</div><div class="cwrite"><input type="text" value="Write a comment..."></div></div></div></div>
+<div class="story" data-item="story">
+<a class="spic" href="2008-profile.html"><img data-ph="person" data-seed="fb09-jeff" width="50" height="50" alt=""></a>
+<div class="sb"><div class="sh"><a href="2008-profile.html" class="nm">Jeff Kowalczyk</a> was tagged in <a href="#">Nicole Ferraro</a>'s photo.</div><div class="thumbs"><img data-ph="photo" data-seed="fb09-tag1" width="180" height="135" alt=""></div>
+<div class="smeta"><span class="sic i-photo"></span>Yesterday at 10:12am · <a href="#">Comment</a> · <a href="#">Like</a></div><div class="cmts"></div></div></div>
+    <div class="more"><a href="#">Older Posts</a></div>
+  </div>
+  <div id="rcol">
+    <div class="rbox"><h4>Requests</h4><div class="req" data-item="request"><span class="ric i-friendreq"></span><a href="#">3 friend requests</a></div><div class="req" data-item="request"><span class="ric i-event"></span><a href="#">2 event invitations</a></div><div class="req" data-item="request"><span class="ric i-group"></span><a href="#">1 group invitation</a></div><div class="req" data-item="request"><span class="ric i-gift"></span><a href="#">4 other requests</a></div></div>
+    <div class="rbox"><h4><span class="r"><a href="#">See All</a></span>Suggestions</h4><div class="sugg" data-item="suggestion"><a href="2008-profile.html" class="sgp"><img data-ph="person" data-seed="fb09-jliu" width="50" height="50" alt=""></a><div><a href="2008-profile.html" class="nm">Jessica Liu</a><div class="g">12 mutual friends</div><a href="#" class="add">Add as friend</a></div></div><div class="sugg" data-item="suggestion"><a href="2008-profile.html" class="sgp"><img data-fbdefault="q" width="50" height="50" alt=""></a><div><a href="2008-profile.html" class="nm">Tom Healy</a><div class="g">8 mutual friends</div><a href="#" class="add">Add as friend</a></div></div></div>
+    <div class="rbox"><h4><span class="r"><a href="#">See All</a></span>Events</h4><div class="ev" data-item="event"><span class="ric i-event"></span><div><b>Thursday</b><br><a href='#'>Katie's 25th Birthday!!</a> at Brother Jimmy's</div></div><div class="ev" data-item="event"><span class="ric i-event"></span><div><b>Saturday</b><br><a href='#'>Bed-Stuy Rooftop BBQ</a></div></div><div class="ev" data-item="event"><span class="ric i-event"></span><div><b>September 26</b><br><a href='#'>Harvard-Yale Alumni Mixer</a></div></div></div>
+    <div class="rbox"><h4><span class="r"><a href="#">See All</a></span>Pokes</h4><div class="poke" data-item="poke"><span class="ric i-poke"></span><div><a href="2008-profile.html">Sam Oyelaran</a> has poked you.<br><a href="#">poke back</a> · <a href="#" class="g">remove</a></div></div><div class="poke" data-item="poke"><span class="ric i-poke"></span><div><a href="2008-profile.html">Katie Morrissey</a> has poked you.<br><a href="#">poke back</a> · <a href="#" class="g">remove</a></div></div></div>
+    <div class="rbox"><h4><span class="r"><a href="#">Create an Ad</a></span>Sponsored</h4>
+      <div class="ad" data-item="ad"><a href="#" class="adt">Fantasy Football 2009</a><img data-ph="photo" data-seed="fb09-ad1" width="110" height="80" alt="">Draft your team before Sunday. Free leagues, live scoring on your iPhone.</div>
+      <div class="ad" data-item="ad" style="margin-top:12px"><a href="#" class="adt">Want an Acai Berry Diet?</a><img data-ph="photo" data-seed="fb09-ad2" width="110" height="80" alt="">Local mom discovers one weird trick. Free trial for New York residents.</div>
+    </div>
+  </div>
+  <div id="footer"><span class="r"><a href="#">About</a><a href="#">Advertising</a><a href="#">Developers</a><a href="#">Careers</a><a href="#">Terms</a><a href="#">Find Friends</a><a href="#">Privacy</a><a href="#">Mobile</a><a href="#">Help</a></span>Facebook &copy; 2009 · <a href="#">English (US)</a></div>
+</div>
+<div id="chatwin" data-item="chat window"><div class="h"><span class="x">_ &nbsp;×</span>Katie Morrissey</div><div class="msgs"><div class="when">9:24pm</div><div class="cm" data-item="chat message"><b>Katie:</b> lol did you see the kanye thing</div><div class="cm" data-item="chat message"><b>Me:</b> im watching it now. unreal</div><div class="cm" data-item="chat message"><b>Katie:</b> taylor swift is never going to recover</div><div class="cm" data-item="chat message"><b>Me:</b> she'll be fine. probably write a song about it</div></div><div class="in"><input type="text" value=""></div></div>
+<div id="buddy"><div class="h"><span class="r">Options</span>Chat (8)</div><div class="lst"><div class="on" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Katie Morrissey</a></div><div class="on" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Danny Fiorello</a></div><div class="on" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Nicole Ferraro</a></div><div class="on" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Erin Galloway</a></div><div class="on" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Mike Brandt</a></div><div class="on" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Jeff Kowalczyk</a></div><div class="on idle" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Lauren Abernathy</a></div><div class="on idle" data-item="online friend"><span class="dot"></span><a href="2008-profile.html">Priya Raman</a></div></div></div>
+<div id="presence">
+  <span class="appsbtn">Applications</span><span class="appic i-photo"></span><span class="appic i-video"></span><span class="appic i-farm"></span><span class="appic i-notes"></span>
+  <div class="right"><span class="tab chat"><span class="dot"></span>Chat (8)</span><span class="tab open">Katie Morrissey</span><span class="tab notif"><span class="badge">3</span></span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>YouTube - Broadcast Yourself.</title>
+<script src="../shared/studio.js"></script>
+<style>
+
+body{margin:0;background:#fff;color:#333;font:12px Arial,sans-serif}
+a{color:#03c;text-decoration:none}
+#masthead-container{margin:0 auto 10px;border-bottom:1px solid #f3f3f3}
+#masthead{width:970px;margin:0 auto;padding:9px 0 11px;font-size:13px;height:40px;position:relative}
+#logo{position:absolute;left:0;top:9px}
+#masthead-search{position:absolute;left:120px;top:16px;display:flex;margin:0}
+.sbox{width:430px;height:24px;border:1px solid;border-color:#8c8c8c #999 #ccc #8c8c8c;box-sizing:border-box}
+.sbox input{border:2px solid #fff;width:100%;height:100%;box-sizing:border-box;font-size:13px;padding:1px 4px;outline:0}
+.yb{height:24px;padding:0 6px;border:1px solid #ccc;border-radius:3px;background:linear-gradient(#fff,#efefef);font:12px Arial;color:#000;vertical-align:middle}
+#masthead-search .yb{border-radius:0 3px 3px 0;margin-left:-1px}
+#masthead-nav{position:absolute;left:618px;top:22px}
+#masthead-nav a,#masthead-utility a{padding:1px 10px;border-left:1px solid #ccc;white-space:nowrap}
+#masthead-nav a.start,#masthead-utility a.start{border-left:0}
+#masthead-utility{position:absolute;right:0;top:22px}
+#masthead-utility a.end{padding-right:0}
+.vtw{position:relative;display:block;border:1px solid #ccc;padding:2px;background:#fff}
+.vtw img{display:block;object-fit:cover}
+.vtime{position:absolute;right:6px;bottom:6px;padding:0 4px;font:bold 11px/14px Arial;border-radius:3px;background:rgba(0,0,0,.75);color:#fff}
+#footer-container{clear:both;margin-top:14px;border-top:1px solid #f3f3f3}
+#footer{width:970px;margin:0 auto;padding:12px 0 60px;font-size:13px;color:#666}
+#footer ul{margin:6px 0 0;padding:0;list-style:none}
+#footer li{display:inline;margin-right:20px;line-height:2}
+#footer .info{font-size:11px;color:#666;margin-top:6px}
+#footer .info span{margin-right:15px}
+
+#homepage{width:970px;margin:0 auto;display:flex;justify-content:space-between;padding-top:6px}
+#main{width:640px}
+#side{width:300px}
+.join{background:#d4e3f8;border:1px solid #c2d5f3;padding:10px 9px 10px;border-radius:2px}
+.join h2{margin:0 0 9px;font-size:20px;color:#333;font-weight:bold}
+.join .cta{display:flex;align-items:center;gap:14px;font-size:13px}
+.ybig{display:inline-block;padding:6px 10px;border:1px solid #ecc101;border-radius:3px;background:linear-gradient(#ffeb8a,#fed81c 55%,#f5c400);font:bold 17px Arial;color:#000}
+.join .cta b a{font-weight:bold}
+.mod{margin-top:18px}
+.mh{position:relative;font-size:17px;color:#03c;border-bottom:1px solid #ccc;padding-bottom:5px;margin-bottom:8px}
+.mh small{font-size:11px;text-decoration:underline;margin-left:4px}
+.ctl{position:absolute;right:0;top:4px;display:flex;gap:2px;align-items:center}
+.ctl .ed{font-size:11px;color:#bbb;margin-right:16px}
+.ctl i{display:inline-block;width:15px;height:11px;border:1px solid #ccc;border-radius:2px;background:linear-gradient(#fff,#e9e9e9);position:relative}
+.ctl i:after{content:"";position:absolute;left:3px;top:2px;border:4px solid transparent;border-bottom:5px solid #aaa;border-top:0}
+.ctl i.dn:after{border-bottom:0;border-top:5px solid #aaa;top:3px}
+.ctl i.x{width:11px;margin-left:6px}
+.ctl i.x:after{content:"\00d7";border:0;left:2px;top:-3px;color:#999;font-size:12px}
+.rec{padding:4px 10px 10px;font-size:12px;color:#666;line-height:14px}
+.rec b{color:#000;display:block}
+.pgrid{display:flex;flex-wrap:wrap;justify-content:space-between}
+.pcell{width:300px;margin-bottom:10px}
+.pcell .ch{font-size:16px;display:block;margin:8px 0 6px}
+.pv{display:flex;gap:8px}
+.pv .vtw{flex:none}
+.pv .vtw img{width:128px;height:72px}
+.pi{font-size:11px;color:#666;line-height:14px}
+.pt{display:block;font-size:12px;font-weight:bold;margin-bottom:1px}
+.pu{font-size:11px}
+.sh2{font-size:16px;font-weight:bold;color:#333;border-bottom:1px solid #ccc;padding:0 0 6px;margin:10px 0 8px}
+.sh2.first{margin-top:4px}
+.spot b{display:block;font-size:13px;margin-bottom:8px}
+.spot p{margin:0 0 4px;font-size:12px;line-height:14px;color:#333}
+.sv{display:flex;gap:8px;margin:8px 0 12px}
+.sv .vtw{flex:none}
+.sv .vtw img{width:96px;height:54px}
+.st{font-size:13px;line-height:15px}
+.sb{font-size:11px;color:#666;margin-top:3px}
+.wn a{font-weight:bold;font-size:13px;display:block;margin-top:8px}
+.wn p{margin:6px 0 0;color:#666;font-size:12px;line-height:14px}
+.more{text-align:right;margin-top:10px;font-size:12px}
+</style>
+</head>
+<body data-page="youtube-2010-home" data-v="1" data-url="http://www.youtube.com/">
+<div id="masthead-container"><div id="masthead"><a id="logo" href="2010-home.html"><svg width="99" height="40" viewBox="0 0 120 48" style="display:block"><defs><linearGradient id="lr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2463a"/><stop offset=".55" stop-color="#d8211a"/><stop offset="1" stop-color="#b8120c"/></linearGradient></defs><text x="1" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#1a1a1a" textLength="50" lengthAdjust="spacingAndGlyphs">You</text><rect x="53" y="4" width="65" height="42" rx="9" fill="url(#lr)"/><text x="57" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#fff" textLength="57" lengthAdjust="spacingAndGlyphs">Tube</text></svg></a><form id="masthead-search"><div class="sbox"><input type="text" value=""></div><button type="button" class="yb">Search</button></form><div id="masthead-nav"><a class="start" href="#">Browse</a><a href="#">Upload</a></div><div id="masthead-utility"><a class="start" href="#">Create Account</a><a class="end" href="#">Sign In</a></div></div></div>
+<div id="homepage">
+<div id="main">
+<div class="join"><h2>Join the largest worldwide video-sharing community!</h2><div class="cta"><a class="ybig" href="#">Create Account &rsaquo;</a><span>Already have an account? &nbsp;<b><a href="#">Sign In</a></b></span></div></div>
+<div class="mod"><div class="mh">Recommended for You <small>Learn More</small><span class="ctl" data-noedit><span class="ed">Edit</span><i></i><i class="dn"></i><i class="x"></i></span></div><div class="rec"><b>Personalized video recommendations</b>Getting personalized recommendations is really easy, all you have to do is watch some videos then come back to this page to see what videos YouTube has recommended just for you!</div></div>
+<div class="mod"><div class="mh">Most Popular<span class="ctl" data-noedit><i></i><i class="dn"></i><i class="x"></i></span></div>
+<div class="pgrid"><div class="pcell" data-item="video"><a class="ch" href="#">Entertainment</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h0" width="128" height="72" alt=""><span class="vtime">5:18</span></a><div class="pi"><a class="pt" href="2010-watch.html">MY THANKSGIVING MELTDOWN (not clickbait)</a><div class="pc">567,323 views</div><a class="pu" href="#">dramaqueentv</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Music</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h1" width="128" height="72" alt=""><span class="vtime">1:52</span></a><div class="pi"><a class="pt" href="2010-watch.html">Never Say Never 3D - fan premiere vlog</a><div class="pc">500,134 views</div><a class="pu" href="#">beliebergirl94</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">News & Politics</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h2" width="128" height="72" alt=""><span class="vtime">3:04</span></a><div class="pi"><a class="pt" href="2010-watch.html">Wikileaks explained in 3 minutes</a><div class="pc">207,184 views</div><a class="pu" href="#">newsminute</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Film & Animation</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h3" width="128" height="72" alt=""><span class="vtime">3:57</span></a><div class="pi"><a class="pt" href="2010-watch.html">TRON Legacy Behind The Scenes Feature...</a><div class="pc">137,909 views</div><a class="pu" href="#">LikeTotallyAwes...</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Sports</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h4" width="128" height="72" alt=""><span class="vtime">1:05</span></a><div class="pi"><a class="pt" href="2010-watch.html">[HD] Insane buzzer beater - high school...</a><div class="pc">414,030 views</div><a class="pu" href="#">gamecockscs9</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Howto & Style</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h5" width="128" height="72" alt=""><span class="vtime">7:32</span></a><div class="pi"><a class="pt" href="2010-watch.html">How to do the Black Swan makeup look</a><div class="pc">285,246 views</div><a class="pu" href="#">makeupbymaria</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Comedy</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h6" width="128" height="72" alt=""><span class="vtime">3:26</span></a><div class="pi"><a class="pt" href="2010-watch.html">grandma vs. Kinect (Dance Central)</a><div class="pc">2,418,377 views</div><a class="pu" href="#">thehendersonfam</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Gaming</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h7" width="128" height="72" alt=""><span class="vtime">4:41</span></a><div class="pi"><a class="pt" href="2010-watch.html">Black Ops - 30 kill streak (no commentary)</a><div class="pc">157,428 views</div><a class="pu" href="#">prestige10dave</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Most Viewed</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h8" width="128" height="72" alt=""><span class="vtime">4:12</span></a><div class="pi"><a class="pt" href="2010-watch.html">Harry Potter Deathly Hallows premiere - SO MANY WANDS</a><div class="pc">1,902,214 views</div><a class="pu" href="#">leakycauldronvids</a></div></div></div>
+<div class="pcell" data-item="video"><a class="ch" href="#">Top Favorited</a><div class="pv"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10h9" width="128" height="72" alt=""><span class="vtime">3:35</span></a><div class="pi"><a class="pt" href="2010-watch.html">acoustic cover - Teenage Dream (Katy Perry)</a><div class="pc">244,361 views</div><a class="pu" href="#">acousticjen</a></div></div></div></div></div>
+</div>
+<div id="side">
+<div class="sh2 first">Spotlight Videos</div>
+<div class="spot"><b>Music Tuesday</b><p>The cinematic premiere of "Run" from Buffalo hip-hop artist/YouTube partner Rio Delacroix proves it's not just Kanye who can create an epic drama for his latest music video.</p><p style="font-size:11px">Presented by: <a href="#">MusicTuesday</a></p></div>
+<div class="sv" data-item="video"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10sp0" width="96" height="54" alt=""><span class="vtime">7:13</span></a><div><a class="st" href="2010-watch.html">Rio Delacroix - Run [Official Music Vid...</a><div class="sb">by deepthinkr</div><div class="sb">88,560 views</div></div></div>
+<div class="sh2">Trending</div>
+<div class="sv" data-item="video"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10t0" width="96" height="54" alt=""><span class="vtime">0:50</span></a><div><a class="st" href="2010-watch.html">Crazy Oklahoma State Interception vs. Oklahoma ...</a><div class="sb">by thesportsgeeks</div><div class="sb">3,000,070 views</div></div></div>
+<div class="sv" data-item="video"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10t1" width="96" height="54" alt=""><span class="vtime">4:25</span></a><div><a class="st" href="2010-watch.html">Black Friday 2010 Walmart madness</a><div class="sb">by shoppingvlogs</div><div class="sb">5,903,441 views</div></div></div>
+<div class="sv" data-item="video"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10t2" width="96" height="54" alt=""><span class="vtime">2:27</span></a><div><a class="st" href="2010-watch.html">GLEE - "Hey Soul Sister" Full Performance (air...</a><div class="sb">by gleekfan2010</div><div class="sb">389,136 views</div></div></div>
+<div class="sh2">Featured Videos</div>
+<div class="sv" data-item="video"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10f0" width="96" height="54" alt=""><span class="vtime">4:38</span></a><div><a class="st" href="2010-watch.html">Joe's FAQ</a><div class="sb">by joevlogz</div><div class="sb">291,011 views</div></div></div>
+<div class="sv" data-item="video"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10f1" width="96" height="54" alt=""><span class="vtime">2:07</span></a><div><a class="st" href="2010-watch.html">SCAM SCHOOL - the impossible coin trick</a><div class="sb">by trickster_ty</div><div class="sb">78,516 views</div></div></div>
+<div class="sv" data-item="video"><a class="vtw" href="2010-watch.html"><img data-ph="thumb" data-seed="yt10f2" width="96" height="54" alt=""><span class="vtime">10:33</span></a><div><a class="st" href="2010-watch.html">Machinima Weekly w Hollis 11/26/10 (Thanksgiving...</a><div class="sb">by machinimaworld</div><div class="sb">84,422 views</div></div></div>
+<div class="sh2">What's New</div>
+<div class="wn"><a href="#">Subscription Widget</a><p>Subscribe to channels directly from websites or blogs</p><a href="#">Video Editor Enhancements</a><p>Rotate and add transitions to your videos</p><a href="#">Uploading 101 with Professor Compressor</a><p>This week in Howcast's 'Modern 101 for emerging digital filmmakers' we're pleased to welcome guest lecturer, Professor Compressor...</p></div>
+<div class="more"><a href="#">Read more in our Blog</a></div>
+</div>
+</div>
+<div id="footer-container"><div id="footer"><ul><li><a href="#">Help</a></li><li><a href="#">About YouTube</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Copyright</a></li><li><a href="#">Partnerships</a></li><li><a href="#">Developers</a></li><li><a href="#">Advertising</a></li><li><a href="#">Safety</a></li><li><a href="#">Report a bug</a></li></ul><ul><li><a href="#">YouTube on Your Phone</a></li><li><a href="#">YouTube on Your TV</a></li><li><a href="#">YouTube Blog</a></li><li><a href="#">YouTube Store</a></li><li><a href="#">Contact</a></li></ul><div class="info"><span>Language: <a href="#">English</a></span><span>Location: <a href="#">Worldwide</a></span><span>Safety mode: <a href="#">Off</a></span><span>&copy; 2010 YouTube, LLC</span></div></div></div>
+</body>
+</html>

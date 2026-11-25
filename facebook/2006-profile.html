@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Facebook | Brian Kessler</title>
+<script src="../shared/studio.js"></script>
+<script src="assets/fb-defaults.js"></script>
+<style>
+body { background: #fff; padding: 0; margin: 0; }
+body, p, td, input, textarea { font-size: 11px; font-family: "lucida grande", tahoma, verdana, arial, sans-serif; text-align: left; }
+a { color: #3B5998; text-decoration: none; }
+html.studio-film a:hover { text-decoration: underline; }
+img { border: 0; }
+.gray { color: gray; }
+#book { padding: 8px 0 0; margin: 0 auto; width: 760px; }
+#pageheader { position: relative; width: 760px; height: 33px; }
+#pageheader .face { position: absolute; left: 0; top: 0; width: 132px; height: 33px; display: block; }
+#pageheader .bluebar { position: absolute; left: 132px; top: 0; right: 0; height: 33px; background: #3B5998; border-radius: 0 4px 0 0; }
+#homelink { position: absolute; left: 142px; top: 0; height: 33px; line-height: 33px; color: #fff; font: bold 23px/33px "Trebuchet MS", "lucida grande", tahoma, sans-serif; letter-spacing: -0.6px; }
+html.studio-film #homelink:hover { text-decoration: none; }
+#gnav { position: absolute; right: 10px; top: 1px; line-height: 25px; list-style: none; margin: 0; padding: 3px 0; text-align: right; }
+#gnav li { display: inline; }
+#gnav a { padding: 2px 4px; color: #D8DFEA; }
+html.studio-film #gnav a:hover { color: #fff; background: #526DA4; text-decoration: none; }
+#sidebar { margin-top: 8px; float: left; width: 120px; }
+#qsearch input { width: 98px; border: 1px solid #bdc7d8; padding: 3px 3px 3px 17px; background: #fff no-repeat 3px 4px; }
+#nav { list-style: none; margin: 11px 0; padding: 0; }
+#nav li { border-bottom: 1px solid #d8dfea; overflow: hidden; }
+#nav li a { display: block; padding: 2px 3px; }
+#nav li.myprofile a.hasedit { float: left; width: 66px; padding: 2px 0 2px 3px; }
+#nav li.myprofile a.edit { float: right; width: 48px; padding: 2px 0; color: gray; text-align: center; }
+html.studio-film #nav li a:hover { background: #3b5998; color: #fff; text-decoration: none; }
+#ssponsor { margin: 12px 0; color: gray; }
+#ssponsor .flyer { border: 1px solid #d8dfea; padding: 5px 5px 6px; color: #333; line-height: 14px; }
+#ssponsor .flyer img { width: 108px; height: 80px; object-fit: cover; display: block; margin: 4px 0; }
+#ssponsor .flyer b { color: #3b5998; }
+#ssponsor .more { text-align: right; margin-top: 3px; }
+#pagebody { margin-left: 12px; float: left; width: 628px; }
+#content { padding: 12px 0; border-bottom: 1px solid #3B5998; border-left: 1px solid #D8DFEA; border-right: 1px solid #D8DFEA; overflow: hidden; }
+#left { float: left; width: 206px; margin-left: 10px; }
+#right { float: right; width: 386px; margin-right: 12px; }
+.pic img { width: 200px; height: 266px; object-fit: cover; display: block; }
+.actions { margin: 8px 0 12px; border-top: 1px solid #d8dfea; }
+.actions a { display: block; padding: 3px 3px; border-bottom: 1px solid #d8dfea; }
+html.studio-film .actions a:hover { background: #3b5998; color: #fff; text-decoration: none; }
+.box { margin-bottom: 12px; }
+.box h2 { margin: 0; padding: 2px 8px; font-size: 11px; font-weight: bold; color: #3B5998; background: #D8DFEA; border-top: 1px solid #3B5998; overflow: hidden; }
+.box h2 .r { float: right; font-weight: normal; }
+.box .sub { padding: 3px 8px; color: #333; background: #f7f7f7; border-bottom: 1px solid #e5e5e5; overflow: hidden; }
+.box .sub .r { float: right; }
+.box .bc { padding: 8px 8px 4px; }
+.fr { float: left; width: 62px; text-align: center; margin-bottom: 8px; line-height: 13px; }
+.fr img { width: 50px; height: 50px; object-fit: cover; display: block; margin: 0 auto 3px; }
+.album { overflow: hidden; margin-bottom: 8px; }
+.album img { float: left; width: 75px; height: 56px; object-fit: cover; margin-right: 7px; border: 1px solid #ccc; }
+.album div { line-height: 14px; }
+.profname { padding: 0 0 10px; }
+.profname h1 { font-size: 16px; margin: 0 0 2px; color: #000; font-weight: bold; }
+.profname .status { font-size: 13px; color: #333; margin-top: 4px; }
+.profname .status b { color: #000; }
+.profname .updated { color: gray; font-size: 10px; margin-top: 2px; }
+.infotable { width: 100%; border-collapse: collapse; }
+.infotable td { vertical-align: top; padding: 0 0 3px; line-height: 14px; }
+.infotable td.label { padding-right: 10px; color: gray; width: 100px; }
+.infotable tr.head td { color: #3b5998; font-weight: bold; padding: 6px 0 4px; }
+.infotable tr.head:first-child td { padding-top: 0; }
+.mfday h6 { margin: 4px 0 3px; font-size: 11px; color: #333; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+.mfitem { position: relative; padding: 3px 50px 4px 18px; line-height: 14px; }
+.mfitem .ic { position: absolute; left: 1px; top: 4px; width: 12px; height: 11px; background-repeat: no-repeat; }
+.mfitem .mftime { position: absolute; right: 0; top: 3px; color: #999; font-size: 10px; }
+.writewall { padding: 2px 0 10px; border-bottom: 1px solid #d8dfea; text-align: right; }
+.writewall textarea { width: 362px; height: 44px; display: block; margin-bottom: 4px; resize: none; color: #777; }
+.inputsubmit { border: 1px solid; border-color: #D9DFEA #0e1f5b #0e1f5b #D9DFEA; background: #3b5998; color: #fff; padding: 2px 6px; font-size: 11px; }
+.wallpost { overflow: hidden; padding: 9px 0 9px; border-bottom: 1px solid #d8dfea; }
+.wpic { float: left; }
+.wpic img { width: 50px; height: 50px; object-fit: cover; display: block; }
+.wbody { margin-left: 60px; line-height: 14px; }
+.whead a { font-weight: bold; }
+.wdate { color: gray; }
+.wtext { padding: 4px 0 4px; }
+.wlinks { color: gray; }
+#pagefooter { clear: both; font-size: 10px; line-height: 15px; padding: 10px 0 30px; margin-left: 132px; text-align: center; }
+#pagefooter a { padding: 3px 5px; }
+#pagefooter p { text-align: center; margin: 0; font-size: 11px; }
+html.studio-film #pagefooter a:hover { color: #fff; background: #3B5998; text-decoration: none; }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.ic-wall { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2711%27%20height%3D%2711%27%3E%3Crect%20x%3D%27.5%27%20y%3D%271.5%27%20width%3D%2710%27%20height%3D%277%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M2%204h7M2%206h5%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M3%208.5%20L3%2010.5%20L5%208.5%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-friend { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2711%27%3E%3Ccircle%20cx%3D%274%27%20cy%3D%273%27%20r%3D%272.2%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M0%2010.5c0-3%201.6-4.4%204-4.4s4%201.4%204%204.4z%27%20fill%3D%27%236d84b4%27%2F%3E%3Ccircle%20cx%3D%278.5%27%20cy%3D%273.5%27%20r%3D%272%27%20fill%3D%27%239aaad0%27%2F%3E%3Cpath%20d%3D%27M5.5%2010.5c.3-2.8%201.5-4%203-4s2.8%201.2%203%204z%27%20fill%3D%27%239aaad0%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-photo { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2711%27%3E%3Crect%20x%3D%27.5%27%20y%3D%272.5%27%20width%3D%2711%27%20height%3D%278%27%20fill%3D%27%23d8dfea%27%20stroke%3D%27%236d84b4%27%2F%3E%3Ccircle%20cx%3D%276%27%20cy%3D%276.5%27%20r%3D%272.3%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%272%27%20y%3D%271%27%20width%3D%273%27%20height%3D%272%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-group { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2711%27%3E%3Ccircle%20cx%3D%273%27%20cy%3D%273%27%20r%3D%271.8%27%20fill%3D%27%239aaad0%27%2F%3E%3Ccircle%20cx%3D%279%27%20cy%3D%273%27%20r%3D%271.8%27%20fill%3D%27%239aaad0%27%2F%3E%3Ccircle%20cx%3D%276%27%20cy%3D%274%27%20r%3D%272.2%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M1.5%2011c0-3%202-4.6%204.5-4.6s4.5%201.6%204.5%204.6z%27%20fill%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-heart { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2711%27%20height%3D%2711%27%3E%3Cpath%20d%3D%27M5.5%2010%20L1.2%205.5%20C-.4%203.6%201%201%203.1%201%20c1.2%200%201.9.7%202.4%201.5%20C6%201.7%206.7%201%207.9%201%20C10%201%2011.4%203.6%209.8%205.5%20Z%27%20fill%3D%27%23e0587a%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-profile { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2711%27%20height%3D%2711%27%3E%3Crect%20x%3D%27.5%27%20y%3D%27.5%27%20width%3D%2710%27%20height%3D%2710%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Ccircle%20cx%3D%273.6%27%20cy%3D%274%27%20r%3D%271.5%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M1.5%208.5c.3-1.7%201-2.4%202.1-2.4s1.8.7%202.1%202.4z%27%20fill%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M7%203.5h2.5M7%205.5h2.5M7%207.5h2.5%27%20stroke%3D%27%239aaad0%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-event { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2711%27%20height%3D%2711%27%3E%3Crect%20x%3D%27.5%27%20y%3D%271.5%27%20width%3D%2710%27%20height%3D%279%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Crect%20x%3D%27.5%27%20y%3D%271.5%27%20width%3D%2710%27%20height%3D%273%27%20fill%3D%27%23d34e4e%27%2F%3E%3Cpath%20d%3D%27M3%206.5h1M5%206.5h1M7%206.5h1M3%208.5h1M5%208.5h1%27%20stroke%3D%27%236d84b4%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-note { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2711%27%20height%3D%2711%27%3E%3Cpath%20d%3D%27M1.5%20.5h6l2%202v8h-8z%27%20fill%3D%27%23fff%27%20stroke%3D%27%236d84b4%27%2F%3E%3Cpath%20d%3D%27M3%204h5M3%206h5M3%208h3%27%20stroke%3D%27%239aaad0%27%2F%3E%3C%2Fsvg%3E"); }
+.ic-mag { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2712%27%3E%3Ccircle%20cx%3D%274.8%27%20cy%3D%274.8%27%20r%3D%273.5%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.4%27%2F%3E%3Cpath%20d%3D%27M7.4%207.4%20L11%2011%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.8%27%2F%3E%3C%2Fsvg%3E"); }
+#qsearch input { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2712%27%20height%3D%2712%27%3E%3Ccircle%20cx%3D%274.8%27%20cy%3D%274.8%27%20r%3D%273.5%27%20fill%3D%27none%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.4%27%2F%3E%3Cpath%20d%3D%27M7.4%207.4%20L11%2011%27%20stroke%3D%27%236d84b4%27%20stroke-width%3D%271.8%27%2F%3E%3C%2Fsvg%3E"); }
+</style>
+</head>
+<body data-page="facebook-2006-profile" data-v="1" data-url="http://harvard.facebook.com/profile.php?id=4113">
+<div id="book">
+  <div id="pageheader">
+    <svg class="face" width="132" height="33" viewBox="0 0 132 33" xmlns="http://www.w3.org/2000/svg" data-noedit>
+      <defs><linearGradient id="phg" x1="0" x2="1"><stop offset="0" stop-color="#dde3f0"/><stop offset="1" stop-color="#d0d9ea"/></linearGradient></defs>
+      <rect width="132" height="33" fill="url(#phg)"/>
+      <g fill="#f4f6fb">
+        <path d="M30 33 L31 26 L27 23 L30 19 L26 16 L31 13 L29 8 L35 8 L35 3 L41 6 L44 0 L49 4 L54 0 L56 5 L62 3 L61 9 L67 9 L64 14 L69 17 L64 20 L65 26 L62 33 Z" opacity=".9"/>
+      </g>
+      <path d="M38 14 Q44 10 52 11 Q59 12 61 17 Q62 24 58 29 L55 33 L41 33 Q37 29 37 23 Z" fill="#c4cee4"/>
+      <path d="M41 18 Q44 16 47 17.5 M51 17.5 Q54 16 57 18" stroke="#9fb0d4" stroke-width="1.3" fill="none"/>
+      <path d="M49 19 L48 24 L50.5 24.5 M45 28 Q49 29 53 28" stroke="#9fb0d4" stroke-width="1" fill="none"/>
+      <path d="M58 33 L60 26 Q63 22 70 24 L76 33 Z" fill="#c4cee4" opacity=".6"/>
+    </svg>
+    <div class="bluebar"></div>
+    <a id="homelink" href="#" data-noedit>facebook</a>
+    <ul id="gnav"><li><a href="#">home</a></li> <li><a href="#">search</a></li> <li><a href="#">browse</a></li> <li><a href="#">invite</a></li> <li><a href="#">help</a></li> <li><a href="#">logout</a></li></ul>
+  </div>
+  <div id="sidebar">
+    <div id="qsearch"><input type="text" class="inputsearch" value="" placeholder=""></div>
+    <ul id="nav">
+      <li class="myprofile"><a class="hasedit" href="2006-profile.html">My Profile</a><a class="edit" href="#">edit</a></li>
+      <li><a href="#">My Friends</a></li>
+      <li><a href="#">My Photos</a></li>
+      <li><a href="#">My Notes</a></li>
+      <li><a href="#">My Groups</a></li>
+      <li><a href="#">My Events</a></li>
+      <li><a href="#">My Messages <b>(2)</b></a></li>
+      <li><a href="#">My Account</a></li>
+      <li><a href="#">My Privacy</a></li>
+    </ul>
+    <div id="ssponsor">
+      <div class="flyer" data-item="flyer">
+        <b>Ski Trip to Killington!</b>
+        <img data-ph="photo" data-seed="fb06-flyer" width="108" height="80" alt="">
+        Winter break, Jan 4-8. Lift tickets + lodging $289. Sign up with the Harvard Ski Club before it fills up!
+      </div>
+      <div class="more"><a href="#">More Flyers</a></div>
+    </div>
+  </div>
+  <div id="pagebody">
+    <div id="content">
+      <div id="left">
+        <div class="pic"><img data-ph="person" data-seed="fb06-brian" width="200" height="266" alt=""></div>
+        <div class="actions">
+          <a href="#">View More Photos of Brian (47)</a>
+          <a href="#">Send Brian a Message</a>
+          <a href="#">Poke Him!</a>
+          <a href="#">View Friends</a>
+          <a href="#">Add to Favorites</a>
+        </div>
+        <div class="box">
+          <h2>Connection</h2>
+          <div class="bc">Brian is your friend. You know Brian from <a href="#">Lowell House</a>.</div>
+        </div>
+        <div class="box">
+          <h2><span class="r"><a href="#">See All</a></span>Mutual Friends</h2>
+          <div class="sub">You have 34 friends in common.</div>
+          <div class="bc clearfix"><div class="fr" data-item="friend"><a href="#"><img data-ph="person" data-seed="fb06-f0" width="50" height="50" alt=""></a><a href="#">Katie<br>Morrissey</a></div><div class="fr" data-item="friend"><a href="#"><img data-ph="person" data-seed="fb06-f1" width="50" height="50" alt=""></a><a href="#">Danny<br>Fiorello</a></div><div class="fr" data-item="friend"><a href="#"><img data-ph="person" data-seed="fb06-f2" width="50" height="50" alt=""></a><a href="#">Nicole<br>Ferraro</a></div></div>
+        </div>
+        <div class="box">
+          <h2><span class="r"><a href="#">See All</a></span>Friends at Harvard</h2>
+          <div class="sub">Brian has 312 friends at Harvard.</div>
+          <div class="bc clearfix"><div class="fr" data-item="friend"><a href="#"><img data-ph="person" data-seed="fb06-f0" width="50" height="50" alt=""></a><a href="#">Katie<br>Morrissey</a></div><div class="fr" data-item="friend"><a href="#"><img data-ph="person" data-seed="fb06-f1" width="50" height="50" alt=""></a><a href="#">Danny<br>Fiorello</a></div><div class="fr" data-item="friend"><a href="#"><img data-ph="person" data-seed="fb06-f2" width="50" height="50" alt=""></a><a href="#">Nicole<br>Ferraro</a></div><div class="fr" data-item="friend"><a href="#"><img data-fbdefault="q" width="50" height="50" alt=""></a><a href="#">Sam<br>Oyelaran</a></div><div class="fr" data-item="friend"><a href="#"><img data-ph="person" data-seed="fb06-f4" width="50" height="50" alt=""></a><a href="#">Priya<br>Raman</a></div><div class="fr" data-item="friend"><a href="#"><img data-fbdefault="q" width="50" height="50" alt=""></a><a href="#">Jeff<br>Kowalczyk</a></div></div>
+        </div>
+        <div class="box">
+          <h2><span class="r"><a href="#">See All</a></span>Friends in Other Networks</h2>
+          <div class="bc" style="line-height:16px">
+            <div data-item="network"><a href="#">Yale</a> (14)</div>
+            <div data-item="network"><a href="#">Stanford</a> (9)</div>
+            <div data-item="network"><a href="#">Columbia</a> (11)</div>
+            <div data-item="network"><a href="#">Millburn High School</a> (23)</div>
+            <div data-item="network"><a href="#">New York, NY</a> (6)</div>
+          </div>
+        </div>
+        <div class="box">
+          <h2><span class="r"><a href="#">See All</a></span>Photos</h2>
+          <div class="sub">Brian has 6 photo albums.</div>
+          <div class="bc"><div class="album" data-item="album"><a href="#"><img data-ph="photo" data-seed="fb06-a1" width="75" height="56" alt=""></a><div><a href="#">Lowell Halloween!!</a><br><span class="gray">Updated Nov 1, 2006</span></div></div><div class="album" data-item="album"><a href="#"><img data-ph="photo" data-seed="fb06-a2" width="75" height="56" alt=""></a><div><a href="#">Summer in the Hamptons</a><br><span class="gray">Updated Aug 22, 2006</span></div></div><div class="album" data-item="album"><a href="#"><img data-ph="photo" data-seed="fb06-a3" width="75" height="56" alt=""></a><div><a href="#">Spring Break Cancun 06</a><br><span class="gray">Updated Mar 20, 2006</span></div></div></div>
+        </div>
+      </div>
+      <div id="right">
+        <div class="profname">
+          <h1>Brian Kessler</h1>
+          <div class="status">Brian is <b>hiding in Lamont until finals are over.</b></div>
+          <div class="updated">Updated 2 hours ago</div>
+        </div>
+        <div class="box">
+          <h2>Information</h2>
+          <div class="bc">
+            <table class="infotable">
+              <tr class="head"><td colspan="2">Account Info:</td></tr>
+              <tr><td class="label">Name:</td><td>Brian Kessler</td></tr>
+              <tr><td class="label">Member Since:</td><td>February 9, 2004</td></tr>
+              <tr><td class="label">Last Update:</td><td>November 14, 2006</td></tr>
+              <tr class="head"><td colspan="2">Basic Info:</td></tr>
+              <tr><td class="label">Networks:</td><td><a href="#">Harvard '07</a></td></tr>
+              <tr><td class="label">Sex:</td><td><a href="#">Male</a></td></tr>
+              <tr><td class="label">Birthday:</td><td><a href="#">March 22, 1985</a></td></tr>
+              <tr><td class="label">Hometown:</td><td><a href="#">Short Hills, NJ</a></td></tr>
+              <tr><td class="label">Residence:</td><td><a href="#">Lowell House</a></td></tr>
+              <tr class="head"><td colspan="2">Contact Info:</td></tr>
+              <tr><td class="label">Email:</td><td><a href="#">bkessler@fas.harvard.edu</a></td></tr>
+              <tr><td class="label">AIM Screenname:</td><td><a href="#">bkess22</a></td></tr>
+              <tr><td class="label">Mobile:</td><td>973-555-0146</td></tr>
+              <tr class="head"><td colspan="2">Personal Info:</td></tr>
+              <tr><td class="label">Activities:</td><td><a href="#">Ultimate frisbee</a>, <a href="#">The Harvard Crimson</a>, <a href="#">Lowell HoCo</a>, <a href="#">poker night</a></td></tr>
+              <tr><td class="label">Interests:</td><td><a href="#">Red Sox</a>, <a href="#">Gears of War</a>, <a href="#">fantasy football</a>, <a href="#">making mix CDs</a>, <a href="#">grilled cheese at 3am</a></td></tr>
+              <tr><td class="label">Favorite Music:</td><td><a href="#">The Killers</a>, <a href="#">Arctic Monkeys</a>, <a href="#">Gnarls Barkley</a>, <a href="#">Jay-Z</a>, <a href="#">The Strokes</a>, <a href="#">Death Cab for Cutie</a>, <a href="#">Justin Timberlake</a> (don't judge)</td></tr>
+              <tr><td class="label">Favorite TV Shows:</td><td><a href="#">The Office</a>, <a href="#">Arrested Development</a>, <a href="#">Lost</a>, <a href="#">Entourage</a>, <a href="#">Family Guy</a></td></tr>
+              <tr><td class="label">Favorite Movies:</td><td><a href="#">Wedding Crashers</a>, <a href="#">Anchorman</a>, <a href="#">The Departed</a>, <a href="#">Garden State</a></td></tr>
+              <tr><td class="label">Favorite Books:</td><td><a href="#">Freakonomics</a>, <a href="#">Moneyball</a>, <a href="#">The Kite Runner</a></td></tr>
+              <tr><td class="label">Favorite Quotes:</td><td>"I'm kind of a big deal." - Ron Burgundy</td></tr>
+              <tr><td class="label">About Me:</td><td>Lowell. Ec concentrator. If you see me in Lamont after 2am, no you didn't.</td></tr>
+              <tr class="head"><td colspan="2">Education Info:</td></tr>
+              <tr><td class="label">College:</td><td><a href="#">Harvard</a> '07<br>Economics</td></tr>
+              <tr><td class="label">High School:</td><td><a href="#">Millburn High School</a> '03</td></tr>
+              <tr class="head"><td colspan="2">Work Info:</td></tr>
+              <tr><td class="label">Company:</td><td><a href="#">Lehman Brothers</a></td></tr>
+              <tr><td class="label">Position:</td><td>Summer Analyst</td></tr>
+              <tr><td class="label">Time Period:</td><td>June 2006 - August 2006</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="box">
+          <h2>Mini-Feed</h2>
+          <div class="sub"><span class="r"><a href="#">See All</a></span>Displaying 8 stories.</div>
+          <div class="bc">
+<div class="mfday" data-item="mini-feed day"><h6>Today</h6><div class="mfitem" data-item="mini-feed story"><span class="ic ic-friend"></span><span class="mft"><a href='#'>Brian</a> and <a href='#'>Nicole Ferraro</a> are now friends.</span><span class="mftime">4:12pm</span></div><div class="mfitem" data-item="mini-feed story"><span class="ic ic-wall"></span><span class="mft"><a href='#'>Brian</a> wrote on <a href='#'>Danny Fiorello</a>'s Wall.</span><span class="mftime">1:47pm</span></div><div class="mfitem" data-item="mini-feed story"><span class="ic ic-photo"></span><span class="mft"><a href='#'>Brian</a> was tagged in a photo in the album <a href='#'>Lowell Halloween!!</a></span><span class="mftime">11:05am</span></div></div>
+<div class="mfday" data-item="mini-feed day"><h6>Yesterday</h6><div class="mfitem" data-item="mini-feed story"><span class="ic ic-profile"></span><span class="mft"><a href='#'>Brian</a> added <i>The Office</i> and <i>Arrested Development</i> to his favorite TV shows.</span><span class="mftime">9:58pm</span></div><div class="mfitem" data-item="mini-feed story"><span class="ic ic-group"></span><span class="mft"><a href='#'>Brian</a> joined the group <a href='#'>I Will Not Be Moved By Your Fancy News Feed</a>.</span><span class="mftime">6:30pm</span></div><div class="mfitem" data-item="mini-feed story"><span class="ic ic-event"></span><span class="mft"><a href='#'>Brian</a> is attending <a href='#'>The Game Tailgate 2006</a>.</span><span class="mftime">2:14pm</span></div></div>
+<div class="mfday" data-item="mini-feed day"><h6>November 12</h6><div class="mfitem" data-item="mini-feed story"><span class="ic ic-heart"></span><span class="mft"><a href='#'>Brian</a> is now in a relationship.</span><span class="mftime">10:41pm</span></div><div class="mfitem" data-item="mini-feed story"><span class="ic ic-note"></span><span class="mft"><a href='#'>Brian</a> wrote a new note, <a href='#'>15 Things You Don't Know About Me</a>.</span><span class="mftime">4:03pm</span></div></div>
+          </div>
+        </div>
+        <div class="box">
+          <h2>The Wall</h2>
+          <div class="sub"><span class="r"><a href="#">See All</a></span>Displaying 7 of 312 wall posts.</div>
+          <div class="bc">
+            <div class="writewall"><textarea>Write something...</textarea><input type="button" class="inputsubmit" value="Post"></div>
+<div class="wallpost" data-item="wall post">
+<a class="wpic" href="#"><img data-ph="person" data-seed="fb06-w1" width="50" height="50" alt=""></a>
+<div class="wbody"><div class="whead"><a href="#">Katie Morrissey</a> (Harvard) wrote<br><span class="wdate">at 11:48pm on November 13, 2006</span></div>
+<div class="wtext">brian!!! you left your Ec 1010a notes in my room AGAIN. holding them hostage until you bring me Felipe's. also Grey's Anatomy thursday, my room, bring the popcorn</div>
+<div class="wlinks"><a href="#">Write on Katie's Wall</a> - <a href="#">Wall-to-Wall</a></div></div>
+</div>
+<div class="wallpost" data-item="wall post">
+<a class="wpic" href="#"><img data-ph="person" data-seed="fb06-w2" width="50" height="50" alt=""></a>
+<div class="wbody"><div class="whead"><a href="#">Sam Oyelaran</a> (Yale) wrote<br><span class="wdate">at 2:13am on November 13, 2006</span></div>
+<div class="wtext">the Game is in 4 days. you're going down. 3 years in a row was a fluke. see you at the tailgate, i'll be the one in the giant bulldog suit</div>
+<div class="wlinks"><a href="#">Write on Sam's Wall</a> - <a href="#">Wall-to-Wall</a></div></div>
+</div>
+<div class="wallpost" data-item="wall post">
+<a class="wpic" href="#"><img data-ph="person" data-seed="fb06-w3" width="50" height="50" alt=""></a>
+<div class="wbody"><div class="whead"><a href="#">Danny Fiorello</a> (Harvard) wrote<br><span class="wdate">at 6:02pm on November 12, 2006</span></div>
+<div class="wtext">dude did you see the new News Feed thing? i know you looked at my profile 14 times yesterday. creeper. (also Gears of War tonight?)</div>
+<div class="wlinks"><a href="#">Write on Danny's Wall</a> - <a href="#">Wall-to-Wall</a></div></div>
+</div>
+<div class="wallpost" data-item="wall post">
+<a class="wpic" href="#"><img data-ph="person" data-seed="fb06-w4" width="50" height="50" alt=""></a>
+<div class="wbody"><div class="whead"><a href="#">Rachel Tsai</a> (Stanford) wrote<br><span class="wdate">at 10:31pm on November 11, 2006</span></div>
+<div class="wtext">sooo i heard a rumor. is it true?? you have to tell me EVERYTHING. call me, my sidekick died again so use the landline</div>
+<div class="wlinks"><a href="#">Write on Rachel's Wall</a> - <a href="#">Wall-to-Wall</a></div></div>
+</div>
+<div class="wallpost" data-item="wall post">
+<a class="wpic" href="#"><img data-ph="person" data-seed="fb06-w5" width="50" height="50" alt=""></a>
+<div class="wbody"><div class="whead"><a href="#">Nicole Ferraro</a> (Harvard) wrote<br><span class="wdate">at 9:17pm on November 10, 2006</span></div>
+<div class="wtext">thanks for the help with the Ec problem set. i owe you a Berryline. also stop putting Snakes on a Plane quotes on my whiteboard</div>
+<div class="wlinks"><a href="#">Write on Nicole's Wall</a> - <a href="#">Wall-to-Wall</a></div></div>
+</div>
+<div class="wallpost" data-item="wall post">
+<a class="wpic" href="#"><img data-ph="person" data-seed="fb06-w6" width="50" height="50" alt=""></a>
+<div class="wbody"><div class="whead"><a href="#">Mike Brandt</a> (Harvard) wrote<br><span class="wdate">at 1:07am on November 9, 2006</span></div>
+<div class="wtext">you still owe me $12 from the Pinocchio's run. and the Borat DVD. high five!</div>
+<div class="wlinks"><a href="#">Write on Mike's Wall</a> - <a href="#">Wall-to-Wall</a></div></div>
+</div>
+<div class="wallpost" data-item="wall post">
+<a class="wpic" href="#"><img data-ph="person" data-seed="fb06-w7" width="50" height="50" alt=""></a>
+<div class="wbody"><div class="whead"><a href="#">Lauren Abernathy</a> (Columbia) wrote<br><span class="wdate">at 4:45pm on November 7, 2006</span></div>
+<div class="wtext">are you coming to the city for thanksgiving?? the Killers are playing MSG, i might be able to get tix</div>
+<div class="wlinks"><a href="#">Write on Lauren's Wall</a> - <a href="#">Wall-to-Wall</a></div></div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="pagefooter">
+    <a href="#">about</a> <a href="#">jobs</a> <a href="#">advertise</a> <a href="#">press</a> <a href="#">terms</a> <a href="#">privacy</a> <a href="#">developers</a> <a href="#">help</a>
+    <p>a Mark Zuckerberg production<br>Facebook &copy; 2006</p>
+  </div>
+</div>
+</body>
+</html>

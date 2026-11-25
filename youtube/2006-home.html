@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>YouTube - Broadcast Yourself.</title>
+<script src="../shared/studio.js"></script>
+<script src="assets/ytplayer.js"></script>
+<style>
+body{margin:8px;background:#fff;color:#000;font:12px Arial,Helvetica,sans-serif}
+a:link,a:visited,a:active{color:#03C}
+a.dg{color:#333}
+p{margin:0 0 12px}
+.grayText{color:#666}.smallText{font-size:11px}.xsmallText{font-size:10px}
+#baseDiv{position:relative;width:875px;margin:0 auto}
+#logoTagDiv{float:left;height:48px}
+.tagl{float:left;margin:9px 0 0 5px;font:15px/16px Arial,Helvetica,sans-serif;color:#888;letter-spacing:.1px;transform:scaleX(.86);transform-origin:left}
+#utilDiv{margin-left:136px;padding-bottom:6px;text-align:right;height:13px}
+.utilDelim{padding:0 3px}
+#searchDiv{margin-top:6px;margin-bottom:4px;text-align:right}
+.smallLabel{font-size:11px;font-weight:bold;color:#333}
+.searchField{width:250px;color:#000;font-size:12px}
+input[type=submit],button{font:13px Arial,Helvetica,sans-serif;padding:1px 7px;border:1px solid #707070;border-radius:3px;background:linear-gradient(#f6f6f6,#dedede);color:#000}
+#gNavDiv{clear:both;margin-top:8px;height:25px}
+#gNavDiv .tab{float:left;width:140px;margin-right:6px}
+#gNavDiv .ltab{float:left;width:140px;margin-right:8px}
+#gNavDiv .rtab{float:right;margin-left:2px;width:140px}
+#gNavDiv .tabContent{height:19px;padding:5px 5px 0;background:#BBCCEE;border-radius:5px 5px 0 0;text-align:center;font-size:13px;font-weight:bold;border-bottom:1px solid #fff}
+#gNavDiv .selected{background:#ddd;border-bottom:1px solid #ddd}
+#gSubNavDiv{clear:both;background:#DDD;text-align:center;padding:8px 0;margin-bottom:10px}
+#gSubNavDiv .d{padding:0 8px}
+#hpMainContent{float:left;width:555px}
+#hpSideContent{float:right;width:300px}
+.hpContentBlock{margin-bottom:15px}
+#hpSVidHeader{font-weight:bold;font-size:12px;color:#999;margin-bottom:6px}
+.hpSVidEntry{float:left;width:23%;text-align:center;padding:0 3px}
+.hpSVidEntry .vtitle a{font-size:10px}
+.clearL{clear:left}
+.vimg80,.vimg{width:80px;height:60px;border:1px solid #CCC;object-fit:cover;display:block;margin:0 auto}
+.vimg120{width:120px;height:90px;border:1px solid #CCC;object-fit:cover;display:block}
+.vstill{margin-bottom:2px}
+.vtitle{font-weight:bold}
+.vdesc{margin:3px 0}
+.vfacets{margin:3px 0;font-size:11px;line-height:13px}
+.vtagLabel{float:left}
+.vtagValue{margin-left:35px;margin-bottom:3px}
+.vTable{border-spacing:0;padding:0}
+.vTable td{vertical-align:top}
+.vTable .vinfo{padding-left:8px}
+.vEntry{padding:10px 0;border-bottom:1px dashed #999}
+.vEntry:last-child{border-bottom:0}
+.runtime{font-size:11px;color:#000;font-weight:bold}
+.vthumb{position:relative;width:122px}
+.qladd{position:absolute;left:3px;bottom:3px;width:12px;height:12px;border:1px solid #888;background:linear-gradient(#fff,#ccc);font:bold 12px/11px Arial;color:#555;text-align:center}
+.rating{margin-top:3px;font-size:11px;height:14px}
+.stars i{display:inline-block;width:14px;height:14px;margin-right:2px;vertical-align:middle;background-size:14px 14px}
+.stars i.f{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'%23f00'%20stroke%3D'%23e00'%20stroke-width%3D'1.3'%2F%3E%3C%2Fsvg%3E")}.stars i.e{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'%23fff'%20stroke%3D'%23f00'%20stroke-width%3D'1.6'%2F%3E%3C%2Fsvg%3E")}.stars i.h{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3CclipPath%20id%3D'c'%3E%3Crect%20width%3D'12'%20height%3D'24'%2F%3E%3C%2FclipPath%3E%3Cpath%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'%23fff'%20stroke%3D'%23f00'%20stroke-width%3D'1.6'%2F%3E%3Cpath%20clip-path%3D'url(%23c)'%20d%3D'M12%201.5l3.1%206.9%207.4.7-5.6%205%201.7%207.4L12%2017.6l-6.6%203.9%201.7-7.4-5.6-5%207.4-.7z'%20fill%3D'%23f00'%20stroke%3D'%23e00'%20stroke-width%3D'1.3'%2F%3E%3C%2Fsvg%3E")}
+.headerRCBox .content{background:#CCC;padding:3px 6px 3px;border-radius:5px 5px 0 0}
+.headerTitle{color:#000;font-size:14px;font-weight:bold}
+.headerTitleRight{float:right;padding:1px 5px 0 0;font-size:12px;font-weight:bold;color:#333}
+.vListBox{padding:0 6px;border:1px solid #CCC;background:#EEE}
+.footerBox{padding:3px 5px;border:1px solid #CCC;background:#CCC;margin-bottom:15px;text-align:right;font-weight:bold;border-radius:0 0 5px 5px}
+.contentBox{padding:6px;border:1px solid #CCC}
+.label{font-weight:bold;color:#333}
+#hpEmbedTopCap{height:35px;overflow:hidden;padding-bottom:1px}
+#hpEmbedUnderBlock{padding-top:5px}
+.hpLoginField{width:170px}
+.hpLoginForgot{padding-top:10px}
+.v80hEntry{clear:left;margin-bottom:5px;overflow:hidden}
+.v80hEntry .vstill{float:left}
+.v80hEntry .vinfo{margin-left:86px}
+.promo{display:block;height:35px;position:relative;background:linear-gradient(90deg,#b5121b,#e2231a 40%,#fff 40.2%);overflow:hidden;text-decoration:none;font-family:Impact,"Arial Narrow",sans-serif}
+.promo .ug{position:absolute;left:6px;top:2px;color:#fff;font-size:17px;line-height:15px;letter-spacing:.5px}
+.promo .ug small{display:block;font:bold 9px Arial;letter-spacing:0}
+.promo .w{position:absolute;left:124px;top:4px;color:#000;font-size:12px;line-height:12px;text-align:center}
+.promo .c{position:absolute;right:4px;top:0;color:#d4141a;font-size:27px;line-height:35px;letter-spacing:1px}
+.ico{float:left;margin:2px 6px 10px 0;width:30px;height:34px;border-radius:3px}
+.rr p{overflow:hidden}
+/* 2006 embed player */
+.yp6{position:relative;width:300px;height:250px;background:#000;font-family:Verdana,Arial,sans-serif}
+.yp6 .scr{position:absolute;left:0;top:0;right:0;bottom:25px;overflow:hidden}
+.yp6 .scr img{width:300px;height:225px;object-fit:cover;display:block}
+.yp6 .big{position:absolute;left:50%;top:50%;width:64px;height:44px;margin:-34px 0 0 -32px;border-radius:9px;background:linear-gradient(rgba(60,60,60,.85),rgba(10,10,10,.85));border:1px solid rgba(255,255,255,.35);z-index:3;pointer-events:none}
+.yp6 .big:after{content:"";position:absolute;left:25px;top:12px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff}
+.yp6.ytp-started .big{display:none}
+.bar7{position:absolute;left:0;right:0;bottom:0;height:25px;background:linear-gradient(#fdfdfd,#e3e3e3 50%,#d2d2d2 51%,#dcdcdc);border-top:1px solid #a9a9a9;box-sizing:border-box;user-select:none}
+.bar7 .pp{position:absolute;left:0;top:0;width:28px;height:24px;border-right:1px solid #b5b5b5;cursor:pointer}
+.bar7 .pp:before{content:"";position:absolute;left:10px;top:6px;border-style:solid;border-width:6px 0 6px 9px;border-color:transparent transparent transparent #3c3c3c}
+.ytp-playing .bar7 .pp:before{left:9px;top:6px;width:3px;height:12px;border:0;border-left:3px solid #3c3c3c;border-right:3px solid #3c3c3c;box-sizing:content-box}
+.bar7 .trk{position:absolute;left:38px;right:130px;top:9px;height:5px;background:#8f8f8f;border:1px solid #6a6a6a;border-radius:3px;cursor:pointer}
+.bar7 .ld{position:absolute;left:0;top:0;height:100%;width:0;background:#c9c9c9;border-radius:3px}
+.bar7 .fl{position:absolute;left:0;top:0;height:100%;width:0;background:#e01b1b;border-radius:3px}
+.bar7 .kn{position:absolute;top:-5px;left:0;width:13px;height:13px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,#d6d6d6 55%,#9a9a9a);border:1px solid #777;box-sizing:border-box}
+.bar7 .tm{position:absolute;right:62px;top:6px;font-size:10px;color:#222;white-space:nowrap}
+.bar7 .tm .dur{color:#777}
+.bar7 .vol{position:absolute;right:32px;top:0;width:28px;height:24px;border-left:1px solid #b5b5b5}
+.bar7 .fs{position:absolute;right:0;top:0;width:30px;height:24px;border-left:1px solid #b5b5b5}
+.bar7 svg{position:absolute;left:7px;top:6px}
+/* footer */
+#footerDiv{clear:both;width:875px;margin-top:12px;padding-bottom:12px;font-size:11px}
+#footerContent{background:#EEE;border-top:1px solid #CCC;border-bottom:1px solid #CCC;padding:8px 0}
+#footerLinks{height:66px;line-height:15px}
+#footerLinks table{width:90%;margin:0 auto;border-collapse:collapse}
+.footColumnBar{height:60px;width:170px;margin-right:20px;border-right:1px solid #CCC}
+.footLabel{font-weight:bold;font-size:11px;color:#333}
+.footValues .column{float:left;padding-right:26px}
+#footerSearch{padding-top:8px;text-align:center}
+#footerCopyright{padding-top:12px;text-align:center}
+</style>
+</head>
+<body data-page="youtube-2006-home" data-v="1" data-url="http://www.youtube.com/">
+<div id="baseDiv">
+<div id="logoTagDiv"><a href="2006-home.html"><svg width="120" height="48" viewBox="0 0 120 48" aria-label="YouTube" style="display:block;float:left"><defs><linearGradient id="lr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2463a"/><stop offset=".55" stop-color="#d8211a"/><stop offset="1" stop-color="#b8120c"/></linearGradient><linearGradient id="lk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><text x="1" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="url(#lk)" textLength="50" lengthAdjust="spacingAndGlyphs">You</text><rect x="53" y="4" width="65" height="42" rx="9" fill="url(#lr)"/><text x="57" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="41" fill="#fff" textLength="57" lengthAdjust="spacingAndGlyphs">Tube</text></svg><span class="tagl">Broadcast<br>Yourself&trade;</span></a></div>
+<div id="utilDiv"><b><a href="#">Sign Up</a></b><span class="utilDelim">|</span><a href="#">My Account</a><span class="utilDelim">|</span><a href="#">History</a><span class="utilDelim">|</span><a href="#">QuickList</a> (<a href="#">0</a>)<span class="utilDelim">|</span><a href="#">Help</a><span class="utilDelim">|</span><a href="#">Log In</a></div>
+<div id="searchDiv"><form><span class="smallLabel">Search for&nbsp;</span><input type="text" class="searchField" value=""> &nbsp;<input type="submit" value="Search"></form></div>
+<div id="gNavDiv"><div class="ltab"><div class="tabContent selected"><a href="2006-home.html">Home</a></div></div><div class="tab"><div class="tabContent"><a href="#">Videos</a></div></div><div class="tab"><div class="tabContent"><a href="#">Channels</a></div></div><div class="tab"><div class="tabContent"><a href="#">Groups</a></div></div><div class="tab"><div class="tabContent"><a href="#">Categories</a></div></div><div class="rtab"><div class="tabContent"><a href="#">Upload</a></div></div></div>
+<div id="gSubNavDiv">&nbsp;<a href="#">My Account</a><span class="d">|</span><a href="#">My Videos</a><span class="d">|</span><a href="#">My Favorites</a><span class="d">|</span><a href="#">My Friends</a><span class="d">|</span><a href="#">My Inbox</a><span class="d">|</span><a href="#">My Subscriptions</a><span class="d">|</span><a href="#">My Groups</a><span class="d">|</span><a href="#">My Channel</a>&nbsp;</div>
+<div id="hpMainContent">
+<div class="hpContentBlock"><div id="hpSVidHeader">Videos Being Watched Right Now...</div>
+<div><div class="hpSVidEntry" data-item="video"><div class="vstill"><a href="2007-watch.html"><img class="vimg80" data-ph="thumb" data-seed="yt06w0" width="80" height="60" alt=""></a></div><div class="vtitle xsmallText"><a href="2007-watch.html">Wii Sports bowling = broken TV</a></div></div><div class="hpSVidEntry" data-item="video"><div class="vstill"><a href="2007-watch.html"><img class="vimg80" data-ph="thumb" data-seed="yt06w1" width="80" height="60" alt=""></a></div><div class="vtitle xsmallText"><a href="2007-watch.html">Zune unboxing (yes, it's brown)</a></div></div><div class="hpSVidEntry" data-item="video"><div class="vstill"><a href="2007-watch.html"><img class="vimg80" data-ph="thumb" data-seed="yt06w2" width="80" height="60" alt=""></a></div><div class="vtitle xsmallText"><a href="2007-watch.html">PS3 launch line - day 3 of camping</a></div></div><div class="hpSVidEntry" data-item="video"><div class="vstill"><a href="2007-watch.html"><img class="vimg80" data-ph="thumb" data-seed="yt06w3" width="80" height="60" alt=""></a></div><div class="vtitle xsmallText"><a href="2007-watch.html">my Borat impression at thanksgiving</a></div></div><div class="clearL" style="height:1px"></div></div></div>
+<div class="headerRCBox"><div class="content"><div class="headerTitle"><div class="headerTitleRight"><a href="#">See More Videos</a></div><span>Featured Videos</span></div></div></div>
+<div class="vListBox">
+<div class="vEntry" data-item="video"><table class="vTable"><tr><td><div class="vthumb"><a href="2007-watch.html"><img class="vimg120" data-ph="thumb" data-seed="yt06f0" width="120" height="90" alt=""></a><span class="qladd" data-noedit>+</span></div></td><td class="vinfo"><div class="vtitle"><a href="2007-watch.html">Diet Coke + Mentos: the 200 bottle finale</a><br><span class="runtime">03:02</span></div><div class="vdesc">We finally did it. 200 liters of Diet Coke and 1,000 Mentos in a parking lot in Maine. Our neighbors hate us now.<br><br>Shot on two Canon ZR camcorders. Music by our friend Pete's band, go buy their CD!</div><div class="vfacets"><div class="vtagLabel">Tags:</div><div class="vtagValue"><a href="#" class="dg">mentos</a> &nbsp; <a href="#" class="dg">coke</a> &nbsp; <a href="#" class="dg">diet</a> &nbsp; <a href="#" class="dg">experiment</a> &nbsp; <a href="#" class="dg">geyser</a> &nbsp; <a href="#" class="dg">science</a> &nbsp; <a href="#" class="dg">fountain</a> &nbsp; <a href="#" class="dg">explosion</a></div><span class="grayText">Added:</span> 2 weeks ago <span class="grayText">&nbsp; in Category:</span> <a href="#" class="dg">Entertainment</a><br><span class="grayText">From:</span> <a href="#">eepybird_fan</a><br><span class="grayText">Views:</span> 1,904,227</div><nobr class="stars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="h"></i></nobr><div class="rating">6,212 ratings</div></td></tr></table></div>
+<div class="vEntry" data-item="video"><table class="vTable"><tr><td><div class="vthumb"><a href="2007-watch.html"><img class="vimg120" data-ph="thumb" data-seed="yt06f1" width="120" height="90" alt=""></a><span class="qladd" data-noedit>+</span></div></td><td class="vinfo"><div class="vtitle"><a href="2007-watch.html">Wii Sports bowling = broken TV (no joke)</a><br><span class="runtime">00:47</span></div><div class="vdesc">My dad let go of the wiimote. Wear the WRIST STRAP people!!! We are now shopping for a new TV for christmas lol</div><div class="vfacets"><div class="vtagLabel">Tags:</div><div class="vtagValue"><a href="#" class="dg">wii</a> &nbsp; <a href="#" class="dg">nintendo</a> &nbsp; <a href="#" class="dg">bowling</a> &nbsp; <a href="#" class="dg">fail</a> &nbsp; <a href="#" class="dg">tv</a> &nbsp; <a href="#" class="dg">broken</a> &nbsp; <a href="#" class="dg">wiimote</a> &nbsp; <a href="#" class="dg">wristStrap</a></div><span class="grayText">Added:</span> 4 days ago <span class="grayText">&nbsp; in Category:</span> <a href="#" class="dg">Gadgets & Games</a><br><span class="grayText">From:</span> <a href="#">wiifail2006</a><br><span class="grayText">Views:</span> 412,966</div><nobr class="stars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="e"></i></nobr><div class="rating">2,031 ratings</div></td></tr></table></div>
+<div class="vEntry" data-item="video"><table class="vTable"><tr><td><div class="vthumb"><a href="2007-watch.html"><img class="vimg120" data-ph="thumb" data-seed="yt06f2" width="120" height="90" alt=""></a><span class="qladd" data-noedit>+</span></div></td><td class="vinfo"><div class="vtitle"><a href="2007-watch.html">dorm room christmas lights - synced to music</a><br><span class="runtime">02:58</span></div><div class="vdesc">took us 40 hours and 2 extension cords to program this in our dorm room. RA hasn't found out yet. Song is Wizards in Winter.</div><div class="vfacets"><div class="vtagLabel">Tags:</div><div class="vtagValue"><a href="#" class="dg">christmas</a> &nbsp; <a href="#" class="dg">lights</a> &nbsp; <a href="#" class="dg">synced</a> &nbsp; <a href="#" class="dg">dorm</a> &nbsp; <a href="#" class="dg">college</a> &nbsp; <a href="#" class="dg">holiday</a> &nbsp; <a href="#" class="dg">trans</a> &nbsp; <a href="#" class="dg">siberian</a></div><span class="grayText">Added:</span> 1 week ago <span class="grayText">&nbsp; in Category:</span> <a href="#" class="dg">Music</a><br><span class="grayText">From:</span> <a href="#">holidayhouse_oh</a><br><span class="grayText">Views:</span> 288,540</div><nobr class="stars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="h"></i></nobr><div class="rating">1,384 ratings</div></td></tr></table></div>
+<div class="vEntry" data-item="video"><table class="vTable"><tr><td><div class="vthumb"><a href="2007-watch.html"><img class="vimg120" data-ph="thumb" data-seed="yt06f3" width="120" height="90" alt=""></a><span class="qladd" data-noedit>+</span></div></td><td class="vinfo"><div class="vtitle"><a href="2007-watch.html">How to talk to girls at a LAN party</a><br><span class="runtime">04:16</span></div><div class="vdesc">a tutorial. you're welcome. (part 3 of my how-to series)</div><div class="vfacets"><div class="vtagLabel">Tags:</div><div class="vtagValue"><a href="#" class="dg">lan</a> &nbsp; <a href="#" class="dg">party</a> &nbsp; <a href="#" class="dg">nerds</a> &nbsp; <a href="#" class="dg">girls</a> &nbsp; <a href="#" class="dg">howto</a> &nbsp; <a href="#" class="dg">comedy</a> &nbsp; <a href="#" class="dg">halo</a></div><span class="grayText">Added:</span> 3 days ago <span class="grayText">&nbsp; in Category:</span> <a href="#" class="dg">Comedy</a><br><span class="grayText">From:</span> <a href="#">quietlaughs</a><br><span class="grayText">Views:</span> 156,012</div><nobr class="stars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="h"></i><i class="e"></i></nobr><div class="rating">944 ratings</div></td></tr></table></div>
+<div class="vEntry" data-item="video"><table class="vTable"><tr><td><div class="vthumb"><a href="2007-watch.html"><img class="vimg120" data-ph="thumb" data-seed="yt06f4" width="120" height="90" alt=""></a><span class="qladd" data-noedit>+</span></div></td><td class="vinfo"><div class="vtitle"><a href="2007-watch.html">My cat plays the keyboard (for real)</a><br><span class="runtime">01:12</span></div><div class="vdesc">Mittens has been practicing. This is her first public performance. please be nice in the comments</div><div class="vfacets"><div class="vtagLabel">Tags:</div><div class="vtagValue"><a href="#" class="dg">cat</a> &nbsp; <a href="#" class="dg">keyboard</a> &nbsp; <a href="#" class="dg">piano</a> &nbsp; <a href="#" class="dg">funny</a> &nbsp; <a href="#" class="dg">pets</a> &nbsp; <a href="#" class="dg">kitty</a> &nbsp; <a href="#" class="dg">music</a></div><span class="grayText">Added:</span> 6 days ago <span class="grayText">&nbsp; in Category:</span> <a href="#" class="dg">Pets & Animals</a><br><span class="grayText">From:</span> <a href="#">mittensmom</a><br><span class="grayText">Views:</span> 621,773</div><nobr class="stars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="h"></i></nobr><div class="rating">3,517 ratings</div></td></tr></table></div>
+</div>
+<div class="footerBox"><a href="#">See More Videos</a></div>
+</div>
+<div id="hpSideContent">
+<div class="hpContentBlock">
+<div id="hpEmbedTopCap"></div>
+<div class="yp6" data-ytp><div class="scr" data-video><img data-ph="thumb" data-seed="yt06side" width="300" height="225" alt=""></div><div class="big"></div>
+<div class="bar7" data-noedit><div class="pp" data-ytp-toggle></div><div class="trk" data-ytp-seek><div class="ld" data-ytp-load></div><div class="fl" data-ytp-fill></div><div class="kn" data-ytp-knob></div></div><div class="tm"><span data-ytp-cur>0:00</span> <span class="dur">/ <span data-ytp-dur>2:31</span></span></div><div class="vol"><svg width="15" height="12" viewBox="0 0 15 12"><path d="M0 4h3l4-3v10L3 8H0z" fill="#3c3c3c"/><path d="M9 3.5c1.4 1.4 1.4 3.6 0 5M11 1.5c2.5 2.5 2.5 6.5 0 9" stroke="#3c3c3c" stroke-width="1.3" fill="none"/></svg></div><div class="fs"><svg width="16" height="12" viewBox="0 0 16 12"><rect x=".5" y=".5" width="15" height="11" fill="none" stroke="#3c3c3c"/><path d="M3 3h3M3 3v3M13 9h-3M13 9V6" stroke="#3c3c3c" stroke-width="1.4"/></svg></div></div></div>
+<div id="hpEmbedUnderBlock"><table width="100%"><tr valign="top"><td width="80%"><div class="vtitle"><a href="2007-watch.html">Snakes on a Plane - DVD Trailer</a></div><div class="vfacets"><span class="grayText">From:</span> <i><a href="#" class="dg">NewLineCinema</a></i><br><span class="grayText">Comments:</span> <a href="#">412</a></div></td><td width="20%" align="center" nowrap><div class="label">Login to rate video</div><nobr class="stars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="e"></i><i class="e"></i></nobr><div class="rating">1,087 ratings</div></td></tr></table></div>
+</div>
+<div class="hpContentBlock"><div class="headerRCBox"><div class="content"><span class="headerTitle">Member Login</span></div></div>
+<div class="contentBox"><form><table><tr><td><b>User Name:</b></td><td><input type="text" class="hpLoginField"></td></tr><tr><td><b>Password:</b></td><td><input type="password" class="hpLoginField"></td></tr><tr><td>&nbsp;</td><td><div style="float:right"><b><a href="#">Sign Up</a></b></div><div><input type="submit" value="Login"></div><div class="hpLoginForgot smallText"><b>Forgot:</b> <a href="#">Username</a> | <a href="#">Password</a></div></td></tr></table></form></div></div>
+<div class="hpContentBlock"><a class="promo" href="#" data-noedit><span class="ug"><small>You Tube</small>UNDERGROUND</span><span class="w">THE WINNERS<br>HAVE BEEN</span><span class="c">CHOSEN!</span></a></div>
+<div class="hpContentBlock"><div class="headerRCBox"><div class="content"><span class="headerTitle">What's New at YouTube</span></div></div>
+<div class="contentBox rr"><p><b><a href="#"><span class="ico" style="background:linear-gradient(#555,#111);box-shadow:inset 0 0 0 2px #888"></span>YouTube Underground</a></b><br><b>Winners Have Been Chosen!</b></p></div></div>
+<div class="hpContentBlock"><div class="headerRCBox"><div class="content"><span class="headerTitle">Recently Released</span></div></div>
+<div class="contentBox rr">
+<p data-item="news"><b><a href="#"><span class="ico" style="background:linear-gradient(#f6f6f6,#ccc);border:1px solid #999;box-sizing:border-box;color:#2a2;font:bold 22px/30px Arial;text-align:center">+</span>QuickList</a></b><br>Too much good stuff to watch now? Click the "+" on any video to save it for later.</p>
+<p data-item="news"><b><a href="#"><span class="ico" style="background:linear-gradient(#4f74d8,#1a3b99);color:#fff;font:bold 18px/34px Georgia;text-align:center">&#9786;</span>Comedian Accounts</a></b><br>Get your standup, improv, or sketches out to a huge audience!</p>
+<p data-item="news" style="margin:0"><b><a href="#"><span class="ico" style="background:linear-gradient(#e2231a,#a5100b);color:#fff;font:bold 22px/34px Georgia;text-align:center">U</span>YouTube Colleges</a></b><br>Join or request your college now and start sharing your college experience!</p>
+</div></div>
+<div class="hpContentBlock"><div class="headerRCBox"><div class="content"><span class="headerTitle">Active Channels</span></div></div>
+<div class="contentBox"><div class="v80hEntry" data-item="channel"><div class="vstill"><a href="#"><img class="vimg" data-ph="person" data-seed="yt06ch0" width="80" height="60" alt=""></a></div><div class="vinfo"><b><a href="#">ankhv2</a></b><div class="vfacets">25 Videos | 109 Subscribers</div></div></div><div class="v80hEntry" data-item="channel"><div class="vstill"><a href="#"><img class="vimg" data-ph="person" data-seed="yt06ch1" width="80" height="60" alt=""></a></div><div class="vinfo"><b><a href="#">smosh_fan_club</a></b><div class="vfacets">13 Videos | 479 Subscribers</div></div></div><div class="v80hEntry" data-item="channel"><div class="vstill"><a href="#"><img class="vimg" data-ph="person" data-seed="yt06ch2" width="80" height="60" alt=""></a></div><div class="vinfo"><b><a href="#">kelly_sings</a></b><div class="vfacets">71 Videos | 1,150 Subscribers</div></div></div><div class="v80hEntry" data-item="channel"><div class="vstill"><a href="#"><img class="vimg" data-ph="person" data-seed="yt06ch3" width="80" height="60" alt=""></a></div><div class="vinfo"><b><a href="#">renetto_jr</a></b><div class="vfacets">8 Videos | 230 Subscribers</div></div></div><div style="text-align:right"><a href="#">See More Channels</a></div></div></div>
+<div class="hpContentBlock"><div class="headerRCBox"><div class="content"><span class="headerTitle">Active Groups</span></div></div>
+<div class="contentBox"><div class="v80hEntry" data-item="group"><div class="vstill"><a href="#"><img class="vimg" data-ph="thumb" data-seed="yt06g0" width="80" height="60" alt=""></a></div><div class="vinfo"><b><a href="#">wii_owners_unite</a></b><div class="vfacets">212 Videos | 48 Discussions</div></div></div><div class="v80hEntry" data-item="group"><div class="vstill"><a href="#"><img class="vimg" data-ph="thumb" data-seed="yt06g1" width="80" height="60" alt=""></a></div><div class="vinfo"><b><a href="#">createkungfu</a></b><div class="vfacets">176 Videos | 25 Discussions</div></div></div><div style="text-align:right"><a href="#">See More Groups</a></div></div></div>
+</div>
+<div id="footerDiv"><div id="footerContent"><div id="footerLinks"><table><tr valign="top"><td><div class="footColumnBar"><div class="footLabel">Your&nbsp;&nbsp;Account</div><div class="footValues"><div class="column"><a href="#">Videos</a><br><a href="#">Favorites</a><br><a href="#">Playlists</a></div><div class="column"><a href="#">Subscriptions</a><br><a href="#">Inbox</a><br><a href="#">more...</a></div></div></div></td><td><div class="footColumnBar"><div class="footLabel">YouTube</div><div class="footValues"><div class="column"><a href="#">About</a><br><a href="#">Blog</a><br><a href="#">Contact</a></div><div class="column"><a href="#">Advertising</a><br><a href="#">Jobs</a><br><a href="#">Press</a></div></div></div></td><td><div class="footLabel">Help &amp; Info</div><div class="footValues"><div class="column"><a href="#">Help Center</a><br><a href="#">Video Toolbox</a><br><a href="#">Developers</a></div><div class="column"><a href="#">Safety Tips</a><br><a href="#">RSS Syndication</a><br><a href="#">Community Guidelines</a></div><div class="column"><a href="#">Terms of Use</a><br><a href="#">Privacy Policy</a><br><a href="#">Copyright Info</a></div></div></td></tr></table></div></div>
+<div id="footerSearch"><form><span class="smallLabel">Search for&nbsp;</span><input type="text" class="searchField" value=""> &nbsp;<input type="submit" value="Search"></form></div>
+<div id="footerCopyright">Copyright &copy; 2006 YouTube, Inc.</div></div>
+</div>
+</body>
+</html>

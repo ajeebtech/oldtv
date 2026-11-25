@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Yahoo!</title>
+<script src="../shared/studio.js"></script>
+<style>
+body{margin:7px 8px;background:#fff;color:#000;font-family:arial,sans-serif}
+a{color:#0000cc}
+a:visited{color:#551a8b}
+table{border-collapse:collapse}
+td{padding:0;vertical-align:top}
+.a{font:13px arial,sans-serif}
+.v{font:10px verdana,arial,sans-serif}
+.wrap{width:740px;margin:0 auto}
+.mast{position:relative;width:740px;height:48px}
+.mast .logo{position:absolute;left:254px;top:0}
+.hi{position:absolute;top:0;width:62px;text-align:center;text-decoration:none;color:#000;font:bold 10px/11px verdana,arial,sans-serif}
+.hi svg{display:block;margin:2px auto 1px auto}
+.hi span{color:#000;text-decoration:underline}
+.mast .help{position:absolute;right:0;top:0;font:10px verdana;color:#0000cc}
+.pop{text-align:center;padding:11px 0;font:13px arial}
+.pop .mg{display:inline-block;width:16px;height:16px;vertical-align:-3px}
+.sbox{width:610px;margin:0 auto;border:1px solid #666;background:#e6e6e6;padding:5px;text-align:center}
+.sbox table{margin:0 auto}
+.sbox td{vertical-align:middle;white-space:nowrap}
+.sbox input[type=text]{width:220px;font:13px arial;border:2px inset #ddd;padding:1px 2px}
+.sbox select{font:13px arial}
+.sbox .go{font:13px arial;padding:1px 6px}
+.main{width:740px;margin:5px auto 0 auto}
+.left{width:430px}
+.gap{width:10px}
+.right{width:300px}
+.nav td{font:13px arial;padding:1px 4px 1px 0;white-space:nowrap}
+.nav .h{font-weight:bold;white-space:nowrap;padding-right:8px}
+.nav .new{color:#ff6600;font-weight:bold}
+.nav .sep td{padding:2px 0}
+.nav .sep div{height:1px;background:#eee}
+.mntl{border:1px solid #a9bf97;margin:8px 0}
+.mntl .hd{background:#3a720e;color:#fff;height:21px}
+.mntl .hd .t{font:bold italic 15px/21px arial;padding-left:6px;color:#fff;width:262px;letter-spacing:-.3px}
+.mntl .hd .t b{color:#ffe100}
+.mntl .hd .sp{font:10px/21px verdana;text-align:center}
+.mntl .bd{background:#fdf8d4;padding:4px}
+.mntl .pic{background:#e3e5cd;padding:1px;width:75px}
+.mntl .pic img{display:block;width:75px;height:80px;object-fit:cover}
+.mntl .when{font:bold 10px verdana;color:#3a720e;text-align:center;padding-bottom:4px}
+.mntl .lk{font:10px/13px verdana;padding-left:6px}
+.mntl .ex{background:#fff;border:1px solid #e3e5cd;font:10px verdana;padding:3px 5px;margin-top:4px}
+.mntl .ex b{color:#3a720e}
+.mntl .spons{width:160px;text-align:center;background:#fff;border-left:1px solid #a9bf97}
+.mntl .spons img{display:block;width:158px;height:128px;object-fit:cover}
+.svc{width:49%}
+.svc .h{background:#DEECFB;font:bold 10px verdana;padding:4px 4px 4px 8px;border-bottom:1px solid #B5CDDB}
+.svc .l{font:13px arial;padding:2px 4px;white-space:nowrap}
+.dirh{background:#ffe8ba;font:10px verdana;padding:4px;border-bottom:1px solid #bfbebe;margin-top:10px;display:flex;justify-content:space-between}
+.dir{width:95%;margin:10px auto 0 auto}
+.dir td{font:13px arial;padding:2px;white-space:nowrap}
+.dir .c{font-weight:bold}
+.dir .s{font-size:11px;line-height:1.3}
+.dir .c + br + .s{display:inline}
+.picks{text-align:center;font:bold 10px verdana;margin:12px 0}
+.hp{display:block;margin:10px auto 0 auto;width:84px;height:28px;background:#1c5ea6;color:#fff;font:bold 10px/28px verdana;text-align:center;border-radius:3px}
+.tab{width:100%}
+.tab .tt{background:#9b72cf;color:#fff;font:bold 10px verdana;padding:2px 8px 3px 6px;white-space:nowrap;width:135px;border-bottom:3px solid #9b72cf}
+.tab .tri{width:14px;background:linear-gradient(to bottom left,transparent 50%,#9b72cf 50%)}
+.tab .tr{text-align:right;font:bold 10px verdana;vertical-align:middle;border-bottom:3px solid #9b72cf;width:90%}
+.tab .tr a{color:#0000cc}
+.box{background:#f1f1fd;border:1px solid #9b72cf;border-top:0;padding:8px}
+.box td{font:13px arial;padding:1px}
+.box td.b{font-weight:bold;width:12px}
+.box hr{border:0;border-top:1px solid #d0d3f2;margin:8px 0}
+.box .ft{font:bold 10px verdana;text-align:center}
+.pa{background:#f1f1fd;border:1px solid #9b72cf;border-top:0;display:flex;align-items:center;padding:0}
+.pa .mi{width:80px;flex:none;padding:0 0 0 2px}
+.pa .t{font:10px/16px verdana}
+.hj{border:1px solid #0066cc;margin:8px 0}
+.hj .p img{display:block;width:71px;height:58px;object-fit:cover}
+.hj .lg{font:bold italic 17px/22px georgia,serif;color:#6b2b8c;padding-left:4px}
+.hj .lg b{color:#0066cc}
+.hj .f{background:#cbdcf1;padding:6px;text-align:right;vertical-align:middle}
+.hj input[type=text]{width:90px;font:13px arial;border:2px inset #ddd}
+.hj .go{font:12px arial}
+.date{text-align:right;font:10px verdana;padding:6px 0 2px 0}
+.thumbrow{display:flex;gap:8px;padding:4px 0}
+.thumbrow img{width:70px;height:53px;object-fit:cover;flex:none}
+.thumbrow.sq img{width:50px;height:50px}
+.thumbrow .d{font:10px verdana}
+.bottom{width:740px;margin:18px auto 0 auto;text-align:center}
+.bottom hr{border:0;border-top:1px solid #ccc;margin:6px 0}
+.bottom h4{font:bold 16px arial;margin:6px 0}
+.loc{width:100%;border-collapse:separate;border-spacing:4px}
+.loc th{background:#efefff;font:bold 10px verdana;padding:2px}
+.loc td{font:13px arial;text-align:left;white-space:nowrap;padding:2px}
+.more th{background:#eaf6ec}
+.cities{font:13px arial;margin:10px 0}
+.bsearch{background:#eee;border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:10px;margin:12px 0}
+.bsearch input[type=text]{width:280px;font:13px arial;border:2px inset #ddd}
+.bsearch td{vertical-align:middle;text-align:left}
+.bsearch table{margin:0 auto}
+.foot{font:13px arial;margin-top:10px}
+.foot p{margin:12px 0}
+</style>
+</head>
+<body data-page="yahoo-2004-home" data-v="1" data-url="http://www.yahoo.com/">
+<div class="wrap">
+<div class="mast">
+<span style="position:absolute;left:44px"><a class="hi" style="left:0" href="#"><svg width="30" height="28" viewBox="0 0 30 28"><rect x="2" y="3" width="26" height="21" rx="3" fill="#7b2fbf"/><text x="15" y="19" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="12" fill="#fff">MY</text><path d="M24 1 L28 6" stroke="#ffcc00" stroke-width="2"/></svg><span>My Yahoo!</span></a></span>
+<span style="position:absolute;left:115px"><a class="hi" style="left:0" href="#"><svg width="30" height="28" viewBox="0 0 30 28"><rect x="3" y="4" width="24" height="20" fill="#e9f5e1" stroke="#3f8a2a"/><path d="M5 20 L11 14 L15 17 L24 7" stroke="#3f8a2a" stroke-width="2.4" fill="none"/><text x="8" y="12" font-family="Arial" font-weight="bold" font-size="9" fill="#2b6a1a">$</text></svg><span>Finance</span></a></span>
+<span style="position:absolute;left:186px"><a class="hi" style="left:0" href="#"><svg width="30" height="28" viewBox="0 0 30 28"><circle cx="15" cy="14" r="11" fill="#cfe7fb" stroke="#2c74c4"/><path d="M6 15 L24 10 L25 12 L16 16 L13 22 L11 22 L12 17 L7 18 Z" fill="#2c74c4"/></svg><span>Travel</span></a></span>
+<a class="logo" href="2004-home.html"><svg width="232" height="46" viewBox="0 0 232 46" aria-label="Yahoo!"><g font-family="'Bodoni 72','Bodoni MT',Didot,'Times New Roman',serif" font-weight="900" font-size="44" font-style="italic"><g fill="#000" transform="translate(3 3)"><text x="10" y="38" transform="rotate(-6 24 24)">Y</text><text x="42" y="40" transform="rotate(4 54 26)">a</text><text x="66" y="38" transform="rotate(-5 80 24)">h</text><text x="96" y="40" transform="rotate(5 108 28)">o</text><text x="122" y="38" transform="rotate(-4 134 26)">o</text><text x="150" y="39" transform="rotate(7 158 24)">!</text></g><g fill="#ff0020" stroke="#7a0000" stroke-width=".8"><text x="10" y="38" transform="rotate(-6 24 24)">Y</text><text x="42" y="40" transform="rotate(4 54 26)">a</text><text x="66" y="38" transform="rotate(-5 80 24)">h</text><text x="96" y="40" transform="rotate(5 108 28)">o</text><text x="122" y="38" transform="rotate(-4 134 26)">o</text><text x="150" y="39" transform="rotate(7 158 24)">!</text></g></g></svg></a>
+<span style="position:absolute;left:487px"><a class="hi" style="left:0" href="#"><svg width="30" height="28" viewBox="0 0 30 28"><rect x="3" y="7" width="24" height="16" fill="#fff" stroke="#1e5eb1" stroke-width="1.4"/><path d="M3 7 L15 17 L27 7" stroke="#1e5eb1" stroke-width="1.4" fill="none"/><rect x="20" y="2" width="9" height="7" fill="#ffcc00" stroke="#c49400" transform="rotate(10 24 6)"/></svg><span>Mail</span></a></span>
+<span style="position:absolute;left:557px"><a class="hi" style="left:0" href="#"><svg width="30" height="28" viewBox="0 0 30 28"><circle cx="15" cy="14" r="11" fill="#ffd21f" stroke="#b78a00"/><circle cx="11" cy="11" r="1.8" fill="#000"/><circle cx="19" cy="11" r="1.8" fill="#000"/><path d="M9 16 Q15 22 21 16" stroke="#000" stroke-width="1.6" fill="none"/></svg><span>Messenger</span></a></span>
+<span style="position:absolute;left:628px"><a class="hi" style="left:0" href="#"><svg width="30" height="28" viewBox="0 0 30 28"><rect x="4" y="9" width="22" height="15" rx="2" fill="#a0602a" stroke="#6d3d12"/><path d="M11 9 V6 H19 V9" stroke="#6d3d12" stroke-width="2" fill="none"/><rect x="4" y="14" width="22" height="2" fill="#6d3d12"/></svg><span>HotJobs</span></a></span>
+<a class="help" href="#">Help</a>
+</div>
+<div class="pop"><svg class="mg" width="16" height="16" viewBox="0 0 16 16"><circle cx="6.5" cy="6.5" r="4.5" fill="#fff" stroke="#7b2fbf" stroke-width="2"/><path d="M10 10 L15 15" stroke="#7b2fbf" stroke-width="3"/></svg>&nbsp;<a href="#"><b>Yahoo! Search</b></a> - Popular terms: <a href="#">Ronald Reagan</a>, <a href="#">Lindsay Lohan</a>, <a href="#">NBA</a>, <a href="#">NASCAR</a>, <a href="#">Dictionary</a></div>
+<div class="sbox"><form action="#"><table><tr><td class="a">&nbsp; Search for:&nbsp;</td><td class="a"><input type="text" name="p">&nbsp;<select><option>on the Web</option><option>in Images</option><option>in Yellow Pages</option><option>in News</option><option>in Products</option></select> <input class="go" type="submit" value="Yahoo! Search">&nbsp;&nbsp;</td><td class="v">&#149; <a href="#">Advanced</a><br>&#149; <a href="#">Preferences</a> &nbsp;</td></tr></table></form></div>
+</div>
+<table class="main"><tr>
+<td class="left">
+<table class="nav" width="100%">
+<tr><td class="new">New!</td><td colspan="2">Tech Tuesday: <a href="#">Make the most of your digital media</a></td></tr>
+<tr class="sep"><td colspan="3"><div></div></td></tr>
+<tr><td class="h">Shop</td><td colspan="2"><a href="#">Auctions</a>, <a href="#"><b>Autos</b></a>, <a href="#">Classifieds</a>, <a href="#">Real Estate</a>, <a href="#">Shopping</a>, <a href="#">Travel</a></td></tr>
+<tr><td class="h">Find</td><td colspan="2"><a href="#">HotJobs</a>, <a href="#">Maps</a>, <a href="#">People Search</a>, <a href="#">Personals</a>, <a href="#">Yellow Pages</a></td></tr>
+<tr><td class="h">Connect</td><td colspan="2"><a href="#">Chat</a>, <a href="#">GeoCities</a>, <a href="#">Greetings</a>, <a href="#">Groups</a>, <a href="#">Mail</a>, <a href="#"><b>Messenger</b></a>, <a href="#">Mobile</a></td></tr>
+<tr class="sep"><td colspan="3"><div></div></td></tr>
+<tr><td class="h">Organize</td><td colspan="2"><a href="#">Addresses</a>, <a href="#">Briefcase</a>, <a href="#">Calendar</a>, <a href="#">My Yahoo!</a>, <a href="#">PayDirect</a>, <a href="#"><b>Photos</b></a></td></tr>
+<tr><td class="h">Fun</td><td colspan="2"><a href="#">Games</a>, <a href="#">Horoscopes</a>, <a href="#">Kids</a>, <a href="#"><b>Movies</b></a>, <a href="#">Music</a>, <a href="#">Radio</a>, <a href="#">TV</a></td></tr>
+<tr><td class="h">Info</td><td><a href="#">Finance</a>, <a href="#">Health</a>, <a href="#">News</a>, <a href="#">Sports</a>, <a href="#">Weather</a></td><td style="text-align:right;white-space:nowrap"><b><a href="#">More Yahoo!...</a></b></td></tr>
+</table>
+<div class="mntl"><table width="100%"><tr class="hd"><td class="t">Yahoo! <b>Sports</b> &nbsp;U.S. Open</td><td class="sp">sponsored by:</td></tr>
+<tr><td class="bd"><table width="100%"><tr><td class="pic" rowspan="2"><img data-ph="photo" data-seed="yahoo-golfer" width="75" height="80" alt="Golf"></td><td class="when" colspan="2">June 17 - 20<br>Shinnecock Hills Golf Club</td></tr>
+<tr><td class="lk">&#183; <a href="#">Field</a><br>&#183; <a href="#">Latest News</a><br>&#183; <a href="#">TV Schedule</a><br>&#183; <a href="#">Course Guide</a></td><td class="lk">&#183; <a href="#">Tiger Watch</a><br>&#183; <a href="#">Photos</a><br>&#183; <a href="#">Weather</a><br>&#183; <a href="#">Fantasy Golf</a></td></tr>
+<tr><td colspan="3"><div class="ex"><b>EXCLUSIVE ANALYSIS</b><br>Gary McCord: "<a href="#">Phil is focused on one thing...</a>"</div></td></tr></table></td>
+<td class="spons"><img data-ph="photo" data-seed="yahoo-sponsor-ad" width="158" height="128" alt="sponsor"></td></tr></table></div>
+<table width="100%"><tr><td class="svc"><div class="h"><a href="#">Yahoo! Business Services</a></div><table><tr><td class="l"><b>&#183;</b> <a href="#">Web Hosting</a><br><b>&#183;</b> <a href="#">Get a Domain</a></td><td class="l"><b>&#183;</b> <a href="#">Sell Online</a><br><b>&#183;</b> <a href="#">Market Online</a></td></tr></table></td><td style="width:2%"></td>
+<td class="svc"><div class="h"><a href="#">Yahoo! Premium Services</a></div><table><tr><td class="l"><b>&#183;</b> <a href="#">Internet Access</a><br><b>&#183;</b> <a href="#">Mail Plus</a></td><td class="l"><b>&#183;</b> <a href="#">Personals</a><br><b>&#183;</b> <a href="#">PC Games</a></td></tr></table></td></tr></table>
+<div class="dirh"><span>&nbsp;<b>Web Site Directory</b> - Sites organized by subject</span><a href="#">Suggest your site</a></div>
+<table class="dir"><tr><td width="48%">
+<a class="c" href="#">Business &amp; Economy</a><br><span class="s"><a href="#">B2B</a>, <a href="#">Finance</a>, <a href="#">Shopping</a>, <a href="#">Jobs</a>...</span><br><br><a class="c" href="#">Computers &amp; Internet</a><br><span class="s"><a href="#">Internet</a>, <a href="#">WWW</a>, <a href="#">Software</a>, <a href="#">Games</a>...</span><br><br><a class="c" href="#">News &amp; Media</a><br><span class="s"><a href="#">Newspapers</a>, <a href="#">TV</a>, <a href="#">Radio</a>...</span><br><br><a class="c" href="#">Entertainment</a><br><span class="s"><a href="#">Movies</a>, <a href="#">Humor</a>, <a href="#">Music</a>...</span><br><br><a class="c" href="#">Recreation &amp; Sports</a><br><span class="s"><a href="#">Sports</a>, <a href="#">Travel</a>, <a href="#">Autos</a>, <a href="#">Outdoors</a>...</span><br><br><a class="c" href="#">Health</a><br><span class="s"><a href="#">Diseases</a>, <a href="#">Drugs</a>, <a href="#">Fitness</a>...</span><br><br><a class="c" href="#">Government</a><br><span class="s"><a href="#">Elections</a>, <a href="#">Military</a>, <a href="#">Law</a>, <a href="#">Taxes</a>...</span><br><br>
+</td><td width="52%">
+<a class="c" href="#">Regional</a><br><span class="s"><a href="#">Countries</a>, <a href="#">Regions</a>, <a href="#">US States</a>...</span><br><br><a class="c" href="#">Society &amp; Culture</a><br><span class="s"><a href="#">People</a>, <a href="#">Environment</a>, <a href="#">Religion</a>...</span><br><br><a class="c" href="#">Education</a><br><span class="s"><a href="#">College and University</a>, <a href="#">K-12</a>...</span><br><br><a class="c" href="#">Arts &amp; Humanities</a><br><span class="s"><a href="#">Photography</a>, <a href="#">History</a>, <a href="#">Literature</a>...</span><br><br><a class="c" href="#">Science</a><br><span class="s"><a href="#">Animals</a>, <a href="#">Astronomy</a>, <a href="#">Engineering</a>...</span><br><br><a class="c" href="#">Social Science</a><br><span class="s"><a href="#">Languages</a>, <a href="#">Archaeology</a>, <a href="#">Psychology</a>...</span><br><br><a class="c" href="#">Reference</a><br><span class="s"><a href="#">Phone Numbers</a>, <a href="#">Dictionaries</a>, <a href="#">Quotations</a>...</span><br><br>
+</td></tr></table>
+<div class="picks"><a href="#">Buzz Index</a> - <a href="#">Yahoo! Picks</a> - <a href="#">New Additions</a> - <a href="#">Full Coverage</a></div>
+<a class="hp" href="#">powered by hp</a>
+</td>
+<td class="gap"></td>
+<td class="right">
+<table class="tab" cellpadding="0" cellspacing="0"><tr><td class="tt"><b>Personal Assistant</b></td><td class="tri"></td><td class="tr"><a href="#">Sign In</a></td></tr></table>
+<div class="pa"><div class="mi"><svg width="69" height="38" viewBox="0 0 69 38"><rect x="10" y="8" width="44" height="26" fill="#fff" stroke="#1e5eb1" stroke-width="1.6"/><path d="M10 8 L32 24 L54 8" stroke="#1e5eb1" stroke-width="1.6" fill="none"/><rect x="44" y="2" width="18" height="12" fill="#ffcc00" stroke="#c49400" transform="rotate(8 53 8)"/><text x="49" y="11" font-family="Arial Black,Arial" font-size="7" fill="#7b2fbf" font-weight="900">Y!</text></svg></div><div class="t">Free email with virus protection.<br>Yahoo! Mail - <b><a href="#">Sign up now</a></b></div></div>
+<table class="hj" width="100%"><tr><td class="p" style="width:71px"><img data-ph="person" data-seed="yahoo-hotjobs-woman" width="71" height="58" alt="Yahoo! HotJobs"></td><td><div class="lg"><b>Yahoo!</b> HotJobs</div><div class="f"><input type="text"> <input class="go" type="submit" value="Find a Job"></div></td></tr></table>
+<div class="date">4:52pm PDT, <nobr>Tue Jun 15</nobr></div>
+<table class="tab" cellpadding="0" cellspacing="0"><tr><td class="tt"><b>In The News</b></td><td class="tri"></td><td class="tr"></td></tr></table>
+<div class="box"><table width="100%"><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Group threatens U.S. hostage in Saudi Arabia</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">U.S. wants security assurance for Saddam</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Jordan rejects calls to send troops to Iraq</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Kerry's wife explains why she left the GOP</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">UN warns the Earth's surface is drying up</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Big companies gear up to fight 'phishing'</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Alanis Morissette, Ryan Reynolds engaged</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">NBA Finals</a> &#183; <a href="#">MLB</a> &#183; <a href="#">Tennis</a> &#183; <a href="#">Euro 2004</a></td></tr></table>
+<hr><div class="ft"><a href="#">News</a> - <a href="#">Elections</a> - <a href="#">Sports</a> - <a href="#">Stocks</a> - <a href="#">Weather</a></div></div>
+<table class="tab" cellpadding="0" cellspacing="0"><tr><td class="tt"><b>Marketplace</b></td><td class="tri"></td><td class="tr"></td></tr></table>
+<div class="box"><table width="100%"><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Yahoo! Shopping - Digital cameras</a><div class="thumbrow"><img data-ph="photo" data-seed="yahoo-camera" width="70" height="53" alt=""><span class="d">Shop for the latest digital cameras - Research, compare, and buy the latest at low prices.</span></div></td></tr>
+<tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Manage asthma online with MediCompass</a></td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">Sony Digital Cameras</a> - Direct from Sony. Free shipping and 6 month financing</td></tr><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#">100% online degrees</a> - Get your Bachelor's, Master's or Doctoral here</td></tr></table>
+<hr><b class="a">Father's Day Specials</b><br><span class="a"><a href="#">Mobile Dad - save up to $50 at AT&amp;T Wireless</a></span></div>
+<table class="tab" cellpadding="0" cellspacing="0"><tr><td class="tt"><b>Entertainment</b></td><td class="tri"></td><td class="tr"></td></tr></table>
+<div class="box"><table width="100%"><tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#"><b>Kim Cattrall: Why She Said No to 'Sex'</b></a><div class="thumbrow sq"><img data-ph="person" data-seed="yahoo-ent-1" width="50" height="50" alt=""><span class="d">Kim Cattrall tells ET why she said no to the planned 'Sex and the City' feature film. <a href="#">Get the inside scoop!</a></span></div></td></tr>
+<tr data-item="headline"><td class="b">&#149;&nbsp;</td><td><a href="#"><b>TV Sneak Peek: 'Method &amp; Red'</b></a><div class="thumbrow sq"><img data-ph="photo" data-seed="yahoo-ent-2" width="50" height="50" alt=""><span class="d">Watch the <b>first four minutes</b> from this week's premiere of the new FOX series, 'Method &amp; Red.' <a href="#">Preview it now!</a></span></div></td></tr></table>
+<hr><div class="ft"><a href="#">Entertainment</a> - <a href="#">Games</a> - <a href="#">Movies</a> - <a href="#">Music</a> - <a href="#">TV</a></div></div>
+</td></tr></table>
+<div class="bottom">
+<hr><h4>Local Yahoo!s</h4>
+<table class="loc"><tr><th colspan="2">Europe</th><th colspan="2">Asia Pacific</th><th colspan="2">Americas</th></tr>
+<tr><td>&#149; <a href="#">Catalan</a><br>&#149; <a href="#">Denmark</a><br>&#149; <a href="#">France</a><br>&#149; <a href="#">Germany</a><br>&#149; <a href="#">Italy</a></td><td>&#149; <a href="#">Norway</a><br>&#149; <a href="#">Spain</a><br>&#149; <a href="#">Sweden</a><br>&#149; <a href="#">UK &amp; Ireland</a></td><td>&#149; <a href="#">Asia</a><br>&#149; <a href="#">Australia &amp; NZ</a><br>&#149; <a href="#">China</a><br>&#149; <a href="#">Hong Kong</a><br>&#149; <a href="#">India</a></td><td>&#149; <a href="#">Japan</a><br>&#149; <a href="#">Korea</a><br>&#149; <a href="#">Singapore</a><br>&#149; <a href="#">Taiwan</a></td><td>&#149; <a href="#">Argentina</a><br>&#149; <a href="#">Brazil</a><br>&#149; <a href="#">Canada</a></td><td>&#149; <a href="#">Mexico</a><br>&#149; <a href="#">U.S. in Chinese</a><br>&#149; <a href="#">U.S. in Spanish</a></td></tr></table>
+<div class="cities"><b>U.S. Cities:</b>&nbsp;&nbsp;<a href="#">Atlanta</a> - <a href="#">Boston</a> - <a href="#">Chicago</a> - <a href="#">Houston</a> - <a href="#">LA</a> - <a href="#">NYC</a> - <a href="#">SF Bay</a> - <a href="#">Seattle</a> - <a href="#">more...</a></div>
+<hr><h4>More Yahoo!</h4>
+<table class="loc more"><tr><th>Guides</th><th>Small Business</th><th>Personal Finance</th></tr><tr><td>&#149; <a href="#">Education</a><br>&#149; <a href="#">Health</a><br>&#149; <a href="#">Lottery</a><br>&#149; <a href="#">Members</a><br>&#149; <a href="#">Pets</a><br>&#149; <a href="#">Yahooligans!</a></td><td>&#149; <a href="#">Get a Domain Name</a><br>&#149; <a href="#">Promote Your Business</a><br>&#149; <a href="#">Small Biz Center</a><br>&#149; <a href="#">Sell Online</a><br>&#149; <a href="#">Web Hosting</a></td><td>&#149; <a href="#">Banking</a><br>&#149; <a href="#">Bill Pay</a><br>&#149; <a href="#">Money Manager</a><br>&#149; <a href="#">Insurance</a><br>&#149; <a href="#">Loans</a><br>&#149; <a href="#">Taxes</a></td></tr></table>
+<p class="a"><b><a href="#">Even More Yahoo!...</a></b></p>
+<hr><div class="a"><b>Access Yahoo! via:</b> &nbsp;<a href="#">PDAs</a> - <a href="#">Web-enabled Phones</a> - <a href="#">Voice (1-800-My-Yahoo)</a> - <a href="#">DSL</a> - <a href="#">Dial-up</a></div>
+<div class="bsearch"><form action="#"><table><tr><td><input type="text">&nbsp;<input type="submit" value="Search" style="font:13px arial">&nbsp;&nbsp;<select style="font:13px arial"><option>The Web</option><option>Directory</option><option>Images</option><option>News Stories</option><option>News Photos</option><option>Dictionary</option><option>Shopping</option><option>Yellow Pages</option></select>&nbsp;&nbsp;</td><td class="v">&#149;&nbsp;<a href="#">Advanced</a><br>&#149;&nbsp;<a href="#">Preferences</a></td></tr></table></form></div>
+<div class="foot"><a href="#">How to Suggest a Site</a> - <a href="#">Company Info</a> - <a href="#">Copyright Policy</a> - <a href="#">Terms of Service</a> - <a href="#">Jobs</a> - <a href="#">Advertise with Us</a><p>Copyright &copy; 2004 Yahoo! Inc. All rights reserved.<br><a href="#">Privacy Policy</a></p></div>
+</div>
+</body>
+</html>

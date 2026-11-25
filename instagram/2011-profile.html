@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=320, initial-scale=1">
+<title>Instagram</title>
+<script src="../shared/studio.js"></script>
+<link rel="stylesheet" href="assets/ig-app.css">
+<link rel="stylesheet" href="assets/ig.css">
+<script src="assets/ig.js"></script>
+<script>
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.seg [data-view]');
+    if (!b) return;
+    e.preventDefault();
+    var g = document.querySelector('.grid'), v = b.getAttribute('data-view');
+    g.classList.toggle('list', v === 'list');
+    document.querySelectorAll('.seg [data-view]').forEach(function (x) { x.classList.toggle('on', x === b); });
+    if (window.OLDTV) OLDTV.save();
+  });
+</script>
+<style>
+.phdr{position:relative;padding:10px 8px 10px;background:linear-gradient(#30353b,#3b4148 60%,#3f464d);border-bottom:1px solid #22262a;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.phdr .top{display:flex;gap:9px;align-items:flex-start}
+.bigav{width:66px;height:66px;flex:0 0 66px;object-fit:cover;border-radius:4px;border:1px solid #15181b;box-shadow:0 1px 0 rgba(255,255,255,.12),0 1px 3px rgba(0,0,0,.5);display:block}
+.pright{flex:1;min-width:0}
+.fullname{color:#fff;font-size:17px;font-weight:bold;line-height:20px;text-shadow:0 -1px 0 rgba(0,0,0,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0 0 5px 1px}
+.counts{display:flex;gap:5px}
+.count{flex:1;height:42px;border-radius:5px;border:1px solid #173f66;background:linear-gradient(#5aa3dc,#3a86c6 48%,#2b74b4 52%,#2a6aa6);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 0 rgba(255,255,255,.08);color:#fff;text-align:center;text-shadow:0 -1px 0 rgba(0,0,0,.35)}
+.count b{display:block;font-size:18px;line-height:22px;margin-top:3px}
+.count span{display:block;font-size:10px;line-height:12px;font-weight:bold;color:#e3f1ff}
+.followbtn{display:flex;align-items:center;justify-content:center;gap:5px;margin:9px 0 0;height:30px;border-radius:5px;border:1px solid #2d5e1e;background:linear-gradient(#8ed06d,#6db84b 48%,#59a63a 52%,#4f9a33);color:#fff;font-weight:bold;font-size:14px;text-shadow:0 -1px 0 rgba(0,0,0,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.bio{padding:8px 10px 9px;font-size:13px;line-height:17px;color:#333;background:#fff;border-bottom:1px solid #d6d6d6}
+.bio b{color:#222}
+.bio a{color:#3a86c8;font-weight:bold}
+.toolbar{position:relative;height:40px;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(#fbfbfb,#e4e4e4);border-bottom:1px solid #bdbdbd;box-shadow:inset 0 1px 0 #fff}
+.toolbar .tcap{position:absolute;left:10px;font-size:12px;font-weight:bold;color:#777;text-shadow:0 1px 0 #fff}
+.seg{display:flex;border:1px solid #9a9a9a;border-radius:5px;overflow:hidden;box-shadow:0 1px 0 #fff}
+.seg span{width:46px;height:27px;display:flex;align-items:center;justify-content:center;background:linear-gradient(#fdfdfd,#dcdcdc);color:#7a7a7a;cursor:pointer}
+.seg span+span{border-left:1px solid #9a9a9a}
+.seg span .ico{font-size:17px}
+.seg span.on{background:linear-gradient(#4a8bc6,#2f6fae 50%,#2563a1 51%,#2b6aa6);color:#fff;box-shadow:inset 0 1px 3px rgba(0,0,0,.35)}
+.grid{display:grid;grid-template-columns:repeat(4,74px);gap:4px;padding:6px;background:#fff}
+.tile{width:74px;height:74px;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.tile img{width:100%;height:100%}
+.grid.list{grid-template-columns:300px;gap:12px;padding:10px}
+.grid.list .tile{width:300px;height:300px;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.more{padding:12px 0 16px;text-align:center;color:#9a9a9a;font-size:12px;font-weight:bold;background:#fff}
+</style>
+</head>
+<body class="ig-app era1 ig-frames" data-page="instagram-2011-profile" data-v="1" data-ig-era="2011" data-url="Instagram — nickybee">
+<div class="ig-screen">
+ <div class="sb"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span><span>AT&amp;T</span><span class="net">3G</span><div class="time"><span>4:20 PM</span></div><span class="right"><span class="batt"><b style="width:46%"></b></span></span></div>
+ <div class="nav"><a class="nbtn l back" href="2010-feed.html">Feed</a><span class="title">nickybee</span></div>
+ <div class="content">
+  <div class="phdr">
+   <div class="top">
+    <img class="bigav" data-ph="person" data-seed="nickybee" width="66" height="66" alt="">
+    <div class="pright">
+     <div class="fullname">Nicole Bennett</div>
+     <div class="counts">
+      <a class="count" href="#"><b>212</b><span>photos</span></a>
+      <a class="count" href="#"><b>1,847</b><span>followers</span></a>
+      <a class="count" href="#"><b>263</b><span>following</span></a>
+     </div>
+    </div>
+   </div>
+   <a class="followbtn" href="#">&#10003; Following</a>
+  </div>
+  <div class="bio"><b>Nicole B.</b> &middot; Oakland / SF. Film nerd, taco truck enthusiast, Lomo-fi everything. <a href="#">nickybee.tumblr.com</a></div>
+  <div class="toolbar">
+   <span class="tcap">Photos</span>
+   <div class="seg" data-noedit><span data-view="grid" class="on" title="Grid"><i class="ico i-grid"></i></span><span data-view="list" title="List"><i class="ico i-list"></i></span></div>
+  </div>
+  <div class="grid">
+  <a class="tile igf sm f-sutro" data-item="photo" data-filter="Sutro" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-0" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-poprocket" data-item="photo" data-filter="Poprocket" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-1" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-hudson" data-item="photo" data-filter="Hudson" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-2" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-inkwell" data-item="photo" data-filter="Inkwell" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-3" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-1977" data-item="photo" data-filter="1977" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-4" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-earlybird" data-item="photo" data-filter="Earlybird" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-5" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-apollo" data-item="photo" data-filter="Apollo" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-6" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-rise" data-item="photo" data-filter="Rise" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-7" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-brannan" data-item="photo" data-filter="Brannan" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-8" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-gotham" data-item="photo" data-filter="Gotham" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-9" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-lomofi" data-item="photo" data-filter="Lomo-fi" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-10" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-hefe" data-item="photo" data-filter="Hefe" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-11" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-amaro" data-item="photo" data-filter="Amaro" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-12" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-toaster" data-item="photo" data-filter="Toaster" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-13" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-nashville" data-item="photo" data-filter="Nashville" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-14" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-xproii" data-item="photo" data-filter="X-Pro II" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-15" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-walden" data-item="photo" data-filter="Walden" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-16" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-lordkelvin" data-item="photo" data-filter="Lord Kelvin" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-17" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-sutro" data-item="photo" data-filter="Sutro" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-18" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-poprocket" data-item="photo" data-filter="Poprocket" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-19" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-hudson" data-item="photo" data-filter="Hudson" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-20" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-inkwell" data-item="photo" data-filter="Inkwell" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-21" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-1977" data-item="photo" data-filter="1977" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-22" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-earlybird" data-item="photo" data-filter="Earlybird" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-23" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-apollo" data-item="photo" data-filter="Apollo" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-24" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-rise" data-item="photo" data-filter="Rise" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-25" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-brannan" data-item="photo" data-filter="Brannan" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-26" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-gotham" data-item="photo" data-filter="Gotham" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-27" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-lomofi" data-item="photo" data-filter="Lomo-fi" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-28" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-hefe" data-item="photo" data-filter="Hefe" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-29" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-amaro" data-item="photo" data-filter="Amaro" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-30" width="300" height="300" alt=""></a>
+  <a class="tile igf sm f-toaster" data-item="photo" data-filter="Toaster" href="2012-photo.html"><img data-ph="photo" data-seed="nickybee-31" width="300" height="300" alt=""></a>
+  </div>
+  <div class="more">Load more photos</div>
+ </div>
+ <div class="tabs">
+  <a class="tab" href="2010-feed.html"><i class="ico i-people"></i><span class="lbl">Feed</span></a>
+  <a class="tab" href="#"><i class="ico i-heart"></i><span class="lbl">Popular</span></a>
+  <a class="tab share" href="#"><i class="ico i-camera"></i><span class="lbl">Share</span></a>
+  <a class="tab" href="#"><i class="ico i-news"></i><span class="lbl">News</span></a>
+  <a class="tab on" href="2011-profile.html"><i class="ico i-card"></i><span class="lbl">@nickybee</span></a>
+ </div>
+</div>
+</body>
+</html>

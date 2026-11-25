@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MySpace.com - Ryan - 24 - Male - Brooklyn, NEW YORK - www.myspace.com/ryanmakesnoise</title>
+<script src="../shared/studio.js"></script>
+<link rel="stylesheet" href="assets/myspace.css">
+<style>
+.ad08{position:absolute;inset:0;background:radial-gradient(ellipse at 75% 50%,#7a1010,#1a0000 70%);font-family:Arial,sans-serif;color:#fff}
+.ad08 .a0{position:absolute;left:26px;top:14px;font:bold 40px/1 'Arial Black',Impact,sans-serif;letter-spacing:6px;color:#e8c26a;text-shadow:0 2px 0 #6a1a00}
+.ad08 .a1{position:absolute;left:30px;top:60px;font:bold 12px Arial;color:#f0e0c0;letter-spacing:1px}
+.ad08 .a2{position:absolute;right:22px;top:32px;font:bold 13px Arial;color:#fff;border:1px solid #e8c26a;padding:6px 12px}
+.ms .moodimg{width:16px;height:16px;vertical-align:-3px}
+.ms .who .pic img{max-height:240px}
+.ms .urlbox{border:1px solid #6699cc;padding:3px 4px;margin-top:16px}
+.ms .rcol .netbox{height:72px;border-width:2px}
+.ms .rcol .netbox .blacktext12{font-weight:bold}
+.ms .blog p{margin:0 0 15px}
+.ms .friends.top12{grid-template-columns:repeat(4,1fr)}
+.ms .comments img.piccom{display:block;margin:4px 0 8px;width:250px;height:auto}
+.ms .commentlinks{font-size:7pt;margin-top:10px}
+.ms .commentlinks a{font-weight:normal;font-size:7pt}
+/* 2008 profile song player (default style) */
+.mp{width:300px;margin-top:16px;border:1px solid #9a9a9a;background:linear-gradient(#f7f7f7,#dedede);font:11px Arial,Helvetica,sans-serif;color:#333;user-select:none}
+.mp *{font-family:Arial,Helvetica,sans-serif}
+.mp .mt{height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 5px;background:linear-gradient(#4f86d0,#2358b8);color:#fff;font-size:10px}
+.mp .mt b{font-size:11px}
+.mp .mb{display:flex;gap:7px;padding:6px}
+.mp .art{position:relative;width:60px;height:60px;flex:none;border:1px solid #888;background:#000}
+.mp .art img{width:60px;height:60px;object-fit:cover;display:block}
+.mp .mm{flex:1;min-width:0}
+.mp .np{font-weight:bold;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp .by{color:#666;font-size:10px}
+.mp .by a{font-size:10px;font-weight:normal}
+.mp .ctl{display:flex;align-items:center;gap:4px;margin-top:5px}
+.mp .btn{width:18px;height:18px;border-radius:50%;border:1px solid #6a6a6a;background:linear-gradient(#fff,#d4d4d4 50%,#bdbdbd 51%,#e8e8e8);display:flex;align-items:center;justify-content:center;font-size:8px;cursor:pointer;color:#2358b8}
+.mp .btn.big{width:22px;height:22px;font-size:10px}
+.mp .prog{flex:1;height:5px;background:#fff;border:1px solid #999;position:relative;overflow:hidden}
+.mp .prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(#8fc0ff,#2358b8)}
+.mp .time{font-size:9px;color:#555;width:62px;text-align:right}
+.mp .list{border-top:1px solid #bbb;background:#fff}
+.mp .trk{display:flex;align-items:center;gap:5px;height:17px;padding:0 6px;border-bottom:1px solid #eee;font-size:10px}
+.mp .trk.on{background:#dbe8fb;font-weight:bold}
+.mp .tp{color:#2358b8;cursor:pointer;font-size:8px;width:10px}
+.mp .tt{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp .td{color:#888}
+.mp .mf{height:15px;display:flex;align-items:center;justify-content:space-between;padding:0 5px;font-size:9px;color:#666;border-top:1px solid #bbb}
+.mp .mf a{font-size:9px;font-weight:normal}
+</style>
+<script>
+OLDTV.ready(function () {
+  var timer = null, t = 0;
+  function mp() { return document.querySelector('.mp'); }
+  function vid() { var m = mp(); return m && m.querySelector('.art video.studio-player'); }
+  function fmt(s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
+  function cur() { var m = mp(); return m && (m.querySelector('.trk.on') || m.querySelector('.trk')); }
+  function dur(tr) { var d = (tr && tr.getAttribute('data-dur') || '3:30').split(':'); return (+d[0]) * 60 + (+d[1] || 0); }
+  function paint(pos, total, playing) {
+    var m = mp(); if (!m) return;
+    m.querySelector('.prog i').style.width = (total ? Math.min(100, pos / total * 100) : 0) + '%';
+    m.querySelector('.time').textContent = fmt(pos) + ' / ' + fmt(total);
+    m.querySelector('.play').innerHTML = playing ? '&#10074;&#10074;' : '&#9654;';
+    var tr = cur(), np = m.querySelector('.np');
+    if (tr && np) np.textContent = tr.querySelector('.tt').textContent;
+  }
+  function stop() { clearInterval(timer); timer = null; }
+  function play() {
+    var v = vid(); if (v) { v.play(); return; }
+    stop();
+    timer = setInterval(function () { t += 0.25; var d = dur(cur()); if (t >= d) { next(1); return; } paint(t, d, true); }, 250);
+    paint(t, dur(cur()), true);
+  }
+  function pause() { var v = vid(); if (v) { v.pause(); return; } stop(); paint(t, dur(cur()), false); }
+  function playing() { var v = vid(); return v ? !v.paused : !!timer; }
+  function select(tr) { mp().querySelectorAll('.trk').forEach(function (x) { x.classList.toggle('on', x === tr); }); t = 0; var v = vid(); if (v) v.currentTime = 0; play(); }
+  function next(dir) { var tr = cur(), n = dir > 0 ? tr.nextElementSibling : tr.previousElementSibling; if (!n || !n.classList.contains('trk')) n = dir > 0 ? mp().querySelector('.trk') : tr; select(n); }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('.mp .play, .mp .stopb, .mp .prev, .mp .next, .mp .tp, .mp .trk');
+    if (!el) return;
+    if (el.classList.contains('trk') && OLDTV.mode() === 'edit') return;
+    e.preventDefault();
+    if (el.classList.contains('play')) playing() ? pause() : play();
+    else if (el.classList.contains('stopb')) { pause(); t = 0; var v = vid(); if (v) v.currentTime = 0; paint(0, dur(cur()), false); }
+    else if (el.classList.contains('prev')) next(-1);
+    else if (el.classList.contains('next')) next(1);
+    else select(el.closest('.trk'));
+  });
+  document.addEventListener('timeupdate', function (e) { if (e.target.closest && e.target.closest('.mp .art')) paint(e.target.currentTime, e.target.duration || dur(cur()), !e.target.paused); }, true);
+  document.addEventListener('play', function (e) { if (e.target.closest && e.target.closest('.mp .art')) { stop(); paint(e.target.currentTime, e.target.duration || 0, true); } }, true);
+  document.addEventListener('pause', function (e) { if (e.target.closest && e.target.closest('.mp .art')) paint(e.target.currentTime, e.target.duration || 0, false); }, true);
+  OLDTV.onRender(function () { stop(); t = 0; paint(0, dur(cur()), false); });
+});
+</script>
+</head>
+<body class="ms" data-page="myspace-2008-profile" data-v="1" data-url="http://www.myspace.com/ryanmakesnoise">
+<div class="top07"><div class="gae" data-bg="cover"><div class="ad08"><div class="a0">IRON MAN</div><div class="a1">May 2 &middot; In Theaters Everywhere</div><div class="a2">Watch the trailer &raquo;</div><span class="adtag">Advertisement</span></div></div><div class="gbar"><select class="us"><option>User Shortcuts:</option><option>Send Message</option><option>Forward to Friend</option><option>Add to Friends</option><option>Add to Favorites</option><option>Block User</option><option>Add to Group</option><option>Rank User</option><option>Instant Message</option><option>View User Pics</option><option>View User Bulletins</option></select><input class="q" type="text"><select class="pp"><option>People</option><option>MySpace</option><option>Web</option><option>Music</option><option>Video</option></select><button type="button">Search</button><span class="goog">Powered by <b><i style="color:#3c6fe0">G</i><i style="color:#e33">o</i><i style="color:#f5c400">o</i><i style="color:#3c6fe0">g</i><i style="color:#3a3">l</i><i style="color:#e33">e</i></b></span></div></div><div class="navbar n07"><a href="#">Home</a><span class="sep">|</span><a href="#">Browse</a><span class="sep">|</span><a href="#">Search</a><span class="sep">|</span><a href="#">Invite</a><span class="sep">|</span><a href="#">Film</a><span class="sep">|</span><a href="#">Mail</a><span class="sep">|</span><a href="#">Blogs</a><span class="sep">|</span><a href="#">Favorites</a><span class="sep">|</span><a href="#">Forum</a><span class="sep">|</span><a href="#">Groups</a><span class="sep">|</span><a href="#">Events</a><span class="sep">|</span><a href="#">MySpace TV</a><span class="sep">|</span><a href="#">Music</a><span class="sep">|</span><a href="#">Comedy</a><span class="sep">|</span><a href="#">Classifieds</a></div>
+<div class="page">
+ <div class="lcol">
+  <span class="nametext">Ryan</span>
+  <div class="who">
+   <div class="pic"><a href="#"><img data-ph="person" data-seed="ryan-2008" width="170" height="170" alt=""></a></div>
+   <div class="info">"if you're reading this, the Mets still need a closer"<br><br>Male<br>24 years old<br>Brooklyn, NEW YORK<br>United States<br><br><span class="online" data-noedit></span><br><br>Last Login: 3/14/2008</div>
+  </div>
+  <div style="margin-top:6px;padding-left:3px"><b>Mood:</b> excited <img class="moodimg" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'16'%20height%3D'16'%3E%3Ccircle%20cx%3D'8'%20cy%3D'8'%20r%3D'7'%20fill%3D'%23ffd84a'%20stroke%3D'%23b48a00'%2F%3E%3Ccircle%20cx%3D'5.5'%20cy%3D'6'%20r%3D'1.1'%20fill%3D'%23000'%2F%3E%3Ccircle%20cx%3D'10.5'%20cy%3D'6'%20r%3D'1.1'%20fill%3D'%23000'%2F%3E%3Cpath%20d%3D'M4%209.5q4%204.5%208%200z'%20fill%3D'%237a2a00'%2F%3E%3C%2Fsvg%3E" width="16" height="16" alt=""><br>View My: <a href="#">Pics</a> | <a href="#">Videos</a></div>
+
+  <div class="bluebox">
+   <div class="hd"><span class="whitetext12">Contacting Ryan</span></div>
+   <div class="contact">
+    <a href="#"><span class="ico ico-mail"></span>Send Message</a>
+    <a href="#"><span class="ico ico-fwd"></span>Forward to Friend</a>
+    <a href="#"><span class="ico ico-add"></span>Add to Friends</a>
+    <a href="#"><span class="ico ico-fav"></span>Add to Favorites</a>
+    <a href="#"><span class="ico ico-im"></span>Instant Message</a>
+    <a href="#"><span class="ico ico-block"></span>Block User</a>
+    <a href="#"><span class="ico ico-group"></span>Add to Group</a>
+    <a href="#"><span class="ico ico-rank"></span>Rank User</a>
+   </div>
+  </div>
+
+  <div class="urlbox"><b>MySpace URL:</b><br>&nbsp;http://www.myspace.com/ryanmakesnoise</div>
+
+  <div class="mp">
+   <div class="mt"><b>MySpace Music</b><span>Profile Song</span></div>
+   <div class="mb">
+    <div class="art" data-video data-loop><img data-ph="photo" data-seed="polaroidkids" width="60" height="60" alt=""></div>
+    <div class="mm">
+     <div class="np" data-noedit>Summer in Williamsburg</div>
+     <div class="by">by <a href="#">The Polaroid Kids</a></div>
+     <div class="ctl" data-noedit><span class="btn big play">&#9654;</span><span class="btn stopb">&#9632;</span><span class="btn next">&#9654;&#9654;</span><div class="prog"><i></i></div><span class="time">0:00 / 3:12</span></div>
+    </div>
+   </div>
+   <div class="list">
+    <div class="trk on" data-item="track" data-dur="3:12"><span class="tp" data-noedit>&#9654;</span><span class="tt">Summer in Williamsburg</span><span class="td">3:12</span></div>
+    <div class="trk" data-item="track" data-dur="4:05"><span class="tp" data-noedit>&#9654;</span><span class="tt">L Train Lullaby</span><span class="td">4:05</span></div>
+    <div class="trk" data-item="track" data-dur="2:47"><span class="tp" data-noedit>&#9654;</span><span class="tt">Bedford Ave. (Demo)</span><span class="td">2:47</span></div>
+   </div>
+   <div class="mf"><a href="#">Add to my profile</a><a href="#">Add to playlist</a></div>
+  </div>
+
+  <div class="bluebox">
+   <div class="hd"><span class="whitetext12">Ryan's Interests</span></div>
+   <table class="tbl">
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">General</span></td><td class="v">record stores, film photography, my fixie, late night pizza (joe's on carmine), vinyl, brunch, shows at bowery ballroom, tumblr (new thing, follow me), the mets, making beats in garageband</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Music</span></td><td class="v">Vampire Weekend, Radiohead (In Rainbows on repeat), MGMT, LCD Soundsystem, Arcade Fire, Justice, The National, Bon Iver, The Shins, Kanye (Graduation), Lil Wayne, Spoon, Of Montreal, Animal Collective, Daft Punk, The Polaroid Kids (my band, add us!)</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Movies</span></td><td class="v">No Country for Old Men, There Will Be Blood, Juno, Superbad, Cloverfield, Eternal Sunshine, Lost in Translation, Children of Men, The Royal Tenenbaums. SO hyped for The Dark Knight</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Television</span></td><td class="v">The Wire, Lost, The Office, Flight of the Conchords, Mad Men, 30 Rock, Arrested Development (RIP), Gossip Girl (don't judge)</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Books</span></td><td class="v">Infinite Jest (halfway... since 2006), The Road, Kafka on the Shore, High Fidelity, anything by Chuck Klosterman</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Heroes</span></td><td class="v">my dad, Thom Yorke, Wes Anderson, the guy who invented the iPhone</td></tr>
+   </table>
+  </div>
+
+  <div class="bluebox">
+   <div class="hd"><span class="whitetext12">Ryan's Details</span></div>
+   <table class="tbl">
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Status:</span></td><td class="v">Single</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Here for:</span></td><td class="v">Networking, Friends</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Orientation:</span></td><td class="v">Straight</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Hometown:</span></td><td class="v">Columbus, OH</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Body type:</span></td><td class="v">6' 0"</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Ethnicity:</span></td><td class="v">White / Caucasian</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Zodiac Sign:</span></td><td class="v"><a href="#">Pisces</a></td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Smoke / Drink:</span></td><td class="v">No / Yes</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Education:</span></td><td class="v">College grad</td></tr>
+    <tr data-item="row"><td class="k"><span class="lightbluetext8">Occupation:</span></td><td class="v">junior designer at an ad agency / bass in The Polaroid Kids</td></tr>
+   </table>
+  </div>
+
+  <div class="bluebox">
+   <div class="hd"><span class="whitetext12">Ryan's Schools</span></div>
+   <table class="tbl">
+    <tr data-item="school"><td class="k" style="width:auto"><a href="#">Ohio State University</a><br>Columbus, OHIO<br>Degree: Bachelor's Degree<br>Major: Graphic Design<br></td><td class="v" style="width:60px;text-align:center">2002 to<br>2006</td></tr>
+   </table>
+  </div>
+ </div>
+
+ <div class="rcol">
+  <div class="netbox"><span class="blacktext12">Ryan is counting down the days to SXSW!!!</span></div>
+  <div class="blog" style="margin-top:20px">
+   <p><span class="btext">Ryan's Latest Blog Entry</span> [<a href="#">Subscribe to this Blog</a>]</p>
+   <p data-item="blog">SXSW 2008 schedule (polaroid kids play thurs!!)&nbsp; (<a href="#">view more</a>)</p>
+   <p data-item="blog">top 25 albums of 2007, fight me&nbsp; (<a href="#">view more</a>)</p>
+   <p data-item="blog">i finally got an iphone. bye bye razr&nbsp; (<a href="#">view more</a>)</p>
+   <p data-item="blog">writer's strike is OVER. finally new episodes&nbsp; (<a href="#">view more</a>)</p>
+   <p data-item="blog">new demo recorded in jake's basement&nbsp; (<a href="#">view more</a>)</p>
+   <p>[<a href="#">View All Blog Entries</a>]</p>
+  </div>
+
+  <div class="orangehd" style="margin-top:6px"><span class="orangetext15">Ryan's Blurbs</span></div>
+  <div class="blurbs">
+   <p><span class="orangetext15">About me:</span><br>moved to brooklyn from ohio after college and never looked back. i design banner ads by day (yes, some of the ones on this site, sorry) and play bass in <a href="#">The Polaroid Kids</a> by night. we're playing SXSW this year which is completely insane.<br><br>i'm on facebook too but let's be real, myspace is where the music is.<br><br>things i'm into right now: shooting on my dad's old pentax, In Rainbows, finding the best $1 pizza slice in the city, and trying to convince everyone that the wire is the best show ever made.<br><br>if you're in a band, send me your stuff. if you're a bot selling ringtones, please don't.</p>
+   <p><span class="orangetext15">Who I'd like to meet:</span><br>thom yorke, the guys from vampire weekend (we went to the same bodega once), and anyone who wants to start a wes anderson-themed bowling league.</p>
+  </div>
+
+  <div class="orangehd" style="margin-top:4px"><span class="orangetext15">Ryan's Friend Space</span></div>
+  <div style="padding:6px 4px 0"><span class="btext">Ryan has <span class="redbtext">487</span> friends.</span></div>
+  <div class="friends top12">
+   <div class="f" data-item="friend"><a class="n" href="#">Tom</a><a href="#"><img data-ph="person" data-seed="tom-2008" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">The Polaroid Kids</a><a href="#"><img data-ph="person" data-seed="pkids08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Jake</a><a href="#"><img data-ph="person" data-seed="jake08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Meredith</a><a href="#"><img data-ph="person" data-seed="mere08" width="90" height="90" alt=""></a></div>
+   <div class="f" data-item="friend"><a class="n" href="#">dana!</a><a href="#"><img data-ph="person" data-seed="dana08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Chris B.</a><a href="#"><img data-ph="person" data-seed="chris08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Sam</a><a href="#"><img data-ph="person" data-seed="sam08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Ally</a><a href="#"><img data-ph="person" data-seed="ally08" width="90" height="90" alt=""></a></div>
+   <div class="f" data-item="friend"><a class="n" href="#">Mom</a><a href="#"><img data-ph="person" data-seed="mom08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Nick Z</a><a href="#"><img data-ph="person" data-seed="nick08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Priya</a><a href="#"><img data-ph="person" data-seed="priya08" width="90" height="90" alt=""></a></div><div class="f" data-item="friend"><a class="n" href="#">Bowery Ballroom</a><a href="#"><img data-ph="person" data-seed="bowery08" width="90" height="90" alt=""></a></div>
+  </div>
+  <div style="text-align:right;padding:4px 6px 18px"><a class="redlink" href="#">View All of Ryan's Friends</a></div>
+
+  <div class="orangehd"><span class="orangetext15">Ryan's Friends Comments</span></div>
+  <div style="padding:5px 3px 3px"><b>Displaying <span class="redtext">9</span> of <span class="redtext">1,204</span> comments ( <a href="#">View All</a> | <a href="#">Add Comment</a> )</b></div>
+  <table class="comments">
+   <tr data-item="comment"><td class="cl"><a href="#">Meredith</a><br><a href="#"><img data-ph="person" data-seed="mere08" width="90" height="90" alt=""></a><br><span class="online" data-noedit></span></td><td class="cr"><span class="blacktext10">Mar 14 2008 11:21 PM</span>you guys KILLED it tonight. that new song?? chills. see you in austin!!! <div class='commentlinks'><a href='#'>Reply to this</a></div></td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">The Polaroid Kids</a><br><a href="#"><img data-ph="person" data-seed="pkids08" width="90" height="90" alt=""></a></td><td class="cr"><span class="blacktext10">Mar 14 2008 6:02 PM</span>van leaves at 7am SHARP. bring snacks. not the gross granola again ryan. <div class='commentlinks'><a href='#'>Reply to this</a></div></td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">dana!</a><br><a href="#"><img data-ph="person" data-seed="dana08" width="90" height="90" alt=""></a><br><span class="online" data-noedit></span></td><td class="cr"><span class="blacktext10">Mar 14 2008 2:37 PM</span><img class="piccom" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'250'%20height%3D'70'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'0'%20y2%3D'1'%3E%3Cstop%20offset%3D'0'%20stop-color%3D'%239be7ff'%2F%3E%3Cstop%20offset%3D'.5'%20stop-color%3D'%23fff'%2F%3E%3Cstop%20offset%3D'1'%20stop-color%3D'%231d7fd0'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Ctext%20x%3D'125'%20y%3D'45'%20font-family%3D'Georgia%2Cserif'%20font-style%3D'italic'%20font-weight%3D'bold'%20font-size%3D'24'%20text-anchor%3D'middle'%20fill%3D'url(%23g)'%20stroke%3D'%230b4f8f'%20stroke-width%3D'1.2'%3EHappy%20St.%20Patty's!%3C%2Ftext%3E%3Ccircle%20cx%3D'5'%20cy%3D'5'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'0.7s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'52'%20cy%3D'28'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'1s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'99'%20cy%3D'51'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'1.2999999999999998s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'146'%20cy%3D'14'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'1.5999999999999999s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'193'%20cy%3D'37'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'0.7s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'240'%20cy%3D'60'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'1s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'47'%20cy%3D'23'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'1.2999999999999998s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'94'%20cy%3D'46'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'1.5999999999999999s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'141'%20cy%3D'9'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'0.7s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D'188'%20cy%3D'32'%20r%3D'1.6'%20fill%3D'%23fff'%3E%3Canimate%20attributeName%3D'opacity'%20values%3D'0%3B1%3B0'%20dur%3D'1s'%20repeatCount%3D'indefinite'%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E" width="250" alt="">happy early st patty's!!! dont get too crazy in texas lol</td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">Jake</a><br><a href="#"><img data-ph="person" data-seed="jake08" width="90" height="90" alt=""></a></td><td class="cr"><span class="blacktext10">Mar 13 2008 10:50 PM</span>dude did you see the cloverfield sequel rumor? also i still have your In Rainbows box set</td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">Chris B.</a><br><a href="#"><img data-ph="person" data-seed="chris08" width="90" height="90" alt=""></a></td><td class="cr"><span class="blacktext10">Mar 13 2008 4:15 PM</span>yo the new profile pic is very 'brooklyn'. very artsy. much fixie.</td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">Ally</a><br><a href="#"><img data-ph="person" data-seed="ally08" width="90" height="90" alt=""></a></td><td class="cr"><span class="blacktext10">Mar 12 2008 9:03 AM</span>thanks for the add!! loved the demo, 'L Train Lullaby' is stuck in my head</td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">Priya</a><br><a href="#"><img data-ph="person" data-seed="priya08" width="90" height="90" alt=""></a><br><span class="online" data-noedit></span></td><td class="cr"><span class="blacktext10">Mar 11 2008 7:44 PM</span>are u going to the MGMT show at webster hall?? i have an extra ticket :)</td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">Mom</a><br><a href="#"><img data-ph="person" data-seed="mom08" width="90" height="90" alt=""></a></td><td class="cr"><span class="blacktext10">Mar 10 2008 8:12 PM</span>Hi honey, is this how I leave you a message? Call your grandmother on Sunday. Love, Mom</td></tr>
+   <tr data-item="comment"><td class="cl"><a href="#">Tom</a><br><a href="#"><img data-ph="person" data-seed="tom-2008" width="90" height="90" alt=""></a></td><td class="cr"><span class="blacktext10">Mar 2 2008 12:00 PM</span>Thanks for being on MySpace! Check out MySpace Music for new tracks from bands at SXSW. :)</td></tr>
+  </table>
+  <div style="text-align:right;padding:4px 3px 10px"><a href="#">Add Comment</a></div>
+ </div>
+</div>
+<div class="footer">
+ <a href="#">About</a> | <a href="#">FAQ</a> | <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Safety Tips</a> | <a href="#">Contact MySpace</a> | <a href="#">Promote!</a> | <a href="#">Advertise</a> | <a href="#">MySpace International</a>
+ <span class="copy">&copy;2003-2008 MySpace.com. All Rights Reserved.</span>
+</div>
+</body>
+</html>

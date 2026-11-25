@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Digg / News</title>
+<script src="../shared/studio.js"></script>
+<style>
+body{margin:0;padding:0;background:#fff;color:#333}
+body,td,th,textarea,input,select,h2,h3,h4,h5,h6{font:83%/1.4 arial,helvetica,sans-serif}
+a{color:#105CB6}
+a:hover{color:#003}
+#container{text-align:left;margin:0 auto;max-width:1200px;position:relative;font-size:100%}
+#header{background:#1B5790;color:#fff;width:100%;height:71px;position:relative;margin-bottom:7px}
+#header .top{height:45px;position:relative}
+#header h1{float:left;margin:0 0 0 0}
+#header h1 a{display:block;height:45px;width:79px}
+#header .sec{float:left;display:block;margin:12px 0 0 0;height:28px;line-height:30px;padding:0 15px;color:#c9daf0;font-size:14px;font-weight:bold;text-decoration:none;letter-spacing:-.3px}
+#header .sec:hover{color:#fff}
+#header .sec.current{background:#CCDEAF;color:#1B5790;border-radius:6px 6px 0 0;margin:17px 8px 0 10px;height:28px;line-height:30px;font-size:15px}
+#header .sec.current b{color:#325B0A}
+.side-header{position:absolute;right:0;top:0;padding:14px 10px 0 10px}
+.side-header a{color:#D2DCF3;font-size:11px;font-weight:bold;margin-right:16px}
+.side-header form{display:inline-block;vertical-align:middle}
+.side-header input{width:140px;border:0;padding:2px 4px;height:14px;font-size:11px;color:#5f6e7c;vertical-align:middle}
+.side-header .go{display:inline-block;vertical-align:middle;width:22px;height:18px;background:#e7eef7;border-radius:0 3px 3px 0;position:relative}
+.side-header .go:after{content:"";position:absolute;left:8px;top:5px;border:4px solid transparent;border-left:6px solid #1B5790}
+#header-primary{background:#CCDEAF;height:26px;clear:both;position:relative}
+#header-primary ul{margin:0;padding:0 0 0 5px;list-style:none}
+#header-primary li{display:inline}
+#header-primary li a{text-decoration:none;color:#325B0A;padding:5px 6px;float:left;font-size:11px;font-weight:bold;word-spacing:-.17em;white-space:nowrap;position:relative}
+#header-primary li a:hover{color:#000;text-decoration:underline}
+#header-primary li a.current{color:#000}
+#header-primary li a.current:after{content:"";position:absolute;left:50%;bottom:0;margin-left:-5px;border:5px solid transparent;border-bottom:5px solid #fff}
+#header-primary li a.submit{float:right;padding:5px 26px 5px 15px;margin-right:9px;word-spacing:0;position:relative}
+#header-primary li a.submit:after{content:"+";position:absolute;right:8px;top:5px;width:12px;height:12px;line-height:12px;text-align:center;border-radius:6px;background:#6c9a2a;color:#fff;font-size:11px}
+#announce-invite{margin:10px 0 0 0;padding:0 30px 0 0}
+#announce-invite div{font-size:11px;padding:5px 0 0 32px;height:20px;color:#79786c;background:#f3f2ea;border-radius:10px;margin-left:16px}
+#announce-invite a{color:#79786c}
+#announce-invite strong a{text-decoration:underline}
+#contents{clear:both;padding:0 15px 15px 0;margin-top:10px}
+#wrapper{padding:8px 0 0 15px;min-height:500px}
+.extra-nav{padding-right:5px;height:44px;border-bottom:0}
+.extra-nav h2{float:left;margin:0;font-size:175%!important;letter-spacing:-1px;font-weight:normal;color:#4E463F;position:relative;top:8px}
+.extra-nav ul{float:right;list-style:none;margin:0;padding:12px 0 0 0;white-space:nowrap}
+.extra-nav li{float:right;margin:0 0 0 16px}
+.extra-nav li a,.extra-nav li span{font-size:125%;font-weight:bold;color:#666;letter-spacing:-.02em;text-decoration:none;display:block;padding:0 6px 6px 6px}
+.extra-nav li.active span{color:#4E463F;border-bottom:3px solid #8DAB3B}
+.extra-nav li a{color:#666;border-bottom:1px solid #bbb}
+.sub-menu{position:relative;clear:both;min-height:3em;margin-top:6px}
+.sub-menu strong{color:#E45B00;display:block;float:left;font-size:125%;letter-spacing:-.02em;line-height:1.5;margin:-3px 8px 0 0}
+.sub-menu .tool{padding:0 7px;font-size:11px;float:left;color:#578CCA;border-left:1px solid #d8e2ee;line-height:16px}
+.sub-menu .tool.first{border:0}
+.sub-menu .rss{display:inline-block;width:12px;height:12px;background:#f68b1f;border-radius:2px;vertical-align:-2px;color:#fff;font:bold 8px/12px arial;text-align:center}
+.sub-menu .set-off{float:right;color:#999;font-size:11px;padding-left:16px;position:relative}
+.sub-menu .set-off:before{content:"";position:absolute;left:0;top:2px;width:10px;height:9px;border:1px solid #bbb;border-top-color:#bbb;background:#f3f3f3}
+.main{margin-right:310px}
+.news-summary{padding:.7em 0 2em 0;position:relative;clear:left;min-height:50px}
+.news-body{padding-left:60px}
+.news-body h3{margin:2px 0 0 0;font-size:130%!important;letter-spacing:-.02em;font-weight:bold;line-height:1.1}
+.news-body h3 a{text-decoration:none;color:#105CB6;background:linear-gradient(#a9c2e3,#a9c2e3) repeat-x 0 100%/100% 1px;padding-bottom:1px}
+.news-body h3 a:hover{color:#003}
+.news-body p{margin:.25em 0 .1em 0;line-height:1.35;font-size:100%}
+.news-submitted{color:#999;font-size:85%!important;margin:2px 0 3px 0!important}
+.news-submitted a{color:#999}
+.news-submitted img{border:1px solid #ccc;vertical-align:middle;width:16px;height:16px;object-fit:cover}
+.news-submitted .d{color:#B4351C;font-weight:bold}
+.desc{color:#333}
+.desc .more{color:#105CB6}
+.news-details{position:relative;padding:5px 0 0 15px;color:#777;font-size:11px;height:18px}
+.news-details .tool{display:block;float:left;padding:0 6px;color:#578CCA;border-left:1px solid #d8e2ee;line-height:16px;white-space:nowrap}
+.news-details .tool:first-child{border:0}
+.news-details span.tool{color:#777}
+.news-details span.tool a{color:#578CCA}
+.news-details .comments{padding-left:22px;position:relative}
+.news-details .comments:before{content:"";position:absolute;left:4px;top:3px;width:12px;height:8px;background:#9db7d8;border-radius:2px}
+.news-details .comments:after{content:"";position:absolute;left:7px;top:11px;border:3px solid transparent;border-top:3px solid #9db7d8}
+.probdrop{float:left;margin-left:8px}
+.toplinep{display:block;width:3.3em;border:1px solid #DDEAF6;text-decoration:none;height:14px;font-size:11px;padding:1px 14px 1px 5px;color:#578CCA;position:relative;line-height:14px}
+.toplinep:after{content:"";position:absolute;right:4px;top:6px;border:3px solid transparent;border-top:4px solid #9db7d8}
+.news-digg{position:absolute;top:.8em;left:0;text-align:center;font-size:85%;margin:0;padding:0;list-style:none}
+.news-digg li{margin:0;padding:0}
+.digg-count a{display:block;padding:9px 0 4px 0;text-decoration:none;width:50px;height:31px;color:#93883F;text-align:center;background:linear-gradient(#fffbe4,#fff2b3);border:1px solid #e8dd9f;border-radius:3px 3px 0 0;font-size:11px}
+.digg-count strong{font-size:160%;font-weight:normal;letter-spacing:-1px;line-height:1;display:block;color:#736926;font-size:19px}
+.digg-count a:hover,.digg-count a:hover strong{color:#998D43}
+.digg-it a,.dugg-it span{font-weight:bold;display:block;padding:4px 0 4px 0;width:50px;text-decoration:none;text-align:center;background:#fff;border:1px solid #d0dbe7;border-top:0;border-radius:0 0 3px 3px;font-size:11px;color:#105CB6}
+.dugg-it span{color:#999}
+.sidebar{float:right;width:280px;margin:-8px 0 2em 0}
+.side-container{clear:both;padding:10px 0 1.6em 10px;background:linear-gradient(#f4f8ee,#fff 60px);border-radius:6px}
+.side-container h2{margin:0 0 .5em 0;font-size:125%!important;color:#8DAB3B;font-weight:bold;line-height:1;letter-spacing:-.5px}
+.side-container h2 .upd{color:#c00;font-size:9px;letter-spacing:0}
+.side-container p{margin:.3em 0 0 0;line-height:1.45}
+.join{min-height:2em;margin-top:8px!important}
+.join a{padding:2px 14px;float:left;display:block;border:1px solid #d3dfed;margin:2px 3px 0 0;font-size:90%;text-decoration:none}
+.join a.learn{text-decoration:underline;border:none}
+.side-container .news-summary{padding:0 0 5px 44px;min-height:37px;float:left;clear:left;width:226px}
+.side-container .news-summary h3{margin:0;font-size:100%!important;letter-spacing:0;line-height:1.25}
+.side-container .news-summary h3 a{font-weight:normal;text-decoration:underline;color:#105CB6}
+.side-container .news-digg{top:0;left:0}
+.side-container .digg-count a{width:36px;height:24px;padding:8px 0 0 0;border-radius:3px;font-size:10px;letter-spacing:-.07em}
+.side-container .digg-count strong{font-size:13px;font-weight:bold;letter-spacing:-.5px}
+.side-container .vid{clear:both;overflow:hidden;padding:0 0 8px 0}
+.side-container .vid img{float:left;width:80px;height:60px;object-fit:cover;padding:1px;border:1px solid #ccc;margin-right:8px}
+.side-container .vid h3{margin:0;font-size:100%!important;line-height:1.25}
+.side-container .vid h3 a{text-decoration:underline}
+.side-container .vd{color:#93883F;font-size:11px;font-weight:bold}
+.ad300{display:block;width:300px;height:250px;margin:0 0 6px -10px;object-fit:cover}
+.adl{font-size:10px;color:#aaa;margin:0 0 14px -10px}
+.pages{padding:1em 0;margin:1em 0;clear:left;font-size:85%;overflow:hidden}
+.pages a,.pages span{display:block;float:left;padding:.2em .5em;margin-right:.1em;border:1px solid #fff;background:#fff}
+.pages span.current{border:1px solid #2E6AB1;font-weight:bold;background:#2E6AB1;color:#fff}
+.pages a{border:1px solid #9AAFE5;text-decoration:none}
+.pages span.nextprev{border:1px solid #ddd;color:#999}
+.pages a.nextprev{font-weight:bold}
+#footer{clear:both;margin-top:55px;padding:12px 15px 0 0;position:relative;min-height:160px;background:#f4f3ec;border-radius:8px 8px 0 0;overflow:hidden}
+#footer dl{float:left;margin:0;padding:10px 0 5px 0;width:15.5%;min-height:95px;border-right:1px solid #dcdacb}
+#footer dl.last{border:none;width:11%}
+#footer dt{font-size:105%;font-weight:bold;letter-spacing:-.02em;padding:0 10px;color:#4E463F}
+#footer dd{margin:0;padding:3px 10px;font-size:85%;color:#79786c;line-height:1.5}
+#footer dd a{text-transform:uppercase;font:85% tahoma,sans-serif;text-decoration:none;border-bottom:1px dotted #9AAFE5}
+#footer .new{color:#c00;font-weight:bold}
+#footer .feature{position:absolute;right:16px;top:14px;width:110px;height:110px;border-radius:6px;object-fit:cover}
+.copyright{font-size:10px;color:#999;padding:12px 0 30px 52px;position:relative;line-height:1.5}
+.copyright .ld{position:absolute;left:0;top:12px;width:40px;height:40px;border-radius:6px;background:#1B5790;color:#fff;font:bold 13px/40px 'Arial Rounded MT Bold',arial;text-align:center;letter-spacing:-.5px}
+</style>
+<script>
+OLDTV.ready(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.digg-it a');
+    if (!a || OLDTV.mode() !== 'film') return;
+    e.preventDefault();
+    var box = a.closest('.news-digg'), s = box && box.querySelector('.digg-count strong');
+    if (s) s.textContent = (parseInt(s.textContent.replace(/,/g, ''), 10) || 0) + 1;
+    var li = a.parentNode; li.className = 'dugg-it'; li.innerHTML = '<span>dugg!</span>';
+  });
+});
+</script>
+</head>
+<body data-page="digg-2007-home" data-v="1" data-url="http://digg.com/">
+<div id="container">
+<div id="header">
+<div class="top"><h1><a href="2007-home.html"><svg width="79" height="45" viewBox="0 0 79 45" aria-label="digg"><text x="5" y="33" font-family="'Arial Rounded MT Bold','Helvetica Rounded','Arial Black',Arial,sans-serif" font-weight="bold" font-size="30" letter-spacing="-1.2" fill="#0d3a66" opacity=".55">digg</text><text x="4" y="31" font-family="'Arial Rounded MT Bold','Helvetica Rounded','Arial Black',Arial,sans-serif" font-weight="bold" font-size="30" letter-spacing="-1.2" fill="#fff">digg</text></svg></a></h1>
+<a href="2007-home.html" class="sec current">News</a><a href="#" class="sec">Videos</a><a href="#" class="sec">Podcasts</a>
+<div class="side-header"><a href="#">Join Digg</a><a href="#">Login</a><form action="#"><input type="text" value="Search the News..."><span class="go"></span></form></div></div>
+<div id="header-primary"><ul>
+<li><a href="#" class="submit">Submit a New Story</a></li>
+<li><a href="2007-home.html" class="current">All Topics</a></li>
+<li><a href="#">Technology</a></li>
+<li><a href="#">Science</a></li>
+<li><a href="#">World &amp; Business</a></li>
+<li><a href="#">Sports</a></li>
+<li><a href="#">Videos</a></li>
+<li><a href="#">Entertainment</a></li>
+<li><a href="#">Gaming</a></li>
+</ul></div>
+</div>
+<div id="announce-invite"><div><strong>Spreading the Word...</strong>&nbsp; Digg user &#8216;<a href="#">kitten_mittens</a>&#8217; just invited &#8216;<a href="#">brandnewday88</a>&#8217; to join Digg! &nbsp; <strong><a href="#">Login</a> to invite your own friends!</strong></div></div>
+<div id="contents"><div id="wrapper">
+<div class="extra-nav"><h2>All News</h2><ul><li><a href="#">Upcoming Stories (8,149)</a></li><li class="active"><span>Popular Stories</span></li></ul></div>
+<div class="sub-menu"><strong>Newly Popular</strong><a href="#" class="tool first">Top in 24 Hours</a><a href="#" class="tool">7 Days</a><a href="#" class="tool">30 Days</a><a href="#" class="tool">365 Days</a><a href="#" class="tool"><span class="rss">RSS</span></a><span class="set-off">Digg Home!</span></div>
+<div class="sidebar">
+<div class="side-container"><h2>What's Digg?</h2><p>Digg is all about user powered content. Everything is submitted and voted on by the Digg community. Share, discover, bookmark, and promote stuff that's important to you!</p><p class="join"><a href="#">Join</a><a href="#">Login</a><a href="#" class="learn">Learn More...</a></p></div>
+<img class="ad300" data-ph="photo" data-seed="digg-ad-2007" width="300" height="250" alt="advertisement"><div class="adl">Advertisement</div>
+<div class="side-container"><h2>Top 10 in All Topics</h2><div class="news-summary" data-item="top"><h3><a href="#">Apple Confirms iPhone Will Use AT&amp;T EDGE, Not 3G</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>4211</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">The 100 Most Annoying Things About Windows Vista</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>3988</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">Steve Jobs Introduces the iPhone (Full Keynote Video)</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>3570</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">Ron Paul: "We Were Attacked Because We've Been Over There"</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>3309</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">19th-Century Harpoon Found Embedded in Alaskan Whale</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>3120</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">Have You Noticed "Phantom Vibration Syndrome"?</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>2956</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">Using Vegetable Oil Instead of Gas? Prepare to Be Fined</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>2801</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">Gizmodo: Digg Spam Sucks</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>2574</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">Google Street View Catches Man Climbing Into Apartment</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>2477</strong></a></li></ul></div>
+<div class="news-summary" data-item="top"><h3><a href="#">Firefox 3 Alpha 5 Released: Screenshots</a></h3><ul class="news-digg"><li class="digg-count"><a href="#"><strong>2215</strong></a></li></ul></div><div style="clear:both"></div></div>
+<div class="side-container"><h2>Top in Videos</h2><div class="vid" data-item="video"><a href="#"><img class="p-thumb" data-ph="thumb" data-seed="digg-vid-0" width="80" height="60" alt=""></a><h3><a href="#">Will It Blend? iPhone Edition</a></h3><span class="vd">2104 diggs</span></div>
+<div class="vid" data-item="video"><a href="#"><img class="p-thumb" data-ph="thumb" data-seed="digg-vid-1" width="80" height="60" alt=""></a><h3><a href="#">Chocolate Rain (Original Song by Tay Zonday)</a></h3><span class="vd">3880 diggs</span></div>
+<div class="vid" data-item="video"><a href="#"><img class="p-thumb" data-ph="thumb" data-seed="digg-vid-2" width="80" height="60" alt=""></a><h3><a href="#">Diet Coke + Mentos: The Extreme Sequel</a></h3><span class="vd">1733 diggs</span></div>
+<div class="vid" data-item="video"><a href="#"><img class="p-thumb" data-ph="thumb" data-seed="digg-vid-3" width="80" height="60" alt=""></a><h3><a href="#">Kids React to Sopranos Finale</a></h3><span class="vd">988 diggs</span></div></div>
+<div class="side-container"><h2>Digg Labs <span class="upd">Updated!</span></h2><p>A lot of stuff gets submitted to Digg every day, so good things can sometimes fly right past you. Check out <a href="#">Digg Spy</a>, <a href="#">Swarm</a>, <a href="#">Stack</a> and <a href="#">BigSpy</a> to watch it happen in real time.</p></div>
+</div>
+<div class="main">
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Apple iPhone Launch: Line Outside 5th Ave Store Already 200 People Deep</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-gadgetgrrl" width="16" height="16" alt=""></a> <a href="#">gadgetgrrl</a> submitted, made popular <span class="d">4 minutes ago</span> (<a href="#" class="simple">www.engadget.com</a>)</p>
+<p class="desc">Two days before launch and the line outside the Fifth Avenue Apple Store already wraps around the cube. One guy says he flew in from Ohio and quit his job to hold his spot. Engadget has photos and a running headcount. Will Apple run out on day one?&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">412 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Apple</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>1487</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Safari for Windows Cracked Wide Open in Under 2 Hours</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-sec_monkey" width="16" height="16" alt=""></a> <a href="#">sec_monkey</a> submitted, made popular <span class="d">11 minutes ago</span> (<a href="#" class="simple">www.securityfocus.com</a>)</p>
+<p class="desc">Apple released a public beta of Safari 3 for Windows this morning, and security researchers have already found six zero-day vulnerabilities. One of them lets a malicious page run code just by loading. Apple's "secure by design" marketing aged very quickly.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">188 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Security</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>932</strong> diggs</a></li><li class="dugg-it"><span>dugg!</span></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Paris Hilton Released From Jail After 3 Days, Then Sent Back. Internet Rejoices.</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-snarkfest" width="16" height="16" alt=""></a> <a href="#">snarkfest</a> submitted, made popular <span class="d">19 minutes ago</span> (<a href="#" class="simple">www.tmz.com</a>)</p>
+<p class="desc">Sheriff reassigns her to house arrest over an unspecified "medical condition" and the judge orders her straight back to county lockup. The photos of her crying in the back of the cruiser are already everywhere.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">356 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Celebrity</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>688</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">The Sopranos Finale: Did Your Cable Just Go Out? (No, That Was the Ending)</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-jerseydevil77" width="16" height="16" alt=""></a> <a href="#">jerseydevil77</a> submitted, made popular <span class="d">26 minutes ago</span> (<a href="#" class="simple">www.ew.com</a>)</p>
+<p class="desc">Millions of viewers reached for their remotes last night thinking their cable had died. Entertainment Weekly breaks down the final four minutes frame by frame, the Journey song, and what David Chase is (not) saying about it.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">944 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Television</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>2210</strong> diggs</a></li><li class="dugg-it"><span>dugg!</span></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Dell Starts Shipping PCs With Ubuntu Preinstalled</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-penguinpower" width="16" height="16" alt=""></a> <a href="#">penguinpower</a> submitted, made popular <span class="d">33 minutes ago</span> (<a href="#" class="simple">www.dell.com</a>)</p>
+<p class="desc">After 130,000 IdeaStorm votes, Dell finally delivers: three consumer models now ship with Ubuntu 7.04 "Feisty Fawn" and save you $50 over the Windows Vista version. Linux on the desktop: is 2007 finally the year?&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">521 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Linux/Unix</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>1803</strong> diggs</a></li><li class="dugg-it"><span>dugg!</span></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Halo 3 Beta Ends: Bungie Releases Insane Stats</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-masterchief_117" width="16" height="16" alt=""></a> <a href="#">masterchief_117</a> submitted, made popular <span class="d">41 minutes ago</span> (<a href="#" class="simple">www.bungie.net</a>)</p>
+<p class="desc">Over 820,000 players logged more than 12 million games during the three-week beta. The most popular weapon? The plasma grenade. Bungie promises the full game will "finish the fight" on September 25th.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">233 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Xbox</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>764</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Ron Paul Wins Another Post-Debate Poll by a Landslide</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-constitutionfan" width="16" height="16" alt=""></a> <a href="#">constitutionfan</a> submitted, made popular <span class="d">48 minutes ago</span> (<a href="#" class="simple">www.foxnews.com</a>)</p>
+<p class="desc">For the third debate in a row, Ron Paul wins the text-message poll with 33% of the vote. Pundits insist it's just his "internet army" spamming the polls. His supporters say that's exactly the point.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">1,021 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Political Opinion</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>3109</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Transformers Trailer #3 in HD: Megatron Speaks</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-autobot_prime" width="16" height="16" alt=""></a> <a href="#">autobot_prime</a> submitted, made popular <span class="d">56 minutes ago</span> (<a href="#" class="simple">www.apple.com</a>)</p>
+<p class="desc">The final trailer for Michael Bay's Transformers is up on Apple's trailer site in 1080p. Peter Cullen is back as Optimus Prime, and yes, the transformation sounds are exactly what you remember from 1986.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">177 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Movies</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>845</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Leaked Harry Potter 7 Photos Show Every Page of the Book</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-muggleborn" width="16" height="16" alt=""></a> <a href="#">muggleborn</a> submitted, made popular <span class="d">1 hour ago</span> (<a href="#" class="simple">www.slashfilm.com</a>)</p>
+<p class="desc">Someone photographed all 759 pages of "Deathly Hallows" and posted them on BitTorrent a month before release. Bloomsbury's lawyers are not amused. Please, for the love of god, do not post spoilers in the comments.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">1,388 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Books</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>2477</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Microsoft Admits Vista Sales Are "Below Expectations"</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-blue_screen" width="16" height="16" alt=""></a> <a href="#">blue_screen</a> submitted, made popular <span class="d">1 hour ago</span> (<a href="#" class="simple">www.computerworld.com</a>)</p>
+<p class="desc">Six months after launch, Microsoft execs concede that Vista adoption is slower than XP was, blaming driver support and hardware requirements. Dell, meanwhile, is quietly bringing back XP on its consumer line.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">301 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Microsoft</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>1156</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">This Guy Built a Working Lightsaber Out of a Laser Pointer and a Fog Machine</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-jediknightrider" width="16" height="16" alt=""></a> <a href="#">jediknightrider</a> submitted, made popular <span class="d">1 hour ago</span> (<a href="#" class="simple">www.instructables.com</a>)</p>
+<p class="desc">Step-by-step Instructable with parts list (about $60 at RadioShack). The video at the end where he "duels" his cat is worth the click alone.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">98 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Videos</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>612</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="news-summary" data-item="story">
+<div class="news-body"><h3><a href="#">Wii Outsells PS3 Nearly 5 to 1 in Japan</a></h3>
+<p class="news-submitted"><a href="#"><img class="av" data-ph="person" data-seed="digg-sixaxis_sux" width="16" height="16" alt=""></a> <a href="#">sixaxis_sux</a> submitted, made popular <span class="d">2 hours ago</span> (<a href="#" class="simple">www.gamespot.com</a>)</p>
+<p class="desc">Media Create's latest numbers show Nintendo moved 105,000 Wiis last week against just 22,000 PlayStation 3s. Sony says it's "not worried." Gamers on the internet say otherwise.&nbsp;<a href="#" class="more">More&#8230;</a></p>
+<div class="news-details"><a href="#" class="tool comments">412 comments</a><a class="tool" href="#">Blog It</a><a class="tool" href="#">Email It</a><span class="tool">Topic: <a href="#">Gaming News</a></span><span class="probdrop"><a href="#" class="toplinep">Bury</a></span></div>
+</div>
+<ul class="news-digg"><li class="digg-count"><a href="#"><strong>1342</strong> diggs</a></li><li class="digg-it"><a href="#">digg it</a></li></ul>
+</div>
+<div class="pages"><span class="nextprev">&#171; Previous</span><span class="current">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><span>&#8230;</span><a href="#">249</a><a href="#">250</a><a href="#" class="nextprev">Next &#187;</a></div>
+</div>
+</div></div>
+<div id="footer">
+<dl><dt>Site Links</dt><dd><a href="#">Home</a></dd><dd><a href="#">Search Digg</a></dd><dd><a href="#">RSS Feeds</a></dd><dd><a href="#">Popular Archive</a></dd><dd><a href="#">Terms of Use</a>, <a href="#">Privacy</a></dd><dd><a href="#">Report a Website Bug</a></dd></dl>
+<dl><dt>All About Digg</dt><dd><a href="#">About Us</a> &amp; <a href="#">Contact</a></dd><dd><a href="#">How Digg Works</a></dd><dd><a href="#">Frequent Questions</a></dd><dd><a href="#">The Digg Blog</a></dd><dd><a href="#">Jobs at Digg</a></dd><dd><a href="#">Diggnation Podcast</a></dd></dl>
+<dl><dt>Digg Tools &amp; API</dt><dd>Check out <a href="#">Digg Tools</a> that let you integrate Digg into your site and add Google features.</dd><dd><span class="new">NEW!</span> Develop your own tools with the <a href="#">Digg API</a>.</dd></dl>
+<dl><dt>Advertise</dt><dd>You can buy advertising on Digg through our advertising partner <a href="#">Federated Media</a>.</dd></dl>
+<dl><dt>Digg Labs</dt><dd>Get a real-time look beneath the surface in the <a href="#">digg labs</a> with our tools <a href="#">arc</a>, <a href="#">swarm</a>, <a href="#">stack</a> and <a href="#">bigspy</a>. Also see <a href="#">Digg Spy</a>, our original real-time tracking system.</dd></dl>
+<dl class="last"><dt>Digg Store</dt><dd>Get Digg hats, shirts, hoodies, and more at the new <a href="#">Digg Store</a>, thanks to our pals at J!NX.</dd></dl>
+<img class="feature" data-ph="photo" data-seed="digg-store-shirt" width="110" height="110" alt="Digg Store!">
+</div>
+<div class="copyright"><span class="ld">digg</span>&copy; Digg Inc. 2007 &#8212; User-posted content, unless source quoted, is licensed under a <a href="#">Creative Commons Public Domain License</a>.<br>DIGG, DIGG IT, DUGG, DIGG THIS, Digg graphics, logos, designs, page headers, button icons, scripts, and other service names are the trademarks of Digg Inc.</div>
+</div>
+</body>
+</html>

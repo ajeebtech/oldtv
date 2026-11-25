@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Instagram</title>
+<script src="../shared/studio.js"></script>
+<link rel="stylesheet" href="assets/ig.css">
+<script src="assets/ig.js"></script>
+<style>
+html,body{margin:0}
+body{background:#ebecee;font:14px/1.4 "Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;color:#111;-webkit-font-smoothing:antialiased;min-width:1100px}
+a{color:#3f729b;text-decoration:none}
+.ico{display:inline-block;width:1em;height:1em;vertical-align:middle;background-color:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.i-home{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3.2L1.8 12.1h3v8.7h5.5v-5.9h3.4v5.9h5.5v-8.7h3z'/%3E%3C/svg%3E")}
+.i-caret{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 8h14l-7 8z'/%3E%3C/svg%3E")}
+.i-heart{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E")}
+.i-clock{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M12 2a10 10 0 100 20 10 10 0 000-20zm1 4.5h-2.2v6.2l5.2 3.1 1.1-1.8-4.1-2.4z'/%3E%3C/svg%3E")}
+.i-pin{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z'/%3E%3C/svg%3E")}
+.i-more{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 10a2 2 0 110 4 2 2 0 010-4zm7 0a2 2 0 110 4 2 2 0 010-4zm7 0a2 2 0 110 4 2 2 0 010-4z'/%3E%3C/svg%3E")}
+.bar{height:44px;background:linear-gradient(#5585ab,#4a7aa1 40%,#3d6c93 75%,#316188);border-bottom:1px solid #2a5479;box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 2px rgba(0,0,0,.25);position:relative;z-index:3}
+.bar .in{width:1024px;margin:0 auto;height:44px;position:relative;display:flex;align-items:stretch}
+.cell{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:13px;text-shadow:0 -1px 0 rgba(0,0,0,.3);border-left:1px solid #2f5d84;border-right:1px solid #2f5d84;box-shadow:inset 1px 0 0 rgba(255,255,255,.12),inset -1px 0 0 rgba(255,255,255,.12);padding:0 12px}
+.cell.home{width:45px;padding:0}
+.cell.home .ico{font-size:23px}
+.cell.me{margin-left:auto;gap:8px;padding:0 14px}
+.cell.me img{width:24px;height:24px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+.cell.me .ico{font-size:9px;opacity:.8}
+.wm{position:absolute;left:50%;top:0;transform:translateX(-50%);font-family:"Billabong","Brush Script MT",cursive;font-size:29px;line-height:46px;color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.25);white-space:nowrap}
+.media{width:1024px;height:640px;margin:44px auto 0;display:flex;background:#fff;border-radius:4px;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.12);overflow:hidden}
+.media .igf{width:640px;height:640px;flex:0 0 640px;background:#000}
+.side{flex:1;display:flex;flex-direction:column;min-width:0;border-left:1px solid #e5e5e5}
+.who{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #efefef}
+.who img{width:40px;height:40px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.1)}
+.who .names{flex:1;min-width:0;line-height:18px}
+.who .un{font-weight:bold;font-size:15px}
+.who .fn{color:#999;font-size:13px}
+.fbtn{height:26px;line-height:26px;padding:0 14px;border-radius:3px;border:1px solid #33628a;background:linear-gradient(#6c95b5,#5785a9 50%,#44769e);color:#fff;font-weight:bold;font-size:12px;text-shadow:0 -1px 0 rgba(0,0,0,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.scroll{flex:1;overflow-y:auto;padding:12px 16px 6px;scrollbar-width:thin}
+.meta{display:flex;gap:14px;color:#a3a3a3;font-size:12px;font-weight:bold;margin-bottom:10px}
+.meta .ico{font-size:12px;margin:-2px 3px 0 0}
+.meta a{color:#3f729b}
+.likes{font-weight:bold;color:#3f729b;font-size:14px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #f1f1f1}
+.likes .ico{color:#3f729b;font-size:14px;margin:-2px 5px 0 0}
+.c{display:flex;gap:9px;padding:5px 0;font-size:13px;line-height:18px;color:#222}
+.c img{width:28px;height:28px;flex:0 0 28px;object-fit:cover;border-radius:2px;margin-top:1px}
+.c .un{font-weight:bold;margin-right:3px}
+.c.cap{padding-bottom:8px}
+.loadc{display:block;font-size:12px;font-weight:bold;color:#999;padding:4px 0 4px 37px}
+.foot2{display:flex;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid #e5e5e5;background:#fafafa}
+.likebtn{display:flex;align-items:center;gap:5px;height:30px;padding:0 12px;border-radius:3px;border:1px solid #cfcfcf;background:linear-gradient(#fff,#ededed);color:#555;font-weight:bold;font-size:12px}
+.likebtn .ico{color:#bbb;font-size:14px}
+.likebtn.on .ico{color:#e74c3c}
+.addc{flex:1;height:30px;line-height:30px;padding:0 10px;border:1px solid #d5d5d5;border-radius:3px;background:#fff;color:#aaa;font-size:13px;box-shadow:inset 0 1px 2px rgba(0,0,0,.06)}
+.morebtn{width:32px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:3px;border:1px solid #cfcfcf;background:linear-gradient(#fff,#ededed);color:#888}
+.foot{width:1024px;margin:0 auto;padding:40px 0 30px;text-align:center;font-size:11px;font-weight:bold;letter-spacing:.2px}
+.foot a{margin:0 5px;text-transform:uppercase}
+.foot span{margin-left:16px;color:#b0b0b0;text-transform:uppercase}
+</style>
+</head>
+<body data-page="instagram-2014-web-photo" data-v="1" data-ig-era="2014" data-url="http://instagram.com/p/rZx4kQhQ7m/">
+<div class="bar"><div class="in">
+  <a class="cell home" href="2016-web-feed.html" title="Home"><i class="ico i-home"></i></a>
+  <span class="wm">Instagram</span>
+  <a class="cell me" href="#"><img data-ph="person" data-seed="nickybee" width="24" height="24" alt="">nickybee<i class="ico i-caret"></i></a>
+</div></div>
+<div class="media">
+  <div class="igf f-valencia" data-filter="Valencia"><img data-ph="photo" data-seed="jo14-bridge" width="640" height="640" alt=""></div>
+  <div class="side">
+    <div class="who">
+      <a href="2013-web-profile.html"><img data-ph="person" data-seed="jo.alvarez" width="40" height="40" alt=""></a>
+      <div class="names"><a class="un" href="2013-web-profile.html">jo.alvarez</a><div class="fn">Jo Alvarez</div></div>
+      <a class="fbtn" href="#">Follow</a>
+    </div>
+    <div class="scroll">
+      <div class="meta"><span><i class="ico i-pin"></i><a href="#">Brooklyn Bridge Park</a></span><span><i class="ico i-clock"></i>3d</span></div>
+      <div class="likes"><i class="ico i-heart"></i>2,481 likes</div>
+      <div class="c cap"><img data-ph="person" data-seed="jo.alvarez" width="28" height="28" alt=""><div><a class="un" href="2013-web-profile.html">jo.alvarez</a>Golden hour on the Brooklyn Bridge. First try with Hyperlapse and I'm obsessed 🌉 <a href="#">#hyperlapse</a> <a href="#">#nyc</a> <a href="#">#brooklynbridge</a> <a href="#">#vscocam</a></div></div>
+      <a class="loadc" href="#">load more comments</a>
+      <div class="cmts">
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="mike_lens" width="28" height="28" alt=""><div><a class="un" href="#">mike_lens</a>this is unreal. how is it so smooth??</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="jo.alvarez" width="28" height="28" alt=""><div><a class="un" href="#">jo.alvarez</a><a href="#">@mike_lens</a> Hyperlapse! came out like two days ago, already addicted</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="brooklyn.bites" width="28" height="28" alt=""><div><a class="un" href="#">brooklyn.bites</a>the light on those cables 😍😍</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="sam_on_film" width="28" height="28" alt=""><div><a class="un" href="#">sam_on_film</a>ok who's doing the ice bucket challenge tonight</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="jo.alvarez" width="28" height="28" alt=""><div><a class="un" href="#">jo.alvarez</a><a href="#">@sam_on_film</a> not me. I nominate <a href="#">@mike_lens</a> 😂</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="mike_lens" width="28" height="28" alt=""><div><a class="un" href="#">mike_lens</a><a href="#">@jo.alvarez</a> wow. betrayal.</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="katiekat_" width="28" height="28" alt=""><div><a class="un" href="#">katiekat_</a>your feed is on fleek</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="nycgrammers" width="28" height="28" alt=""><div><a class="un" href="#">nycgrammers</a>Stunning! Featured on our page today, tag <a href="#">#nycgrammers</a></div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="dee_wanders" width="28" height="28" alt=""><div><a class="un" href="#">dee_wanders</a>can't stop watching this on loop</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="followme_4_followback" width="28" height="28" alt=""><div><a class="un" href="#">followme_4_followback</a>nice pic! f4f? check my page 🙏</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="tim.k" width="28" height="28" alt=""><div><a class="un" href="#">tim.k</a><a href="#">#tbt</a> to when we walked this at 6am and it was empty</div></div>
+        <div class="c" data-item="comment"><img data-ph="person" data-seed="lauren.b" width="28" height="28" alt=""><div><a class="un" href="#">lauren.b</a>need this as a phone wallpaper asap</div></div>
+      </div>
+    </div>
+    <div class="foot2"><span class="likebtn on"><i class="ico i-heart"></i>Like</span><span class="addc">Add a comment...</span><span class="morebtn"><i class="ico i-more"></i></span></div>
+  </div>
+</div>
+<div class="foot"><a href="#">About us</a> <a href="#">Support</a> <a href="#">Blog</a> <a href="#">Press</a> <a href="#">API</a> <a href="#">Jobs</a> <a href="#">Privacy</a> <a href="#">Terms</a> <span>&copy; 2014 Instagram</span></div>
+</body>
+</html>

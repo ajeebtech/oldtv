@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Instagram</title>
+<script src="../shared/studio.js"></script>
+<link rel="stylesheet" href="assets/ig.css">
+<script src="assets/ig.js"></script>
+<style>
+html,body{margin:0}
+body{background:#fafafa;color:#262626;font:14px/18px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.ico{display:inline-block;width:24px;height:24px;vertical-align:middle;background-color:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.i-glyph{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Crect%20x%3D'2.5'%20y%3D'2.5'%20width%3D'19'%20height%3D'19'%20rx%3D'5.5'%2F%3E%3Ccircle%20cx%3D'12'%20cy%3D'12'%20r%3D'4.4'%2F%3E%3Ccircle%20cx%3D'17.4'%20cy%3D'6.6'%20r%3D'.6'%20fill%3D'black'%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Crect%20x%3D'2.5'%20y%3D'2.5'%20width%3D'19'%20height%3D'19'%20rx%3D'5.5'%2F%3E%3Ccircle%20cx%3D'12'%20cy%3D'12'%20r%3D'4.4'%2F%3E%3Ccircle%20cx%3D'17.4'%20cy%3D'6.6'%20r%3D'.6'%20fill%3D'black'%2F%3E%3C%2Fsvg%3E")}
+.i-compass{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'12'%20cy%3D'12'%20r%3D'10'%2F%3E%3Cpath%20d%3D'M15.8%208.2l-2.2%205.4-5.4%202.2%202.2-5.4z'%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'12'%20cy%3D'12'%20r%3D'10'%2F%3E%3Cpath%20d%3D'M15.8%208.2l-2.2%205.4-5.4%202.2%202.2-5.4z'%2F%3E%3C%2Fsvg%3E")}
+.i-heart{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M12%2020.3l-1.2-1.1C6.3%2015.1%203.3%2012.4%203.3%209%203.3%206.3%205.4%204.2%208%204.2c1.5%200%203%20.7%204%201.9%201-1.2%202.5-1.9%204-1.9%202.6%200%204.7%202.1%204.7%204.8%200%203.4-3%206.1-7.5%2010.2z'%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M12%2020.3l-1.2-1.1C6.3%2015.1%203.3%2012.4%203.3%209%203.3%206.3%205.4%204.2%208%204.2c1.5%200%203%20.7%204%201.9%201-1.2%202.5-1.9%204-1.9%202.6%200%204.7%202.1%204.7%204.8%200%203.4-3%206.1-7.5%2010.2z'%2F%3E%3C%2Fsvg%3E")}
+.i-person{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'12'%20cy%3D'8'%20r%3D'4.2'%2F%3E%3Cpath%20d%3D'M3.8%2021c.6-4.2%204-6.6%208.2-6.6s7.6%202.4%208.2%206.6'%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'12'%20cy%3D'8'%20r%3D'4.2'%2F%3E%3Cpath%20d%3D'M3.8%2021c.6-4.2%204-6.6%208.2-6.6s7.6%202.4%208.2%206.6'%2F%3E%3C%2Fsvg%3E")}
+.i-search{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'10.5'%20cy%3D'10.5'%20r%3D'6'%2F%3E%3Cpath%20d%3D'M15%2015l5%205'%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'10.5'%20cy%3D'10.5'%20r%3D'6'%2F%3E%3Cpath%20d%3D'M15%2015l5%205'%2F%3E%3C%2Fsvg%3E")}
+.i-more{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'5'%20cy%3D'12'%20r%3D'1'%20fill%3D'black'%2F%3E%3Ccircle%20cx%3D'12'%20cy%3D'12'%20r%3D'1'%20fill%3D'black'%2F%3E%3Ccircle%20cx%3D'19'%20cy%3D'12'%20r%3D'1'%20fill%3D'black'%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Ccircle%20cx%3D'5'%20cy%3D'12'%20r%3D'1'%20fill%3D'black'%2F%3E%3Ccircle%20cx%3D'12'%20cy%3D'12'%20r%3D'1'%20fill%3D'black'%2F%3E%3Ccircle%20cx%3D'19'%20cy%3D'12'%20r%3D'1'%20fill%3D'black'%2F%3E%3C%2Fsvg%3E")}
+.i-bubble{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M20.5%2012a8.5%208.5%200%2001-12.6%207.4L3.5%2020.5l1.2-4.1A8.5%208.5%200%201120.5%2012z'%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2024%2024'%20fill%3D'none'%20stroke%3D'black'%20stroke-width%3D'1.8'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M20.5%2012a8.5%208.5%200%2001-12.6%207.4L3.5%2020.5l1.2-4.1A8.5%208.5%200%201120.5%2012z'%2F%3E%3C%2Fsvg%3E")}
+
+.nav{position:sticky;top:0;z-index:10;height:77px;background:#fff;border-bottom:1px solid rgba(0,0,0,.0975)}
+.nav .in{max-width:935px;margin:0 auto;padding:0 40px;height:77px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box}
+.brand{display:flex;align-items:center;flex:1 0 127px}
+.brand .i-glyph{width:24px;height:24px;color:#262626}
+.brand .div{width:1px;height:28px;background:#262626;margin:0 16px}
+.brand .wm{font-family:"Billabong","Brush Script MT",cursive;font-size:31px;line-height:36px;color:#262626;padding-top:6px;letter-spacing:.2px}
+.search{flex:0 1 auto;width:215px;height:28px;box-sizing:border-box;border:1px solid #dbdbdb;border-radius:3px;background:#fafafa;display:flex;align-items:center;justify-content:center;gap:5px;color:#999;font-size:14px}
+.search .ico{width:11px;height:11px;color:#999}
+.links{flex:1 0 127px;display:flex;justify-content:flex-end;gap:30px}
+.links .ico{color:#262626}
+main{max-width:935px;margin:0 auto;padding:60px 20px 0;box-sizing:border-box}
+.feed{width:614px;margin:0 auto}
+.card{background:#fff;border:1px solid #e6e6e6;border-radius:3px;margin-bottom:60px}
+.card header{height:60px;padding:0 20px;display:flex;align-items:center;box-sizing:border-box}
+.av{display:block;width:30px;height:30px;border-radius:50%;object-fit:cover}
+.hn{flex:1;min-width:0;margin-left:12px;display:flex;flex-direction:column;line-height:17px}
+.un{font-weight:600;color:#262626}
+.loc{font-size:12px;color:#262626}
+.time{color:#a5a7aa;font-size:14px}
+.pic{display:block;width:612px;height:612px}
+.play{position:absolute;left:50%;top:50%;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50%;background:rgba(0,0,0,.35);z-index:7;pointer-events:none}
+.play:after{content:"";position:absolute;left:36px;top:27px;border-left:26px solid #fff;border-top:18px solid transparent;border-bottom:18px solid transparent}
+.pic video~.play{display:none}
+.body{padding:0 20px}
+.likes{font-weight:600;margin:14px 0 8px}
+.cmts{list-style:none;margin:0 0 10px;padding:0}
+.cmts li{margin-bottom:4px;word-wrap:break-word}
+.cmts .all a{color:#999}
+.tg{color:#003569}
+.add{display:flex;align-items:center;gap:14px;min-height:56px;border-top:1px solid #efefef;margin-top:4px}
+.add .ico{color:#262626;width:24px;height:24px;flex:0 0 24px}
+.add .input{flex:1;color:#999}
+.loadmore{display:block;width:614px;margin:-20px auto 40px;text-align:center;padding:12px 0;font-weight:600;color:#3897f0;font-size:14px}
+footer{max-width:935px;margin:0 auto;padding:38px 20px;display:flex;justify-content:space-between;font-size:12px;font-weight:600;text-transform:uppercase;box-sizing:border-box}
+footer nav a{color:#003569;margin-right:16px}
+footer span{color:#999}
+</style>
+</head>
+<body data-page="instagram-2016-web-feed" data-v="1" data-ig-era="2016" data-url="https://www.instagram.com/">
+<div class="nav"><div class="in">
+  <a class="brand" href="2016-web-feed.html"><i class="ico i-glyph"></i><span class="div"></span><span class="wm">Instagram</span></a>
+  <div class="search"><i class="ico i-search"></i><span>Search</span></div>
+  <div class="links"><a class="ico i-compass" href="#" title="Explore"></a><a class="ico i-heart" href="#" title="Activity"></a><a class="ico i-person" href="2013-web-profile.html" title="Profile"></a></div>
+</div></div>
+<main>
+  <div class="feed">
+  <article class="card" data-item="post">
+    <header><a href="2013-web-profile.html"><img class="av" data-ph="person" data-seed="maya.k" width="30" height="30" alt=""></a><div class="hn"><a class="un" href="2013-web-profile.html">maya.k</a><a class="loc" href="#">Golden Gate Park</a></div><a class="time" href="2014-web-photo.html">2h</a></header>
+    <a class="pic igf f-clarendon" data-filter="Clarendon" href="2014-web-photo.html"><img data-ph="photo" data-seed="ig16-0-maya.k" width="612" height="612" alt=""></a>
+    <div class="body">
+      <div class="likes">3,412 likes</div>
+      <ul class="cmts">
+        <li><a class="un" href="2013-web-profile.html">maya.k</a> caught a Snorlax in the middle of the park and like 40 strangers cheered <a class="tg" href="#">#pokemongo</a> <a class="tg" href="#">#teamvalor</a></li>
+        <li class="all"><a href="2014-web-photo.html">view all 118 comments</a></li>
+        <li data-item="comment"><a class="un" href="#">dre.wav</a> SNORLAX?? I've walked that loop 6 times this week 😭</li>
+        <li data-item="comment"><a class="un" href="#">maya.k</a> <a class="tg" href="#">@dre.wav</a> it was by the bison paddock, go go go</li>
+        <li data-item="comment"><a class="un" href="#">lil.sammy</a> team mystic would never brag like this</li>
+      </ul>
+      <section class="add"><a class="ico i-heart" href="#"></a><span class="input">Add a comment&hellip;</span><a class="ico i-more" href="#"></a></section>
+    </div>
+  </article>
+  <article class="card" data-item="post">
+    <header><a href="2013-web-profile.html"><img class="av" data-ph="person" data-seed="jo.alvarez" width="30" height="30" alt=""></a><div class="hn"><a class="un" href="2013-web-profile.html">jo.alvarez</a><a class="loc" href="#">Coney Island</a></div><a class="time" href="2014-web-photo.html">5h</a></header>
+    <a class="pic igf f-juno" data-filter="Juno" href="2014-web-photo.html"><img data-ph="photo" data-seed="ig16-1-jo.alvarez" width="612" height="612" alt=""><i class="play"></i></a>
+    <div class="body">
+      <div class="likes">12,804 views</div>
+      <ul class="cmts">
+        <li><a class="un" href="2013-web-profile.html">jo.alvarez</a> last ride of summer 🎢 <a class="tg" href="#">#coneyisland</a> <a class="tg" href="#">#summer2016</a></li>
+        <li class="all"><a href="2014-web-photo.html">view all 64 comments</a></li>
+        <li data-item="comment"><a class="un" href="#">mike_lens</a> the Cyclone at night >>></li>
+        <li data-item="comment"><a class="un" href="#">brooklyn.bites</a> I can hear the screaming from here</li>
+      </ul>
+      <section class="add"><a class="ico i-heart" href="#"></a><span class="input">Add a comment&hellip;</span><a class="ico i-more" href="#"></a></section>
+    </div>
+  </article>
+  <article class="card" data-item="post">
+    <header><a href="2013-web-profile.html"><img class="av" data-ph="person" data-seed="theo.eats" width="30" height="30" alt=""></a><div class="hn"><a class="un" href="2013-web-profile.html">theo.eats</a><a class="loc" href="#">Sqirl</a></div><a class="time" href="2014-web-photo.html">7h</a></header>
+    <a class="pic igf f-lark" data-filter="Lark" href="2014-web-photo.html"><img data-ph="photo" data-seed="ig16-2-theo.eats" width="612" height="612" alt=""></a>
+    <div class="body">
+      <div class="likes">892 likes</div>
+      <ul class="cmts">
+        <li><a class="un" href="2013-web-profile.html">theo.eats</a> brunch is the only cardio i do 🥑🍳 <a class="tg" href="#">#eeeeeats</a> <a class="tg" href="#">#avocadotoast</a></li>
+        <li class="all"><a href="2014-web-photo.html">view all 23 comments</a></li>
+        <li data-item="comment"><a class="un" href="#">sara.bee</a> that ricotta toast is a religious experience</li>
+        <li data-item="comment"><a class="un" href="#">theo.eats</a> <a class="tg" href="#">@sara.bee</a> 45 minute line. worth every second</li>
+      </ul>
+      <section class="add"><a class="ico i-heart" href="#"></a><span class="input">Add a comment&hellip;</span><a class="ico i-more" href="#"></a></section>
+    </div>
+  </article>
+  <article class="card" data-item="post">
+    <header><a href="2013-web-profile.html"><img class="av" data-ph="person" data-seed="nickybee" width="30" height="30" alt=""></a><div class="hn"><a class="un" href="2013-web-profile.html">nickybee</a></div><a class="time" href="2014-web-photo.html">9h</a></header>
+    <a class="pic igf f-moon" data-filter="Moon" href="2014-web-photo.html"><img data-ph="photo" data-seed="ig16-3-nickybee" width="612" height="612" alt=""></a>
+    <div class="body">
+      <div class="likes">1,207 likes</div>
+      <ul class="cmts">
+        <li><a class="un" href="2013-web-profile.html">nickybee</a> Stranger Things marathon fuel. no spoilers pls 🔦🎄 <a class="tg" href="#">#strangerthings</a></li>
+        <li class="all"><a href="2014-web-photo.html">view all 41 comments</a></li>
+        <li data-item="comment"><a class="un" href="#">jtran</a> JUSTICE FOR BARB</li>
+        <li data-item="comment"><a class="un" href="#">nickybee</a> <a class="tg" href="#">@jtran</a> I SAID NO SPOILERS</li>
+        <li data-item="comment"><a class="un" href="#">mollyb</a> eggos on deck 🧇</li>
+      </ul>
+      <section class="add"><a class="ico i-heart" href="#"></a><span class="input">Add a comment&hellip;</span><a class="ico i-more" href="#"></a></section>
+    </div>
+  </article>
+  <article class="card" data-item="post">
+    <header><a href="2013-web-profile.html"><img class="av" data-ph="person" data-seed="rio.nights" width="30" height="30" alt=""></a><div class="hn"><a class="un" href="2013-web-profile.html">rio.nights</a><a class="loc" href="#">Copacabana Beach</a></div><a class="time" href="2014-web-photo.html">14h</a></header>
+    <a class="pic igf f-ludwig" data-filter="Ludwig" href="2014-web-photo.html"><img data-ph="photo" data-seed="ig16-4-rio.nights" width="612" height="612" alt=""></a>
+    <div class="body">
+      <div class="likes">5,086 likes</div>
+      <ul class="cmts">
+        <li><a class="un" href="2013-web-profile.html">rio.nights</a> o Rio é lindo demais 🇧🇷 watching the beach volleyball from the sand <a class="tg" href="#">#rio2016</a> <a class="tg" href="#">#olympics</a></li>
+        <li class="all"><a href="2014-web-photo.html">view all 203 comments</a></li>
+        <li data-item="comment"><a class="un" href="#">anaclara</a> que foto!!</li>
+        <li data-item="comment"><a class="un" href="#">globetrotter.k</a> ugh take me with you next time</li>
+      </ul>
+      <section class="add"><a class="ico i-heart" href="#"></a><span class="input">Add a comment&hellip;</span><a class="ico i-more" href="#"></a></section>
+    </div>
+  </article>
+  <article class="card" data-item="post">
+    <header><a href="2013-web-profile.html"><img class="av" data-ph="person" data-seed="wanderwithlena" width="30" height="30" alt=""></a><div class="hn"><a class="un" href="2013-web-profile.html">wanderwithlena</a><a class="loc" href="#">Big Sur, California</a></div><a class="time" href="2014-web-photo.html">1d</a></header>
+    <a class="pic igf f-gingham" data-filter="Gingham" href="2014-web-photo.html"><img data-ph="photo" data-seed="ig16-5-wanderwithlena" width="612" height="612" alt=""></a>
+    <div class="body">
+      <div class="likes">9,773 likes</div>
+      <ul class="cmts">
+        <li><a class="un" href="2013-web-profile.html">wanderwithlena</a> McWay Falls never gets old. Highway 1 road trip day 3 🚐 <a class="tg" href="#">#bigsur</a> <a class="tg" href="#">#roadtrip</a> <a class="tg" href="#">#wanderlust</a></li>
+        <li class="all"><a href="2014-web-photo.html">view all 156 comments</a></li>
+        <li data-item="comment"><a class="un" href="#">coastal.kai</a> I need to do this drive so bad</li>
+        <li data-item="comment"><a class="un" href="#">wanderwithlena</a> <a class="tg" href="#">@coastal.kai</a> go in September, no fog!</li>
+      </ul>
+      <section class="add"><a class="ico i-heart" href="#"></a><span class="input">Add a comment&hellip;</span><a class="ico i-more" href="#"></a></section>
+    </div>
+  </article>
+  </div>
+  <a class="loadmore" href="#">Load more</a>
+</main>
+<footer><nav><a href="#">About us</a><a href="#">Support</a><a href="#">Blog</a><a href="#">Press</a><a href="#">API</a><a href="#">Jobs</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Directory</a><a href="#">Language</a></nav><span>&copy; 2016 Instagram</span></footer>
+</body>
+</html>

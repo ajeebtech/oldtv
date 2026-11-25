@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>orkut - Priya's Profile</title>
+<script src="../shared/studio.js"></script>
+<link rel="stylesheet" href="assets/orkut2007.css">
+<script>
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-tab]');
+    if (!t) return;
+    e.preventDefault();
+    var name = t.getAttribute('data-tab');
+    document.querySelectorAll('[data-tab]').forEach(function (x) {
+      var on = x.getAttribute('data-tab') === name;
+      x.className = on ? 'tabActive' : 'tabInactive' + (x.hasAttribute('data-last') ? ' last' : '');
+    });
+    document.querySelectorAll('.tabpanes > div').forEach(function (p) { p.classList.toggle('on', p.id === name); });
+    OLDTV.save();
+  });
+</script>
+</head>
+<body data-page="orkut-2007-profile" data-v="1" data-url="http://www.orkut.com/Profile.aspx?uid=14376021945578802231">
+<div id="header">
+  <div id="headerTop"><b id="headerEmail">priya.iyer84@gmail.com</b> | <a href="#">My Account</a> | <a href="#">Help</a> | <a href="#">Logout</a></div>
+  <div id="headerBar">
+    <div id="headerMenu"><a href="#">Home</a><span class="sep">|</span><a href="2007-scrapbook.html">Scrapbook</a><span class="sep">|</span><a href="#">Friends</a><span class="sep">|</span><a href="#">Communities</a>
+      <form action="#"><input class="q" type="text" value=""> <select><option>orkut</option><option>web</option></select> <input class="btn" type="submit" value="search"></form></div>
+    <div id="headerLine"></div>
+    <a id="logo" href="2007-profile.html" data-noedit><svg width="96" height="40" viewBox="0 0 96 40" aria-label="orkut"><defs><linearGradient id="og" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d0329f"/><stop offset=".6" stop-color="#a5137a"/><stop offset="1" stop-color="#7d0a5c"/></linearGradient><filter id="os" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="1" dy="1.5" stdDeviation=".8" flood-color="#5a4a7a" flood-opacity=".45"/></filter></defs><text x="2" y="31" font-family="'Century Gothic','Avant Garde','Futura','Trebuchet MS',Arial,sans-serif" font-size="33" letter-spacing="-.5" fill="url(#og)" filter="url(#os)">orkut</text></svg></a><span id="beta" data-noedit>beta</span>
+  </div>
+</div>
+<table class="layout"><tr>
+  <td class="lcol">
+    <div class="navPanelTop"><a href="2007-profile.html"><img class="me" data-ph="person" data-seed="ok-priya" width="150" height="188" alt="Priya"></a>
+      <div class="nm"><a href="2007-profile.html">Priya</a></div><div class="sub">female, 23<br>Bangalore, India</div></div>
+    <div class="navPanelBottom"><ul class="nav">
+      <li class="navList on"><a href="2007-profile.html">profile</a></li>
+      <li class="navList"><a href="2007-scrapbook.html">scrapbook <span class="n">(1248)</span></a></li>
+      <li class="navList"><a href="#">photos <span class="n">(86)</span></a></li>
+      <li class="navList"><a href="#">videos <span class="n">(4)</span></a></li>
+      <li class="navList"><a href="#">testimonials <span class="n">(23)</span></a></li>
+      <li class="navList"><a href="#">lists</a></li>
+      <li class="navList"><a href="#">friends <span class="n">(247)</span></a></li>
+      <li class="navList"><a href="#">communities <span class="n">(93)</span></a></li>
+      <li class="navList"><a href="#">feeds</a></li>
+    </ul><div class="navInfo"><a href="#">edit profile</a> &middot; <a href="#">edit photo</a></div></div>
+  </td>
+  <td>
+    <table class="panel"><tr><td class="panel">
+      <table id="profileTop"><tr><td>
+        <table class="karma">
+          <tr><td class="lbl">fans</td><td><span class="k star"></span> 132</td></tr>
+          <tr><td class="lbl">trusty</td><td><span class="k smile"></span><span class="k smile"></span><span class="k smile"></span></td></tr>
+          <tr><td class="lbl">cool</td><td><span class="k ice"></span><span class="k ice"></span><span class="k ice off"></span></td></tr>
+          <tr><td class="lbl">sexy</td><td><span class="k heart"></span><span class="k heart"></span><span class="k heart off"></span></td></tr>
+        </table>
+        <div class="profileTitle">Priya Iyer</div>
+        <div class="loc">female, 23, single &nbsp; Bangalore, Karnataka, India</div>
+        <p class="profileQuote">"jo hota hai, acche ke liye hota hai... :)"</p>
+        <table class="counts"><tr>
+          <td><span class="k scrap ic"></span><a href="2007-scrapbook.html">scraps</a> 1,248</td>
+          <td><span class="k photo ic"></span><a href="#">photos</a> 86</td>
+          <td><span class="k video ic"></span><a href="#">videos</a> 4</td>
+          <td><span class="k star ic"></span><a href="#">fans</a> 132</td>
+          <td><a href="#">testimonials</a> 23</td>
+        </tr></table>
+      </td></tr></table>
+      <table class="tabs"><tr>
+        <td class="tabActive" data-tab="pSoc">social</td>
+        <td class="tabInactive" data-tab="pPro">professional</td>
+        <td class="tabInactive last" data-tab="pPer" data-last>personal</td>
+        <td class="tabSpacer">&nbsp;</td>
+      </tr></table>
+      <div class="tabPanel tabpanes">
+        <div id="pSoc" class="on"><table class="ptab">
+          <tr class="row1" data-item="field"><td class="rowLabel">relationship status:</td><td>single</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">birthday:</td><td>March 14</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">age:</td><td>23</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">here for:</td><td>friends, activity partners</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">children:</td><td>no</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">ethnicity:</td><td>asian (south)</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">religion:</td><td>hindu</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">political view:</td><td>moderate</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">humor:</td><td>friendly, goofy, witty</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">sexual orientation:</td><td>straight</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">fashion:</td><td>casual, trendy</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">smoking:</td><td>no</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">drinking:</td><td>socially</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">living:</td><td>with roommate(s)</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">passions:</td><td>old hindi songs, long drives on the ring road, filter coffee, Harry Potter (waiting for book 7!!!), sketching, chatting on gtalk till 3am</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">sports:</td><td>badminton, cricket (only watching hehe)</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">activities:</td><td>movies at PVR, shopping on Brigade Road, karaoke, roadtrips to Mysore and Coorg</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">books:</td><td>Harry Potter, The God of Small Things, Five Point Someone, The Alchemist, Shantaram</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">music:</td><td>A.R. Rahman, Lucky Ali, Coldplay, Linkin Park, Akon, Pritam, Strings, Shakira</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">tv shows:</td><td>F.R.I.E.N.D.S, Heroes, Grey's Anatomy, Indian Idol, Roadies</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">movies:</td><td>Dil Chahta Hai, Rang De Basanti, Lage Raho Munna Bhai, Guru, DDLJ, Pirates 3</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">cuisines:</td><td>south indian, chinese, italian (pizza counts right?)</td></tr>
+        </table></div>
+        <div id="pPro" class=""><table class="ptab"><tr class="row1" data-item="field"><td class="rowLabel">education:</td><td>college</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">high school:</td><td>Bishop Cotton Girls' School</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">college/university:</td><td>RV College of Engineering</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">degree:</td><td>B.E. Computer Science</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">occupation:</td><td>Software Engineer</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">company:</td><td>a tiny startup in Koramangala ;)</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">industry:</td><td>Internet</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">sub-industry:</td><td>web applications</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">job description:</td><td>writing java code, fixing bugs, attending meetings about meetings</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">career skills:</td><td>java, j2ee, javascript, photoshop, making powerpoints look pretty</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">career interests:</td><td>product management, maybe an MBA someday</td></tr></table></div>
+        <div id="pPer" class=""><table class="ptab"><tr class="row1" data-item="field"><td class="rowLabel">headline:</td><td>"chalta hai" is my life motto</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">first thing you will notice about me:</td><td>my laugh (very loud, sorry)</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">height:</td><td>5' 4"</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">eye color:</td><td>brown</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">hair color:</td><td>black</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">body type:</td><td>average</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">looks:</td><td>cute (or so my mom says)</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">best feature:</td><td>my smile</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">turn ons:</td><td>good manners, people who read, chocolate</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">turn offs:</td><td>smoking, rude waiters, people who SMS in caps</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">ideal match:</td><td>someone who can make me laugh and doesn't mind Lucky Ali on repeat</td></tr>
+          <tr class="row0" data-item="field"><td class="rowLabel">in my room:</td><td>a guitar i never learnt, 200 cassettes, a poster of Rahman</td></tr>
+          <tr class="row1" data-item="field"><td class="rowLabel">five things i can't live without:</td><td>my Nokia 6600, filter coffee, gtalk, friends, chocolate</td></tr></table></div>
+      </div>
+    </td></tr></table>
+    <table class="panel"><tr><td class="panelHeader">testimonials <span class="panelHeaderNote">(23)</span></td></tr><tr><td class="panel" style="background:#fff">
+      <table class="scrapList">
+        <tr class="row0" data-item="testimonial"><td class="who"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f1" width="56" height="56" alt=""></a><a href="2007-profile.html">Ananya</a></td><td><div class="txt">priya is the craziest, sweetest, most loyal friend anyone could ask for. 4 years of hostel life, 1000 maggi nights and countless bunked classes later, she is still the first person i call. luv u di!! never change!!</div><div class="date">May 30</div></td></tr>
+        <tr class="row1" data-item="testimonial"><td class="who"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f3" width="56" height="56" alt=""></a><a href="2007-profile.html">Juliana</a></td><td><div class="txt">Priya is my indian sister!! we met in a community about Harry Potter and now we chat every day on gtalk. she taught me to say "kya baat hai" kkkkkk. um beijo enorme amiga, one day i will visit Bangalore!!</div><div class="date">April 12</div></td></tr>
+        <tr class="row0" data-item="testimonial"><td class="who"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f2" width="56" height="56" alt=""></a><a href="2007-profile.html">Karthik</a></td><td><div class="txt">what to say abt this gal... topper in class, worst singer in the band, best friend in life. she owes me 3 treats btw. pay up madam!!</div><div class="date">February 2</div></td></tr>
+      </table>
+    </td></tr><tr><td class="panelFooter"><a href="#">view all</a> | <a href="#">write testimonial</a></td></tr></table>
+  </td>
+  <td class="rcol">
+    <table class="panel"><tr><td class="panelHeader">friends <span class="panelHeaderNote">(247)</span></td></tr><tr><td class="panel">
+      <table class="grid"><tr><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f0" width="76" height="76" alt=""></a><a href="2007-profile.html">Rahul</a> <span class="c">(312)</span></td><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f1" width="76" height="76" alt=""></a><a href="2007-profile.html">Ananya</a> <span class="c">(189)</span></td><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f2" width="76" height="76" alt=""></a><a href="2007-profile.html">Karthik</a> <span class="c">(451)</span></td></tr><tr><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f3" width="76" height="76" alt=""></a><a href="2007-profile.html">Juliana</a> <span class="c">(998)</span></td><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f4" width="76" height="76" alt=""></a><a href="2007-profile.html">Vikram</a> <span class="c">(276)</span></td><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f5" width="76" height="76" alt=""></a><a href="2007-profile.html">Sneha</a> <span class="c">(204)</span></td></tr><tr><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f6" width="76" height="76" alt=""></a><a href="2007-profile.html">Thiago</a> <span class="c">(734)</span></td><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f7" width="76" height="76" alt=""></a><a href="2007-profile.html">Divya</a> <span class="c">(167)</span></td><td data-item="friend"><a href="2007-profile.html"><img data-ph="person" data-seed="ok-f8" width="76" height="76" alt=""></a><a href="2007-profile.html">Arjun</a> <span class="c">(380)</span></td></tr></table>
+    </td></tr><tr><td class="panelFooter"><a href="#">view all</a></td></tr></table>
+    <table class="panel"><tr><td class="panelHeader">communities <span class="panelHeaderNote">(93)</span></td></tr><tr><td class="panel">
+      <table class="grid comm"><tr><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c0" width="60" height="60" alt=""></a><a href="#">Eu odeio acordar cedo</a> <span class="c">(2,114,880)</span></td><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c1" width="60" height="60" alt=""></a><a href="#">I Hate Exams</a> <span class="c">(312,401)</span></td><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c2" width="60" height="60" alt=""></a><a href="#">Bangalore</a> <span class="c">(186,559)</span></td></tr><tr><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c3" width="60" height="60" alt=""></a><a href="#">Bollywood Masala</a> <span class="c">(98,213)</span></td><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c4" width="60" height="60" alt=""></a><a href="#">Cricket Crazy India</a> <span class="c">(241,077)</span></td><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c5" width="60" height="60" alt=""></a><a href="#">Coffee Day addicts</a> <span class="c">(44,902)</span></td></tr><tr><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c6" width="60" height="60" alt=""></a><a href="#">Friends Forever</a> <span class="c">(507,330)</span></td><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c7" width="60" height="60" alt=""></a><a href="#">Dil Chahta Hai</a> <span class="c">(61,488)</span></td><td data-item="community"><a href="#"><img data-ph="photo" data-seed="ok-c8" width="60" height="60" alt=""></a><a href="#">Engineers of India</a> <span class="c">(150,262)</span></td></tr></table>
+    </td></tr><tr><td class="panelFooter"><a href="#">view all</a></td></tr></table>
+  </td>
+</tr></table>
+<div id="footer"><div class="aff">in affiliation with Google</div><div id="footerMenu">&copy; 2007 Google &nbsp;-&nbsp; <a href="#">About orkut</a> | <a href="#">Safety center</a> | <a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="#">Contact us</a></div></div>
+</body>
+</html>

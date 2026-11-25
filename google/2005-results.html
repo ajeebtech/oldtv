@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Google Search: ipod nano</title>
+<script src="../shared/studio.js"></script>
+<style>
+body{margin:3px 8px 8px 8px;background:#fff;color:#000}
+body,td,div,.p,a,font{font-family:arial,sans-serif}
+a:link,.w,a.w:link{color:#0000cc}
+a:visited{color:#551a8b}
+a:active{color:#f00}
+.q:link,.q:visited,.q{color:#0000cc}
+.fl:link,.fl:visited{color:#7777cc}
+.a,.a:link{color:#008000}
+.f,.f:link{color:#6f6f6f}
+.small{font-size:13px}
+.xsmall{font-size:11px}
+input.txt{border:1px solid #7f9db9;padding:2px 2px;font:13px arial,sans-serif;background:#fff;color:#000;vertical-align:middle}
+input.btn{border:1px solid #003c74;border-radius:3px;background:linear-gradient(#fff,#f3f2ec 50%,#e3e0d3 90%,#d4cfbf);font:13px arial,sans-serif;color:#000;padding:2px 6px 3px 6px;margin:4px 2px 0 2px;cursor:default}
+input.btn:hover{box-shadow:inset 0 0 0 1px #f8b330}
+
+body{margin:3px 8px 8px 8px}
+.hd{border-collapse:collapse;width:100%}
+.hd td{padding:0;vertical-align:top}
+.glogo{display:block;margin:12px 0 12px 0}
+.tabs td{padding:4px;font-size:13px;white-space:nowrap}
+#q{width:282px}
+.bar1{height:1px;background:#3366cc}
+.bar2{background:#e5ecf9;display:flex;justify-content:space-between;align-items:center;padding:1px 0 2px 0;white-space:nowrap}
+.bar2 .w1{font-size:16px;font-weight:bold;padding-left:4px}
+.bar2 .w2{font-size:13px;padding-right:4px}
+.tads{background:#fff8dd;margin:7px 0 2px 0;padding:4px 7px 5px 7px;position:relative}
+.tads .lbl{position:absolute;right:7px;top:5px;font-size:11px;color:#6f6f6f}
+.ta{padding:2px 0}
+.ta a{font-size:16px}
+.ta .a{font-size:13px}
+.rhs{float:right;width:25%;margin:6px 0 0 14px;padding-left:10px}
+.rhs h4{font-size:13px;font-weight:normal;color:#6f6f6f;text-align:center;margin:8px 0 8px 0}
+.ad{margin:0 0 14px 0;font-size:16px;line-height:1.15}
+.ad font{line-height:1.3}
+.res{margin-right:28%}
+.g{margin:1em 0 0 0}
+.g a.l{font-size:16px}
+.g td.j{line-height:1.25;font-size:13px}
+.ind{margin:0 0 0 40px}
+.ind .g{margin-top:.5em}
+.n{clear:both;text-align:center;margin:28px 0 14px 0}
+.pager{margin:0 auto;border-collapse:collapse}
+.pager td{padding:0;text-align:center;vertical-align:bottom;font-size:13px}
+.pager .lt{font:bold 26px/26px Catull,Baskerville,'Palatino Linotype',Georgia,serif;letter-spacing:-1px;display:block;height:28px}
+.pager .rp{font-size:13px;vertical-align:bottom;padding:0 6px 3px 0;white-space:nowrap}
+.pager .cur{color:#a90a08;font-weight:bold}
+.pager a{text-decoration:none}
+.pager a .num{text-decoration:underline}
+.pager .bG{color:#1f4fc2}.pager .rO{color:#d4261c}.pager .yO{color:#efb312}.pager .gl{color:#1f4fc2}.pager .gl i{font-style:normal;color:#2a9f3a}.pager .gl u{text-decoration:none;color:#d4261c}
+.pager .arr{display:inline-block;margin-left:4px;color:#1f4fc2;font:bold 20px/26px arial;vertical-align:top}
+.pager .nx{font-weight:bold;font-size:16px;text-decoration:underline}
+.bot{background:#e5ecf9;text-align:center;padding:14px 0 16px 0;border-top:1px solid #3366cc}
+.bot form{margin:0 0 6px 0}
+.bot input.txt{width:228px}
+.bot .lks{font-size:13px}
+.foot{text-align:center;font-size:13px;margin-top:28px}
+.copy{text-align:center;font-size:11px;margin-top:13px}
+</style>
+<script>
+(function () {
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function fill() {
+    var q = null;
+    try { q = sessionStorage.getItem('oldtv:google2005:q'); } catch (e) {}
+    if (!q) return;
+    var title = q.replace(/\w\S*/g, function (w) { return w.charAt(0).toUpperCase() + w.slice(1); });
+    var slug = q.toLowerCase().replace(/[^a-z0-9]+/g, '');
+    var forms = { '': q, title: title, slug: slug || 'search', under: title.replace(/\s+/g, '_'), plus: q.replace(/\s+/g, '+') };
+    document.querySelectorAll('[data-q]').forEach(function (el) { el.textContent = forms[el.getAttribute('data-q')] || q; });
+    document.querySelectorAll('input[name=q]').forEach(function (i) { i.value = q; i.setAttribute('value', q); });
+    document.title = 'Google Search: ' + q;
+    var h = hash(q), n = 120000 + (h % 98000000), cnt = document.getElementById('cnt'), sec = document.getElementById('sec');
+    if (cnt) cnt.textContent = String(n - n % 1000).replace(/\B(?=(\d{3})+$)/g, ',');
+    if (sec) sec.textContent = '0.' + (10 + (h >> 8) % 40);
+    var body = document.body;
+    if (body) body.setAttribute('data-url', 'http://www.google.com/search?hl=en&q=' + encodeURIComponent(q).replace(/%20/g, '+') + '&btnG=Google+Search');
+  }
+  OLDTV.ready(function () {
+    fill();
+    document.addEventListener('submit', function (e) {
+      if (OLDTV.mode() !== 'film') return;
+      var i = e.target.querySelector('[name=q]'), q = i && i.value.trim();
+      if (!q) return;
+      try { sessionStorage.setItem('oldtv:google2005:q', q); } catch (x) {}
+      fill(); window.scrollTo(0, 0);
+    });
+  });
+})();
+</script>
+</head>
+<body data-page="google-2005-results" data-v="1" data-url="http://www.google.com/search?hl=en&amp;q=ipod+nano&amp;btnG=Google+Search">
+<table class="hd"><tr><td><a href="2005-home.html"><svg class="glogo" width="150" height="55" viewBox="0 0 150 55" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><defs><filter id="gsh" x="-10%" y="-10%" width="125%" height="135%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.25"/><feOffset dx="1.4705882352941178" dy="1.9230769230769231" result="o"/><feComponentTransfer><feFuncA type="linear" slope=".42"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="gsheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><g filter="url(#gsh)" font-family="Catull,'Baskerville Old Face',Baskerville,'Palatino Linotype',Palatino,Georgia,serif" font-size="50" letter-spacing="-1.6666666666666667"><text x="3" y="44"><tspan fill="#1f4fc2">G</tspan><tspan fill="#d4261c">o</tspan><tspan fill="#efb312">o</tspan><tspan fill="#1f4fc2">g</tspan><tspan fill="#2a9f3a">l</tspan><tspan fill="#d4261c">e</tspan></text></g></svg></a></td><td>&nbsp;&nbsp;</td><td width="100%">
+<table class="tabs" style="margin-top:4px"><tr><td><b>Web</b>&nbsp;&nbsp;&nbsp;&nbsp;<a class="q" href="#">Images</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="q" href="#">Groups</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="q" href="#">News</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="q" href="#">Froogle</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="q" href="#">Local</a>&nbsp;&nbsp;&nbsp;&nbsp;<b><a href="#" class="q">more&nbsp;&raquo;</a></b></td></tr></table>
+<form name="gs" action="2005-results.html"><table cellspacing="0" cellpadding="0"><tr><td style="padding-left:4px"><input class="txt" id="q" type="text" name="q" maxlength="2048" value="ipod nano"> <input class="btn" type="submit" name="btnG" value="Search" style="margin-top:0"></td><td nowrap class="xsmall">&nbsp;&nbsp;<a href="#">Advanced Search</a><br>&nbsp;&nbsp;<a href="#">Preferences</a></td></tr></table></form>
+</td></tr></table>
+<div class="bar1"></div>
+<div class="bar2"><span class="w1">Web</span><span class="w2">Results <b>1</b> - <b>10</b> of about <b id="cnt">29,700,000</b> for <b><a href="#"><span data-q>ipod nano</span></a></b>. (<b id="sec">0.21</b> seconds)&nbsp;</span></div>
+<div class="tads"><span class="lbl">Sponsored Links</span><div class="ta" data-item="ad"><a href="#"><span data-q="title">Ipod Nano</span> - Official Store</a> <span class="a">www.apple.com</span>&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">Free engraving and free shipping on <b><span data-q>ipod nano</span></b>. Buy now.</font></div><div class="ta" data-item="ad"><a href="#"><span data-q="title">Ipod Nano</span> - Low Prices</a> <span class="a">www.NexTag.com</span>&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">Find great deals on <b><span data-q>ipod nano</span></b>, compare prices, read reviews.</font></div></div>
+<div class="rhs"><h4>Sponsored Links</h4><div class="ad" data-item="ad"><a href="#"><span data-q="title">Ipod Nano</span> Deals</a><br><font size="-1">Compare prices on <b><span data-q>ipod nano</span></b> from<br>hundreds of stores. Save now!<br><span class="a">www.shopping.com</span></font></div><div class="ad" data-item="ad"><a href="#">Cheap <span data-q="title">Ipod Nano</span></a><br><font size="-1">Huge selection, low prices.<br>Free shipping over $49.<br><span class="a">www.overstock.com</span></font></div><div class="ad" data-item="ad"><a href="#"><span data-q="title">Ipod Nano</span> at Best Buy</a><br><font size="-1">Shop online or in-store.<br>Turn on the fun.<br><span class="a">www.BestBuy.com</span></font></div><div class="ad" data-item="ad"><a href="#">Buy <span data-q="title">Ipod Nano</span></a><br><font size="-1">Great deals on <b><span data-q>ipod nano</span></b>. Fast<br>shipping, secure checkout.<br><span class="a">www.bizrate.com</span></font></div><div class="ad" data-item="ad"><a href="#"><span data-q="title">Ipod Nano</span> Wholesale</a><br><font size="-1">Factory direct. Bulk orders<br>welcome. Request a quote today.<br><span class="a">www.alibaba.com</span></font></div><div class="ad" data-item="ad"><a href="#">Free <span data-q="title">Ipod Nano</span>?</a><br><font size="-1">Complete 2 offers and get yours<br>free. See site for details.<br><span class="a">www.freeipods.com</span></font></div></div>
+<div class="res">
+<div class="g" data-item="result"><a class="l" href="#"><span data-q="title">Ipod Nano</span> - Wikipedia, the free encyclopedia</a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1"><b><span data-q>ipod nano</span></b> From Wikipedia, the free encyclopedia. For other uses, see <b><span data-q>ipod nano</span></b> (disambiguation). <b>...</b> The history of <b><span data-q>ipod nano</span></b> goes back further than most people realise, <b>...</b><br><span class="a">en.wikipedia.org/wiki/<span data-q="under">Ipod_nano</span> - 38k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table></div>
+<div class="g" data-item="result"><a class="l" href="#"><span data-q="title">Ipod Nano</span> - Official Site</a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1">Welcome to the official <b><span data-q>ipod nano</span></b> web site. Find the latest news, product information, downloads and support. <b>...</b> Sign up for our free email newsletter.<br><span class="a">www.<span data-q="slug">ipodnano</span>.com/ - 21k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table><blockquote class="ind"><div class="g sub" data-item="result"><a class="l" href="#"><span data-q="title">Ipod Nano</span> - Support &amp; Downloads</a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1">Get help with <b><span data-q>ipod nano</span></b>. Frequently asked questions, manuals, software updates <b>...</b> Contact us. Copyright &copy; 2005.<br><span class="a">www.<span data-q="slug">ipodnano</span>.com/support/ - 17k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr><br>[ <a class="fl" href="#">More results from <span data-q="slug">ipodnano</span>.com</a> ]</font></td></tr></table></div></blockquote></div>
+<div class="g" data-item="result"><a class="l" href="#">News results for <span data-q>ipod nano</span></a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1"><a href="#"><span data-q="title">Ipod Nano</span>: what you need to know</a> - CNET News.com - <span class="f">3 hours ago</span><br><a href="#">Fans line up early for <span data-q>ipod nano</span></a> - USA Today - <span class="f">11 hours ago</span><br><a href="#">Analysts weigh in on <span data-q>ipod nano</span></a> - Reuters - <span class="f">Jun 14, 2005</span><br></font></td></tr></table></div>
+<div class="g" data-item="result"><a class="l" href="#">Amazon.com: <span data-q="title">Ipod Nano</span>: Books, Music, Electronics</a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1">Shop for <b><span data-q>ipod nano</span></b> at Amazon.com. Free Super Saver Shipping on orders over $25. Read customer reviews, compare prices <b>...</b><br><span class="a">www.amazon.com/exec/obidos/search-handle-url/index=blended&amp;field-keywords=<span data-q="plus">ipod+nano</span> - 52k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table></div>
+<div class="g" data-item="result"><a class="l" href="#"><span data-q="title">Ipod Nano</span> Reviews, Prices &amp; Ratings - Epinions.com</a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1"><b><span data-q>ipod nano</span></b>: 142 consumer reviews and price comparisons. Find the best deals on <b><span data-q>ipod nano</span></b> and read what real people think. <b>...</b><br><span class="a">www.epinions.com/<span data-q="slug">ipodnano</span>/ - 44k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table></div>
+<div class="g" data-item="result"><a class="l" href="#">About.com: <span data-q="title">Ipod Nano</span></a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1">Everything you need to know about <b><span data-q>ipod nano</span></b>. Articles, how-to guides, forums and expert advice from your About.com Guide. <b>...</b><br><span class="a"><span data-q="slug">ipodnano</span>.about.com/ - 29k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table></div>
+<div class="g" data-item="result"><a class="l" href="#"><span data-q="title">Ipod Nano</span> Forums :: View Forum</a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1">Discussion board for <b><span data-q>ipod nano</span></b> fans. Post your questions, tips and photos. <b>...</b> Topics: 14,203. Posts: 211,880. Who is online <b>...</b><br><span class="a">forums.<span data-q="slug">ipodnano</span>.net/viewforum.php?f=2 - 61k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table></div>
+<div class="g" data-item="result"><a class="l" href="#">Yahoo! Directory &gt; <span data-q="title">Ipod Nano</span></a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1">Sites about <b><span data-q>ipod nano</span></b> organized by category. <b>...</b> Most Popular Sites. Site Listings. Inside Yahoo! <b>...</b><br><span class="a">dir.yahoo.com/Society_and_Culture/<span data-q="under">Ipod_nano</span>/ - 19k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table></div>
+<div class="g" data-item="result"><a class="l" href="#"><span data-q="title">Ipod Nano</span> on eBay: Find great deals!</a><table border="0" cellpadding="0" cellspacing="0"><tr><td class="j"><font size="-1">Find <b><span data-q>ipod nano</span></b> items at low prices. With over 50 million items for sale every day, you'll find all kinds of unique <b><span data-q>ipod nano</span></b> <b>...</b><br><span class="a">www.ebay.com/<span data-q="slug">ipodnano</span>/ - 47k - </span><nobr><a class="fl" href="#">Cached</a> - <a class="fl" href="#">Similar&nbsp;pages</a></nobr></font></td></tr></table></div>
+</div>
+<div class="n"><table class="pager"><tr><td class="rp">Result&nbsp;Page:&nbsp;</td><td><span class="lt bG">G</span></td><td><span class="lt rO">o</span><span class="cur">1</span></td><td><a href="#"><span class="lt yO">o</span><span class="num">2</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">3</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">4</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">5</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">6</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">7</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">8</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">9</span></a></td><td><a href="#"><span class="lt yO">o</span><span class="num">10</span></a></td><td><a href="#"><span class="lt gl">g<i>l</i><u>e</u><span class="arr">&#9658;</span></span><span class="nx">Next</span></a></td></tr></table></div>
+<br clear="all">
+<div class="bar1"></div>
+<div class="bot"><form name="gs2" action="2005-results.html"><input class="txt" type="text" name="q" maxlength="2048" value="ipod nano"> <input class="btn" type="submit" value="Search" style="margin-top:0"></form><div class="lks"><a href="#">Search within results</a> | <a href="#">Language Tools</a> | <a href="#">Search Tips</a> | <a href="#">Dissatisfied? Help us improve</a></div></div>
+<div class="foot"><a href="2005-home.html">Google Home</a> - <a href="#">Advertising&nbsp;Programs</a> - <a href="#">Business Solutions</a> - <a href="#">About Google</a></div>
+<p class="copy">&copy;2005 Google</p>
+</body>
+</html>

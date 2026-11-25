@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OLDTV · the old web, rebuilt for the camera</title>
+<style>
+  :root { --bg:#0c0c0f; --panel:#15151a; --line:#26262e; --text:#e9e9ee; --muted:#8a8a96; --hot:#ff2d95; }
+  * { box-sizing:border-box }
+  html,body { margin:0; background:var(--bg); color:var(--text); font:14px/1.45 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased }
+  body:after { content:""; position:fixed; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 3px); }
+  a { color:inherit }
+  header { padding:56px 40px 28px; max-width:1240px; margin:0 auto }
+  h1 { margin:0; font:800 64px/0.9 "Arial Black", Helvetica, sans-serif; letter-spacing:-.02em; text-shadow:-3px 0 rgba(255,45,149,.7), 3px 0 rgba(0,200,255,.6) }
+  header p { margin:14px 0 0; color:var(--muted); max-width:640px; font-size:15px }
+  .controls { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:26px }
+  .chip { border:1px solid var(--line); background:transparent; color:var(--muted); padding:6px 11px; border-radius:999px; font:600 12px/1 ui-monospace, Menlo, monospace; cursor:pointer }
+  .chip:hover { color:var(--text); border-color:#444 }
+  .chip.on { background:var(--hot); border-color:var(--hot); color:#fff }
+  .controls label { margin-left:auto; display:flex; gap:8px; align-items:center; color:var(--muted); font-size:12px; cursor:pointer }
+  main { max-width:1240px; margin:0 auto; padding:0 40px 80px }
+  section { border-top:1px solid var(--line); padding:26px 0 30px }
+  section h2 { margin:0 0 4px; font:700 22px/1.1 Helvetica, Arial, sans-serif; display:flex; align-items:center; gap:10px }
+  section h2 i { width:12px; height:12px; border-radius:3px; display:inline-block }
+  section .blurb { color:var(--muted); margin:0 0 16px; font-size:13px }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:12px }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 14px 12px; display:flex; flex-direction:column; gap:6px; position:relative; overflow:hidden }
+  .card:before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--c) }
+  .year { font:800 30px/1 ui-monospace, Menlo, monospace; letter-spacing:-.03em }
+  .title { font-weight:600 }
+  .note { color:var(--muted); font-size:12px; flex:1 }
+  .meta { color:#5d5d68; font:11px ui-monospace, Menlo, monospace; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+  .actions { display:flex; gap:6px; margin-top:6px }
+  .actions a { text-decoration:none; font-size:12px; font-weight:600; padding:6px 10px; border-radius:6px; background:#22222a }
+  .actions a:hover { background:#2e2e38 }
+  .actions a.primary { background:var(--text); color:#111 }
+  .edited { position:absolute; right:10px; top:12px; font:600 10px ui-monospace, Menlo, monospace; color:var(--hot) }
+  .empty { color:var(--muted); padding:40px 0 }
+  details { margin-top:18px; color:var(--muted); font-size:13px; max-width:760px }
+  details summary { cursor:pointer; color:var(--text); font-weight:600 }
+  details li { margin:4px 0 }
+  kbd { font:11px ui-monospace, Menlo, monospace; background:#26262e; border-radius:3px; padding:1px 5px; color:#fff }
+</style>
+<script>
+  window.OLDTV = { platforms: [], register: function (p) { this.platforms.push(p); } };
+</script>
+<script src="myspace/manifest.js"></script>
+<script src="youtube/manifest.js"></script>
+<script src="twitter/manifest.js"></script>
+<script src="instagram/manifest.js"></script>
+<script src="facebook/manifest.js"></script>
+<script src="friendster/manifest.js"></script>
+<script src="orkut/manifest.js"></script>
+<script src="bebo/manifest.js"></script>
+<script src="hi5/manifest.js"></script>
+<script src="tumblr/manifest.js"></script>
+<script src="reddit/manifest.js"></script>
+<script src="digg/manifest.js"></script>
+<script src="google/manifest.js"></script>
+<script src="yahoo/manifest.js"></script>
+</head>
+<body>
+<header>
+  <h1>OLDTV</h1>
+  <p>The old web, rebuilt page by page from Wayback Machine captures, for filming. Every page runs from this folder with no internet. Click any text to rewrite it, drag your own photos and videos onto anything, then press <kbd>Esc</kbd> for a clean shot.</p>
+  <div class="controls" id="years"></div>
+  <details>
+    <summary>How to use it on set</summary>
+    <ul>
+      <li><b>Open</b> shows the bare page. <b>In browser</b> wraps it in a period browser window (IE6, Firefox 2, Safari 3, Chrome) with a fake address bar you can retype.</li>
+      <li>Edit text by clicking it. Hover a post, comment, friend or video to move, duplicate or delete it.</li>
+      <li>Drag an image or video from Finder onto any avatar, photo, thumbnail or player. On pages with custom backgrounds (MySpace, Twitter), drop onto empty space to set the background.</li>
+      <li><kbd>Esc</kbd> toggles film mode: toolbar and outlines disappear, links click through between pages of the same site.</li>
+      <li>Edits and media are stored in this browser on this machine. Use <b>Export</b> on a page to carry it to another computer, <b>Reset</b> to start over.</li>
+      <li>For a full-screen take, use the browser's full-screen mode (<kbd>⌃⌘F</kbd> in Chrome/Safari) on an <b>In browser</b> page.</li>
+    </ul>
+  </details>
+</header>
+<main id="list"></main>
+<script>
+(function () {
+  var plats = OLDTV.platforms, years = {}, filter = 'all';
+  plats.forEach(function (p) { p.pages.forEach(function (g) { years[g.year] = 1; }); });
+  var ys = Object.keys(years).sort();
+  var yb = document.getElementById('years');
+  ['all'].concat(ys).forEach(function (y) {
+    var b = document.createElement('button');
+    b.className = 'chip' + (y === 'all' ? ' on' : ''); b.textContent = y === 'all' ? 'All years' : y; b.dataset.y = y;
+    yb.appendChild(b);
+  });
+  yb.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    filter = b.dataset.y;
+    [].forEach.call(yb.children, function (c) { c.classList.toggle('on', c === b); });
+    draw();
+  });
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function edited(p, g) {
+    try { return !!localStorage.getItem('oldtv:page:' + (g.page || (p.slug + '-' + g.file.replace(/\.html$/, '')))); } catch (e) { return false; }
+  }
+  function draw() {
+    var out = '';
+    plats.forEach(function (p) {
+      var pages = p.pages.filter(function (g) { return filter === 'all' || String(g.year) === filter; })
+        .sort(function (a, b) { return a.year - b.year; });
+      if (!pages.length) return;
+      out += '<section style="--c:' + esc(p.color) + '"><h2><i style="background:' + esc(p.color) + '"></i>' + esc(p.name) + '</h2>' +
+        (p.blurb ? '<p class="blurb">' + esc(p.blurb) + '</p>' : '') + '<div class="grid">';
+      pages.forEach(function (g) {
+        var path = p.slug + '/' + g.file;
+        var q = 'page=' + encodeURIComponent(path) + '&browser=' + encodeURIComponent(g.browser || 'ie6') +
+          '&url=' + encodeURIComponent(g.url || '') + '&title=' + encodeURIComponent(g.windowTitle || '');
+        out += '<div class="card">' + (edited(p, g) ? '<span class="edited">EDITED</span>' : '') +
+          '<div class="year">' + esc(g.year) + '</div><div class="title">' + esc(g.title) + '</div>' +
+          '<div class="note">' + esc(g.note) + '</div><div class="meta">' + esc(g.url) + '</div>' +
+          '<div class="actions"><a class="primary" href="' + esc(path) + '">Open</a><a href="frame.html?' + esc(q) + '">In browser</a></div></div>';
+      });
+      out += '</div></section>';
+    });
+    document.getElementById('list').innerHTML = out || '<p class="empty">No pages yet.</p>';
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

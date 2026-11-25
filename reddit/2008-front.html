@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>reddit.com: what's new online!</title>
+<script src="../shared/studio.js"></script>
+<link rel="stylesheet" href="assets/reddit2008.css">
+<script>
+OLDTV.ready(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.arrow');
+    if (!a || OLDTV.mode() !== 'film') return;
+    var col = a.parentNode, up = col.children[0], sc = col.querySelector('.score'), dn = col.children[col.children.length - 1];
+    var n = parseInt(sc ? sc.textContent.replace(/,/g, '') : '0', 10) || 0;
+    var wasUp = up.classList.contains('upmod'), wasDn = dn.classList.contains('downmod');
+    if (wasUp) n--; if (wasDn) n++;
+    up.className = 'arrow up'; dn.className = 'arrow down';
+    if (sc) sc.className = 'score';
+    if (a === up && !wasUp) { up.className = 'arrow upmod'; n++; if (sc) sc.className = 'score likes'; }
+    if (a === dn && !wasDn) { dn.className = 'arrow downmod'; n--; if (sc) sc.className = 'score dislikes'; }
+    if (sc) sc.textContent = n;
+  });
+});
+</script>
+</head>
+<body data-page="reddit-2008-front" data-v="1" data-url="http://reddit.com/">
+<div id="header">
+<div id="header-top" class="hover"><span class="user"><a href="#">pixelpushr</a>&nbsp;(<b title="link karma">2,817</b>)</span><span class="separator">|</span><a href="#" title="no new mail"><svg class="mail" width="15" height="10" viewBox="0 0 15 10"><rect x=".5" y=".5" width="14" height="9" fill="#fff" stroke="#999"/><path d="M.5 .5 L7.5 6 L14.5 .5" fill="none" stroke="#999"/></svg></a><span class="separator">|</span><ul class="flat-list hover"><li><a href="#"><b>English</b></a></li><li><span class="separator">|</span><a href="#">preferences</a></li><li><span class="separator">|</span><a href="#">stats</a></li><li><span class="separator">|</span><a href="#">help</a></li><li><span class="separator">|</span><a href="#">blog</a></li><li><span class="separator">|</span><a href="#">logout</a></li></ul></div>
+<div id="header-bottom-left"><a class="logo" href="2008-front.html"><svg id="header-img" class="logo-svg" width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" aria-label="reddit.com"><g stroke="#000" stroke-width="1.1" fill="#fff"><path d="M16 12.5 L18.6 4.6 L24.2 6" fill="none"/><circle cx="25.6" cy="5.8" r="2.3"/><circle cx="5.8" cy="17" r="2.9"/><circle cx="26.2" cy="17" r="2.9"/><ellipse cx="13" cy="34.5" rx="2.6" ry="2.2"/><ellipse cx="19" cy="34.5" rx="2.6" ry="2.2"/><path d="M9.6 26.2 C9 31.5 11 35 16 35 C21 35 23 31.5 22.4 26.2 Z"/><ellipse cx="16" cy="20" rx="11.2" ry="7.6"/></g><circle cx="12" cy="18.8" r="2.1" fill="#ff4500"/><circle cx="20" cy="18.8" r="2.1" fill="#ff4500"/><path d="M11.6 22.8 Q16 25.8 20.4 22.8" stroke="#000" stroke-width="1" fill="none"/><text x="33" y="35" font-family="Verdana,Arial,sans-serif" font-size="17" letter-spacing="-.6" fill="#000">reddit<tspan font-size="13" fill="#336699">.com</tspan></text></svg></a>&nbsp;<ul class="tabmenu"><li class="selected"><a href="2008-front.html">what's hot</a></li><li><a href="#">new</a></li><li><a href="#">controversial</a></li><li><a href="#">top</a></li><li><a href="#">saved</a></li></ul></div>
+<div id="header-bottom-right"><form id="search" action="#"><input type="text" value="search"><a href="#"><svg class="find" width="24" height="24" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" fill="#eaf3fc" stroke="#5f6f80" stroke-width="2.4"/><path d="M14.5 14.5 L20.5 20.5" stroke="#5f6f80" stroke-width="3.4" stroke-linecap="round"/></svg></a></form></div>
+</div>
+<div class="side">
+<div class="spacer"><div class="subredditbox"><h4>Customize your reddit</h4><h5>Select which communities you want to see</h5><ul><li class="selected"><input type="checkbox" checked><a href="#">reddit.com</a></li><li class="selected"><input type="checkbox" checked><a href="#">pics</a></li><li class="selected"><input type="checkbox" checked><a href="#">politics</a></li><li class="selected"><input type="checkbox" checked><a href="#">programming</a></li><li class="selected"><input type="checkbox" checked><a href="#">science</a></li><li class="selected"><input type="checkbox" checked><a href="#">worldnews</a></li><li class="selected"><input type="checkbox" checked><a href="#">WTF</a></li><li class="selected"><input type="checkbox" checked><a href="#">funny</a></li><li class="selected"><input type="checkbox" checked><a href="#">technology</a></li><li class="selected"><input type="checkbox" checked><a href="#">gaming</a></li></ul><ul><li class="selected"><input type="checkbox" checked><a href="#">entertainment</a></li><li class="selected"><input type="checkbox" checked><a href="#">business</a></li><li><input type="checkbox"><a href="#">Economics</a></li><li class="selected"><input type="checkbox" checked><a href="#">comics</a></li><li><input type="checkbox"><a href="#">offbeat</a></li><li class="selected"><input type="checkbox" checked><a href="#">AskReddit</a></li><li><input type="checkbox"><a href="#">atheism</a></li><li><input type="checkbox"><a href="#">linux</a></li><li><input type="checkbox"><a href="#">xkcd</a></li><li><input type="checkbox"><a href="#">sports</a></li></ul><div class="clear"></div><div class="morelink"><a href="#">more &raquo;</a><span class="nub"></span></div></div></div>
+<div class="spacer"><div class="sidebox submit"><div class="morelink"><a href="#">Submit a link &raquo;</a><span class="nub"></span></div><div class="spacer"><svg class="icon" width="40" height="40" viewBox="0 0 40 40"><rect x="7" y="5" width="22" height="29" fill="#fff" stroke="#8aa9c9"/><path d="M11 12h14M11 16h14M11 20h10" stroke="#b8cde2"/><path d="M20 30 L33 10 L36 12 L23 32 L19 33 Z" fill="#ffb15e" stroke="#c46a17"/></svg><div class="subtitle">to anything interesting: news article, blog entry, video, picture...</div></div></div></div>
+<div class="spacer"><div class="sidebox create"><div class="morelink"><a href="#">Create your own reddit &raquo;</a><span class="nub"></span></div><div class="spacer"><svg class="icon" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="21" r="13" fill="#eaf3fc" stroke="#8aa9c9"/><path d="M20 13v16M12 21h16" stroke="#5f99cf" stroke-width="4"/></svg><div class="subtitle">...because you love freedom.</div><div class="subtitle">...because nothing in life is free (except reddits!)</div></div></div></div>
+<div class="spacer"><img class="ad" data-ph="photo" data-seed="reddit-ad-2008" width="300" height="250" alt="advertisement"><div class="adlabel">advertisement</div></div>
+</div>
+<div class="fixedwidth"></div><div class="clearleft"></div>
+<div class="content">
+<div id="siteTable" class="sitetable">
+<div class="thing link odd" data-item="link">
+<span class="rank">1</span>
+<div class="midcol" data-noedit-arrows><div class="arrow upmod"></div><div class="score likes">1206</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="2008-comments.html">Hey reddit, my dad (62) just got his first computer and says reddit is "a newspaper written by teenagers." What should I send him to change his mind?</a>&#32;<span class="domain">(<a href="#">self.AskReddit</a>)</span></p>
+<p class="tagline">submitted&#32;5 hours&#32;ago&#32;by&#32;<a class="author" href="#">sporkmonger_</a>&#32;to&#32;<a href="#" class="hover">AskReddit</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="2008-comments.html" class="comments">618 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">2</span>
+<div class="midcol" data-noedit-arrows><div class="arrow upmod"></div><div class="score likes">742</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">The Dark Knight passes $300 million in 10 days, fastest film ever to do it</a>&#32;<span class="domain">(<a href="#">boxofficemojo.com</a>)</span></p>
+<p class="tagline">submitted&#32;3 hours&#32;ago&#32;by&#32;<a class="author" href="#">grizzlyadam5</a>&#32;to&#32;<a href="#" class="hover">entertainment</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">291 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">3</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">1520</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Obama draws 200,000 in Berlin: "People of the world, look at Berlin!"</a>&#32;<span class="domain">(<a href="#">news.bbc.co.uk</a>)</span></p>
+<p class="tagline">submitted&#32;7 hours&#32;ago&#32;by&#32;<a class="author" href="#">kettle_logic</a>&#32;to&#32;<a href="#" class="hover">politics</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">1043 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">4</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">988</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Phoenix lander "tastes" Martian water for the first time. NASA confirms ice in soil sample</a>&#32;<span class="domain">(<a href="#">nasa.gov</a>)</span></p>
+<p class="tagline">submitted&#32;6 hours&#32;ago&#32;by&#32;<a class="author" href="#">orbitalmechanic</a>&#32;to&#32;<a href="#" class="hover">science</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">214 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">5</span>
+<div class="midcol" data-noedit-arrows><div class="arrow upmod"></div><div class="score likes">1311</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">This is why you don't leave your desk unlocked at my office [pic]</a>&#32;<span class="domain">(<a href="#">img297.imageshack.us</a>)</span></p>
+<p class="tagline">submitted&#32;4 hours&#32;ago&#32;by&#32;<a class="author" href="#">dangerdoom_</a>&#32;to&#32;<a href="#" class="hover">pics</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">402 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">6</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">1033</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Comcast caught throttling BitTorrent; FCC chairman says he will vote to punish them</a>&#32;<span class="domain">(<a href="#">arstechnica.com</a>)</span></p>
+<p class="tagline">submitted&#32;8 hours&#32;ago&#32;by&#32;<a class="author" href="#">tubesnotatruck</a>&#32;to&#32;<a href="#" class="hover">technology</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">265 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">7</span>
+<div class="midcol" data-noedit-arrows><div class="arrow upmod"></div><div class="score likes">1104</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Spore Creature Creator: 500,000 creatures uploaded in the first week. You can guess what most of them look like.</a>&#32;<span class="domain">(<a href="#">kotaku.com</a>)</span></p>
+<p class="tagline">submitted&#32;9 hours&#32;ago&#32;by&#32;<a class="author" href="#">n00bsauce</a>&#32;to&#32;<a href="#" class="hover">gaming</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">356 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">8</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score dislikes">288</div><div class="arrow downmod"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Microsoft's "Mojave Experiment": they told people Vista was a brand new OS. They loved it.</a>&#32;<span class="domain">(<a href="#">mojaveexperiment.com</a>)</span></p>
+<p class="tagline">submitted&#32;5 hours&#32;ago&#32;by&#32;<a class="author" href="#">winsxs</a>&#32;to&#32;<a href="#" class="hover">technology</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">341 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">9</span>
+<div class="midcol" data-noedit-arrows><div class="arrow upmod"></div><div class="score likes">1640</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">xkcd: Duty Calls</a>&#32;<span class="domain">(<a href="#">xkcd.com</a>)</span></p>
+<p class="tagline">submitted&#32;10 hours&#32;ago&#32;by&#32;<a class="author" href="#">bobbytables</a>&#32;to&#32;<a href="#" class="hover">comics</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">177 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">10</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">455</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Gas hits a national average of $4.11. Here's what the last ten years looked like in one chart.</a>&#32;<span class="domain">(<a href="#">bigpicture.typepad.com</a>)</span></p>
+<p class="tagline">submitted&#32;6 hours&#32;ago&#32;by&#32;<a class="author" href="#">stagflationnation</a>&#32;to&#32;<a href="#" class="hover">Economics</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">210 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">11</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">377</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">"Dr. Horrible's Sing-Along Blog" Act III is up, still free until midnight Sunday</a>&#32;<span class="domain">(<a href="#">drhorrible.com</a>)</span></p>
+<p class="tagline">submitted&#32;11 hours&#32;ago&#32;by&#32;<a class="author" href="#">captainhammer</a>&#32;to&#32;<a href="#" class="hover">entertainment</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">120 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">12</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">520</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">The Large Hadron Collider gets switched on September 10th. No, it will not eat the Earth.</a>&#32;<span class="domain">(<a href="#">news.bbc.co.uk</a>)</span></p>
+<p class="tagline">submitted&#32;7 hours&#32;ago&#32;by&#32;<a class="author" href="#">quarkstrangeness</a>&#32;to&#32;<a href="#" class="hover">science</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">260 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">13</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">233</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">First Bear Stearns, then IndyMac, now Fannie and Freddie. Who's next?</a>&#32;<span class="domain">(<a href="#">nytimes.com</a>)</span></p>
+<p class="tagline">submitted&#32;4 hours&#32;ago&#32;by&#32;<a class="author" href="#">shortsellerz</a>&#32;to&#32;<a href="#" class="hover">business</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">140 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">14</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">902</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Man questioned by mall security for photographing his own kids</a>&#32;<span class="domain">(<a href="#">boingboing.net</a>)</span></p>
+<p class="tagline">submitted&#32;9 hours&#32;ago&#32;by&#32;<a class="author" href="#">shutterbug77</a>&#32;to&#32;<a href="#" class="hover">WTF</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">488 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">15</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">603</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Firefox 3 Download Day is officially a Guinness World Record: 8,002,530 downloads in 24 hours</a>&#32;<span class="domain">(<a href="#">guinnessworldrecords.com</a>)</span></p>
+<p class="tagline">submitted&#32;12 hours&#32;ago&#32;by&#32;<a class="author" href="#">foxymozilla</a>&#32;to&#32;<a href="#" class="hover">technology</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">157 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">16</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">667</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">My cat sits on my keyboard every single time I open reddit. Coincidence? [pic]</a>&#32;<span class="domain">(<a href="#">s285.photobucket.com</a>)</span></p>
+<p class="tagline">submitted&#32;3 hours&#32;ago&#32;by&#32;<a class="author" href="#">catmacros</a>&#32;to&#32;<a href="#" class="hover">pics</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">98 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">17</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">856</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Ron Paul's "Rally for the Republic" sells out the Target Center in Minneapolis</a>&#32;<span class="domain">(<a href="#">dailypaul.com</a>)</span></p>
+<p class="tagline">submitted&#32;10 hours&#32;ago&#32;by&#32;<a class="author" href="#">liberty_or_bust</a>&#32;to&#32;<a href="#" class="hover">politics</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">377 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">18</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">344</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Hulu is out of beta. Watch The Simpsons legally, for free, in a browser. Is cable dead yet?</a>&#32;<span class="domain">(<a href="#">techcrunch.com</a>)</span></p>
+<p class="tagline">submitted&#32;6 hours&#32;ago&#32;by&#32;<a class="author" href="#">cordcutter</a>&#32;to&#32;<a href="#" class="hover">technology</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">210 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">19</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">280</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Ask reddit: What's the one Firefox extension you can't live without?</a>&#32;<span class="domain">(<a href="#">self.AskReddit</a>)</span></p>
+<p class="tagline">submitted&#32;8 hours&#32;ago&#32;by&#32;<a class="author" href="#">tabhoarder</a>&#32;to&#32;<a href="#" class="hover">AskReddit</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">512 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">20</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">534</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Lolcat Bible translation reaches Genesis 50. "Oh hai. In teh beginnin Ceiling Cat maded teh skiez an da Urfs"</a>&#32;<span class="domain">(<a href="#">lolcatbible.com</a>)</span></p>
+<p class="tagline">submitted&#32;13 hours&#32;ago&#32;by&#32;<a class="author" href="#">basementcat</a>&#32;to&#32;<a href="#" class="hover">funny</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">89 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">21</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">310</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Python 3000 beta 2 released. Yes, print is a function now. Deal with it.</a>&#32;<span class="domain">(<a href="#">python.org</a>)</span></p>
+<p class="tagline">submitted&#32;11 hours&#32;ago&#32;by&#32;<a class="author" href="#">significant_whitespace</a>&#32;to&#32;<a href="#" class="hover">programming</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">96 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">22</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">211</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Dancing baby turns 12: a look back at the internet's oldest living meme</a>&#32;<span class="domain">(<a href="#">wired.com</a>)</span></p>
+<p class="tagline">submitted&#32;14 hours&#32;ago&#32;by&#32;<a class="author" href="#">geocities_survivor</a>&#32;to&#32;<a href="#" class="hover">offbeat</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">45 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">23</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">412</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">Hardcore iPhone 3G owners camped 30 hours outside the 5th Avenue store. Activation servers promptly melted.</a>&#32;<span class="domain">(<a href="#">flickr.com</a>)</span></p>
+<p class="tagline">submitted&#32;15 hours&#32;ago&#32;by&#32;<a class="author" href="#">jobsian</a>&#32;to&#32;<a href="#" class="hover">pics</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">88 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link even" data-item="link">
+<span class="rank">24</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">120</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">"Why so serious?" How Heath Ledger's Joker became the most quoted villain of the decade</a>&#32;<span class="domain">(<a href="#">slate.com</a>)</span></p>
+<p class="tagline">submitted&#32;12 hours&#32;ago&#32;by&#32;<a class="author" href="#">harveytwoface</a>&#32;to&#32;<a href="#" class="hover">entertainment</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">66 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+<div class="thing link odd" data-item="link">
+<span class="rank">25</span>
+<div class="midcol" data-noedit-arrows><div class="arrow up"></div><div class="score">377</div><div class="arrow down"></div></div>
+<div class="entry"><p class="title"><a class="title" href="#">The Large Hadron Rap: CERN scientists drop the most nerdcore video on YouTube</a>&#32;<span class="domain">(<a href="#">youtube.com</a>)</span></p>
+<p class="tagline">submitted&#32;16 hours&#32;ago&#32;by&#32;<a class="author" href="#">alpinekat</a>&#32;to&#32;<a href="#" class="hover">science</a></p>
+<ul class="flat-list buttons"><li class="first"><a href="#" class="comments">190 comments</a></li><li><a href="#">share</a></li><li><a href="#">save</a></li><li><a href="#">hide</a></li><li><a href="#">report</a></li></ul></div>
+<div class="clearleft"></div></div>
+</div>
+<p class="nextprev">view more:&#32;<a href="#">next &rsaquo;</a></p>
+</div>
+<div class="footer-parent"><div class="footer"><ul class="flat-list hover"><li><a href="#">feedback</a></li><li><span class="separator">|</span><a href="#">bookmarklets</a></li><li><span class="separator">|</span><a href="#">buttons</a></li><li><span class="separator">|</span><a href="#">widget</a></li><li><span class="separator">|</span><a href="#">store</a></li><li><span class="separator">|</span><a href="#">advertise</a></li></ul>
+<p class="wired"><span class="w">W</span><a href="#">WIRED.com</a>-<a href="#">WIRED How-To</a></p>
+<p class="bottommenu">Use of this site constitutes acceptance of our&#32;<a href="#">User Agreement</a>&#32;and&#32;<a href="#">Privacy Policy</a>. (c) 2008 CondeNet, Inc. All rights reserved.</p></div></div>
+</body>
+</html>

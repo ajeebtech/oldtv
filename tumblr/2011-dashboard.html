@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tumblr</title>
+<script src="../shared/studio.js"></script>
+<style>
+html{height:100%}
+body{min-height:100%;background:#2c4762 linear-gradient(#1f3a55,#2c4762 280px) no-repeat;font:normal 14px/1.4 "Helvetica Neue",HelveticaNeue,Helvetica,Arial,sans-serif;color:#444;margin:0;padding:0}
+a{color:#444}
+#container{width:900px;margin:auto;padding:0 30px}
+#header{width:900px;height:71px;margin:auto;position:relative}
+#logo{margin:14px 13px 0 15px;float:left;display:block}
+#nav{position:absolute;right:190px;top:19px;font-size:16px;white-space:nowrap;text-align:right}
+#nav .nav_item{font-size:15px;display:inline-block;position:relative;padding:3px 8px 2px 8px;margin-left:10px;color:#fff;text-decoration:none;border-radius:2px}
+#nav .nav_item.active{background:#1f354c}
+#nav .nav_item.active:after{content:"";position:absolute;left:50%;margin-left:-6px;bottom:-6px;border:6px solid transparent;border-bottom:0;border-top:6px solid #1f354c}
+#nav .nav_item .ar{display:inline-block;margin-left:7px;vertical-align:3px;border:4px solid transparent;border-top:5px solid #fff;border-bottom:0}
+#nav .nav_item .badge{display:inline-block;background:#e53f29;color:#fff;font:bold 11px/1 Arial;padding:2px 4px;border-radius:3px;margin-left:5px;vertical-align:2px}
+#search_box{position:absolute;right:10px;top:20px}
+#search_box input{width:110px;font-size:13px;color:#a9b4c0;padding:3px 37px 3px 12px;border:1px solid #fff;background:#fff;border-radius:50px;outline:0}
+#search_box .search_icon{position:absolute;top:5px;right:12px;width:14px;height:14px}
+#content{padding:20px 0 0 0}
+#content:after{content:"";display:block;clear:both}
+#left_column{float:left;width:625px}
+#right_column{float:right;width:215px;color:#fff}
+#posts{list-style-type:none;margin:0 0 0 85px;padding:0}
+#posts .post{margin:20px 0 0 0;border-radius:10px;background-color:#fff;padding:15px 20px;position:relative;border-bottom:solid 2px #bbb;word-wrap:break-word}
+#posts li:first-child{margin-top:0}
+#posts .post.same_user_as_last{margin-top:7px}
+#posts .post.same_user_as_last .post_avatar,#posts .post.same_user_as_last .arrow{display:none}
+#posts .post p,#posts .post ul,#posts .post ol{margin:10px 0}
+#posts .post p:last-child,#posts .post ol:last-child{margin-bottom:0}
+#posts .post blockquote{margin:10px 0 10px 10px;padding-left:15px;border-left:solid 4px #dcdcdc}
+#posts .post .post_avatar{display:block;width:64px;height:64px;position:absolute;left:-85px;top:0;overflow:hidden;border-radius:6px;border-bottom:solid 1px #0a2939;background:#0a2939}
+#posts .post .post_avatar img{display:block;width:64px;height:64px;object-fit:cover}
+#posts .post .arrow{width:0;height:0;position:absolute;left:-8px;top:25px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:8px solid #fff}
+#posts .post .post_info,#posts .post .post_controls{font:bold 13px Arial,Helvetica;color:#a8b1ba;min-height:16px;margin-bottom:15px;line-height:15px}
+#posts .post .post_info a,#posts .post .post_controls a{color:#a8b1ba;text-decoration:none}
+#posts .post.is_reblog .post_info a{text-decoration:underline}
+#posts .post .post_controls{float:right;white-space:nowrap}
+#posts .post .post_controls a{margin-left:10px}
+#posts .post .post_controls a:hover{color:#7b8994}
+#posts .post .post_controls .like_button svg{width:15px;height:14px;vertical-align:-2px;fill:#a8b1ba;opacity:.85}
+#posts .post .post_controls .like_button.already_like svg{fill:#e8453c;opacity:1}
+#posts .post .image img,#posts .post .photoset img{display:block;max-width:100%;object-fit:cover}
+#posts .post .image{margin-bottom:5px}
+#posts .post .caption{margin-top:11px}
+#posts .post .photoset{overflow:hidden}
+#posts .post .photoset img{float:left;width:248px;height:248px;margin:4px 4px 0 0}
+#posts .post .photoset img.full{width:500px;height:300px;margin:0}
+#posts .post .photoset img:last-child{margin-right:0}
+#posts .post .post_title{font:bold 22px Arial,Helvetica;line-height:1.3;margin-bottom:10px;color:#444}
+#posts .post .post_title a{color:#444;text-decoration:none;border-bottom:1px solid #ccc}
+#posts .post .quote{font:normal 24px/1.25 Georgia,"Times New Roman",serif;color:#444}
+#posts .post .quote_source{font-weight:bold;margin-top:8px}
+#posts .post .quote_source table{border-collapse:collapse}
+#posts .post ul.conversation_lines{list-style:none;margin:0;padding:0}
+#posts .post ul.conversation_lines li{padding:3px 0}
+#posts .post .audio_wrap .album_art{float:left;margin-right:20px;width:150px;height:150px;object-fit:cover;box-shadow:0 1px 4px #bbb}
+#posts .post .audio_meta{overflow:hidden}
+#posts .post .audio_player{width:300px;height:27px;background:linear-gradient(#f3f3f3,#d9d9d9);border:1px solid #bdbdbd;border-radius:3px;position:relative;font:11px/27px "Lucida Grande",Verdana,sans-serif;color:#555;white-space:nowrap;overflow:hidden}
+#posts .post .audio_player .play{position:absolute;left:0;top:0;width:27px;height:27px;border-right:1px solid #c4c4c4}
+#posts .post .audio_player .play:after{content:"";position:absolute;left:10px;top:8px;border:6px solid transparent;border-left:9px solid #555;border-right:0}
+#posts .post .audio_player .track{padding-left:36px}
+#posts .post .plays{font:11px "Lucida Grande",Verdana;color:#a8b1ba;margin-top:6px}
+#posts .post .video{position:relative;width:500px;height:281px;background:#000;overflow:hidden}
+#posts .post .video img{display:block;width:500px;height:281px;object-fit:cover}
+#posts .post .video .playov{position:absolute;left:50%;top:50%;width:66px;height:46px;margin:-23px 0 0 -33px;background:rgba(0,0,0,.65);border-radius:8px;pointer-events:none}
+#posts .post .video .playov:after{content:"";position:absolute;left:25px;top:12px;border:11px solid transparent;border-left:17px solid #fff;border-right:0}
+#posts .post .video.has-video .playov{display:none}
+#posts .post .footer_links{margin-top:10px;white-space:nowrap;overflow:hidden;font:11px "Lucida Grande",Verdana,sans-serif;line-height:13px}
+#posts .post .footer_links .tags a{margin-right:7px;color:#a8b1ba;text-decoration:none}
+#posts .post.new_post{text-align:center;padding:10px 0 8px 0}
+.np{display:flex;justify-content:center;gap:0}
+.npb{display:block;width:75px;text-decoration:none;color:#515c65;font:normal 16px Helvetica,Arial,sans-serif;opacity:.9}
+.npb svg{display:block;margin:4px auto 6px auto;width:46px;height:40px}
+.npb:hover{opacity:1}
+#auto_pagination{text-align:center;color:#7c95ac;font-size:13px;margin:24px 0 0 85px}
+/* right column */
+.blog_switch{position:relative;display:block;height:26px;width:200px;padding:5px 5px 3px 10px;margin:5px auto 0 auto;font:bold 18px Helvetica,Arial,sans-serif;line-height:24px;color:#d6dcea;text-decoration:none;text-shadow:#000 0 1px 0;border-radius:4px}
+.blog_switch:after{content:"";position:absolute;right:14px;top:13px;border:5px solid transparent;border-top:6px solid #d6dcea;border-bottom:0}
+.blog_switch:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav_items{margin-top:12px}
+.dni{font:11px "Lucida Grande",Verdana,sans-serif;color:#c4cdd6;padding:10px 0 12px 18px;position:relative;border-bottom:1px solid #243c54;box-shadow:0 1px 0 #36536f}
+.dni.short{font-size:13px;padding:8px 10px 10px 10px}
+.dni a{color:#d6dcea;text-decoration:none}
+.dni a:hover{color:#f7f8fc}
+.dni.active{background:linear-gradient(#cdd568 0,#cdd568 50%,#bbc552 51%,#bbc552 100%);border-radius:3px;box-shadow:none;border-bottom:1px solid #8f9741}
+.dni.active a{color:#3b440f}
+.dni .cnt{position:absolute;right:10px;top:8px;color:#8fa3b8;font-size:13px}
+.dni.active .cnt{color:#5d6620}
+.dni .ic{display:inline-block;width:16px;height:14px;margin-right:6px;vertical-align:-2px}
+.dni .ic svg{display:block}
+.dni .ttl{font-size:13px;color:#d6dcea;margin-left:5px}
+ul.subpages{list-style:none;margin:8px 0 0 0;padding:0;color:#c4cdd6;white-space:nowrap}
+ul.subpages li{margin:5px 0 5px 9px;position:relative;font-size:12px}
+ul.subpages li a{color:#c4cdd6}
+ul.subpages li a.active{color:#fff;font-weight:bold}
+ul.subpages li .n{position:absolute;right:10px;top:0;color:#8fa3b8}
+ul.subpages li .n.unread{background:#e53f29;color:#fff;font-weight:bold;padding:0 5px;border-radius:3px}
+.radar_title{font:13px "Lucida Grande",Verdana;color:#d6dcea}
+.radar{overflow:hidden;width:190px;padding:5px;margin:10px auto 0 auto;background:#4a6278;position:relative}
+.radar img{display:block;width:190px;height:190px;object-fit:cover}
+.radar .by{font:11px "Lucida Grande",Verdana;color:#b0bbc4;margin:6px 0 0 10px}
+.radar .by a{color:#d6dcea;text-decoration:underline}
+.sugg{background:#4a6278;border:1px solid #4d6780;width:200px;margin:10px auto 0 auto}
+.sugg .b{border-top:1px solid #50697f;border-bottom:1px solid #3e566b;padding:6px;font:bold 12px "Lucida Grande",Arial,sans-serif;color:#b0bbc4;white-space:nowrap;overflow:hidden}
+.sugg .b img{border:2px solid #677c8f;vertical-align:-6px;margin-right:6px;width:16px;height:16px;object-fit:cover}
+.sugg .b a{color:#b0bbc4;text-decoration:none}
+#footer{padding:30px 0;text-align:center;color:#7c95ac;font-size:13px;clear:both}
+#footer a{color:#7c95ac;text-decoration:none;margin:0 6px}
+</style>
+<script>
+OLDTV.ready(function () {
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.like_button');
+    if (!b || OLDTV.mode() !== 'film') return;
+    e.preventDefault();
+    b.classList.toggle('already_like');
+    var n = b.parentNode.querySelector('.notes');
+    if (n) { var v = parseInt(n.textContent.replace(/,/g, ''), 10) || 0; v += b.classList.contains('already_like') ? 1 : -1; n.textContent = String(v).replace(/\B(?=(\d{3})+$)/g, ',') + ' notes'; }
+  });
+});
+</script>
+</head>
+<body data-page="tumblr-2011-dashboard" data-v="1" data-url="http://www.tumblr.com/dashboard">
+<div id="container">
+<div id="header">
+<a href="2011-dashboard.html" id="logo"><svg width="196" height="44" viewBox="0 0 196 44" aria-label="Tumblr"><text x="2" y="37" font-family="'Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif" font-weight="bold" font-size="40" letter-spacing="-1" fill="#14273a" opacity=".7">tumblr.</text><text x="0" y="35" font-family="'Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif" font-weight="bold" font-size="40" letter-spacing="-1" fill="#fff">tumblr.</text></svg></a>
+<div id="nav"><a href="2011-dashboard.html" class="nav_item active">Dashboard</a><a href="#" class="nav_item">Inbox<span class="badge">3</span></a><a href="#" class="nav_item">Account<span class="ar"></span></a><a href="#" class="nav_item">Help</a></div>
+<form id="search_box" action="#"><input type="text" value="Search posts"><svg class="search_icon" viewBox="0 0 14 14"><circle cx="6" cy="6" r="4.2" fill="none" stroke="#9aa8b6" stroke-width="2"/><path d="M9 9 L13 13" stroke="#9aa8b6" stroke-width="2.4"/></svg></form>
+</div>
+<div id="content">
+<div id="left_column">
+<ol id="posts">
+<li class="post new_post"><div class="np"><a href="#" class="npb"><svg width="46" height="40" viewBox="0 0 46 40"><text x="23" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#59646d">Aa</text></svg><span>Text</span></a><a href="#" class="npb"><svg width="46" height="40" viewBox="0 0 46 40"><rect x="4" y="9" width="38" height="26" rx="4" fill="#59646d"/><rect x="14" y="5" width="12" height="6" rx="2" fill="#59646d"/><circle cx="23" cy="22" r="9" fill="#fff"/><circle cx="23" cy="22" r="6" fill="#59646d"/><rect x="34" y="12" width="5" height="3" fill="#fff"/></svg><span>Photo</span></a><a href="#" class="npb"><svg width="46" height="40" viewBox="0 0 46 40"><text x="23" y="46" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="64" fill="#59646d">&#8220;</text></svg><span>Quote</span></a><a href="#" class="npb"><svg width="46" height="40" viewBox="0 0 46 40"><g fill="none" stroke="#59646d" stroke-width="5"><rect x="5" y="14" width="20" height="12" rx="6" transform="rotate(-35 15 20)"/><rect x="21" y="14" width="20" height="12" rx="6" transform="rotate(-35 31 20)"/></g></svg><span>Link</span></a><a href="#" class="npb"><svg width="46" height="40" viewBox="0 0 46 40"><path d="M4 6h24a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H14l-6 6v-6H7a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z" fill="#59646d"/><path d="M34 14h6a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-1v5l-5-5H22a3 3 0 0 1-3-3v-1h12a3 3 0 0 0 3-3z" fill="#59646d" opacity=".75"/></svg><span>Chat</span></a><a href="#" class="npb"><svg width="46" height="40" viewBox="0 0 46 40"><path d="M9 24a14 14 0 0 1 28 0" fill="none" stroke="#59646d" stroke-width="4"/><rect x="6" y="22" width="9" height="14" rx="3" fill="#59646d"/><rect x="31" y="22" width="9" height="14" rx="3" fill="#59646d"/></svg><span>Audio</span></a><a href="#" class="npb"><svg width="46" height="40" viewBox="0 0 46 40"><rect x="3" y="11" width="28" height="20" rx="4" fill="#59646d"/><path d="M32 18 L43 11 V31 L32 24 Z" fill="#59646d"/></svg><span>Video</span></a></div></li>
+<li class="post photo_post is_reblog" data-item="post">
+<a href="2010-blog.html" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-jen" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">1,204 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="2010-blog.html">jettsetjen</a> reblogged <a href="#">fernweh-diaries</a>:</div>
+<div class="image"><img class="ph" data-ph="photo" data-seed="tumblr-roadtrip" width="500" height="333" alt=""></div><div class="caption"><p><a href="#">fernweh-diaries</a>:</p><blockquote><p>Highway 1, somewhere past Big Sur. We didn't talk for an hour because nobody wanted to ruin it.</p></blockquote></div>
+<div class="footer_links"><span class="tags"><a href="#">#roadtrip</a><a href="#">#big sur</a><a href="#">#california</a><a href="#">#wanderlust</a><a href="#">#summer 2011</a></span></div>
+</li>
+<li class="post audio_post" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-vinyl" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">388 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">softcorevinyl</a>:</div>
+<div class="audio_wrap"><img class="album_art" data-ph="photo" data-seed="tumblr-album-art" width="150" height="150" alt=""><div class="audio_meta"><div class="audio_player"><span class="play"></span><span class="track">Lana Del Rey - Video Games</span></div><div class="plays">1,822 plays</div><div class="caption"><p>can't stop listening to this. it's like a david lynch movie you can slow dance to</p></div></div><div style="clear:both"></div></div>
+<div class="footer_links"><span class="tags"><a href="#">#lana del rey</a><a href="#">#video games</a><a href="#">#music</a><a href="#">#on repeat</a></span></div>
+</li>
+<li class="post text_post" data-item="post">
+<a href="2010-blog.html" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-jen" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">57 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="2010-blog.html">jettsetjen</a>:</div>
+<div class="post_title">Things I learned this summer</div><div class="post_content"><ol><li>Never trust a hostel that has "party" in the name.</li><li>Instagram filters cannot fix a bad sunset. (They can, actually.)</li><li>You will cry at the Deathly Hallows part 2 premiere. Everyone did.</li><li>Your mom has a Tumblr now. Act accordingly.</li></ol></div>
+<div class="footer_links"><span class="tags"><a href="#">#lists</a><a href="#">#summer</a><a href="#">#life</a></span></div>
+</li>
+<li class="post photo_post" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-gosling" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">24,871 notes</a><a href="#">reblog</a><a href="#" class="like_button already_like" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">heygirlgosling</a>:</div>
+<div class="image"><img class="ph" data-ph="photo" data-seed="tumblr-heygirl" width="500" height="375" alt=""></div><div class="caption"><p>Hey girl. I saw you reblogged that quote about rain. I printed it out and put it on our fridge.</p></div>
+<div class="footer_links"><span class="tags"><a href="#">#hey girl</a><a href="#">#ryan gosling</a><a href="#">#lol</a><a href="#">#drive</a></span></div>
+</li>
+<li class="post quote_post" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-coffee" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">3,310 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">quotesandcoffee</a>:</div>
+<div class="quote">“Not all those who wander are lost.”</div><div class="quote_source"><table><tr><td valign="top">&mdash;&nbsp;</td><td>J.R.R. Tolkien</td></tr></table></div>
+<div class="footer_links"><span class="tags"><a href="#">#quotes</a><a href="#">#tolkien</a><a href="#">#inspiration</a></span></div>
+</li>
+<li class="post video_post is_reblog" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-bike" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">912 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">brooklynbike</a> reblogged <a href="#">nycfixies</a>:</div>
+<div class="video" data-video><img data-ph="thumb" data-seed="tumblr-video-bike" width="500" height="281" alt=""><span class="playov"></span></div><div class="caption"><p><a href="#">nycfixies</a>:</p><blockquote><p>Shot this on a Flip camera duct-taped to my handlebars. Williamsburg Bridge at 6am.</p></blockquote></div>
+<div class="footer_links"><span class="tags"><a href="#">#fixed gear</a><a href="#">#brooklyn</a><a href="#">#video</a><a href="#">#nyc</a></span></div>
+</li>
+<li class="post chat_post" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-nerd" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">640 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">nerdfighteria-ish</a>:</div>
+<div class="post_title">my roommate this morning</div><ul class="conversation_lines"><li><strong>Me:</strong> did you eat my leftover pad thai</li><li><strong>Roommate:</strong> define "eat"</li><li><strong>Me:</strong> ...</li><li><strong>Roommate:</strong> and define "your"</li></ul>
+<div class="footer_links"><span class="tags"><a href="#">#roommates</a><a href="#">#lol</a><a href="#">#true story</a></span></div>
+</li>
+<li class="post link_post" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-pixel" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">215 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">pixelandpaper</a>:</div>
+<div class="post_title"><a href="#" class="link_title">Nyan Cat, but it's 10 hours long &rarr;</a></div><div class="post_content"><p>I made it to 47 minutes. Personal best.</p></div>
+<div class="footer_links"><span class="tags"><a href="#">#nyan cat</a><a href="#">#internet</a><a href="#">#why</a></span></div>
+</li>
+<li class="post photoset_post" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-film" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">1,788 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">filmgrainfriday</a>:</div>
+<div class="photoset"><img data-ph="photo" data-seed="tumblr-film-1" width="500" height="300" alt="" class="full"><img data-ph="photo" data-seed="tumblr-film-2" width="248" height="248" alt=""><img data-ph="photo" data-seed="tumblr-film-3" width="248" height="248" alt=""></div><div class="caption"><p>Portra 400 / Pentax K1000 / Coney Island in August.</p></div>
+<div class="footer_links"><span class="tags"><a href="#">#film photography</a><a href="#">#35mm</a><a href="#">#coney island</a><a href="#">#analog</a></span></div>
+</li>
+<li class="post photo_post" data-item="post">
+<a href="#" class="post_avatar"><img data-ph="person" data-seed="tumblr-av-who" width="64" height="64" alt=""></a>
+<div class="arrow"></div>
+<div class="post_controls"><a href="#" class="notes">8,840 notes</a><a href="#">reblog</a><a href="#" class="like_button" title="Like"><svg width="15" height="14" viewBox="0 0 15 14"><path d="M7.5 13.5 L1.6 7.6 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.6 Z"/></svg></a></div>
+<div class="post_info"><a href="#">lostinthewhovian</a>:</div>
+<div class="image"><img class="ph" data-ph="photo" data-seed="tumblr-tardis" width="500" height="280" alt=""></div><div class="caption"><p>bow ties are cool. fezzes are cool. stetsons are cool. this blog is cool.</p></div>
+<div class="footer_links"><span class="tags"><a href="#">#doctor who</a><a href="#">#matt smith</a><a href="#">#eleven</a><a href="#">#geronimo</a></span></div>
+</li>
+</ol>
+<div id="auto_pagination">Loading more posts&hellip;</div>
+</div>
+<div id="right_column">
+<a href="2010-blog.html" class="blog_switch">jettsetjen</a>
+<div class="nav_items">
+<div class="dni short active"><a href="2011-dashboard.html"><span class="ic" style="color:#3b440f"><svg width="16" height="14" viewBox="0 0 16 14"><path d="M8 1 L15 7 H13 V13 H9.5 V9 H6.5 V13 H3 V7 H1 Z" fill="currentColor"/></svg></span>Dashboard</a></div>
+<div class="dni short"><a href="#"><span class="ic"><svg width="16" height="14" viewBox="0 0 15 14"><path d="M7.5 13 L1.6 7.4 A3.6 3.6 0 0 1 7.5 2.6 A3.6 3.6 0 0 1 13.4 7.4 Z" fill="#c4cdd6"/></svg></span>Liked posts</a><span class="cnt">2,340</span></div>
+<div class="dni short"><a href="#"><span class="ic"><svg width="16" height="14" viewBox="0 0 16 14"><circle cx="8" cy="4" r="3.3" fill="#c4cdd6"/><path d="M2 14 C2 9 14 9 14 14 Z" fill="#c4cdd6"/></svg></span>Following</a><span class="cnt">312</span></div>
+<div class="dni"><a href="2010-blog.html" class="ttl" style="margin:0;font-size:13px">jettsetjen</a>
+<ul class="subpages"><li><a href="#">Posts</a><span class="n">1,204</span></li><li><a href="#">Followers</a><span class="n">8,377</span></li><li><a href="#">Activity</a></li><li><a href="#">Messages</a><span class="n unread">3</span></li><li><a href="#">Drafts</a><span class="n">4</span></li><li><a href="#">Queue</a><span class="n">12</span></li><li><a href="#">Customize</a></li><li><a href="#">Mass Post Editor</a></li></ul></div>
+<div class="dni"><span class="radar_title">Radar</span><div class="radar"><img data-ph="photo" data-seed="tumblr-radar-2011" width="190" height="190" alt=""></div><div class="radar" style="background:none;padding:0;margin-top:0"><div class="by">via <a href="#">thisisnotporn</a></div></div></div>
+<div class="dni"><span class="radar_title">Recommended Blogs</span><div class="sugg"><div class="b"><img data-ph="person" data-seed="tumblr-sugg-0" width="16" height="16" alt=""><a href="#">museumofwonders</a></div><div class="b"><img data-ph="person" data-seed="tumblr-sugg-1" width="16" height="16" alt=""><a href="#">fffound-ish</a></div><div class="b"><img data-ph="person" data-seed="tumblr-sugg-2" width="16" height="16" alt=""><a href="#">itsnicethat-ish</a></div><div class="b"><img data-ph="person" data-seed="tumblr-sugg-3" width="16" height="16" alt=""><a href="#">dailymeltdown</a></div></div></div>
+<div class="dni short"><a href="#">Explore Tumblr</a></div>
+</div>
+</div>
+</div>
+<div id="footer"><a href="#">About</a><a href="#">Apps</a><a href="#">Goodies</a><a href="#">Blog</a><a href="#">Jobs</a><a href="#">Developers</a><a href="#">Terms</a><a href="#">Privacy</a><br><span style="opacity:.8">&copy; 2011 Tumblr, Inc.</span></div>
+</div>
+</body>
+</html>
